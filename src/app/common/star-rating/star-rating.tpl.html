@@ -1,10 +1,9 @@
-<div id="{{$ctrl.id}}-rating-component"
-     class="rating rating-{{$ctrl.rating}} color-{{$ctrl.color}} {{$ctrl.speed}} {{$ctrl.size}} rating-{{$ctrl.position}}"
+<div id="{{$ctrl.id}}"
+     class="rating {{$ctrl.rating?'rating-'+$ctrl.rating:0}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'rating-'+$ctrl.labelPosition:''}}"
      ng-class="{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled, 'spread':$ctrl.spread}">
-
   <div ng-show="$ctrl.text"
        class="rating-value">
-    {{$ctrl.text | number:1}}
+    {{$ctrl.text}}
   </div>
 
   <div class="star-container">

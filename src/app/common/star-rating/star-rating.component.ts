@@ -4,7 +4,7 @@ import templateUrl = require('./star-rating.tpl.html');
 export class StarRatingComponent implements ng.IComponentOptions {
 
     public bindings: any;
-    public controller: any;
+    public controller: StarRatingController;
     public templateUrl: string;
     public replace: boolean;
 
@@ -23,7 +23,7 @@ export class StarRatingComponent implements ng.IComponentOptions {
             , readOnly: '<'
             , disabled: '<'
             , rating: '<'
-            , position: '<'
+            , labelPosition: '<'
             , getColor: '&?'
             , onClick: '&?'
             , onUpdate: '&?'

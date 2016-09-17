@@ -1,11 +1,14 @@
+import {InitController} from "../../components/init/init.controller";
 export type starRatingSizes = "small" | "medium" | "large";
 export type starRatingColors = "negative" | "middle" | "positive";
 export type starRatingSpeed = "immediately" | "noticeable" | "slow";
+export type starRatingPosition = "left" | "right";
 
 export class StarRatingController {
     static DefaultNumOfStars:number = 5;
     static DefaultSize:starRatingSizes = "medium";
     static DefaultSpeed:starRatingSpeed = "noticeable";
+    static DefaultLabelPosition:starRatingPosition = "left";
 
     //bindings
     //@
@@ -16,13 +19,14 @@ export class StarRatingController {
     //<
     text: string;
     color: starRatingColors;
-    numOfStars: number;
+    labelPosition:starRatingPosition;
     speed:starRatingSpeed;
     size: starRatingSizes;
     spread: boolean;
     readOnly: boolean;
     disabled: boolean;
     rating: number;
+    numOfStars: number;
     //&
     getColor: Function;
     onClick: Function;
@@ -34,7 +38,7 @@ export class StarRatingController {
     updateRating(value: number) {
         console.log('updateRating: ', value);
         this.rating = value;
-        this.color = this.getColor(this.rating, this.numOfStars);
+        //this.color = this.getColor(this.rating, this.numOfStars);
         this.onUpdate({rating: this.rating});
     }
 
@@ -42,7 +46,7 @@ export class StarRatingController {
         console.log('updateNumOfStars: ', value);
         this.numOfStars = value;
         this.stars = this.getStarsArray(this.numOfStars);
-        this.color = this.getColor(this.rating, this.numOfStars);
+        //this.color = this.getColor(this.rating, this.numOfStars);
     }
 
     constructor() {
@@ -83,7 +87,7 @@ export class StarRatingController {
         }
 
         if (valueChanged('color' , changes)) {
-            this.color = changes.color.currentValue || this.getColor(this.rating, this.numOfStars);
+            this.color = changes.color.currentValue;
         }
 
         if (valueChanged('size', changes)) {
@@ -92,6 +96,10 @@ export class StarRatingController {
 
         if (valueChanged('speed', changes)) {
             this.speed = changes.speed.currentValue || StarRatingController.DefaultSpeed;
+        }
+
+        if (valueChanged('labelPosition', changes)) {
+            this.labelPosition = changes.labelPosition.currentValue || StarRatingController.DefaultLabelPosition;
         }
 
         //boolean
