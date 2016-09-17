@@ -14,7 +14,7 @@ export class InitController {
 
     text: number = this.rating;
     color:starRatingColors|string;
-    colorOptions:Array<starRatingColors|string> = ['negative', 'middle', 'positive'];
+    colorOptions:Array<starRatingColors|string> = ['default','negative', 'middle', 'positive'];
     numOfStars:number = StarRatingController.DefaultNumOfStars;
     speed:starRatingSpeed|string;
     speedOptions:Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
@@ -25,9 +25,20 @@ export class InitController {
     disabled: boolean = false;
 
 
-    getColor: Function;
-    onClick: Function;
-    onUpdate: Function;
+    getColor(rating, numOfStars) {
+        console.log('rating: ',rating, 'numOfStars: ', numOfStars);
+        return 'disbled';
+    }
+
+    onClick(rating) {
+        console.log('onClick: rating: ',rating);
+        return 'disbled';
+    }
+
+    onUpdate(rating) {
+        console.log('onUpdate rating: ',rating);
+        this.rating = rating;
+    }
 
 
 }

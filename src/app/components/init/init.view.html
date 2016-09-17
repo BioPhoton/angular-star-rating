@@ -1,4 +1,4 @@
-<div class="container">
+<div id="init-view" class="container">
 
     <div class="jumbotron">
         <h1 class="display-3">Angular Stars</h1>
@@ -6,145 +6,169 @@
         <p>
             <star-rating
                     size="'large'"
-                    num-of-stars="init.numOfStars"
                     rating="init.rating"
-                    text="init.text">
+                    text="init.rating"
+                    on-click="init.onClick(rating)"
+                    on-update="init.onUpdate(rating)">
             </star-rating>
+            <!--
+            get-color="init.getColor(rating, numOfStars)"
+                    on-click="init.onClick(rating)"
+                    on-update="init.onUpdate(rating)"
+            -->
         </p>
     </div>
 
     <div class="container">
+
+
         <div class="row">
-            <div class="col-xs">
-                1 of 2
+            <div class="col-xs-4">
+                <fieldset class="form-group">
+                    <legend>Layout
+                        <star-rating
+                                rating="init.rating"
+                                text="init.rating"
+                                label-position="init.position"
+                                spread="init.spread"
+                                on-update="init.onUpdate(rating)">
+                        </star-rating>
+                    </legend>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-false-value="'left'" ng-true-value="'right'" ng-model="init.position">
+                            Lable Position
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-model="init.spread">
+                            Spread
+                        </label>
+                    </div>
+                </fieldset>
+
             </div>
-            <div class="col-xs">
-                1 of 2
+            <div class="col-xs-4">
+                <fieldset class="form-group">
+                    <legend>Dimensions
+                        <star-rating
+                                size="init.size"
+                                num-of-stars="init.numOfStars"
+                                rating="init.rating"
+                                on-update="init.onUpdate(rating)">
+                        </star-rating>
+                    </legend>
+                    <div class="form-group row">
+                        <label class="col-xs-6 col-form-label">NumOfStars</label>
+                        <div class="col-xs-6">
+                            <input type="number" class="form-control" placeholder="NumOfStars"
+                                   ng-model="init.numOfStars">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-6 col-form-label">Size: {{init.size}}</label>
+                            <div class="col-xs-6">
+                                <select class="form-control" ng-model="init.size">
+                                    <option value="">size</option>
+                                    <option value="{{value}}" ng-repeat="(key, value) in init.sizeOptions">{{value}}
+                                    </option>
+                                </select>
+                            </div>
+
+                    </div>
+
+                </fieldset>
+
             </div>
+            <div class="col-xs-4">
+                <fieldset class="form-group">
+                    <legend>Styling
+                        <star-rating
+                                color="init.color"
+                                speed="init.speed"
+                                disabled="init.disabled"
+                                rating="init.rating"
+                                on-update="init.onUpdate(rating)">
+                        </star-rating>
+
+                    </legend>
+                    <div class="form-group row">
+                        <label class="col-xs-4 col-form-label">Color</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" ng-model="init.color">
+                                <option value="">color</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in init.colorOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-model="init.disabled">
+                            Disabled
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-4 col-form-label">Speed: {{init.speed}}</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" ng-model="init.speed">
+                                <option value="">speed</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in init.speedOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+            </div>
+
         </div>
+
         <div class="row">
-            <div class="col-xs">
-                1 of 3
+            <div class="col-xs-4">
+        <fieldset class="form-group">
+            <legend>Other
+                <star-rating
+                        id="{{init.id}}"
+                        text="init.text"
+                        read-only="init.readOnly"
+                        rating="init.rating"
+                        on-update="init.onUpdate(rating)">
+                </star-rating>
+            </legend>
+
+            <div class="form-group row">
+                <label class="col-xs-6 col-form-label">Id</label>
+                <div class="col-xs-6"><input type="text" class="form-control" placeholder="Id" ng-model="init.id">
+                </div>
             </div>
-            <div class="col-xs">
-                1 of 3
-            </div>
-            <div class="col-xs">
-                1 of 3
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-xs">
-            <fieldset class="form-group">
-                <legend>Layout</legend>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" ng-model="init.position">
-                        Toggle position
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" ng-model="init.spread">
-                        Toggle spread: {{init.spread}}
-                    </label>
-                </div>
-            </fieldset>
-
-        </div>
-        <div class="col-xs">
-            <fieldset class="form-group">
-                <legend>Dimensions</legend>
-                <div class="form-group">
-                    <label>NumOfStars</label>
-                    <input type="number" class="form-control" placeholder="NumOfStars" ng-model="init.numOfStars">
-                </div>
-                <div class="form-group">
-                    <label>Size: {{init.size}}</label>
-                    <select class="form-control" ng-model="init.size">
-                        <option value="">-- choose size --</option>
-                        <option value="{{value}}" ng-repeat="(key, value) in init.sizeOptions">{{value}}</option>
-                    </select>
-                </div>
-
-            </fieldset>
-
-        </div>
-        <div class="col-xs">
-            <fieldset class="form-group">
-                <legend>Other</legend>
-
-                <div class="form-group">
-                    <label>Id</label>
-                    <input type="text" class="form-control" placeholder="Id" ng-model="init.id">
-                </div>
-
-                <div class="form-group">
-                    <label>Rating</label>
+            <div class="form-group row">
+                <label class="col-xs-6 col-form-label">Rating</label>
+                <div class="col-xs-6">
                     <input type="number" class="form-control" placeholder="rating" ng-model="init.rating">
                 </div>
+            </div>
 
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" ng-model="init.readOnly">
-                        Toggle readOnly: {{init.readOnly}}
-                    </label>
-                </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" ng-model="init.readOnly">
+                    ReadOnly
+                </label>
+            </div>
 
-                <div class="form-group">
-                    <label>Text</label>
+            <div class="form-group row">
+                <label class="col-xs-6 col-form-label">Text</label>
+                <div class="col-xs-6">
                     <input type="text" class="form-control" placeholder="text:number" ng-model="init.text">
                 </div>
+            </div>
 
-            </fieldset>
+        </fieldset>
+            </div>
         </div>
     </div>
 
-
-    <fieldset class="form-group">
-        <legend>Styling</legend>
-        <div class="form-group">
-            <label>Color</label>
-            <select class="form-control" ng-model="init.speed">
-                <option value="">-- choose color --</option>
-                <option value="{{value}}" ng-repeat="(key, value) in init.colorOptions">{{value}}</option>
-            </select>
-        </div>
-        <div class="form-check">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" ng-model="init.disabled">
-                Toggle disabled: {{init.disabled}}
-            </label>
-        </div>
-        <div class="form-group">
-            <label>Speed: {{init.speed}}</label>
-            <select class="form-control" ng-model="init.speed">
-                <option value="">-- choose speed --</option>
-                <option value="{{value}}" ng-repeat="(key, value) in init.speedOptions">{{value}}</option>
-            </select>
-        </div>
-
-    </fieldset>
-
-
-
-    <star-rating
-            id="init.id"
-            path-empty="init.pathEmpty"
-            path-filled="init.pathFilled"
-            text="init.text"
-            position="init.position"
-            color="init.color"
-            speed="init.speed"
-            size="init.size"
-            spread="init.spread"
-            read-only="init.readOnly"
-            disabled="init.disabled"
-            num-of-stars="init.numOfStars"
-            rating="init.rating"
-            position="init.position"
-            on-update="init.rating=rating">
-    </star-rating>
 </div>
