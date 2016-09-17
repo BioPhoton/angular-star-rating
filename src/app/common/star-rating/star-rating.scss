@@ -1,0 +1,464 @@
+/*
+Rating
+
+Component for displaying rating values of up to 5 stars
+
+Styleguide 1.2
+*/
+/*
+Rating Values
+
+Different styles for different rating values. Default colors are red for values equal to 2 or below, yellow for 3, and green for 4 or above.
+
+default                  - 0 rating
+.rating-1                - 1 rating
+.rating-2                - 2 rating
+.rating-3                - 3 rating
+.rating-4                - 4 rating
+.rating-5                - 5 rating
+
+markup:
+<div class="rating {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+
+Styleguide 1.2.1
+*/
+
+/*
+Sizes
+
+Different sizes
+
+default                  - Default size
+.small                   - Small size
+.medium                  - Medium size
+.large                   - Large size
+
+markup:
+<div class="rating rating-4 {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+
+Styleguide 1.2.2
+*/
+
+/*
+Spread
+
+Different spread options
+
+default                  - No spread
+.spread                  - Stars are spread to the entire container width
+
+markup:
+<div class="rating rating-4 large {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+
+sg-wrapper:
+<div class="phone-simulator padding">
+    <sg-wrapper-content/>
+</div>
+
+Styleguide 1.2.3
+*/
+
+/*
+Color Overrides
+
+Overriding default colors of ratings
+
+
+markup:
+<div class="rating rating-2 large color-positive">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="rating rating-3 large color-negative">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="rating rating-4 large color-middle ">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+
+sg-wrapper:
+<div class="phone-simulator padding">
+    <sg-wrapper-content/>
+</div>
+
+Styleguide 1.2.4
+*/
+
+/*
+With rating value displayed
+
+Displays rating value
+
+ default                  - Value displayed on the left side
+.rating-left              - Value displayed on the left side
+.rating-right             - Value displayed on the right side
+
+markup:
+<div class="rating rating-2 small padding {$modifiers}">
+    <div class="rating-value">2.5</div>
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="rating rating-3 medium padding {$modifiers}">
+    <div class="rating-value">3.1</div>
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="rating rating-4 large padding {$modifiers}">
+    <div class="rating-value">4.7</div>
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+
+sg-wrapper:
+<div class="phone-simulator padding">
+    <sg-wrapper-content/>
+</div>
+
+Styleguide 1.2.5
+*/
+
+/*
+   Disabled
+
+   grayed out to symbolize that no interaction is possible
+
+   .disabled                - Stars are grayed out, no interaction is possible
+
+   markup:
+   <div class="rating disabled {$modifiers}">
+       <div class="star-container">
+           <div class="star" ng-repeat="i in [1,2,3,4,5]">
+               <svg class="star-empty">
+                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+               </svg>
+               <svg class="star-filled">
+                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+               </svg>
+           </div>
+       </div>
+   </div>
+
+   sg-wrapper:
+   <div class="phone-simulator padding">
+       <sg-wrapper-content/>
+   </div>
+
+   Styleguide 1.2.6
+   */
+
+/*
+Test directive
+
+markup:
+<star-rating sg-angular-directive>If you see this something is wrong</star-rating>
+
+sg-angular-directive:
+name: star-rating
+template: ../www/app/components/star-rating/star-rating.html
+file: ../www/app/components/star-rating/star-rating.controller.js
+file: ../www/app/components/star-rating/star-rating.component.js
+file: ../www/app/components/star-rating/index.js
+
+Styleguide 1.2.7
+*/
+$color-negative-rating: #f03c56;
+$color-middle-rating: #ffc058;
+$color-positive-rating: #7ed321 !default;
+$color-disabled-rating: #999 !default;
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .star-container {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+
+    .star {
+      position: relative;
+
+      svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &.star-filled {
+          opacity: 0;
+        }
+      }
+
+      + .star {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  @for $i from 1 through 10 {
+    &.rating-#{$i} {
+
+      .star-container {
+        .star:nth-child(-n+#{$i}) {
+          svg {
+            &.star-filled {
+              opacity: 1;
+            }
+          }
+        }
+
+        .star {
+          svg {
+            @if $i <= 2 {
+              fill: $color-negative-rating;
+            }
+            @if $i == 3 {
+              fill: $color-middle-rating;
+            }
+            @if $i >= 4 {
+              fill: $color-positive-rating;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.rating-left .rating-value {
+    flex: 0 0 auto;
+
+    + .star-container {
+      margin-left: 5px;
+    }
+  }
+
+  &.rating-right {
+    flex-direction: row-reverse;
+
+    .rating-value {
+      + .star-container {
+        margin-left: 0;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  /*AnimationSpeed*/
+
+  //default
+  .star {
+    transition: all 0.3s ease;
+    svg {
+      transition: all 0.3s ease;
+    }
+  }
+
+  &.immediately
+  .star {
+    transition: none;
+  }
+
+  &.noticeable {
+      transition: all 0.3s ease;
+  }
+
+  &.slow {
+        transition: all 0.8s ease;
+  }
+
+  /* Sizes */
+
+  //default
+  .star {
+    width: 20px;
+    height: 20px;
+  }
+
+  .rating-value {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  &.small {
+    .star {
+      width: 10px;
+      height: 9.5px;
+    }
+
+    .rating-value {
+      font-size: 9.5px;
+      line-height: 9.5px;
+    }
+  }
+
+  &.medium {
+    .star {
+      width: 20px;
+      height: 20px;
+    }
+
+    .rating-value {
+      font-size: 18px;
+      line-height: 18px;
+    }
+  }
+
+  &.large {
+    .star {
+      width: 35px;
+      height: 33.3px;
+    }
+
+    .rating-value {
+      font-size: 28px;
+      line-height: 28px;
+    }
+  }
+
+  /* Spread */
+
+  //default
+  .star-container {
+    justify-content: center;
+  }
+
+  &.spread {
+    .star-container {
+      flex: 1 1 auto;
+      justify-content: space-between;
+    }
+  }
+
+  /* Color override */
+
+  //default
+  .star-container,
+  &.color-negative {
+    .star-container {
+      .star {
+        svg {
+          fill: $color-negative-rating;
+        }
+      }
+    }
+  }
+
+  &.color-middle {
+    .star-container {
+      .star {
+        svg {
+          fill: $color-middle-rating;
+        }
+      }
+    }
+  }
+
+  &.color-positive {
+    .star-container {
+      .star {
+        svg {
+          fill: $color-positive-rating;
+        }
+      }
+    }
+  }
+
+  /*Disabled*/
+
+  &.disabled {
+    .star-container {
+    .star {
+      opacity: 0.5;
+      svg {
+        fill: $color-disabled-rating;
+      }
+    }
+    }
+  }
+}
