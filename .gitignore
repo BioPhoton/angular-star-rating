@@ -3,6 +3,7 @@
 
 .idea/
 
+/www/
 node_modules/
 typings/
 
