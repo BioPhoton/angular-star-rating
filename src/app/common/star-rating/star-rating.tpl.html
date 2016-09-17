@@ -9,7 +9,7 @@
   <div class="star-container">
     <div class="star"
         ng-repeat="star in $ctrl.stars track by $index"
-        ng-click="$ctrl.starClick(star)">
+        ng-click="$ctrl.onStarClicked(star)">
 
         <svg class="star-empty">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href={{$ctrl.pathEmpty}}></use>

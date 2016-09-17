@@ -1,14 +1,34 @@
-import {InitController} from "../../components/init/init.controller";
 export type starRatingSizes = "small" | "medium" | "large";
 export type starRatingColors = "negative" | "middle" | "positive";
 export type starRatingSpeed = "immediately" | "noticeable" | "slow";
 export type starRatingPosition = "left" | "right";
 
 export class StarRatingController {
+
     static DefaultNumOfStars:number = 5;
+
     static DefaultSize:starRatingSizes = "medium";
+
     static DefaultSpeed:starRatingSpeed = "noticeable";
+
     static DefaultLabelPosition:starRatingPosition = "left";
+
+    /**
+     * getStarsArray
+     *
+     * returns an array of increasing numbers starting at 1
+     *
+     * @param numOfStars
+     * @returns {Array}
+     */
+    private static getStarsArray(numOfStars: number): Array<number> {
+        let stars = [];
+        for (let i = 0; i < numOfStars; i++) {
+            stars.push(i + 1);
+        }
+        console.log('getStarsArray: ', stars);
+        return stars;
+    }
 
     //bindings
     //@
@@ -34,20 +54,7 @@ export class StarRatingController {
 
     //ctrl only
     stars: Array<number>;
-
-    updateRating(value: number) {
-        console.log('updateRating: ', value);
-        this.rating = value;
-        //this.color = this.getColor(this.rating, this.numOfStars);
-        this.onUpdate({rating: this.rating});
-    }
-
-    updateNumOfStars(value: number) {
-        console.log('updateNumOfStars: ', value);
-        this.numOfStars = value;
-        this.stars = this.getStarsArray(this.numOfStars);
-        //this.color = this.getColor(this.rating, this.numOfStars);
-    }
+    fixedColor:starRatingColors;
 
     constructor() {
         console.log('constructor');
@@ -60,7 +67,14 @@ export class StarRatingController {
         this.updateNumOfStars(this.numOfStars || StarRatingController.DefaultNumOfStars);
     }
 
-    $onChanges(changes): void {
+    /**
+     * $onChanges
+     *
+     * angulars $onChange hook
+     *
+     * @param changes
+     */
+     $onChanges(changes): void {
         console.log('$onChanges');
 
         let valueChanged = function(key:string, changes):boolean {
@@ -87,7 +101,8 @@ export class StarRatingController {
         }
 
         if (valueChanged('color' , changes)) {
-            this.color = changes.color.currentValue;
+            this.fixedColor =(changes.color.currentValue)?changes.color.currentValue:undefined;
+            this.color = this.getColor(this.rating, this.numOfStars, this.fixedColor);
         }
 
         if (valueChanged('size', changes)) {
@@ -117,15 +132,75 @@ export class StarRatingController {
 
     }
 
-    starClick(rating: number): void {
-        console.log('starClick: ', rating);
+    /**
+     * onStarClicked
+     *
+     * Is fired when a star is clicked. And updated the rating value.
+     * This function returns if the disabled or readOnly
+     * property is set. If provided it calls the custom onClick
+     * handler with the actual rating value.
+     *
+     * @param rating
+     */
+    onStarClicked(rating: number): void {
+        console.log('onStarClicked: ', rating);
         if (this.readOnly || this.disabled) { return; }
 
         this.updateRating(rating);
         this.onClick({rating: this.rating});
     }
 
-    private calculateColor = (rating, numOfStars):starRatingColors => {
+
+    /**
+     * updateRating
+     *
+     * Used to set the rating value and update other variables
+     * based on rating. This function also
+     * triggers the onUpdate emitter.
+     *
+     * @param value
+     */
+    private updateRating(value: number) {
+        console.log('updateRating: ', value);
+        this.rating = value;
+        this.onUpdate({rating: this.rating});
+        this.color = this.getColor(this.rating, this.numOfStars, this.fixedColor);
+    }
+
+    /**
+     * updateNumOfStars
+     *
+     * Used to set the numOfStars value and update other variables
+     * based on numOfStars.
+     *
+     * @param value
+     */
+    private updateNumOfStars(value: number) {
+        console.log('updateNumOfStars: ', value);
+        this.numOfStars = value;
+        this.stars = StarRatingController.getStarsArray(this.numOfStars);
+        this.color = this.getColor(this.rating, this.numOfStars, this.fixedColor);
+    }
+
+    /**
+     * calculateColor
+     *
+     * The default function for color calculation
+     * basted on the current rating and the scale
+     *
+     *
+     * @param rating
+     * @param numOfStars
+     * @param fixColor
+     * @returns {starRatingColors}
+     */
+    private calculateColor = (rating, numOfStars, fixColor):starRatingColors => {
+
+        if(fixColor) {
+            console.log('fixColor: ', fixColor, rating, numOfStars);
+            return fixColor;
+        }
+
         let oneThird = numOfStars / 3;
 
         let color:starRatingColors = 'negative';
@@ -140,16 +215,6 @@ export class StarRatingController {
 
         return color;
     };
-
-
-    private getStarsArray(numOfStars: number): Array<number> {
-        let stars = [];
-        for (let i = 0; i < numOfStars; i++) {
-            stars.push(i + 1);
-        }
-        console.log('getStarsArray: ', stars);
-        return stars;
-    }
 
 }
 
