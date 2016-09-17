@@ -3,7 +3,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('./node_modules/html-webpack-plugin');
 
-var base_c = require('./webpack/config');
+var base_c = require('./chore/chore.config');
 
 module.exports = function makeWebpackConfig() {
 
@@ -14,6 +14,8 @@ module.exports = function makeWebpackConfig() {
      */
     var config = {};
 
+    config.target = 'node';
+
     config.resolve = {
         // Add `.ts` and `.tsx` as a resolvable extension.
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
@@ -21,6 +23,11 @@ module.exports = function makeWebpackConfig() {
 
     config.entry = {
         app: path.join(__dirname, base_c.src, base_c.app, 'index.ts')
+    };
+
+    config.output = {
+        path: path.join(__dirname,base_c.dist),
+            filename: "bundle.js"
     };
 
     config.module = {

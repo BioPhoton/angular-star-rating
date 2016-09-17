@@ -3,8 +3,10 @@
  *  which defines tasks
  */
 'use strict';
-
+var path = require('path');
 module.exports = (function () {
+
+    var projectName = "Angular Stars";
 
     var ENV_LOCAL = "local",
         ENV_STAGING = "staging",
@@ -23,7 +25,19 @@ module.exports = (function () {
         app = 'app',
         assets = 'assets';
 
+    var styleguideFolder = 'sc5-styleguide';
+    var styleguideCopies = [
+        {
+            src: [
+                path.join( 'src', 'app', 'common', 'star-rating', '*.svg')
+            ],
+            dest: path.join(styleguideFolder, 'assets', 'images'),
+            name: 'styleguide copies'
+        }
+    ];
+
     var config = {
+        projectName:projectName,
         root: root,
         src: src,
         dist: dist,
@@ -32,7 +46,12 @@ module.exports = (function () {
         assets: assets,
 
         entryFile: entryFile,
-        indexFile: indexFile
+        indexFile: indexFile,
+
+        sc5Styleguide:{
+            destFolder : styleguideFolder,
+            copies : styleguideCopies
+        }
     };
 
     return config;
