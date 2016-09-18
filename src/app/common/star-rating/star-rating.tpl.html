@@ -1,8 +1,8 @@
 <div id="{{$ctrl.id}}"
-     class="rating {{$ctrl.rating?'rating-'+$ctrl.rating:0}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'rating-'+$ctrl.labelPosition:''}}"
+     class="rating {{$ctrl.rating?'value-'+$ctrl.rating:0}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}}"
      ng-class="{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled, 'spread':$ctrl.spread}">
   <div ng-show="$ctrl.text"
-       class="rating-value">
+       class="label-value">
     {{$ctrl.text}}
   </div>
 

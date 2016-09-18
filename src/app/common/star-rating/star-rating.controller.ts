@@ -33,7 +33,7 @@ export class StarRatingController {
     //bindings
     //@
     id: string;
-    //iconType: string;
+
     pathEmpty: string;
     pathFilled:string;
     //<

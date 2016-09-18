@@ -1,21 +1,30 @@
 /*
-Rating
+Star Rating
 
-Component for displaying rating values of up to 5 stars
+Beautiful ui component for displaying rating values of up to 5 stars with css only.
+Options are:
+- Value
+- Size
+- Spread
+- Static Color
+- Label Position
+- Animation Speed
+- Disabled
 
 Styleguide 1.2
 */
 /*
-Rating Values
+Value
 
-Different styles for different rating values. Default colors are red for values equal to 2 or below, yellow for 3, and green for 4 or above.
+Different styles for different rating values. 
+Default colors are red for values equal to 2 or below, yellow for 3, and green for 4 or above.
 
 default                  - 0 rating
-.rating-1                - 1 rating
-.rating-2                - 2 rating
-.rating-3                - 3 rating
-.rating-4                - 4 rating
-.rating-5                - 5 rating
+.value-1                - 1 rating
+.value-2                - 2 rating
+.value-3                - 3 rating
+.value-4                - 4 rating
+.value-5                - 5 rating
 
 markup:
 <div class="rating {$modifiers}">
@@ -40,9 +49,11 @@ Styleguide 1.2.1
 */
 
 /*
-Sizes
+Size
 
-Different sizes
+Different sizes of the stars and the label.
+Additional to the default size medium there are more sizes, small and large.
+
 
 default                  - Default size
 .small                   - Small size
@@ -50,7 +61,7 @@ default                  - Default size
 .large                   - Large size
 
 markup:
-<div class="rating rating-4 {$modifiers}">
+<div class="rating value-4 {$modifiers}">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -80,7 +91,7 @@ default                  - No spread
 .spread                  - Stars are spread to the entire container width
 
 markup:
-<div class="rating rating-4 large {$modifiers}">
+<div class="rating value-4 large {$modifiers}">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -102,13 +113,13 @@ Styleguide 1.2.3
 */
 
 /*
-Color Overrides
+Static Color
 
-Overriding default colors of ratings
+Overriding default colors of ratings to display the color independent of the rating.
 
 
 markup:
-<div class="rating rating-2 large color-positive">
+<div class="rating value-2 large color-positive">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -120,7 +131,7 @@ markup:
         </div>
     </div>
 </div>
-<div class="rating rating-3 large color-negative">
+<div class="rating value-3 large color-negative">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -132,7 +143,7 @@ markup:
         </div>
     </div>
 </div>
-<div class="rating rating-4 large color-middle ">
+<div class="rating value-4 large color-middle ">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -154,17 +165,17 @@ Styleguide 1.2.4
 */
 
 /*
-With rating value displayed
+Label Position
 
-Displays rating value
+Displays the rating value as text label.
 
  default                  - Value displayed on the left side
-.rating-left              - Value displayed on the left side
-.rating-right             - Value displayed on the right side
+.label-left              - Value displayed on the left side
+.label-right             - Value displayed on the right side
 
 markup:
 <div class="rating padding {$modifiers}">
-    <div class="rating-value">0</div>
+    <div class="label-value">0</div>
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -176,8 +187,8 @@ markup:
         </div>
     </div>
 </div>
-<div class="rating rating-2 small padding {$modifiers}">
-    <div class="rating-value">(bad)</div>
+<div class="rating value-2 small padding {$modifiers}">
+    <div class="label-value">(bad)</div>
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -189,8 +200,8 @@ markup:
         </div>
     </div>
 </div>
-<div class="rating rating-3 medium padding {$modifiers}">
-    <div class="rating-value">3.1</div>
+<div class="rating value-3 medium padding {$modifiers}">
+    <div class="label-value">3.1</div>
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -202,8 +213,8 @@ markup:
         </div>
     </div>
 </div>
-<div class="rating rating-4 large padding {$modifiers}">
-    <div class="rating-value">Good</div>
+<div class="rating value-4 large padding {$modifiers}">
+    <div class="label-value">Good</div>
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -227,7 +238,7 @@ Styleguide 1.2.5
 /*
    Disabled
 
-   grayed out to symbolize that no interaction is possible
+   Visualizes the disabled state of the rating component. The styles symbolizing that no interaction is possible
 
    .disabled                - Stars are grayed out, no interaction is possible
 
@@ -244,8 +255,8 @@ Styleguide 1.2.5
         </div>
     </div>
 </div>
-<div class="rating rating-2 small padding {$modifiers}">
-    <div class="rating-value">(bad)</div>
+<div class="rating value-2 small padding {$modifiers}">
+    <div class="label-value">(bad)</div>
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -257,8 +268,8 @@ Styleguide 1.2.5
         </div>
     </div>
 </div>
-<div class="rating rating-3 medium padding {$modifiers}">
-    <div class="rating-value">3.1</div>
+<div class="rating value-3 medium padding {$modifiers}">
+    <div class="label-value">3.1</div>
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -270,8 +281,8 @@ Styleguide 1.2.5
         </div>
     </div>
 </div>
-<div class="rating rating-4 large padding {$modifiers}">
-    <div class="rating-value">Good</div>
+<div class="rating value-4 large padding {$modifiers}">
+    <div class="label-value">Good</div>
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -292,9 +303,9 @@ Styleguide 1.2.5
    Styleguide 1.2.6
    */
 /*
-   Animation speed
+   Animation Speed
 
-   Duration of the transition
+   By default the stars animate (fade) to the new state. These modifiers provide three different durations of the transition.
 
    default                  - Transition runs in noticeable speed
   .immediately              - No Transition
@@ -302,7 +313,7 @@ Styleguide 1.2.5
   .slow                     - Transition runs very slow
 
    markup:
-   <div class="rating rating-{{rating}} padding {$modifiers}">
+   <div class="rating value-{{rating}} padding {$modifiers}">
     <div class="star-container">{{rating}}!
         <div ng-init="rating = 2" class="star" ng-repeat="i in [1,2,3,4,5] track by $index" ng-click="(rating == 2)?4:2">
             <svg class="star-empty">{{$index}}!
@@ -362,7 +373,7 @@ $color-disabled-rating: #999 !default;
   }
 
   @for $i from 1 through 10 {
-    &.rating-#{$i} {
+    &.value-#{$i} {
 
       .star-container {
         .star:nth-child(-n+#{$i}) {
@@ -399,7 +410,7 @@ $color-disabled-rating: #999 !default;
       margin-right: 5px;
   }
 
-  &.rating-left .rating-value {
+  &.label-left .label-value {
     flex: 0 0 auto;
 
     + .star-container {
@@ -408,10 +419,10 @@ $color-disabled-rating: #999 !default;
     }
   }
 
-  &.rating-right {
+  &.label-right {
     flex-direction: row-reverse;
 
-    .rating-value {
+    .label-value {
       + .star-container {
         margin-left: 0;
         margin-right: 5px;
@@ -463,7 +474,7 @@ $color-disabled-rating: #999 !default;
     height: 20px;
   }
 
-  .rating-value {
+  .label-value {
     font-size: 18px;
     line-height: 18px;
   }
@@ -474,7 +485,7 @@ $color-disabled-rating: #999 !default;
       height: 9.5px;
     }
 
-    .rating-value {
+    .label-value {
       font-size: 9.5px;
       line-height: 9.5px;
     }
@@ -486,7 +497,7 @@ $color-disabled-rating: #999 !default;
       height: 20px;
     }
 
-    .rating-value {
+    .label-value {
       font-size: 18px;
       line-height: 18px;
     }
@@ -498,7 +509,7 @@ $color-disabled-rating: #999 !default;
       height: 33.3px;
     }
 
-    .rating-value {
+    .label-value {
       font-size: 28px;
       line-height: 28px;
     }
@@ -565,7 +576,7 @@ $color-disabled-rating: #999 !default;
   /*Disabled*/
 
   &.disabled {
-    .rating-value {
+    .label-value {
         opacity: 0.5;
     }
     .star-container {
