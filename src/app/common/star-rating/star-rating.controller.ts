@@ -173,11 +173,11 @@ export class StarRatingController {
      * Used to set the numOfStars value and update other variables
      * based on numOfStars.
      *
-     * @param value
+     * @param {number} nomOfStars the number of stars
      */
-    private updateNumOfStars(value: number) {
-        console.log('updateNumOfStars: ', value);
-        this.numOfStars = value;
+    private updateNumOfStars(nomOfStars: number) {
+        console.log('updateNumOfStars: ', nomOfStars);
+        this.numOfStars = nomOfStars;
         this.stars = StarRatingController.getStarsArray(this.numOfStars);
         this.color = this.getColor(this.rating, this.numOfStars, this.fixedColor);
     }
@@ -217,4 +217,3 @@ export class StarRatingController {
     };
 
 }
-
