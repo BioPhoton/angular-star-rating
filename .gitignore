@@ -3,9 +3,8 @@
 
 .idea/
 
-/www/
 node_modules/
 typings/
 
-sc5-styleguide/
+/sc5-styleguide/
 /npm-debug.log
