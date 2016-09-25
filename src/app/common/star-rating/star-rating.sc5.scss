@@ -169,9 +169,12 @@ Label Position
 
 Displays the rating value as text label.
 
- default                  - Value displayed on the left side
-.label-left              - Value displayed on the left side
+ default                 - Value displayed on the left side
+.label-top               - Value displayed on the top
 .label-right             - Value displayed on the right side
+.label-bottom            - Value displayed on the bottom
+.label-left              - Value displayed on the left side
+
 
 markup:
 <div class="rating padding {$modifiers}">
@@ -334,7 +337,6 @@ Styleguide 1.1.5
    Styleguide 1.1.7
    */
 
-
 $color-negative-rating: #f03c56;
 $color-middle-rating: #ffc058;
 $color-positive-rating: #7ed321 !default;
@@ -344,7 +346,7 @@ $color-disabled-rating: #999 !default;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom:5px;
+  margin-bottom: 5px;
 
   .star-container {
     display: flex;
@@ -401,13 +403,24 @@ $color-disabled-rating: #999 !default;
     }
   }
 
-
   /*Rating Position*/
+
+  &.label-top {
+    flex-direction: column;
+
+    .label-value {
+      + .star-container {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 5px;
+      }
+    }
+  }
 
   //Default
   .star-container {
-      margin-left: 5px;
-      margin-right: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   &.label-left .label-value {
@@ -426,6 +439,18 @@ $color-disabled-rating: #999 !default;
       + .star-container {
         margin-left: 0;
         margin-right: 5px;
+      }
+    }
+  }
+
+  &.label-bottom {
+    flex-direction: column-reverse;
+
+    .label-value {
+      + .star-container {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 5px;
       }
     }
   }
@@ -577,15 +602,12 @@ $color-disabled-rating: #999 !default;
 
   &.disabled {
     .label-value {
-        opacity: 0.5;
+      opacity: 0.5;
     }
     .star-container {
-    .star {
-      opacity: 0.5;
-      svg {
-        //fill: $color-disabled-rating;
+      .star {
+        opacity: 0.5;
       }
-    }
     }
   }
 }
