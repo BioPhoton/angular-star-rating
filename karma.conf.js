@@ -1,4 +1,6 @@
+var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
+
 webpackConfig.entry = {};
 
 module.exports = function(config) {
@@ -9,14 +11,12 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
-      './app/bundle.js',
-      './node_modules/angular-mocks/angular-mocks.js',
-      './tests/**/*.js'],
+      './src/app/common/star-rating/star-rating.controller.jasmine.ts'
+    ],
 
     // proxied base paths
     proxies: {
-      // required for component assets fetched by Angular's. compiler
-      //'/src/': '/base/src/'
+      './src/app/common/star-rating/*.ts': ["webpack", "sourcemap"]
     },
 
     port: 9876,
@@ -42,10 +42,22 @@ module.exports = function(config) {
     // Source files that you wanna generate coverage for.
     // Do not include tests or libraries (these files will be instrumented by Istanbul)
     preprocessors: {
-        './app/bundle.js': ['webpack', 'coverage'],
+        './src/app/common/star-rating/star-rating.controller.ts': ['webpack', 'coverage']
       },
 
-      webpack: webpackConfig,
+      webpack: {
+        //devtool: "inline-source-map",
+        resolve: {
+          extensions: ["", ".ts", ".js"]
+        },
+        module: {
+          loaders: [
+            { test: /\.ts$/, loader: "ts-loader" },
+            { test: /\.html$/, loader: "raw" },
+            { test: /\.(jpg|png|woff|woff2|eot|ttf|svg|scss)$/, loader: "null" },
+          ]
+        }
+      },
 
       webpackMiddleware: {
         noInfo: true

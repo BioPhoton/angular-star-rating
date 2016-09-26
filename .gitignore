@@ -6,5 +6,6 @@
 node_modules/
 typings/
 
-/sc5-styleguide/
+coverage/
+sc5-styleguide/
 /npm-debug.log

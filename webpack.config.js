@@ -41,7 +41,7 @@ module.exports = function makeWebpackConfig() {
             , {test: /\.css$/, loader: "style!css"}
             , {test: /\.scss$/, loader: "style!css!sass"}
             // specify option using query
-            , {test: /\.tsx?$/, loader: 'ts-loader?compiler=ntypescript'}
+            , {test: /\.tsx?$/, exculde:"*.jasmine.ts",loader: 'ts-loader?compiler=ntypescript'}
             , {test: /\.html$/, loader: 'ngtemplate?relativeTo=' + __dirname + '/!html'}
             , {
                 test: [/\.svg/],

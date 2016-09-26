@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "keywords": [
+    "Angular1.5",
     "Angular2",
     "Typescript",
     "SVG"
@@ -21,6 +22,7 @@
   "devDependencies": {
     "angular-mocks": "^1.5.8",
     "baggage-loader": "^0.2.4",
+    "bootstrap": "^4.0.0-alpha.4",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
     "extendify": "^1.0.0",
@@ -38,7 +40,7 @@
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
     "jasmine-core": "^2.5.2",
-    "karma": "^1.3.0",
+    "karma": "0.13.9",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
@@ -64,6 +66,7 @@
     "postinstall": "typings install",
     "webpack:compile": "webpack --progress --colors",
     "webpack:watch": "webpack --progress --colors --watch webpack-dev-server --content-base www/",
-    "styleguide": "gulp styleguide:watch"
+    "styleguide": "gulp styleguide:watch",
+    "test": "node_modules/.bin/karma start karma.conf.js"
   }
 }
