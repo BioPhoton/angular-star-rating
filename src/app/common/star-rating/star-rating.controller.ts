@@ -1,7 +1,8 @@
 export type starRatingSizes = "small" | "medium" | "large";
 export type starRatingColors = "negative" | "middle" | "positive";
 export type starRatingSpeed = "immediately" | "noticeable" | "slow";
-export type starRatingPosition = "left" | "right";
+export type starRatingPosition = "left" | "right" | "top" | "bottom";
+export type starRatingStarTypes = "svg" | "icon" | "image";
 
 export class StarRatingController {
 
@@ -12,6 +13,8 @@ export class StarRatingController {
     static DefaultSpeed:starRatingSpeed = "noticeable";
 
     static DefaultLabelPosition:starRatingPosition = "left";
+
+    static DefaultStarType:starRatingStarTypes = "svg";
 
     /**
      * getStarsArray
@@ -26,22 +29,19 @@ export class StarRatingController {
         for (let i = 0; i < numOfStars; i++) {
             stars.push(i + 1);
         }
-        console.log('getStarsArray: ', stars);
         return stars;
     }
 
     //bindings
     //@
     id: string;
-
-    pathEmpty: string;
-    pathFilled:string;
     //<
     text: string;
     color: starRatingColors;
     labelPosition:starRatingPosition;
     speed:starRatingSpeed;
     size: starRatingSizes;
+    starType:starRatingStarTypes;
     spread: boolean;
     readOnly: boolean;
     disabled: boolean;
@@ -53,18 +53,23 @@ export class StarRatingController {
     onUpdate: Function;
 
     //ctrl only
+    classEmpty:string;
+    classFilled:string;
+    pathEmpty: string;
+    pathFilled:string;
     stars: Array<number>;
     fixedColor:starRatingColors;
 
     constructor() {
-        console.log('constructor');
+        this.classEmpty = this.classEmpty || "star-empty-icon";
+        this.classFilled = this.classFilled || "star-filled-icon";
         this.pathEmpty = this.pathEmpty || "assets/images/icons.svg#star";
         this.pathFilled = this.pathFilled || "assets/images/icons.svg#star-filled";
         this.getColor  = this.getColor || this.calculateColor;
         this.onUpdate  = this.onUpdate || function () {};
         this.onClick  = this.onClick || function () {};
 
-        this.updateNumOfStars(this.numOfStars || StarRatingController.DefaultNumOfStars);
+        this.updateNumOfStars(this.numOfStars);
     }
 
     /**
@@ -75,14 +80,10 @@ export class StarRatingController {
      * @param changes
      */
      $onChanges(changes): void {
-        console.log('$onChanges');
 
         let valueChanged = function(key:string, changes):boolean {
             if (key in changes)
-                if (changes[key].currentValue != changes[key].previousValue) {
-                    console.log(key + ' changed');
-                    return true;
-                }
+                if (changes[key].currentValue != changes[key].previousValue) { return true; }
             return false;
         };
 
@@ -92,7 +93,7 @@ export class StarRatingController {
         }
 
         if ( valueChanged('numOfStars', changes)) {
-            this.updateNumOfStars(changes.numOfStars.currentValue || StarRatingController.DefaultNumOfStars);
+            this.updateNumOfStars(changes.numOfStars.currentValue);
         }
 
         //string
@@ -115,6 +116,11 @@ export class StarRatingController {
 
         if (valueChanged('labelPosition', changes)) {
             this.labelPosition = changes.labelPosition.currentValue || StarRatingController.DefaultLabelPosition;
+        }
+
+
+        if (valueChanged('starType', changes)) {
+            this.starType = changes.starType.currentValue || StarRatingController.DefaultStarType;
         }
 
         //boolean
@@ -143,7 +149,6 @@ export class StarRatingController {
      * @param rating
      */
     onStarClicked(rating: number): void {
-        console.log('onStarClicked: ', rating);
         if (this.readOnly || this.disabled) { return; }
 
         this.updateRating(rating);
@@ -161,7 +166,6 @@ export class StarRatingController {
      * @param value
      */
     private updateRating(value: number) {
-        console.log('updateRating: ', value);
         this.rating = value;
         this.onUpdate({rating: this.rating});
         this.color = this.getColor(this.rating, this.numOfStars, this.fixedColor);
@@ -176,8 +180,7 @@ export class StarRatingController {
      * @param {number} nomOfStars the number of stars
      */
     private updateNumOfStars(nomOfStars: number) {
-        console.log('updateNumOfStars: ', nomOfStars);
-        this.numOfStars = nomOfStars;
+        this.numOfStars = nomOfStars || StarRatingController.DefaultNumOfStars;
         this.stars = StarRatingController.getStarsArray(this.numOfStars);
         this.color = this.getColor(this.rating, this.numOfStars, this.fixedColor);
     }
@@ -196,22 +199,13 @@ export class StarRatingController {
      */
     private calculateColor = (rating, numOfStars, fixColor):starRatingColors => {
 
-        if(fixColor) {
-            console.log('fixColor: ', fixColor, rating, numOfStars);
-            return fixColor;
-        }
+        if(fixColor) { return fixColor; }
 
         let oneThird = numOfStars / 3;
-
         let color:starRatingColors = 'negative';
-        if (rating > oneThird) {
-            color = 'middle';
-        }
-        if (rating > oneThird * 2) {
-            color = 'positive';
-        }
 
-        console.log('color: ', color, rating, numOfStars);
+        if (rating > oneThird) { color = 'middle'; }
+        if (rating > oneThird * 2) { color = 'positive'; }
 
         return color;
     };

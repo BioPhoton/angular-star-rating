@@ -356,7 +356,7 @@ $color-disabled-rating: #999 !default;
     .star {
       position: relative;
 
-      svg {
+      svg, i {
         position: absolute;
         top: 0;
         left: 0;
@@ -379,7 +379,8 @@ $color-disabled-rating: #999 !default;
 
       .star-container {
         .star:nth-child(-n+#{$i}) {
-          svg {
+          svg,
+          i {
             &.star-filled {
               opacity: 1;
             }
@@ -387,15 +388,19 @@ $color-disabled-rating: #999 !default;
         }
 
         .star {
-          svg {
+          svg,
+          i {
             @if $i <= 2 {
               fill: $color-negative-rating;
+              color: $color-negative-rating;
             }
             @if $i == 3 {
               fill: $color-middle-rating;
+              color: $color-middle-rating;
             }
             @if $i >= 4 {
               fill: $color-positive-rating;
+              color: $color-positive-rating;
             }
           }
         }
@@ -460,7 +465,7 @@ $color-disabled-rating: #999 !default;
   //default
   .star {
     transition: all 0.3s ease;
-    svg {
+    svg, i {
       transition: all 0.3s ease;
     }
   }
@@ -468,7 +473,7 @@ $color-disabled-rating: #999 !default;
   &.immediately
   .star {
     transition: none;
-    svg {
+    svg, i {
       transition: none;
     }
   }
@@ -476,7 +481,7 @@ $color-disabled-rating: #999 !default;
   &.noticeable {
     .star {
       transition: all 0.3s ease;
-      svg {
+      svg, i {
         transition: all 0.3s ease;
       }
     }
@@ -485,8 +490,48 @@ $color-disabled-rating: #999 !default;
   &.slow {
     .star {
       transition: all 0.8s ease;
-      svg {
+      svg, i {
         transition: all 0.8s ease;
+      }
+    }
+  }
+
+  /* Star Type*/
+  //default
+
+  .star {
+    svg {
+      display: block;
+    }
+    i {
+      display: none;
+      &.star-empty-icon:before {
+        content:"☆"
+      }
+      &.star-filled-icon:before {
+        content:"\2605"
+      }
+    }
+  }
+
+  &.star-icon {
+    .star {
+      svg {
+        display: none;
+      }
+      i {
+        display: block;
+      }
+    }
+  }
+
+  &.star-svg {
+    .star {
+      svg {
+        display: block;
+      }
+      i {
+        display: none;
       }
     }
   }
@@ -495,8 +540,13 @@ $color-disabled-rating: #999 !default;
 
   //default
   .star {
-    width: 20px;
-    height: 20px;
+    &svg {
+      width: 20px;
+      height: 20px;
+    }
+    &i {
+
+    }
   }
 
   .label-value {
@@ -559,7 +609,7 @@ $color-disabled-rating: #999 !default;
   &.color-default {
     .star-container {
       .star {
-        svg {
+        svg, i {
           fill: $color-disabled-rating;
         }
       }
@@ -571,7 +621,7 @@ $color-disabled-rating: #999 !default;
   &.color-negative {
     .star-container {
       .star {
-        svg {
+        svg, i {
           fill: $color-negative-rating;
         }
       }
@@ -581,7 +631,7 @@ $color-disabled-rating: #999 !default;
   &.color-middle {
     .star-container {
       .star {
-        svg {
+        svg, i {
           fill: $color-middle-rating;
         }
       }
@@ -591,7 +641,7 @@ $color-disabled-rating: #999 !default;
   &.color-positive {
     .star-container {
       .star {
-        svg {
+        svg, i {
           fill: $color-positive-rating;
         }
       }

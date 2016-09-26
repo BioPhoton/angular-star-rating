@@ -1,7 +1,10 @@
     import * as angular from 'angular';
+    import 'angular-mocks';
+    import * as mocks from 'angular-mocks';
 
     import {StarRatingController} from "./star-rating.controller";
     import IRootScopeService = angular.IRootScopeService;
+
 
     describe('Controller Test', () => {
 

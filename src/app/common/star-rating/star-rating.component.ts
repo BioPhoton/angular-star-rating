@@ -13,6 +13,7 @@ export class StarRatingComponent implements ng.IComponentOptions {
               id: '@'
             , text: '<'
             , color: '<'
+            , starType: '<'
             , numOfStars: '<'
             , speed : '<'
             , size: '<'
