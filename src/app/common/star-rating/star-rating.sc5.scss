@@ -505,11 +505,13 @@ $color-disabled-rating: #999 !default;
     }
     i {
       display: none;
-      &.star-empty-icon:before {
-        content:"☆"
+      font-style: normal;
+
+      &.star-empty:before {
+        content:"\2606";
       }
-      &.star-filled-icon:before {
-        content:"\2605"
+      &.star-filled:before {
+        content:"\2605";
       }
     }
   }
@@ -558,6 +560,10 @@ $color-disabled-rating: #999 !default;
     .star {
       width: 10px;
       height: 9.5px;
+      i {
+        font-size:11px;
+        line-height: 10px;
+      }
     }
 
     .label-value {
@@ -570,6 +576,10 @@ $color-disabled-rating: #999 !default;
     .star {
       width: 20px;
       height: 20px;
+      i {
+        font-size:21px;
+        line-height: 21px;
+      }
     }
 
     .label-value {
@@ -582,6 +592,10 @@ $color-disabled-rating: #999 !default;
     .star {
       width: 35px;
       height: 33.3px;
+      i {
+        font-size:36px;
+        line-height: 35px;
+      }
     }
 
     .label-value {

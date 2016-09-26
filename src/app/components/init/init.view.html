@@ -38,7 +38,6 @@
                     <div class="form-check">
                         <label class="col-xs-4 col-form-label">Lable Position</label>
                         <div class="col-xs-8">
-                            {{init.labelPositionOptions}}
                             <select class="form-control" ng-model="init.position">
                                 <option value="">position</option>
                                 <option value="{{value}}" ng-repeat="(key, value) in init.labelPositionOptions">{{value}}
@@ -74,6 +73,7 @@
                                 size="init.size"
                                 num-of-stars="init.numOfStars"
                                 rating="init.rating"
+                                star-type="init.starType"
                                 on-update="init.onUpdate(rating)">
                         </star-rating>
                     </legend>
