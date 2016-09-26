@@ -31,16 +31,33 @@
                                 text="init.rating"
                                 label-position="init.position"
                                 spread="init.spread"
+                                star-type="init.starType"
                                 on-update="init.onUpdate(rating)">
                         </star-rating>
                     </legend>
                     <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" ng-false-value="'left'"
-                                   ng-true-value="'right'" ng-model="init.position">
-                            Lable Position
-                        </label>
+                        <label class="col-xs-4 col-form-label">Lable Position</label>
+                        <div class="col-xs-8">
+                            {{init.labelPositionOptions}}
+                            <select class="form-control" ng-model="init.position">
+                                <option value="">position</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in init.labelPositionOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-xs-6 col-form-label">starOptions: {{init.starType}}</label>
+                        <div class="col-xs-6">
+                            <select class="form-control" ng-model="init.starType">
+                                <option value="">starType</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in init.starOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
+
+                    </div>
+
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" ng-model="init.spread">

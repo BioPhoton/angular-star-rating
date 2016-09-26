@@ -1,6 +1,6 @@
 import {
     starRatingColors, starRatingSpeed, starRatingSizes,
-    StarRatingController
+    StarRatingController, starRatingPosition, starRatingStarTypes
 } from "../../common/star-rating/star-rating.controller";
 
 export class InitController {
@@ -15,7 +15,9 @@ export class InitController {
     text: number = this.rating;
     color:starRatingColors|string;
     colorOptions:Array<starRatingColors|string> = ['default','negative', 'middle', 'positive'];
+    labelPositionOptions:Array<starRatingPosition|string> = ['top','right', 'left', 'bottom'];
     numOfStars:number = StarRatingController.DefaultNumOfStars;
+    starOptions:Array<starRatingStarTypes> = ['svg', 'icon', 'image'];
     speed:starRatingSpeed|string;
     speedOptions:Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
     size: starRatingSizes|string;
@@ -25,8 +27,8 @@ export class InitController {
     disabled: boolean = false;
 
 
-    getColor(rating, numOfStars) {
-        console.log('rating: ',rating, 'numOfStars: ', numOfStars);
+    getColor(rating, numOfStars, fixColor) {
+        console.log('rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', fixColor);
         return 'disbled';
     }
 
