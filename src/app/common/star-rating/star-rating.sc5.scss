@@ -617,7 +617,14 @@ $color-disabled-rating: #999 !default;
   }
 
   //default
-  .star-container,
+  .star-container{
+    .star {
+      svg, i {
+        fill: $color-disabled-rating;
+      }
+    }
+  }
+
   &.color-negative {
     .star-container {
       .star {
