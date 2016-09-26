@@ -374,6 +374,8 @@ $color-disabled-rating: #999 !default;
     }
   }
 
+  /*Rating Value*/
+
   @for $i from 1 through 10 {
     &.value-#{$i} {
 
@@ -390,6 +392,10 @@ $color-disabled-rating: #999 !default;
         .star {
           svg,
           i {
+            @if $i <= 2 {
+              fill: $color-negative-rating;
+              color: $color-negative-rating;
+            }
             @if $i <= 2 {
               fill: $color-negative-rating;
               color: $color-negative-rating;
@@ -623,8 +629,11 @@ $color-disabled-rating: #999 !default;
   &.color-default {
     .star-container {
       .star {
-        svg, i {
+        svg {
           fill: $color-disabled-rating;
+        }
+        i {
+          color: $color-disabled-rating;
         }
       }
     }
@@ -633,8 +642,11 @@ $color-disabled-rating: #999 !default;
   //default
   .star-container{
     .star {
-      svg, i {
+      svg {
         fill: $color-disabled-rating;
+      }
+      i {
+        color: $color-disabled-rating;
       }
     }
   }
@@ -642,8 +654,11 @@ $color-disabled-rating: #999 !default;
   &.color-negative {
     .star-container {
       .star {
-        svg, i {
+        svg {
           fill: $color-negative-rating;
+        }
+        i {
+          color: $color-negative-rating;
         }
       }
     }
@@ -652,8 +667,11 @@ $color-disabled-rating: #999 !default;
   &.color-middle {
     .star-container {
       .star {
-        svg, i {
+        svg {
           fill: $color-middle-rating;
+        }
+        i {
+          color: $color-middle-rating;
         }
       }
     }
@@ -662,8 +680,11 @@ $color-disabled-rating: #999 !default;
   &.color-positive {
     .star-container {
       .star {
-        svg, i {
+        svg {
           fill: $color-positive-rating;
+        }
+        i {
+          color: $color-positive-rating;
         }
       }
     }
