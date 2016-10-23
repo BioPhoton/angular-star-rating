@@ -1,0 +1,8 @@
+{
+  "name": "angular-stars",
+  "globalDependencies": {
+    "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#b66d6115d7a8cd74af45e59d36c4447e5d1e9a52",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#b66d6115d7a8cd74af45e59d36c4447e5d1e9a52",
+    "angular-ui-router": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-router/angular-ui-router.d.ts#b66d6115d7a8cd74af45e59d36c4447e5d1e9a52"
+   }
+}
