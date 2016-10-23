@@ -1,0 +1,28 @@
+<div id="{{$ctrl.id}}"
+     class="rating {{$ctrl.rating?'value-'+$ctrl.rating:0}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}}"
+     ng-class="{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled, 'spread':$ctrl.spread}">
+  <div ng-show="$ctrl.text"
+       class="label-value">
+    {{$ctrl.text}}
+  </div>
+
+  <div class="star-container">
+    <div class="star"
+        ng-repeat="star in $ctrl.stars track by $index"
+        ng-click="$ctrl.onStarClicked(star)">
+
+        <i class="star-empty {{$ctrl.classEmpty}}"></i>
+        <i class="star-filled {{$ctrl.classFilled}}"></i>
+
+        <svg class="star-empty {{$ctrl.classEmpty}}">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href={{$ctrl.pathEmpty}}></use>
+        </svg>
+        <svg class="star-filled {{$ctrl.classFilled}}">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href={{$ctrl.pathFilled}}></use>
+        </svg>
+
+       </div>
+  </div>
+
+</div>
+
