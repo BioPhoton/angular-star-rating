@@ -91,7 +91,7 @@ default                  - No spread
 .spread                  - Stars are spread to the entire container width
 
 markup:
-<div class="rating value-4 large {$modifiers}">
+<div class="rating value-4 {$modifiers}">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -117,9 +117,13 @@ Static Color
 
 Overriding default colors of ratings to display the color independent of the rating.
 
+default                  - No spread
+.color-positive          - Stars are always colored positive
+.color-middle          - Stars are always colored middle
+.color-negative          - Stars are always colored negative
 
 markup:
-<div class="rating value-2 large color-positive">
+<div class="rating {$modifiers}">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -131,7 +135,7 @@ markup:
         </div>
     </div>
 </div>
-<div class="rating value-3 large color-negative">
+<div class="rating value-2 {$modifiers}">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -143,7 +147,19 @@ markup:
         </div>
     </div>
 </div>
-<div class="rating value-4 large color-middle ">
+<div class="rating value-3 {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="rating value-4 {$modifiers}">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
@@ -310,16 +326,16 @@ Styleguide 1.1.5
 
    By default the stars animate (fade) to the new state. These modifiers provide three different durations of the transition.
 
-   default                  - Transition runs in noticeable speed
-  .immediately              - No Transition
-  .noticeable               - Transition runs in noticeable speed
-  .slow                     - Transition runs very slow
+   default                   - Transition runs in noticeable speed
+   .immediately              - No Transition
+   .noticeable               - Transition runs in noticeable speed
+   .slow                     - Transition runs very slow
 
    markup:
-   <div class="rating value-{{rating}} padding {$modifiers}">
-    <div class="star-container">{{rating}}!
-        <div ng-init="rating = 2" class="star" ng-repeat="i in [1,2,3,4,5] track by $index" ng-click="(rating == 2)?4:2">
-            <svg class="star-empty">{{$index}}!
+   <div ng-init="data.rating = 1" class="rating padding value-{{data.rating}} {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5] track by $index" ng-click="data.rating = (data.rating == 1)?5:1">
+            <svg class="star-empty">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
             </svg>
             <svg class="star-filled">
@@ -337,16 +353,131 @@ Styleguide 1.1.5
    Styleguide 1.1.7
    */
 
-$color-negative-rating: #f03c56;
-$color-middle-rating: #ffc058;
+/*
+   Star Type
+
+   The stars can be generated oft of three different types. characters, svg's of any icon font
+
+   default                  - The default star type is svg
+   .star-icon               - Star-Characters for default browser font
+   .star-svg                - Star-Vectors form the shipped svg images
+
+   markup:
+   <div class="rating padding value-3 {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5] track by $index">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+            <i class="star-empty"></i>
+            <i class="star-filled"></i>
+        </div>
+    </div>
+  </div>
+  <div class="rating padding value-3 {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5] track by $index">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/icons.svg#star-filled"></use>
+            </svg>
+            <i class="star-empty fa fa-star"></i>
+            <i class="star-filled fa fa-star-o"></i>
+        </div>
+    </div>
+  </div>
+
+   sg-wrapper:
+   <div class="phone-simulator padding">
+       <sg-wrapper-content/>
+   </div>
+
+   Styleguide 1.1.8
+   */
+
+
+/*VARIABLES
+====================================================*/
+/*Spacing*/
+$rating-margin-bottom:5px;
+$default-stars-label-margin:5px;
+
+/*Colors*/
+$color-negative-rating: #f03c56 !default;
+$color-middle-rating: #ffc058 !default;
 $color-positive-rating: #7ed321 !default;
 $color-disabled-rating: #999 !default;
+
+/*Sizes*/
+
+//default
+$default-star-width: 20px !default;
+$default-star-height: 20px !default;
+
+$default-star-font-size: 26px !default;
+$default-star-line-height: 21px !default;
+
+$default-label-font-size: 18px !default;
+$default-label-line-height: 18px !default;
+
+/*small*/
+$small-label-font-size:9.5px !default;
+$small-label-line-height:9.5px !default;
+
+$small-star-width:10px !default;
+$small-star-height:9,5px !default;
+
+$small-star-font-size:11px !default;
+$small-star-line-height:10px !default;
+
+/*medium*/
+$medium-star-width:$default-star-width;
+$medium-star-height:$default-star-height;
+
+$medium-label-font-size:$default-star-width;
+$medium-label-line-height:$default-star-line-height;
+
+$medium-star-font-size:$default-label-font-size;
+$medium-star-line-height:$default-label-line-height;
+
+/*large*/
+$large-star-width:35px !default;
+$large-star-height:33.3px !default;
+
+$large-star-font-size:36px !default;
+$large-star-line-height: 35px !default;
+
+$large-label-font-size: 28px !default;
+$large-star-line-height:28px !default;
+
+
+/*Animation*/
+$default-animation-speed:0.3s;
+$slow-animation-speed: 0.8s;
+$immediately-animation-type: none;
+$default-animation-type:ease;
+
+/*Icons*/
+
+$default-star-character-empty:"\2606";
+$default-star-character-filled:"\2605";
+
+/*Disabled*/
+$disabled-opacity:0.5;
+
+/*Default styles and modifier
+====================================================*/
 
 .rating {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 5px;
+  margin-bottom: $rating-margin-bottom;
 
   .star-container {
     display: flex;
@@ -369,12 +500,13 @@ $color-disabled-rating: #999 !default;
       }
 
       + .star {
-        margin-left: 5px;
+        margin-left: $default-stars-label-margin;
       }
     }
   }
 
-  /*Rating Value*/
+  /*Rating Value
+  ====================================================*/
 
   @for $i from 1 through 10 {
     &.value-#{$i} {
@@ -396,10 +528,6 @@ $color-disabled-rating: #999 !default;
               fill: $color-negative-rating;
               color: $color-negative-rating;
             }
-            @if $i <= 2 {
-              fill: $color-negative-rating;
-              color: $color-negative-rating;
-            }
             @if $i == 3 {
               fill: $color-middle-rating;
               color: $color-middle-rating;
@@ -414,7 +542,8 @@ $color-disabled-rating: #999 !default;
     }
   }
 
-  /*Rating Position*/
+  /*Rating Position
+  ====================================================*/
 
   &.label-top {
     flex-direction: column;
@@ -423,23 +552,23 @@ $color-disabled-rating: #999 !default;
       + .star-container {
         margin-left: 0;
         margin-right: 0;
-        margin-top: 5px;
+        margin-top: $default-stars-label-margin;
       }
     }
   }
 
   //Default
   .star-container {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: $default-stars-label-margin;
+    margin-right: $default-stars-label-margin;
   }
 
   &.label-left .label-value {
     flex: 0 0 auto;
 
     + .star-container {
-      margin-left: 5px;
-      margin-right: 0px;
+      margin-left: $default-stars-label-margin;
+      margin-right: 0;
     }
   }
 
@@ -449,7 +578,7 @@ $color-disabled-rating: #999 !default;
     .label-value {
       + .star-container {
         margin-left: 0;
-        margin-right: 5px;
+        margin-right: $default-stars-label-margin;
       }
     }
   }
@@ -461,63 +590,67 @@ $color-disabled-rating: #999 !default;
       + .star-container {
         margin-left: 0;
         margin-right: 0;
-        margin-bottom: 5px;
+        margin-bottom: $default-stars-label-margin;
       }
     }
   }
 
-  /*AnimationSpeed*/
+  /*AnimationSpeed
+  ====================================================*/
+
 
   //default
   .star {
-    transition: all 0.3s ease;
+    transition: all $default-animation-speed $default-animation-type;
     svg, i {
-      transition: all 0.3s ease;
+      transition: all $default-animation-speed $default-animation-type;
     }
   }
 
   &.immediately
   .star {
-    transition: none;
+    transition: $immediately-animation-type;
     svg, i {
-      transition: none;
+      transition: $immediately-animation-type;
     }
   }
 
   &.noticeable {
     .star {
-      transition: all 0.3s ease;
+      transition: all $default-animation-speed $default-animation-type;
       svg, i {
-        transition: all 0.3s ease;
+        transition: all $default-animation-speed $default-animation-type;
       }
     }
   }
 
   &.slow {
     .star {
-      transition: all 0.8s ease;
+      transition: all $slow-animation-speed $default-animation-type;
       svg, i {
-        transition: all 0.8s ease;
+        transition: all $slow-animation-speed $default-animation-type;
       }
     }
   }
 
-  /* Star Type*/
-  //default
+  /* Star Type
+  ====================================================*/
 
+  //default
   .star {
     svg {
       display: block;
     }
+
     i {
       display: none;
       font-style: normal;
 
       &.star-empty:before {
-        content:"\2606";
+        content:$default-star-character-empty;
       }
       &.star-filled:before {
-        content:"\2605";
+        content:$default-star-character-filled;
       }
     }
   }
@@ -545,72 +678,72 @@ $color-disabled-rating: #999 !default;
   }
 
   /* Sizes */
+  &.small {
+    .star {
+      width: $small-star-width;
+      height: $small-star-height;
+      i {
+        font-size:$small-star-font-size;
+        line-height: $small-star-line-height;
+      }
+    }
+
+    .label-value {
+      font-size: $small-label-font-size;
+      line-height: $small-label-line-height;
+    }
+  }
 
   //default
-  .star {
-    &svg {
-      width: 20px;
-      height: 20px;
-    }
-    &i {
-
+  .star{
+    width: $default-star-width;
+    height: $default-star-height;
+    i {
+      font-size: $default-star-font-size;
+      line-height: $default-star-line-height;
+      margin-left: -1px;
     }
   }
 
   .label-value {
-    font-size: 18px;
-    line-height: 18px;
-  }
-
-  &.small {
-    .star {
-      width: 10px;
-      height: 9.5px;
-      i {
-        font-size:11px;
-        line-height: 10px;
-      }
-    }
-
-    .label-value {
-      font-size: 9.5px;
-      line-height: 9.5px;
-    }
+    font-size: $default-label-font-size;
+    line-height: $default-label-line-height;
   }
 
   &.medium {
     .star {
-      width: 20px;
-      height: 20px;
+      width: $default-star-width;
+      height: $default-star-width;
       i {
-        font-size:21px;
-        line-height: 21px;
+        font-size:$default-star-font-size;
+        line-height: $default-star-line-height;
       }
     }
 
     .label-value {
-      font-size: 18px;
-      line-height: 18px;
+      font-size: $default-label-font-size;
+      line-height: $default-star-line-height;
     }
   }
 
   &.large {
     .star {
-      width: 35px;
-      height: 33.3px;
+      width: $large-star-width;
+      height: $large-star-height;
       i {
-        font-size:36px;
-        line-height: 35px;
+        font-size:$large-star-font-size;
+        line-height: $large-star-line-height;
       }
     }
 
     .label-value {
-      font-size: 28px;
-      line-height: 28px;
+      font-size: $large-label-font-size;
+      line-height: $large-star-line-height;
     }
   }
 
-  /* Spread */
+  /* Spread
+  ====================================================*/
 
   //default
   .star-container {
@@ -690,15 +823,16 @@ $color-disabled-rating: #999 !default;
     }
   }
 
-  /*Disabled*/
+  /*Disabled
+  ====================================================*/
 
   &.disabled {
     .label-value {
-      opacity: 0.5;
+      opacity: $disabled-opacity;
     }
     .star-container {
       .star {
-        opacity: 0.5;
+        opacity: $disabled-opacity;
       }
     }
   }
