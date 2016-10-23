@@ -1,2 +1,2 @@
 # all-stars
-A star rating component created purely over css.
+A css only star rating component. Also available as Angular component.
