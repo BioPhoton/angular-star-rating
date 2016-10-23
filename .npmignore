@@ -1,0 +1,13 @@
+examples
+chore
+coverage
+sc5-styleguide
+typings
+typings.json
+.idea
+changelog.md
+gulpfile.js
+karma.conf.js
+.clog.toml
+webpack.config.js
+webpack.test.config.js

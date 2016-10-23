@@ -9,6 +9,7 @@
  * ``
  */
 'use strict';
+var path = require('path');
 
 var gulp = require('gulp'),
   args = require('yargs').argv,
@@ -16,7 +17,7 @@ var gulp = require('gulp'),
   merge = require('merge-stream'),
   $ = require('gulp-load-plugins')();
 
-var config = require('../config');
+var config = require(path.join('..', '..', 'chore.config'));
 
 var defaultConfig = {
   root: config.root,

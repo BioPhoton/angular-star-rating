@@ -1,5 +1,5 @@
 {
-  "name": "all-stars example",
+  "name": "angular-star-rating example",
   "version": "1.0.0",
   "license": "MIT",
   "keywords": [
@@ -21,6 +21,7 @@
   "main": "index.js",
   "devDependencies": {
     "angular-mocks": "^1.5.8",
+    "angular-star-rating": "^1.0.1",
     "baggage-loader": "^0.2.4",
     "bootstrap": "^4.0.0-alpha.4",
     "css-loader": "^0.25.0",
