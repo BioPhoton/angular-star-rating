@@ -5,7 +5,7 @@ for directory in $directories; do
     echo Removing $directory && rm -rf $directory
 done
 
-echo Start installing node modules
+echo Start installing local node modules
 npm i
 echo Start installing typings modules
 typings install

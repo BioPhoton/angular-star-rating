@@ -31,14 +31,14 @@ module.exports = function makeWebpackConfig() {
     };
 
     config.module = {
-        preLoaders: [
+        /*preLoaders: [
             {
                 test: /\.ts$/,
                 loader: 'baggage?[file].html&[file].css'
             }
-        ],
+        ],*/
         loaders: [
-            , {test: /\.css$/, loader: "style!css"}
+            {test: /\.css$/, loader: "style!css"}
             , {test: /\.scss$/, loader: "style!css!sass"}
             // specify option using query
             , {test: /\.tsx?$/, exculde:"*.jasmine.ts",loader: 'ts-loader?compiler=ntypescript'}
@@ -47,9 +47,8 @@ module.exports = function makeWebpackConfig() {
                 test: [/\.svg/],
                 loader: 'file?name=assets/images/[name].[ext]'
             }
-            // inline base64 URLs for <=8k images, direct URLs for the rest
+            //inline base64 URLs for <=8k images, direct URLs for the rest
             //{test: /\.(svg|png|jpg)$/, loader: 'url-loader?limit=8192'}
-
         ]
     };
 

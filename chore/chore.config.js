@@ -18,7 +18,7 @@ module.exports = (function () {
     //dir paths
     var root = './',
         src = 'src',
-        dist = 'www',
+        dist = 'dist',
 
         entryFile = 'app.js',
         indexFile = 'index.html',

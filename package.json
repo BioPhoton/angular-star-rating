@@ -58,6 +58,7 @@
     "typedoc": "^0.4.5",
     "typescript": "^1.8.10",
     "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2",
     "wrench": "^1.5.9"
   },
   "dependencies": {
@@ -68,7 +69,7 @@
     "init": ".\\chore\\scripts\\init-project.sh",
     "postinstall": "typings install",
     "webpack:compile": "webpack --progress --colors",
-    "webpack:watch": "webpack --progress --colors --watch webpack-dev-server --content-base www/",
+    "webpack:watch": "webpack --progress --colors --watch webpack-dev-server --content-base dist/",
     "styleguide": "gulp styleguide:watch",
     "test": "node_modules/.bin/karma start karma.conf.js"
   }

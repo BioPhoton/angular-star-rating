@@ -3,73 +3,75 @@ var webpackConfig = require('./webpack.config.js');
 
 webpackConfig.entry = {};
 
-module.exports = function(config) {
-  config.set({
+module.exports = function (config) {
+    config.set({
 
-    basePath: '.',
+        basePath: '.',
 
-    frameworks: ['jasmine'],
+        frameworks: ['jasmine'],
 
-    files: [
-      './src/app/common/star-rating/star-rating.controller.jasmine.ts'
-    ],
 
-    // proxied base paths
-    proxies: {
-      './src/app/common/star-rating/*.ts': ["webpack", "sourcemap"]
-    },
+        files: [
+            './dist/bundle.js'
+        ],
 
-    port: 9876,
+        // proxied base paths
+        //proxies: {
+        //    './src/app/common/star-rating/*.ts': ["webpack"]
+        //},
 
-    logLevel: config.LOG_INFO,
+        port: 9876,
 
-    colors: true,
+        logLevel: config.LOG_INFO,
 
-    autoWatch: true,
+        colors: true,
 
-    browsers: ['Chrome'],
+        autoWatch: true,
 
-    // Karma plugins loaded
-    plugins: [
-      'karma-jasmine',
-      'karma-coverage',
-      'karma-chrome-launcher'
-    ],
+        browsers: ['Chrome'],
 
-    // Coverage reporter generates the coverage
-    reporters: ['progress', 'dots', 'coverage'],
+        // Karma plugins loaded
+        plugins: [
+            'karma-webpack',
+            'karma-jasmine',
+            'karma-coverage',
+            'karma-chrome-launcher'
+        ],
 
-    // Source files that you wanna generate coverage for.
-    // Do not include tests or libraries (these files will be instrumented by Istanbul)
-    preprocessors: {
-        './src/app/common/star-rating/star-rating.controller.ts': ['webpack', 'coverage']
-      },
+        // Coverage reporter generates the coverage
+        reporters: ['progress', 'dots', 'coverage'],
 
-      webpack: {
-        //devtool: "inline-source-map",
-        resolve: {
-          extensions: ["", ".ts", ".js"]
+        // Source files that you wanna generate coverage for.
+        // Do not include tests or libraries (these files will be instrumented by Istanbul)
+        preprocessors: {
+            './dist/bundle.js': ['coverage']
         },
-        module: {
-          loaders: [
-            { test: /\.ts$/, loader: "ts-loader" },
-            { test: /\.html$/, loader: "raw" },
-            { test: /\.(jpg|png|woff|woff2|eot|ttf|svg|scss)$/, loader: "null" },
-          ]
-        }
-      },
 
-      webpackMiddleware: {
-        noInfo: true
-      },
+        webpack: {
+            //devtool: "inline-source-map",
+            resolve: {
+                extensions: ["", ".ts", ".js"]
+            },
+            module: {
+                loaders: [
+                    {test: /\.ts$/, loader: "ts-loader"},
+                    {test: /\.html$/, loader: "raw"},
+                    {test: /\.(jpg|png|woff|woff2|eot|ttf|svg|scss)$/, loader: "null"}
+                ]
+            }
+        },
 
-    coverageReporter: {
-      reporters:[
-        {dir : 'coverage/'},
-        {type:'text'}
-      ]
-    },
+        webpackMiddleware: {
+            noInfo: true
+        },
 
-    singleRun: true
-  })
+        coverageReporter: {
+            reporters: [
+                {dir: 'coverage/'},
+                {type: 'text'}
+            ]
+        },
+
+        singleRun: true
+    })
 };
