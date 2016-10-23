@@ -1,6 +1,6 @@
 {
   "name": "angular-star-rating",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "keywords": [
     "CSS",
@@ -25,7 +25,6 @@
   "devDependencies": {
     "angular-mocks": "^1.5.8",
     "baggage-loader": "^0.2.4",
-    "bootstrap": "^4.0.0-alpha.4",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
     "extendify": "^1.0.0",
