@@ -22,12 +22,12 @@ module.exports = function makeWebpackConfig() {
     };
 
     config.entry = {
-        app: path.join(__dirname, base_c.src, 'index.ts')
+        app: path.join(__dirname, base_c.src, base_c.app, 'index.ts')
     };
 
     config.output = {
         path: path.join(__dirname,base_c.dist),
-            filename: "bundle.js"
+            filename: "bundle.test.js"
     };
 
     config.module = {
@@ -38,21 +38,25 @@ module.exports = function makeWebpackConfig() {
             }
         ],*/
         loaders: [
-              {test: /\.css$/, loader: "style!css"}
+            {test: /\.css$/, loader: "style!css"}
             , {test: /\.scss$/, loader: "style!css!sass"}
             // specify option using query
-            , {test: /\.tsx?$/, exculde:"*.jasmine.ts",loader: 'ts-loader?compiler=ntypescript'}
+            , {test: /\.tsx?$/, include:"*.jasmine.ts",loader: 'ts-loader?compiler=ntypescript'}
             , {test: /\.html$/, loader: 'ngtemplate?relativeTo=' + __dirname + '/!html'}
-            //, {
-            //    test: [/\.svg/],
-            //    loader: 'file?name=assets/images/[name].[ext]'
-            //}
+            , {
+                test: [/\.svg/],
+                loader: 'file?name=assets/images/[name].[ext]'
+            }
             //inline base64 URLs for <=8k images, direct URLs for the rest
-            , {test: /\.(svg|png|jpg)$/, loader: 'url-loader?limit=8192'}
+            //{test: /\.(svg|png|jpg)$/, loader: 'url-loader?limit=8192'}
         ]
     };
 
     config.plugins = [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.join(base_c.src, 'index.ejs')
+        })
         //, new webpack.optimize.UglifyJsPlugin()
     ];
 

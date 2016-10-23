@@ -3,7 +3,7 @@
 # all commit and issue links
 repository = "https://github.com/BioPhoton/angular-stars.git"
 # A constant release title
-subtitle = "Amngular Stars"
+subtitle = "Angular Star-Rating Component"
 
 # specify the style of commit links to generate, defaults to "github" if omitted
 link-style = "gitlab"

@@ -4,6 +4,7 @@
     "sourceMap": true
   },
   "exclude": [
+    "examples",
     "node_modules"
   ]
 }

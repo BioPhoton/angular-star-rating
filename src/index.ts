@@ -1,4 +1,4 @@
-import * as angular from 'angular';
+//import * as angular from 'angular';
 
 import {StarRatingComponent} from "./star-rating.component"
 import styles = require('./star-rating.sc5.scss');
