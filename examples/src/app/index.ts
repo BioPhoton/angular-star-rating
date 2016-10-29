@@ -1,18 +1,20 @@
-import bootstrap = require('bootstrap/dist/css/bootstrap.css');
-let bootstrap = bootstrap;
+import Bootstrap = require('bootstrap/dist/css/bootstrap.css');
 
+let bootstrap = Bootstrap;
+//let angularStars = AngularStars;
 
 import * as angular from 'angular';
 import 'angular-ui-router';
 import * as uiRouter from "angular-ui-router";
 
-import {initPage} from "./components/init/index";
-import {angularStars} from "./common/star-rating/index";
+import 'angular-star-rating';
+import {angularStars} from "angular-star-rating/dist/index.js";
 
+import {initPage} from "./components/init/index";
 
 angular.module('app',
       [
           "ui.router"
           , initPage
-          , angularStars
+          , 'star-rating'
       ]);
