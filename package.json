@@ -21,7 +21,7 @@
     "url": "https://github.com/BioPhoton/angular-stars/issues"
   },
   "homepage": "https://github.com/BioPhoton/angular-stars#readme",
-  "main": "index.js",
+  "main": "dist/index.js",
   "devDependencies": {
     "angular-mocks": "^1.5.8",
     "baggage-loader": "^0.2.4",

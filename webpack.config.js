@@ -27,7 +27,7 @@ module.exports = function makeWebpackConfig() {
 
     config.output = {
         path: path.join(__dirname,base_c.dist),
-            filename: "bundle.js"
+            filename: "index.js"
     };
 
     config.module = {
