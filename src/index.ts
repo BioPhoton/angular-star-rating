@@ -1,7 +1,7 @@
 //import * as angular from 'angular';
 
 import {StarRatingComponent} from "./star-rating.component"
-import styles = require('./star-rating.sc5.scss');
+import styles = require('./scss/star-rating.sc5.scss');
 import icons = require('./star-rating.icons.svg');
 
 let styles = styles;
