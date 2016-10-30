@@ -52,8 +52,16 @@ module.exports = function makeWebpackConfig() {
         ]
     };
 
+    config.sassLoader =  {
+        outputStyle: 'compressed'
+    };
+
     config.plugins = [
-        //, new webpack.optimize.UglifyJsPlugin()
+          new webpack.optimize.DedupePlugin()
+        , new webpack.optimize.UglifyJsPlugin({
+              compress: { warnings: false }
+            , comments: false
+        })
     ];
 
     return config;
