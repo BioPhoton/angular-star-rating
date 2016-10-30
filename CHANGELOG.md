@@ -1,3 +1,14 @@
+<a name="1.0.5"></a>
+## [1.0.5](https://github.com/BioPhoton/angular-star/compare/v1.0.4...v1.0.5) (2016-10-30)
+
+
+### Features
+
+* **changelog:** implement npm script for changelog file ([0324329](https://github.com/BioPhoton/angular-star/commit/0324329))
+* **compress scss and js:** compress and strip comments in scss and js ([ea12929](https://github.com/BioPhoton/angular-star/commit/ea12929)), closes [#20](https://github.com/BioPhoton/angular-star/issues/20)
+
+
+
 <a name="1.0.4"></a>
 ## 1.0.4 (2016-10-30)
 
