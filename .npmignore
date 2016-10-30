@@ -6,7 +6,6 @@ typings
 .clog.toml
 .gitignore
 .idea
-changelog.md
 gulpfile.js
 karma.conf.js
 typings.json

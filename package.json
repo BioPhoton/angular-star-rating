@@ -1,6 +1,6 @@
 {
   "name": "angular-star-rating",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "keywords": [
     "Star-Rating",
@@ -83,6 +83,7 @@
     "webpack:compile": "webpack --progress --colors",
     "webpack:watch": "webpack --progress --colors --watch webpack-dev-server --content-base dist/",
     "styleguide": "gulp styleguide:watch",
-    "test": "node_modules/.bin/karma start karma.conf.js"
+    "test": "node_modules/.bin/karma start karma.conf.js",
+    "changelog":"conventional-changelog -p angular -i CHANGELOG.md -s"
   }
 }
