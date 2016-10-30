@@ -2,7 +2,7 @@
 
 import {StarRatingComponent} from "./star-rating.component"
 import styles = require('./star-rating.sc5.scss');
-import icons = require('./icons.svg');
+import icons = require('./star-rating.icons.svg');
 
 let styles = styles;
 let icons = icons;

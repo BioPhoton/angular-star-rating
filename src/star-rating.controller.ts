@@ -16,6 +16,12 @@ export class StarRatingController {
 
     static DefaultStarType:starRatingStarTypes = "svg";
 
+    static DefaultAssetsPath:string = "assets/images/";
+
+    static DefaultSvgPath:string = StarRatingController.DefaultAssetsPath+"star-rating.icons.svg";
+    static DefaultSvgEmptySymbolId:string = "star";
+    static DefaultSvgFilledSymbolId:string = "star-filled";
+
     /**
      * getStarsArray
      *
@@ -60,11 +66,12 @@ export class StarRatingController {
     stars: Array<number>;
     fixedColor:starRatingColors;
 
+    //
     constructor() {
         this.classEmpty = this.classEmpty || "star-empty-icon";
         this.classFilled = this.classFilled || "star-filled-icon";
-        this.pathEmpty = this.pathEmpty || "assets/images/icons.svg#star";
-        this.pathFilled = this.pathFilled || "assets/images/icons.svg#star-filled";
+        this.pathEmpty = this.pathEmpty || StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgEmptySymbolId;
+        this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgFilledSymbolId;
         this.getColor  = this.getColor || this.calculateColor;
         this.onUpdate  = this.onUpdate || function () {};
         this.onClick  = this.onClick || function () {};
@@ -117,7 +124,6 @@ export class StarRatingController {
         if (valueChanged('labelPosition', changes)) {
             this.labelPosition = changes.labelPosition.currentValue || StarRatingController.DefaultLabelPosition;
         }
-
 
         if (valueChanged('starType', changes)) {
             this.starType = changes.starType.currentValue || StarRatingController.DefaultStarType;

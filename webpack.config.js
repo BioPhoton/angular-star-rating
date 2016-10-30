@@ -43,12 +43,12 @@ module.exports = function makeWebpackConfig() {
             // specify option using query
             , {test: /\.tsx?$/, exculde:"*.jasmine.ts",loader: 'ts-loader?compiler=ntypescript'}
             , {test: /\.html$/, loader: 'ngtemplate?relativeTo=' + __dirname + '/!html'}
-            //, {
-            //    test: [/\.svg/],
-            //    loader: 'file?name=assets/images/[name].[ext]'
-            //}
+            , {
+                test: [/\.svg/],
+                loader: 'file?name=assets/images/[name].[ext]'
+            }
             //inline base64 URLs for <=8k images, direct URLs for the rest
-            , {test: /\.(svg|png|jpg)$/, loader: 'url-loader?limit=8192'}
+            //, {test: /\.(svg|png|jpg)$/, loader: 'url-loader?limit=8192'}
         ]
     };
 
