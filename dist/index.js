@@ -98,6 +98,7 @@
 
 	"use strict";
 	var StarRatingController = (function () {
+	    //
 	    function StarRatingController() {
 	        /**
 	         * calculateColor
@@ -127,8 +128,8 @@
 	        };
 	        this.classEmpty = this.classEmpty || "star-empty-icon";
 	        this.classFilled = this.classFilled || "star-filled-icon";
-	        this.pathEmpty = this.pathEmpty || "assets/images/icons.svg#star";
-	        this.pathFilled = this.pathFilled || "assets/images/icons.svg#star-filled";
+	        this.pathEmpty = this.pathEmpty || StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgEmptySymbolId;
+	        this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgFilledSymbolId;
 	        this.getColor = this.getColor || this.calculateColor;
 	        this.onUpdate = this.onUpdate || function () { };
 	        this.onClick = this.onClick || function () { };
@@ -254,6 +255,10 @@
 	StarRatingController.DefaultSpeed = "noticeable";
 	StarRatingController.DefaultLabelPosition = "left";
 	StarRatingController.DefaultStarType = "svg";
+	StarRatingController.DefaultAssetsPath = "assets/images/";
+	StarRatingController.DefaultSvgPath = StarRatingController.DefaultAssetsPath + "star-rating.icons.svg";
+	StarRatingController.DefaultSvgEmptySymbolId = "star";
+	StarRatingController.DefaultSvgFilledSymbolId = "star-filled";
 
 
 /***/ },
@@ -261,7 +266,7 @@
 /***/ function(module, exports) {
 
 	var path = 'src/star-rating.tpl.html';
-	var html = "<div id=\"{{$ctrl.id}}\"\r\n     class=\"rating {{$ctrl.rating?'value-'+$ctrl.rating:0}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}}\"\r\n     ng-class=\"{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled, 'spread':$ctrl.spread}\">\r\n  <div ng-show=\"$ctrl.text\"\r\n       class=\"label-value\">\r\n    {{$ctrl.text}}\r\n  </div>\r\n\r\n  <div class=\"star-container\">\r\n    <div class=\"star\"\r\n        ng-repeat=\"star in $ctrl.stars track by $index\"\r\n        ng-click=\"$ctrl.onStarClicked(star)\">\r\n\r\n        <i class=\"star-empty {{$ctrl.classEmpty}}\"></i>\r\n        <i class=\"star-filled {{$ctrl.classFilled}}\"></i>\r\n\r\n        <svg class=\"star-empty {{$ctrl.classEmpty}}\">\r\n          <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href={{$ctrl.pathEmpty}}></use>\r\n        </svg>\r\n        <svg class=\"star-filled {{$ctrl.classFilled}}\">\r\n            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href={{$ctrl.pathFilled}}></use>\r\n        </svg>\r\n\r\n       </div>\r\n  </div>\r\n\r\n</div>\r\n\r\n";
+	var html = "<div id=\"{{$ctrl.id}}\"\r\n     class=\"rating {{$ctrl.rating?'value-'+$ctrl.rating:0}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}}\"\r\n     ng-class=\"{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled, 'spread':$ctrl.spread}\">\r\n    <div ng-show=\"$ctrl.text\"\r\n       class=\"label-value\">\r\n    {{$ctrl.text}}\r\n  </div>\r\n\r\n<img ng-src=\"{{$ctrl.test}}\" style=\"border:1px solid red;\">\r\n\r\n  <div class=\"star-container\">\r\n    <div class=\"star\"\r\n        ng-repeat=\"star in $ctrl.stars track by $index\"\r\n        ng-click=\"$ctrl.onStarClicked(star)\">\r\n\r\n        <i class=\"star-empty {{$ctrl.classEmpty}}\"></i>\r\n        <i class=\"star-filled {{$ctrl.classFilled}}\"></i>\r\n\r\n        <svg class=\"star-empty {{$ctrl.classEmpty}}\">\r\n          <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:ng-href=\"{{$ctrl.pathEmpty}}\"></use>\r\n        </svg>\r\n        <svg class=\"star-filled {{$ctrl.classFilled}}\">\r\n            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathFilled}}\"></use>\r\n        </svg>\r\n\r\n       </div>\r\n  </div>\r\n\r\n</div>\r\n\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -615,9 +620,9 @@
 
 /***/ },
 /* 8 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = "data:image/svg+xml;base64,PHN2ZyBzdHlsZT0icG9zaXRpb246IGFic29sdXRlOyB3aWR0aDogMDsgaGVpZ2h0OiAwOyBvdmVyZmxvdzogaGlkZGVuOyIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4NCjxkZWZzPg0KDQo8c3ltYm9sIGlkPSJzdGFyIiB2aWV3Qm94PSIwIDAgMzQgMzIiPg0KPHRpdGxlPnN0YXI8L3RpdGxlPg0KPHBhdGggY2xhc3M9InBhdGgxIiBkPSJNMzMuNDEyIDEyLjM5NWwtMTEuODQyLTEuMDIxLTQuNjI4LTEwLjkwNC00LjYyOCAxMC45Mi0xMS44NDIgMS4wMDUgOC45OTMgNy43OTEtMi43MDEgMTEuNTc5IDEwLjE3OS02LjE0NCAxMC4xNzkgNi4xNDQtMi42ODUtMTEuNTc5IDguOTc2LTcuNzkxek0xNi45NDEgMjIuNTQxbC02LjE5MyAzLjczOSAxLjY0Ny03LjA0OS01LjQ2OC00Ljc0NCA3LjIxNC0wLjYyNiAyLjgtNi42MzggMi44MTYgNi42NTQgNy4yMTQgMC42MjYtNS40NjggNC43NDQgMS42NDcgNy4wNDktNi4yMDktMy43NTV6Ij48L3BhdGg+DQo8L3N5bWJvbD4NCg0KICAgIDxzeW1ib2wgaWQ9InN0YXItZmlsbGVkIiB2aWV3Qm94PSIwIDAgMzQgMzIiPg0KPHRpdGxlPnN0YXItZmlsbGVkPC90aXRsZT4NCjxwYXRoIGNsYXNzPSJwYXRoMSIgZD0iTTE2Ljk0MSAyNS42MjFsMTAuMTc5IDYuMTQ0LTIuNzAxLTExLjU3OSA4Ljk5My03Ljc5MS0xMS44NDItMS4wMDUtNC42MjgtMTAuOTItNC42MjggMTAuOTItMTEuODQyIDEuMDA1IDguOTkzIDcuNzkxLTIuNzAxIDExLjU3OXoiPjwvcGF0aD4NCjwvc3ltYm9sPg0KDQo8L2RlZnM+DQo8L3N2Zz4NCg=="
+	module.exports = __webpack_require__.p + "assets/images/star-rating.icons.svg";
 
 /***/ }
 /******/ ]);

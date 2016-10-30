@@ -3,13 +3,18 @@
   "version": "1.0.3",
   "license": "MIT",
   "keywords": [
+    "Star-Rating",
+    "Starrating",
+    "Icon",
+    "SVG",
+    "PNG",
+    "JPEG",
     "CSS",
     "CSS only",
     "JavaScript",
     "Angular1.5",
     "Angular2",
-    "Typescript",
-    "SVG"
+    "Typescript"
   ],
   "description": "Angular star rating component. This project is based on a css only starrating implementation",
   "author": "Michael Hladky",
@@ -55,6 +60,7 @@
     "ngtemplate-loader": "^1.3.1",
     "node-sass": "^3.10.0",
     "ntypescript": "^1.201609060105.1",
+    "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
     "sc5-styleguide": "^1.2.0",
     "style-loader": "^0.13.1",
@@ -73,6 +79,7 @@
   "scripts": {
     "init": ".\\chore\\scripts\\init-project.sh",
     "postinstall": "typings install",
+    "clean:dist": "rimraf dist",
     "webpack:compile": "webpack --progress --colors",
     "webpack:watch": "webpack --progress --colors --watch webpack-dev-server --content-base dist/",
     "styleguide": "gulp styleguide:watch",
