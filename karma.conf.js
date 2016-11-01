@@ -1,9 +1,13 @@
+var path = require('path');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
+var base_config = require('./chore/chore.config');
 
 webpackConfig.entry = {};
 
 module.exports = function (config) {
+    var pathToIndexJs =  './'+path.join(base_config.dist,webpackConfig.output.filename);
+
     config.set({
 
         basePath: '.',
@@ -12,7 +16,8 @@ module.exports = function (config) {
 
 
         files: [
-            './dist/bundle.js'
+            './node_modules/angular/angular.js',
+            pathToIndexJs
         ],
 
         // proxied base paths
@@ -44,7 +49,7 @@ module.exports = function (config) {
         // Source files that you wanna generate coverage for.
         // Do not include tests or libraries (these files will be instrumented by Istanbul)
         preprocessors: {
-            './dist/bundle.js': ['coverage']
+            './dist/index.js': ['coverage']
         },
 
         webpack: {
