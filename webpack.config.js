@@ -26,22 +26,22 @@ module.exports = function makeWebpackConfig() {
     };
 
     config.output = {
-        path: path.join(__dirname,base_c.dist),
-            filename: "index.js"
+        path: path.join(__dirname, base_c.dist),
+        filename: "index.js"
     };
 
     config.module = {
         /*preLoaders: [
-            {
-                test: /\.ts$/,
-                loader: 'baggage?[file].html&[file].css'
-            }
-        ],*/
+         {
+         test: /\.ts$/,
+         loader: 'baggage?[file].html&[file].css'
+         }
+         ],*/
         loaders: [
-              {test: /\.css$/, loader: "style!css"}
+            {test: /\.css$/, loader: "style!css"}
             , {test: /\.scss$/, loader: "style!css!sass"}
             // specify option using query
-            , {test: /\.tsx?$/, exculde:"*.jasmine.ts",loader: 'ts-loader?compiler=ntypescript'}
+            , {test: /\.tsx?$/, exculde: "*.jasmine.ts", loader: 'ts-loader?compiler=ntypescript'}
             , {test: /\.html$/, loader: 'ngtemplate?relativeTo=' + __dirname + '/!html'}
             , {
                 test: [/\.svg/],
@@ -52,14 +52,14 @@ module.exports = function makeWebpackConfig() {
         ]
     };
 
-    config.sassLoader =  {
+    config.sassLoader = {
         outputStyle: 'compressed'
     };
 
     config.plugins = [
-          new webpack.optimize.DedupePlugin()
+        new webpack.optimize.DedupePlugin()
         , new webpack.optimize.UglifyJsPlugin({
-              compress: { warnings: false }
+            compress: {warnings: false}
             , comments: false
         })
     ];
