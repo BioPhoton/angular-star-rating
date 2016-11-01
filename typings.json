@@ -1,7 +1,8 @@
 {
   "name": "all-stars",
   "globalDependencies": {
-    "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#b66d6115d7a8cd74af45e59d36c4447e5d1e9a52"
+    "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#b66d6115d7a8cd74af45e59d36c4447e5d1e9a52",
+    "angular-mocks": "registry:dt/angular-mocks#1.5.0+20160608104721"
   },
   "globalDevDependencies": {
     "jasmine": "registry:dt/jasmine#2.5.0+20161003201800",
