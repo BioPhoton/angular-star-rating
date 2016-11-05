@@ -55,6 +55,7 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
+    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
     "merge-stream": "^1.0.0",
     "ngtemplate-loader": "^1.3.1",
@@ -84,6 +85,7 @@
     "webpack:watch": "webpack --progress --colors --watch webpack-dev-server --content-base dist/",
     "styleguide": "gulp styleguide:watch",
     "test": "node_modules/.bin/karma start karma.conf.js",
-    "changelog":"conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "coverage": "http-server -c-1 -o -p 9875 ./coverage"
   }
 }
