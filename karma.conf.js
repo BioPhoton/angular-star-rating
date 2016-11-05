@@ -6,24 +6,12 @@ var base_config = require('./chore/chore.config');
 webpackConfig.entry = {};
 
 module.exports = function (config) {
-    var pathToIndexJs =  './'+path.join(base_config.dist,webpackConfig.output.filename);
 
     config.set({
 
         basePath: '.',
 
         frameworks: ['jasmine'],
-
-
-        files: [
-            './node_modules/angular/angular.js',
-            pathToIndexJs
-        ],
-
-        // proxied base paths
-        //proxies: {
-        //    './src/app/common/star-rating/*.ts': ["webpack"]
-        //},
 
         port: 9876,
 
@@ -35,12 +23,20 @@ module.exports = function (config) {
 
         browsers: ['Chrome'],
 
+        files: [
+            './node_modules/angular/angular.js',
+            './src/star-rating.controller.jasmine.ts'
+        ],
+
+
         // Karma plugins loaded
         plugins: [
-            'karma-webpack',
-            'karma-jasmine',
-            'karma-coverage',
-            'karma-chrome-launcher'
+              'karma-webpack'
+            , 'karma-jasmine'
+            , 'karma-coverage'
+            , 'karma-chrome-launcher'
+            //, 'karma-typescript'
+            //, 'karma-commonjs'
         ],
 
         // Coverage reporter generates the coverage
@@ -49,11 +45,13 @@ module.exports = function (config) {
         // Source files that you wanna generate coverage for.
         // Do not include tests or libraries (these files will be instrumented by Istanbul)
         preprocessors: {
-            './dist/index.js': ['coverage']
+            // './dist/index.js': ['coverage']
+             'src/**/*.ts': ["webpack"]
         },
 
         webpack: {
             //devtool: "inline-source-map",
+            entry:{},
             resolve: {
                 extensions: ["", ".ts", ".js"]
             },
