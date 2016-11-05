@@ -1,23 +1,30 @@
-    import * as angular from 'angular';
+    import './index.ts';
+    import 'angular';
     import 'angular-mocks';
-    import * as mocks from 'angular-mocks';
 
     import {StarRatingController} from "./star-rating.controller";
     import IRootScopeService = angular.IRootScopeService;
-
 
     describe('Controller Test', () => {
 
         let controller: StarRatingController;
         let $rootScope:IRootScopeService;
 
-        beforeEach(angular.mock.module('app'));
+       beforeEach(angular.mock.module('star-rating'));
 
         beforeEach(() => {
-            angular.mock.inject(function (_starRatingController_, _$rootScope_) {
+            angular.mock.inject(function ($controller, _starRatingCtrl_, _$rootScope_) {
 
                 $rootScope = _$rootScope_;
-                controller =_starRatingController_;
+                controller =_starRatingCtrl_;
+
+                var scope = $rootScope.$new();
+                var createController = function() {
+                    return $controller('starRatingCtrl', {
+                        '$scope': scope
+                    });
+                };
+
             });
 
         });
@@ -35,4 +42,3 @@
         });
 
     });
-
