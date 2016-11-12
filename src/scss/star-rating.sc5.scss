@@ -1,8 +1,71 @@
 @charset "UTF-8";
 
-@import
-  // Variables
-"_variables";
+/*VARIABLES
+====================================================*/
+
+/*Spacing*/
+$rating-margin-bottom:5px;
+$default-stars-label-margin:5px;
+
+/*Colors*/
+$color-negative-rating: #f03c56 !default;
+$color-middle-rating: #ffc058 !default;
+$color-positive-rating: #7ed321 !default;
+$color-disabled-rating: #999 !default;
+
+/*Sizes*/
+//default
+$default-star-width: 20px !default;
+$default-star-height: 20px !default;
+
+$default-star-font-size: 26px !default;
+$default-star-line-height: 21px !default;
+
+$default-label-font-size: 18px !default;
+$default-label-line-height: 18px !default;
+
+//small
+$small-label-font-size:9.5px !default;
+$small-label-line-height:9.5px !default;
+
+$small-star-width:10px !default;
+$small-star-height:9,5px !default;
+
+$small-star-font-size:11px !default;
+$small-star-line-height:10px !default;
+
+//medium
+$medium-star-width:$default-star-width;
+$medium-star-height:$default-star-height;
+
+$medium-label-font-size:$default-star-width;
+$medium-label-line-height:$default-star-line-height;
+
+$medium-star-font-size:$default-label-font-size;
+$medium-star-line-height:$default-label-line-height;
+
+//large
+$large-star-width:35px !default;
+$large-star-height:33.3px !default;
+
+$large-star-font-size:36px !default;
+$large-star-line-height: 35px !default;
+
+$large-label-font-size: 28px !default;
+$large-star-line-height:28px !default;
+
+/*Animation*/
+$default-animation-speed:0.3s;
+$slow-animation-speed: 0.8s;
+$immediately-animation-type: none;
+$default-animation-type:ease;
+
+/*Icons*/
+$default-star-character-empty:"\2606";
+$default-star-character-filled:"\2605";
+
+/*Disabled*/
+$disabled-opacity:0.5;
 
 /*
 Star Rating
