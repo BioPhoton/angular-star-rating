@@ -12,6 +12,7 @@
     "CSS",
     "CSS only",
     "JavaScript",
+    "Angular1",
     "Angular1.5",
     "Angular2",
     "Typescript"
@@ -81,7 +82,7 @@
     "init": ".\\chore\\scripts\\init-project.sh",
     "postinstall": "typings install",
     "clean:dist": "rimraf dist",
-    "webpack:compile": "webpack --progress --colors",
+    "webpack:compile": "webpack --progress --colors --display-error-details",
     "webpack:watch": "webpack --progress --colors --watch webpack-dev-server --content-base dist/",
     "styleguide": "gulp styleguide:watch",
     "test": "node_modules/.bin/karma start karma.conf.js",
