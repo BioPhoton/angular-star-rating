@@ -14,11 +14,10 @@ module.exports = function makeWebpackConfig() {
      */
     var config = {};
 
-    config.target = 'node';
-
     config.resolve = {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+         extensions: ['', '.html','.scss', '.ts', '.tsx', '.js', '.webpack.js', '.web.js']
+        , root: __dirname
     };
 
     config.entry = {
@@ -26,8 +25,8 @@ module.exports = function makeWebpackConfig() {
     };
 
     config.output = {
-        path: path.join(__dirname, base_c.dist),
-        filename: "index.js"
+          filename: "index.js"
+        , path: path.join(__dirname, base_c.dist)
     };
 
     config.module = {
@@ -38,7 +37,7 @@ module.exports = function makeWebpackConfig() {
          }
          ],*/
         loaders: [
-            {test: /\.css$/, loader: "style!css"}
+              {test: /\.css$/, loader: "style!css"}
             , {test: /\.scss$/, loader: "style!css!sass"}
             // specify option using query
             , {test: /\.tsx?$/, exculde: "*.jasmine.ts", loader: 'ts-loader?compiler=ntypescript'}
