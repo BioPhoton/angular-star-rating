@@ -1,10 +1,10 @@
 import {StarRatingController} from "./star-rating.controller";
-import templateUrl = require('./star-rating.tpl.html');
+import starRatingTpl = require('./star-rating.tpl.html');
 
 export class StarRatingComponent implements ng.IComponentOptions {
 
     public bindings: any;
-    public controller: StarRatingController;
+    public controller: any;
     public templateUrl: string;
     public replace: boolean;
 
@@ -28,8 +28,7 @@ export class StarRatingComponent implements ng.IComponentOptions {
         };
         this.replace = true;
         this.controller = StarRatingController;
-        this.templateUrl = templateUrl;
+        this.templateUrl = <string>starRatingTpl;
     }
 
 }
-
