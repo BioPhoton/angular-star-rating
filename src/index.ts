@@ -11,5 +11,5 @@ let icons = icons;
 export const angularStars = angular
     .module('star-rating', [])
     .controller('starRatingCtrl', StarRatingController)
-    .component('starRating', new StarRatingComponent())
+    .component('starRatingComp', new StarRatingComponent())
     .name;
