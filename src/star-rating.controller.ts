@@ -4,7 +4,32 @@ export type starRatingSpeed = "immediately" | "noticeable" | "slow";
 export type starRatingPosition = "left" | "right" | "top" | "bottom";
 export type starRatingStarTypes = "svg" | "icon" | "image";
 
-export class StarRatingController {
+export interface IStarRatingCompBindings {
+    //@
+    id?: string;
+    //<
+    text?: string;
+    color?: starRatingColors;
+    labelPosition?:starRatingPosition;
+    speed?:starRatingSpeed;
+    size?: starRatingSizes;
+    starType?:starRatingStarTypes;
+    spread?: boolean;
+    readOnly?: boolean;
+    disabled?: boolean;
+    rating?: number;
+    numOfStars?: number;
+    //&
+    getColor?: Function;
+    onClick?: Function;
+    onUpdate?: Function;
+}
+
+export class StarRatingController implements IStarRatingCompBindings{
+
+    static DefaultClassEmpty:string = "default-star-empty-icon";
+
+    static DefaultClassFilled:string = "default-star-filled-icon";
 
     static DefaultNumOfStars:number = 5;
 
@@ -21,6 +46,11 @@ export class StarRatingController {
     static DefaultSvgPath:string = StarRatingController.DefaultAssetsPath+"star-rating.icons.svg";
     static DefaultSvgEmptySymbolId:string = "star";
     static DefaultSvgFilledSymbolId:string = "star-filled";
+
+    static DefaultSvgPathEmpty:string = StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgEmptySymbolId;
+
+    static DefaultSvgPathFilled:string = StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgFilledSymbolId;
+
 
     /**
      * getStarsArray
@@ -64,15 +94,17 @@ export class StarRatingController {
     pathEmpty: string;
     pathFilled:string;
     stars: Array<number>;
-    fixedColor:starRatingColors;
+    staticColor:starRatingColors;
 
     //
     constructor() {
-        this.classEmpty = this.classEmpty || "star-empty-icon";
-        this.classFilled = this.classFilled || "star-filled-icon";
-        this.pathEmpty = this.pathEmpty || StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgEmptySymbolId;
-        this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgFilledSymbolId;
-        this.getColor  = this.getColor || this.calculateColor;
+        //set default values
+        this.classEmpty = this.classEmpty || StarRatingController.DefaultClassEmpty;
+        this.classFilled = this.classFilled || StarRatingController.DefaultClassFilled;
+        this.pathEmpty = this.pathEmpty || StarRatingController.DefaultSvgPathEmpty;
+        this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPathFilled;
+        this.numOfStars = (this.numOfStars && this.numOfStars > 0)?this.numOfStars:StarRatingController.DefaultNumOfStars;
+        this.getColor  = (typeof this.getColor === "function")?this.getColor:this.calculateColor;
         this.onUpdate  = this.onUpdate || function () {};
         this.onClick  = this.onClick || function () {};
 
@@ -82,15 +114,14 @@ export class StarRatingController {
     /**
      * $onChanges
      *
-     * angulars $onChange hook
+     *The components $onChange hook
      *
      * @param changes
      */
      $onChanges(changes): void {
-
         let valueChanged = function(key:string, changes):boolean {
             if (key in changes)
-                if (changes[key].currentValue != changes[key].previousValue) { return true; }
+                if (changes[key].currentValue != changes[key].previousValue) { console.log('key', changes[key].currentValue); return true; }
             return false;
         };
 
@@ -109,8 +140,8 @@ export class StarRatingController {
         }
 
         if (valueChanged('color' , changes)) {
-            this.fixedColor =(changes.color.currentValue)?changes.color.currentValue:undefined;
-            this.color = this.getColor(this.rating, this.numOfStars, this.fixedColor);
+            this.staticColor =(changes.color.currentValue)?changes.color.currentValue:undefined;
+            this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
         }
 
         if (valueChanged('size', changes)) {
@@ -166,15 +197,14 @@ export class StarRatingController {
      * updateRating
      *
      * Used to set the rating value and update other variables
-     * based on rating. This function also
-     * triggers the onUpdate emitter.
+     * based on rating. This function also triggers the onUpdate emitter.
      *
      * @param value
      */
     private updateRating(value: number) {
         this.rating = value;
+        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
         this.onUpdate({rating: this.rating});
-        this.color = this.getColor(this.rating, this.numOfStars, this.fixedColor);
     }
 
     /**
@@ -183,35 +213,37 @@ export class StarRatingController {
      * Used to set the numOfStars value and update other variables
      * based on numOfStars.
      *
-     * @param {number} nomOfStars the number of stars
+     * @param {number} numOfStars the number of stars
      */
-    private updateNumOfStars(nomOfStars: number) {
-        this.numOfStars = nomOfStars || StarRatingController.DefaultNumOfStars;
+    private updateNumOfStars(numOfStars: number) {
+        this.numOfStars = (numOfStars && numOfStars > 0)?numOfStars:StarRatingController.DefaultNumOfStars;
         this.stars = StarRatingController.getStarsArray(this.numOfStars);
-        this.color = this.getColor(this.rating, this.numOfStars, this.fixedColor);
+        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
     }
 
     /**
      * calculateColor
      *
      * The default function for color calculation
-     * basted on the current rating and the scale
-     *
+     * based on the current rating and the the number of stars possible.
+     * If a staticColor is set the function will use it as return value.
      *
      * @param rating
      * @param numOfStars
-     * @param fixColor
+     * @param staticColor
      * @returns {starRatingColors}
      */
-    private calculateColor = (rating, numOfStars, fixColor):starRatingColors => {
+    private calculateColor = (rating:number, numOfStars:number, staticColor?:starRatingColors):starRatingColors => {
+        //if a fix color is set use this one
+        if(staticColor) { return staticColor; }
 
-        if(fixColor) { return fixColor; }
+        //calculate size of smallest fraction
+        let fractinSize = numOfStars / 3;
 
-        let oneThird = numOfStars / 3;
+        //apply color by fraction
         let color:starRatingColors = 'negative';
-
-        if (rating > oneThird) { color = 'middle'; }
-        if (rating > oneThird * 2) { color = 'positive'; }
+        if (rating > fractinSize) { color = 'middle'; }
+        if (rating > fractinSize * 2) { color = 'positive'; }
 
         return color;
     };
