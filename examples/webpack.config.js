@@ -14,50 +14,53 @@ module.exports = function makeWebpackConfig() {
      */
     var config = {};
 
-    config.target = 'node';
-
     config.resolve = {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+        extensions: ['', '.html','.scss', '.ts', '.tsx', '.js', '.webpack.js', '.web.js']
+        , root: __dirname
     };
 
     config.entry = {
-        app: path.join(__dirname ,base_c.src, base_c.app, 'index.ts')
+        app: path.join(__dirname, base_c.src, 'app','index.ts')
     };
 
     config.output = {
-        path: path.join(__dirname,base_c.dist),
-            filename: "bundle.js"
+        filename: "index.js"
+        , path: path.join(__dirname, base_c.dist)
     };
 
     config.module = {
         /*preLoaders: [
-            {
-                test: /\.ts$/,
-                loader: 'baggage?[file].html&[file].css'
-            }
-        ],*/
+         {
+         test: /\.ts$/,
+         loader: 'baggage?[file].html&[file].css'
+         }
+         ],*/
         loaders: [
             {test: /\.css$/, loader: "style!css"}
             , {test: /\.scss$/, loader: "style!css!sass"}
             // specify option using query
-            , {test: /\.tsx?$/, exculde:"*.jasmine.ts",loader: 'ts-loader?compiler=ntypescript'}
+            , {test: /\.tsx?$/, exculde: "*.jasmine.ts", loader: 'ts-loader?compiler=ntypescript'}
             , {test: /\.html$/, loader: 'ngtemplate?relativeTo=' + __dirname + '/!html'}
             , {
                 test: [/\.svg/],
                 loader: 'file?name=assets/images/[name].[ext]'
             }
             //inline base64 URLs for <=8k images, direct URLs for the rest
-            //{test: /\.(svg|png|jpg)$/, loader: 'url-loader?limit=8192'}
+            //, {test: /\.(svg|png|jpg)$/, loader: 'url-loader?limit=8192'}
         ]
     };
 
+    config.sassLoader = {
+        outputStyle: 'compressed'
+    };
+
     config.plugins = [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.join(base_c.src, 'index.ejs')
+        new webpack.optimize.DedupePlugin()
+        , new webpack.optimize.UglifyJsPlugin({
+            compress: {warnings: false}
+            , comments: false
         })
-        //, new webpack.optimize.UglifyJsPlugin()
     ];
 
     return config;
