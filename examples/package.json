@@ -69,6 +69,6 @@
   "scripts": {
     "postinstall": "typings install",
     "webpack:compile": "webpack --progress --colors",
-    "webpack:watch": "webpack --progress --colors --watch webpack-dev-server --content-base dist/"
+    "webpack:serve": "webpack --progress --colors --watch webpack-dev-server --content-base dist/"
   }
 }
