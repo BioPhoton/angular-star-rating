@@ -30,6 +30,7 @@
   "main": "dist/index.js",
   "devDependencies": {
     "angular-mocks": "^1.5.8",
+    "awesome-typescript-loader": "^2.2.4",
     "baggage-loader": "^0.2.4",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
@@ -62,6 +63,7 @@
     "ngtemplate-loader": "^1.3.1",
     "node-sass": "^3.10.0",
     "ntypescript": "^1.201609060105.1",
+    "remap-istanbul": "^0.7.0",
     "rimraf": "^2.5.4",
     "sass-loader": "^4.0.2",
     "sc5-styleguide": "^1.2.0",
@@ -83,10 +85,11 @@
     "postinstall": "typings install",
     "clean:dist": "rimraf dist",
     "webpack:compile": "webpack --progress --colors --display-error-details",
-    "webpack:watch": "webpack --progress --colors --watch webpack-dev-server --content-base dist/",
-    "styleguide": "gulp styleguide:watch",
+    "webpack:serve": "webpack --progress --colors --watch webpack-dev-server --content-base dist/",
     "test": "node_modules/.bin/karma start karma.conf.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "coverage": "http-server -c-1 -o -p 9875 ./coverage"
+    "coverage": "http-server -c-1 -o -p 9875 ./coverage",
+    "generateLcov": "remap-istanbul -b src/ -i coverage/coverage-final.json -o coverage/lcov.info -t lcovonly",
+    "styleguide": "gulp styleguide:watch"
   }
 }

@@ -1,77 +1,57 @@
-var path = require('path');
-var webpack = require('webpack');
-var webpackConfig = require('./webpack.config.js');
-var base_config = require('./chore/chore.config');
+var path = require("path");
+var webpack = require("webpack");
+var webpackConfig = require("./webpack.config.js");
+var base_config = require("./chore/chore.config");
 
 webpackConfig.entry = {};
 
 module.exports = function (config) {
 
     config.set({
-
-        basePath: '.',
-
-        frameworks: ['jasmine'],
-
+        basePath: ".",
+        frameworks: ["jasmine"],
         port: 9876,
-
         logLevel: config.LOG_INFO,
-
         colors: true,
-
         autoWatch: true,
-
-        browsers: ['Chrome'],
+        browsers: ["Chrome"],
 
         files: [
-            './node_modules/angular/angular.js',
-            './src/star-rating.controller.jasmine.ts'
+             "./node_modules/angular/angular.js"
+            , "./node_modules/angular-mocks/angular-mocks.js"
+            , "./dist/index.js"
+            , "./src/star-rating.controller.jasmine.ts"
         ],
 
 
         // Karma plugins loaded
         plugins: [
-              'karma-webpack'
-            , 'karma-jasmine'
-            , 'karma-coverage'
-            , 'karma-chrome-launcher'
-            //, 'karma-typescript'
-            //, 'karma-commonjs'
+              "karma-webpack"
+            , "karma-jasmine"
+            , "karma-coverage"
+            , "karma-chrome-launcher"
         ],
 
         // Coverage reporter generates the coverage
-        reporters: ['progress', 'dots', 'coverage'],
+        reporters: ["progress", "dots", "coverage"],
 
         // Source files that you wanna generate coverage for.
         // Do not include tests or libraries (these files will be instrumented by Istanbul)
         preprocessors: {
-            // './dist/index.js': ['coverage']
-             'src/**/*.ts': ["webpack"]
+            "src/*!(*.jasmine*|*.protractor|*.mock|*.bundle).ts": ["webpack", "coverage"]
+            //, "src/**/*.ts": ["webpack"]
+            //, "src/*!(*.jasmine*|*.protractor*|*.mock*|*.bundle*).ts": ["webpack", "coverage"]
+            //, "./src/star-rating.controller.ts": ["webpack", "coverage"]
+            //, "./src/star-rating.component.ts": ["webpack", "coverage"]
+            ,  "./dist/*.js*":["coverage"]
         },
 
-        webpack: {
-            //devtool: "inline-source-map",
-            entry:{},
-            resolve: {
-                extensions: ["", ".ts", ".js"]
-            },
-            module: {
-                loaders: [
-                    {test: /\.ts$/, loader: "ts-loader"},
-                    {test: /\.html$/, loader: "raw"},
-                    {test: /\.(jpg|png|woff|woff2|eot|ttf|svg|scss)$/, loader: "null"}
-                ]
-            }
-        },
-
-        webpackMiddleware: {
-            noInfo: true
-        },
+        webpack: webpackConfig,
 
         coverageReporter: {
             reporters: [
-                {dir: 'coverage/'},
-                {type: 'text'}
+                {dir: "coverage/"},
+                {type: "lcov"}
             ]
         },
 
