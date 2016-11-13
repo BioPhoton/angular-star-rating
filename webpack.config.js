@@ -16,7 +16,7 @@ module.exports = function makeWebpackConfig() {
 
     config.resolve = {
         // Add `.ts` and `.tsx` as a resolvable extension.
-         extensions: ['', '.html','.scss', '.ts', '.tsx', '.js', '.webpack.js', '.web.js']
+        extensions: ['', '.html', '.scss', '.ts', '.tsx', '.js', '.webpack.js', '.web.js']
         , root: __dirname
     };
 
@@ -25,9 +25,12 @@ module.exports = function makeWebpackConfig() {
     };
 
     config.output = {
-          filename: "index.js"
+        filename: "index.js"
         , path: path.join(__dirname, base_c.dist)
     };
+
+    // Source maps support
+    config.devtool = 'source-map';
 
     config.module = {
         /*preLoaders: [
@@ -37,7 +40,7 @@ module.exports = function makeWebpackConfig() {
          }
          ],*/
         loaders: [
-              {test: /\.css$/, loader: "style!css"}
+            {test: /\.css$/, loader: "style!css"}
             , {test: /\.scss$/, loader: "style!css!sass"}
             // specify option using query
             , {test: /\.tsx?$/, exculde: "*.jasmine.ts", loader: 'ts-loader?compiler=ntypescript'}
