@@ -29,7 +29,7 @@ module.exports = (function () {
     var styleguideCopies = [
         {
             src: [
-                path.join( 'src', 'app', 'common', 'star-rating', '*.svg')
+                path.join( 'src', '**', '*.svg')
             ],
             dest: path.join(styleguideFolder, 'assets', 'images'),
             name: 'styleguide images copies'
@@ -56,8 +56,8 @@ module.exports = (function () {
         indexFile: indexFile,
 
         sc5Styleguide:{
-            destFolder : styleguideFolder,
-            copies : styleguideCopies
+            destFolder : styleguideFolder
+            //, copies : styleguideCopies
         }
     };
 

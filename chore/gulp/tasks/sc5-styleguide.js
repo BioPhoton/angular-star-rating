@@ -33,7 +33,7 @@ var defaultConfig = {
         srcFolder: [path.join(config.src,'**','*.scss')],
         generateScr:[path.join(config.src,'**','*.scss')],
         copies:[],
-        applyStylesSrc:[path.join(config.src,'**','_*.scss'), path.join(config.src,'**','*.scss')],
+        applyStylesSrc:[path.join(config.src,'**','*.scss')],
         destFolder: path.join(sc5Folder),
         sassOptions : {
             indentWidth: 4,
