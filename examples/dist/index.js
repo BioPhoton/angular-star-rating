@@ -69273,17 +69273,12 @@
 	    function InitController() {
 	        this.rating = 3;
 	        this.text = this.rating;
-	        /*
-	        color:starRatingColors|string;
-	        colorOptions:Array<starRatingColors|string> = ['default','negative', 'middle', 'positive'];
-	        labelPositionOptions:Array<starRatingPosition|string> = ['top','right', 'left', 'bottom'];
-	        numOfStars:number = StarRatingController.DefaultNumOfStars;
-	        starOptions:Array<starRatingStarTypes> = ['svg', 'icon', 'image'];
-	        speed:starRatingSpeed|string;
-	        speedOptions:Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
-	        size: starRatingSizes|string;
-	        sizeOptions:Array<starRatingSizes> = ['small', 'medium', 'large'];
-	        */
+	        this.colorOptions = ['default', 'negative', 'middle', 'positive'];
+	        this.labelPositionOptions = ['top', 'right', 'left', 'bottom'];
+	        this.numOfStars = 5;
+	        this.starOptions = ['svg', 'icon', 'image'];
+	        this.speedOptions = ['immediately', 'noticeable', 'slow'];
+	        this.sizeOptions = ['small', 'medium', 'large'];
 	        this.spread = false;
 	        this.readOnly = false;
 	        this.disabled = false;
