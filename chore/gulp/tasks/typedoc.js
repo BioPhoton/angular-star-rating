@@ -24,12 +24,25 @@ var typedoc = require("gulp-typedoc");
 var config = require(path.join('..', '..', 'chore.config'));
 
 var defaultConfig = {
-    src: ["src/**/*.ts"]
+    src: [
+      "src/**/star-rating.controller.ts"
+    //, "src/**/star-rating.component.ts"
+    ]
     , typedocOptions: {
+        // TypeScript options (see typescript docs)
         module: "commonjs",
         target: "es5",
-        out: "docs/",
-        name: "My project title"
+        includeDeclarations: false,
+        experimentalDecorators: true,
+
+        // Output options (see typedoc docs)
+        out: "./docs",
+
+        // TypeDoc options (see typedoc docs)
+        name: "Angular Star Rating",
+        ignoreCompilerErrors: false,
+        excludeExternals: true,
+        version: true
     }
 };
 
@@ -56,8 +69,8 @@ if ('typodoc' in config) {
 
 gulp.task('typedoc:compile', function (done) {
 
-        return gulp
-            .src(typedocConfig.src)
-            .pipe(typedoc(typedocConfig.typedocOptions));
+    return gulp
+        .src(typedocConfig.src)
+        .pipe(typedoc(typedocConfig.typedocOptions));
 
 });
