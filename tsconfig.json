@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
+    "declaration":true,
     "target": "es5",
     "sourceMap": true
+    , "outDir": "./"
   },
   "exclude": [
-    "examples",
-    "node_modules"
+     "./src/**/*.jasmine.ts",
+     "examples",
+     "node_modules"
   ]
 }

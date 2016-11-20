@@ -40,7 +40,7 @@ module.exports = function makeWebpackConfig() {
          }
          ],*/
         loaders: [
-            {test: /\.css$/, loader: "style!css"}
+              {test: /\.css$/, loader: "style!css"}
             , {test: /\.scss$/, loader: "style!css!sass"}
             // specify option using query
             , {test: /\.tsx?$/, exculde: "*.jasmine.ts", loader: 'ts-loader?compiler=ntypescript'}
@@ -60,10 +60,10 @@ module.exports = function makeWebpackConfig() {
 
     config.plugins = [
         new webpack.optimize.DedupePlugin()
-        , new webpack.optimize.UglifyJsPlugin({
+        /*, new webpack.optimize.UglifyJsPlugin({
             compress: {warnings: false}
             , comments: false
-        })
+        })*/
     ];
 
     return config;

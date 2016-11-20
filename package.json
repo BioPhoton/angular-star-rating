@@ -68,7 +68,7 @@
     "sass-loader": "^4.0.2",
     "sc5-styleguide": "^1.2.0",
     "style-loader": "^0.13.1",
-    "ts-loader": "^0.8.2",
+    "ts-loader": "^0.9.5",
     "typedoc": "^0.4.5",
     "typescript": "^1.8.10",
     "url-loader": "^0.5.7",
