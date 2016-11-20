@@ -238,12 +238,12 @@ export class StarRatingController implements IStarRatingCompBindings{
         if(staticColor) { return staticColor; }
 
         //calculate size of smallest fraction
-        let fractinSize = numOfStars / 3;
+        let fractionSize = numOfStars / 3;
 
         //apply color by fraction
         let color:starRatingColors = 'negative';
-        if (rating > fractinSize) { color = 'middle'; }
-        if (rating > fractinSize * 2) { color = 'positive'; }
+        if (rating > fractionSize) { color = 'middle'; }
+        if (rating > fractionSize * 2) { color = 'positive'; }
 
         return color;
     };
