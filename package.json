@@ -21,12 +21,12 @@
   "author": "Michael Hladky",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BioPhoton/angular-star.git"
+    "url": "git+https://github.com/BioPhoton/angular-star-rating.git"
   },
   "bugs": {
-    "url": "https://github.com/BioPhoton/angular-stars/issues"
+    "url": "https://github.com/BioPhoton/angular-star-rating/issues"
   },
-  "homepage": "https://github.com/BioPhoton/angular-stars#readme",
+  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
   "main": "dist/index.js",
   "devDependencies": {
     "angular-mocks": "^1.5.8",
@@ -85,7 +85,6 @@
     "postinstall": "typings install",
     "clean:dist": "rimraf dist",
     "webpack:compile": "webpack --progress --colors --display-error-details",
-    "webpack:serve": "webpack --progress --colors --watch webpack-dev-server --content-base dist/",
     "test": "node_modules/.bin/karma start karma.conf.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "coverage": "http-server -c-1 -o -p 9875 ./coverage",
