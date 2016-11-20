@@ -12,34 +12,18 @@
   "author": "Michael Hladky",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BioPhoton/angular-stars.git"
+    "url": "git+https://github.com/BioPhoton/angular-star-rating.git"
   },
-  "bugs": {
-    "url": "https://github.com/BioPhoton/angular-stars/issues"
-  },
-  "homepage": "https://github.com/BioPhoton/angular-stars#readme",
+  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
   "main": "index.js",
   "devDependencies": {
-    "angular-mocks": "^1.5.8",
     "angular-star-rating": "^1.0.1",
-    "baggage-loader": "^0.2.4",
     "bootstrap": "^4.0.0-alpha.4",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
-    "extendify": "^1.0.0",
     "file-loader": "^0.9.0",
     "font-awesome": "^4.6.3",
     "fontawesome": "^4.5.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-load-plugins": "^1.3.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-postcss": "^6.2.0",
-    "gulp-sass": "^2.3.2",
-    "gulp-task-listing": "^1.0.1",
-    "gulp-typedoc": "^2.0.0",
-    "gulp-util": "^3.0.7",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
     "jasmine-core": "^2.5.2",
@@ -48,27 +32,24 @@
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
     "karma-webpack": "^1.8.0",
-    "merge-stream": "^1.0.0",
     "ngtemplate-loader": "^1.3.1",
     "node-sass": "^3.10.0",
     "ntypescript": "^1.201609060105.1",
     "sass-loader": "^4.0.2",
-    "sc5-styleguide": "^1.2.0",
     "style-loader": "^0.13.1",
     "ts-loader": "^0.8.2",
     "typedoc": "^0.4.5",
     "typescript": "^1.8.10",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2",
-    "wrench": "^1.5.9"
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "angular": "^1.5.8",
     "angular-ui-router": "^0.3.1"
   },
   "scripts": {
-    "postinstall": "typings install",
-    "webpack:compile": "webpack --progress --colors",
-    "webpack:serve": "webpack --progress --colors --watch webpack-dev-server --content-base dist/"
+      "postinstall": "typings install"
+    , "webpack:compile": "webpack --progress --colors"
+    , "serve": "http-server -c-1 -o -p 9875 ./dist"
   }
 }

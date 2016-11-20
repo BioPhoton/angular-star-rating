@@ -23,9 +23,12 @@ export class InitController {
     readOnly: boolean = false;
     disabled: boolean = false;
 
+    constructor() {
+        console.log("constructor");
+    }
 
     getColor(rating, numOfStars, fixColor) {
-        console.log('rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', fixColor);
+        console.log('getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', fixColor);
         return 'disbled';
     }
 

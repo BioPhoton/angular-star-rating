@@ -14,14 +14,15 @@ module.exports = function makeWebpackConfig() {
      */
     var config = {};
 
+    config.target = 'node';
+
     config.resolve = {
         // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: ['', '.html','.scss', '.ts', '.tsx', '.js', '.webpack.js', '.web.js']
-        , root: __dirname
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     };
 
     config.entry = {
-        app: path.join(__dirname, base_c.src, 'app','index.ts')
+        app: path.join(__dirname ,base_c.src, base_c.app, 'index.ts')
     };
 
     config.output = {
@@ -37,10 +38,10 @@ module.exports = function makeWebpackConfig() {
          }
          ],*/
         loaders: [
-            {test: /\.css$/, loader: "style!css"}
+              {test: /\.css$/, loader: "style!css"}
             , {test: /\.scss$/, loader: "style!css!sass"}
             // specify option using query
-            , {test: /\.tsx?$/, exculde: "*.jasmine.ts", loader: 'ts-loader?compiler=ntypescript'}
+            , {test: /\.tsx?$/, exculde:"*.jasmine.ts",loader: 'ts-loader?compiler=ntypescript'}
             , {test: /\.html$/, loader: 'ngtemplate?relativeTo=' + __dirname + '/!html'}
             , {
                 test: [/\.svg/],
@@ -51,16 +52,12 @@ module.exports = function makeWebpackConfig() {
         ]
     };
 
-    config.sassLoader = {
-        outputStyle: 'compressed'
-    };
-
     config.plugins = [
-        new webpack.optimize.DedupePlugin()
-        , new webpack.optimize.UglifyJsPlugin({
-            compress: {warnings: false}
-            , comments: false
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.join(base_c.src, 'index.ejs')
         })
+        //, new webpack.optimize.UglifyJsPlugin()
     ];
 
     return config;

@@ -1,4 +1,3 @@
-
 import initTpl = require('./init.view.html');
 import {InitController} from "./init.controller";
 
