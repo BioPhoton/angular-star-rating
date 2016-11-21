@@ -70,10 +70,13 @@ module.exports = (function() {
      * Log a message or series of messages using chalk's green color.
      * Can pass in a string, object or array.
      */
-    function log(msg) {
+    function log(msg, color) {
         if (typeof(msg) === 'object') {
             for (var item in msg) {
                 if (msg.hasOwnProperty(item)) {
+                    if(color && color in $.util.colors) {
+                        $.util.log($.util.colors[color](msg[item]));
+                    }
                     $.util.log($.util.colors.lightgreen(msg[item]));
                 }
             }

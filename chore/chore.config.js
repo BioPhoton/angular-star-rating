@@ -6,7 +6,7 @@
 var path = require('path');
 module.exports = (function () {
 
-    var projectName = "Angular Stars";
+    var projectName = "Css Star Rating";
 
     var ENV_LOCAL = "local",
         ENV_STAGING = "staging",
@@ -57,7 +57,7 @@ module.exports = (function () {
 
         sc5Styleguide:{
             destFolder : styleguideFolder
-            //, copies : styleguideCopies
+            , copies : styleguideCopies
         }
     };
 

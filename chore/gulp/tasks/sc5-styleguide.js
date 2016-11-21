@@ -31,7 +31,7 @@ var sc5Folder = 'sc5-styleguide';
 console.log(path.join(config.root,sc5Folder));
 var defaultConfig = {
         srcFolder: [path.join(config.src,'**','*.scss')],
-        generateScr:[path.join(config.src,'**','*.scss')],
+        generateSrc:[path.join(config.src,'**','*.scss')],
         copies:[],
         applyStylesSrc:[path.join(config.src,'**','*.scss')],
         destFolder: path.join(sc5Folder),
@@ -61,7 +61,7 @@ var defaultConfig = {
                         '<script src="/angular-material/angular-material.js"></script>',
             server: true,
             rootPath: sc5Folder,
-            overviewPath: path.join(config.src,sc5Folder,'README.md'),
+            overviewPath: path.join('README.md'),
             port: 3500
 
         }
@@ -93,27 +93,27 @@ gulp.task('styleguide:init', function () {
 });
 
 gulp.task('styleguide:generate', ['styleguide:copy'], function (done) {
-    helper.log('Generate components from ' + styleguideConfig.generateScr);
-    return gulp.src(styleguideConfig.generateScr)
+    helper.log('Generate components from ' + styleguideConfig.generateSrc);
+    return gulp.src(styleguideConfig.generateSrc)
         .pipe(styleguide.generate(styleguideConfig.styleguideOptions))
-        .pipe(gulp.dest(styleguideConfig.destFolder));
+        .pipe(gulp.dest(styleguideConfig.destFolder), done);
 
 });
 
-gulp.task('styleguide:applystyles', function () {
+gulp.task('styleguide:applystyles', function (done) {
     helper.log('Apply styles from ' + styleguideConfig.applyStylesSrc);
     return gulp.src(styleguideConfig.applyStylesSrc)
         .pipe($.concat('app.css'))
         .pipe($.sass(styleguideConfig.sassOptions).on('error', $.sass.logError))
         .pipe(autoprefixer(styleguideConfig.autoprefixerOptions))
         .pipe(styleguide.applyStyles())
-        .pipe(gulp.dest(styleguideConfig.destFolder));
+        .pipe(gulp.dest(styleguideConfig.destFolder), done);
 });
 
 gulp.task('styleguide:build', ['styleguide:generate', 'styleguide:applystyles']);
 
 gulp.task('styleguide:watch', ['styleguide:build'], function () {
-    helper.log('View the styleguide in your browser under http://localhost:3500/');
+    helper.log('View the styleguide in your browser under http://localhost:3500/', 'green');
     // Start watching changes and update styleguide whenever changes are detected
     // Styleguide automatically detects existing server instance
     gulp.watch([path.join('src','**','*.scss')], ['styleguide:build']);
@@ -124,5 +124,9 @@ gulp.task('styleguide:copy',  function(done) {
     if(styleguideConfig.copies.length>0) {
         return helper.bulkCopy(styleguideConfig.copies);
     }
-    return done;
+    else {
+        helper.log('Nothing to copy');
+        return done();
+    }
+
 });
