@@ -70,7 +70,7 @@ $disabled-opacity:0.5;
 /*
 Star Rating
 
-Beautiful ui component for displaying rating values of up to 5 stars with css only.
+A beautiful ui component for displaying rating values of up to 5 stars with css only.
 Options are:
 - Value
 - Size
@@ -80,7 +80,29 @@ Options are:
 - Animation Speed
 - Disabled
 
-Styleguide 1.1
+(in this html is additional angular markup to make the showcase working)
+
+
+   markup:
+   <div ng-init="data.rating = 0" class="rating padding value-{{data.rating}}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5] track by $index" ng-click="data.rating = $index+1">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+  </div>
+
+   sg-wrapper:
+   <div class="phone-simulator padding">
+       <sg-wrapper-content/>
+   </div>
+
+Styleguide 1
 */
 /*
 Value
@@ -114,7 +136,7 @@ sg-wrapper:
     <sg-wrapper-content/>
 </div>
 
-Styleguide 1.1.1
+Styleguide 1.1
 */
 
 /*
@@ -143,12 +165,7 @@ markup:
     </div>
 </div>
 
-sg-wrapper:
-<div class="phone-simulator padding">
-    <sg-wrapper-content/>
-</div>
-
-Styleguide 1.1.2
+Styleguide 1.2
 */
 
 /*
@@ -173,12 +190,7 @@ markup:
     </div>
 </div>
 
-sg-wrapper:
-<div class="phone-simulator padding">
-    <sg-wrapper-content/>
-</div>
-
-Styleguide 1.1.3
+Styleguide 1.3
 */
 
 /*
@@ -186,9 +198,10 @@ Static Color
 
 Overriding default colors of ratings to display the color independent of the rating.
 
-default                  - No spread
+default                  - No static color
+.color-default           - Stars are always colored default
 .color-positive          - Stars are always colored positive
-.color-middle          - Stars are always colored middle
+.color-middle            - Stars are always colored middle
 .color-negative          - Stars are always colored negative
 
 markup:
@@ -241,12 +254,7 @@ markup:
     </div>
 </div>
 
-sg-wrapper:
-<div class="phone-simulator padding">
-    <sg-wrapper-content/>
-</div>
-
-Styleguide 1.1.4
+Styleguide 1.4
 */
 
 /*
@@ -315,12 +323,7 @@ markup:
     </div>
 </div>
 
-sg-wrapper:
-<div class="phone-simulator padding">
-    <sg-wrapper-content/>
-</div>
-
-Styleguide 1.1.5
+Styleguide 1.5
 */
 
 /*
@@ -383,12 +386,7 @@ Styleguide 1.1.5
     </div>
 </div>
 
-   sg-wrapper:
-   <div class="phone-simulator padding">
-       <sg-wrapper-content/>
-   </div>
-
-   Styleguide 1.1.6
+   Styleguide 1.6
    */
 /*
    Animation Speed
@@ -414,12 +412,7 @@ Styleguide 1.1.5
     </div>
   </div>
 
-   sg-wrapper:
-   <div class="phone-simulator padding">
-       <sg-wrapper-content/>
-   </div>
-
-   Styleguide 1.1.7
+   Styleguide 1.7
    */
 
 /*
@@ -461,12 +454,7 @@ Styleguide 1.1.5
     </div>
   </div>
 
-   sg-wrapper:
-   <div class="phone-simulator padding">
-       <sg-wrapper-content/>
-   </div>
-
-   Styleguide 1.1.8
+   Styleguide 1.8
    */
 
 /*Default styles and modifier
