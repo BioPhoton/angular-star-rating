@@ -12,4 +12,3 @@ typings.json
 tsconfig.json
 
 webpack.config.js
-webpack.test.config.js
