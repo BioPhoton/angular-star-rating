@@ -5,6 +5,7 @@
 
 node_modules/
 typings/
+docs/
 
 coverage/
 sc5-styleguide/
