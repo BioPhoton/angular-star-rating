@@ -4,6 +4,7 @@
 [![Bower version](https://badge.fury.io/bo/angular-star-rating.svg)](https://badge.fury.io/bo/angular-star-rating)
 [![npm version](https://badge.fury.io/js/angular1-star-rating.svg)](https://badge.fury.io/js/angular1-star-rating)  
 [![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)
+
 Angular Star Rating is a >1.5 Angular component written in typescript.   
 It is based on a fully customizable css only star rating component written in scss. 
 
@@ -35,10 +36,16 @@ Default: undefined
 The position of the label  
 Options: top, right, bottom, left  
 Default: left  
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-top.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-right.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-bottom.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-left.PNG" width="250">
 
 **spread**: boolean (Optional)  
 If the start use the whole space or not.  
 Default: false  
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-spread-false.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-spread-true.PNG" width="250">
 
 **numOfStars**: number (Optional)  
 The possible number of stars to choose from  
@@ -47,24 +54,36 @@ Default: 5
 **rating**: number (Optional)  
 The actual star rating value  
 Default: undefined  
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-value.PNG" width="250">
 
 **color**: starRatingColors (Optional)  
 Possible color names for the stars.  
 Options: default, negative, middle, positive  
 Default: undefined
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-default.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-positive.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-middle.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-negative.PNG" width="250">
 
 **disabled**: boolean (Optional)  
 The click callback is disabled, colors are transparent   
 Default: false  
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-disabled-false.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-disabled-true.PNG" width="250">
   
 **readOnly**: boolean (Optional)  
 The click callback is disabled  
 Default: false  
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-readonly-false.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-readonly-true.PNG" width="250">
 
 **size**: starRatingSizes (Optional)  
 The height and width of the stars.    
 Options: small, medium, large  
 Default: middle  
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-size-small.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-size-medium.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-size-large.PNG" width="250">
 
 **speed**: starRatingSpeed (Optional)  
 The duration of the animation in ms.   
