@@ -2,7 +2,7 @@
 #### Angular 1.5 Component written in typescript, based on css only techniques.
 
 [![Bower version](https://badge.fury.io/bo/angular-star-rating.svg)](https://badge.fury.io/bo/angular-star-rating)
-[![npm version](https://badge.fury.io/js/angular-star-rating.svg)](https://badge.fury.io/js/angular-star-rating)  
+[![npm version](https://badge.fury.io/js/angular1-star-rating.svg)](https://badge.fury.io/js/angular1-star-rating)  
 [![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)
 Angular Star Rating is a >1.5 Angular component written in typescript.   
 It is based on a fully customizable css only star rating component written in scss. 
