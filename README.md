@@ -3,8 +3,7 @@
 
 [![Bower version](https://badge.fury.io/bo/angular-star-rating.svg)](https://badge.fury.io/bo/angular-star-rating)
 [![npm version](https://badge.fury.io/js/angular-star-rating.svg)](https://badge.fury.io/js/angular-star-rating)  
-[![Package Quality](http://npm.packagequality.com/shield/angular-star-rating.svg)](http://packagequality.com/#?package=angular-star-rating)
-
+[![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)
 Angular Star Rating is a >1.5 Angular component written in typescript.   
 It is based on a fully customizable css only star rating component written in scss. 
 
@@ -18,13 +17,13 @@ It is based on a fully customizable css only star rating component written in sc
  - [download as .zip](https://github.com/BioPhoton/angular-star-rating/releases)
  - or via **[npm](https://www.npmjs.org/)**: by running `$ npm install angular-star-rating` from your console
  
-## Properties
+## Component Properties
 
 ### @ bindings
 
 **id**: string (Optional)  
 The html id attribute of the star rating   
-Default: undefined  
+Default: undefined
 
 ### < bindings
 
@@ -43,7 +42,7 @@ Default: false
 
 **numOfStars**: number (Optional)  
 The possible number of stars to choose from  
-Default: 5  
+Default: 5
 
 **rating**: number (Optional)  
 The actual star rating value  
