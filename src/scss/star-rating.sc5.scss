@@ -80,7 +80,7 @@ Options are:
 - Animation Speed
 - Disabled
 
-(in this html is additional angular markup to make the showcase working)
+(in this html is additional angular markup to make the showcase interactive)
 
 
    markup:
@@ -104,6 +104,7 @@ Options are:
 
 Styleguide 1
 */
+
 /*
 Value
 
@@ -331,6 +332,7 @@ Styleguide 1.5
 
    Visualizes the disabled state of the rating component. The styles symbolizing that no interaction is possible
 
+   default                   - Stars are un usual style
    .disabled                - Stars are grayed out, no interaction is possible
 
    markup:
@@ -421,24 +423,11 @@ Styleguide 1.5
    The stars can be generated oft of three different types. characters, svg's of any icon font
 
    default                  - The default star type is svg
+   .star-img                - Star-Image form the shipped images
    .star-icon               - Star-Characters for default browser font
    .star-svg                - Star-Vectors form the shipped svg images
 
    markup:
-   <div class="rating padding value-3 {$modifiers}">
-    <div class="star-container">
-        <div class="star" ng-repeat="i in [1,2,3,4,5] track by $index">
-            <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
-            </svg>
-            <svg class="star-filled">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
-            </svg>
-            <i class="star-empty"></i>
-            <i class="star-filled"></i>
-        </div>
-    </div>
-  </div>
   <div class="rating padding value-3 {$modifiers}">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5] track by $index">
@@ -448,14 +437,16 @@ Styleguide 1.5
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
             </svg>
-            <i class="star-empty fa fa-star"></i>
-            <i class="star-filled fa fa-star-o"></i>
+            <i class="star-empty fa fa-this-icon"></i>
+            <i class="star-filled fa fa-that-icon"></i>
+            <img class="star-empty" src="data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7" />
+            <img class="star-filled" src="data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7" />
         </div>
     </div>
   </div>
 
    Styleguide 1.8
-   */
+*/
 
 /*Default styles and modifier
 ====================================================*/
@@ -474,7 +465,7 @@ Styleguide 1.5
     .star {
       position: relative;
 
-      svg, i {
+      svg, i, img {
         position: absolute;
         top: 0;
         left: 0;
@@ -485,6 +476,10 @@ Styleguide 1.5
           opacity: 0;
         }
       }
+
+      svg {  z-index:3;  }
+      i {  z-index:2;  }
+      img {  z-index:1;  }
 
       + .star {
         margin-left: $default-stars-label-margin;
@@ -625,14 +620,11 @@ Styleguide 1.5
 
   //default
   .star {
-    svg {
+    svg, i, img {
       display: block;
-    }
-
-    i {
-      display: none;
       font-style: normal;
-
+    }
+    i {
       &.star-empty:before {
         content:$default-star-character-empty;
       }
@@ -644,23 +636,25 @@ Styleguide 1.5
 
   &.star-icon {
     .star {
-      svg {
-        display: none;
-      }
-      i {
-        display: block;
-      }
+      svg {  display: none;  }
+      img {  display: none;  }
+      i {  display: block;  }
+    }
+  }
+
+  &.star-img {
+    .star {
+      svg {  display: none;  }
+      i {  display: none;  }
+      img {  display: block;  }
     }
   }
 
   &.star-svg {
     .star {
-      svg {
-        display: block;
-      }
-      i {
-        display: none;
-      }
+      svg {  display: block;  }
+      i {  display: none;  }
+      img {  display: none;  }
     }
   }
 
