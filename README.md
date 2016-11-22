@@ -37,8 +37,8 @@ The position of the label
 Options: top, right, bottom, left  
 Default: left  
 <img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-top.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-bottom.PNG" width="250">  
 <img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-right.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-bottom.PNG" width="250">
 <img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-left.PNG" width="250">
 
 **spread**: boolean (Optional)  
@@ -59,9 +59,9 @@ Default: undefined
 **color**: starRatingColors (Optional)  
 Possible color names for the stars.  
 Options: default, negative, middle, positive  
-Default: undefined
+Default: undefined  
 <img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-default.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-positive.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-positive.PNG" width="250">  
 <img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-middle.PNG" width="250">
 <img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-negative.PNG" width="250">
 
