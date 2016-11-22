@@ -74,8 +74,8 @@ Default: false
 **readOnly**: boolean (Optional)  
 The click callback is disabled  
 Default: false  
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-readonly-false.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-readonly-true.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-disabled-false.PNG" width="250">
+<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-disabled-false.PNG" width="250">
 
 **size**: starRatingSizes (Optional)  
 The height and width of the stars.    
