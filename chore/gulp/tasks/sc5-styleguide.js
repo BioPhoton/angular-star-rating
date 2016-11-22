@@ -56,9 +56,7 @@ var defaultConfig = {
         },
         styleguideOptions : {
             title: config.projectName,
-            afterBody:  '<script src="/angular-aria/angular-aria.js">' +
-                        '</script><script src="/angular-messages/angular-messages.js"></script>' +
-                        '<script src="/angular-material/angular-material.js"></script>',
+            afterBody:  '<script src="../node_modules/font-awesome/css/font-awesome.css">',
             server: true,
             rootPath: sc5Folder,
             overviewPath: path.join('README.md'),
