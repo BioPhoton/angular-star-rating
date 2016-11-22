@@ -1,3 +1,35 @@
+<a name="1.0.6"></a>
+## [1.0.6](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.5...v1.0.6) (2016-11-22)
+
+
+### Bug Fixes
+
+* **build:** build project ([2f11b48](https://github.com/BioPhoton/angular-star-rating/commit/2f11b48))
+* **component:** change component name ([9aa1049](https://github.com/BioPhoton/angular-star-rating/commit/9aa1049))
+* **controller:** change variable name ([7a520b6](https://github.com/BioPhoton/angular-star-rating/commit/7a520b6))
+* **defaults:** extend default values ([8831b38](https://github.com/BioPhoton/angular-star-rating/commit/8831b38))
+* **example:** updated example, changed num serve script ([07f3d86](https://github.com/BioPhoton/angular-star-rating/commit/07f3d86))
+* **example:** use d.ts files ([6dccda9](https://github.com/BioPhoton/angular-star-rating/commit/6dccda9))
+* **formatting:** removed empty line ([db1b0ec](https://github.com/BioPhoton/angular-star-rating/commit/db1b0ec))
+* **ng1:** added ctrl in index.ts ([abc5bf9](https://github.com/BioPhoton/angular-star-rating/commit/abc5bf9))
+* **styleguide:** edit gulp task options ([ffc8efb](https://github.com/BioPhoton/angular-star-rating/commit/ffc8efb))
+* **styleguide:** removed imports for now because of styleguide import error ([f874c72](https://github.com/BioPhoton/angular-star-rating/commit/f874c72))
+* **typings:** fixed typescript error ([ae45a51](https://github.com/BioPhoton/angular-star-rating/commit/ae45a51))
+* **webpack:** reduced config settings ([7840e49](https://github.com/BioPhoton/angular-star-rating/commit/7840e49))
+
+
+### Features
+
+* **bower:** released bower lib under angular1-star-rating ([91d5ff7](https://github.com/BioPhoton/angular-star-rating/commit/91d5ff7)), closes [#24](https://github.com/BioPhoton/angular-star-rating/issues/24)
+* **bower:** start implement bower setup ([b39455b](https://github.com/BioPhoton/angular-star-rating/commit/b39455b))
+* **css:** added a themes file ([1418094](https://github.com/BioPhoton/angular-star-rating/commit/1418094))
+* **css modifier:** start implement star-img modifier [#23](https://github.com/BioPhoton/angular-star-rating/issues/23) ([e4e8d87](https://github.com/BioPhoton/angular-star-rating/commit/e4e8d87))
+* **readme:** create more content for readme [#9](https://github.com/BioPhoton/angular-star-rating/issues/9) ([f192d7a](https://github.com/BioPhoton/angular-star-rating/commit/f192d7a))
+* **typing:** implement typescript definition files ([cd1aaa3](https://github.com/BioPhoton/angular-star-rating/commit/cd1aaa3))
+* **typings:** implement typings and sourcemaps ([b61c999](https://github.com/BioPhoton/angular-star-rating/commit/b61c999)), closes [#22](https://github.com/BioPhoton/angular-star-rating/issues/22)
+
+
+
 <a name="1.0.5"></a>
 ## [1.0.5](https://github.com/BioPhoton/angular-star/compare/v1.0.4...v1.0.5) (2016-10-30)
 
