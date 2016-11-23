@@ -19,10 +19,16 @@ export class InitController {
     spread: boolean = false;
     readOnly: boolean = false;
     disabled: boolean = false;
+    showHalfStars:boolean = false;
 
-    getColor(rating, numOfStars, fixColor) {
+    constructor() {
+        console.log('constructor');
+        this.getHalfStarClass(2);
+    }
+
+    getColor(rating, numOfStars, fixColor):string {
         console.log('getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', fixColor);
-        return 'disbled';
+        return 'default';
     }
 
     getHalfStarClass(rating:number):boolean {
@@ -30,12 +36,12 @@ export class InitController {
         return (rating%1 >= 0.5);
     }
 
-    onClick(rating) {
+    onClick(rating:number):number {
         console.log('onClick rating: ',rating);
-        return 'disbled';
+        return rating;
     }
 
-    onUpdate(rating) {
+    onUpdate(rating:number): void {
         console.log('onUpdate rating: ',rating);
         this.rating = rating;
     }
