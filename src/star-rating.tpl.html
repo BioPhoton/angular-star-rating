@@ -2,7 +2,6 @@
      class="rating {{$ctrl.rating?'value-'+$ctrl.ratingAsInteger:0}} {{$ctrl.hasHalfStarClass?'half':''}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}}"
      ng-class="{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled, 'spread':$ctrl.spread}">
 
-    !!{{$ctrl.hasHalfStarClass}}!!
   <div ng-show="$ctrl.text" class="label-value">{{$ctrl.text}}</div>
 
   <div class="star-container">
@@ -11,6 +10,7 @@
         ng-click="$ctrl.onStarClicked(star)">
 
         <i class="star-empty {{$ctrl.classEmpty}}"></i>
+        <i class="star-empty {{$ctrl.classHalf}}"></i>
         <i class="star-filled {{$ctrl.classFilled}}"></i>
 
         <svg class="star-empty {{$ctrl.classEmpty}}">

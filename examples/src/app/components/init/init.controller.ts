@@ -25,8 +25,13 @@ export class InitController {
         return 'disbled';
     }
 
+    getHalfStarClass(rating:number):boolean {
+        console.log('getHalfStarClass rating: ',rating, rating%1);
+        return (rating%1 >= 0.5);
+    }
+
     onClick(rating) {
-        console.log('onClick: rating: ',rating);
+        console.log('onClick rating: ',rating);
         return 'disbled';
     }
 

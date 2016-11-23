@@ -14,14 +14,17 @@ export interface IStarRatingCompBindings {
     spread?: boolean;
     readOnly?: boolean;
     disabled?: boolean;
+    showHalfStars?: boolean;
     rating?: number;
     numOfStars?: number;
     getColor?: Function;
+    getHalfStarClass?: Function;
     onClick?: Function;
     onUpdate?: Function;
 }
 export declare class StarRatingController implements IStarRatingCompBindings {
     static DefaultClassEmpty: string;
+    static DefaultClassHalf: string;
     static DefaultClassFilled: string;
     static DefaultNumOfStars: number;
     static DefaultSize: starRatingSizes;
@@ -31,8 +34,10 @@ export declare class StarRatingController implements IStarRatingCompBindings {
     static DefaultAssetsPath: string;
     static DefaultSvgPath: string;
     static DefaultSvgEmptySymbolId: string;
+    static DefaultSvgHalfSymbolId: string;
     static DefaultSvgFilledSymbolId: string;
     static DefaultSvgPathEmpty: string;
+    static DefaultSvgPathHalf: string;
     static DefaultSvgPathFilled: string;
     /**
      * getStarsArray
@@ -53,17 +58,23 @@ export declare class StarRatingController implements IStarRatingCompBindings {
     spread: boolean;
     readOnly: boolean;
     disabled: boolean;
+    showHalfStars: boolean;
     rating: number;
     numOfStars: number;
+    getHalfStarClass: Function;
     getColor: Function;
     onClick: Function;
     onUpdate: Function;
     classEmpty: string;
+    classHalf: string;
     classFilled: string;
     pathEmpty: string;
+    pathHalf: string;
     pathFilled: string;
     stars: Array<number>;
     staticColor: starRatingColors;
+    ratingAsInteger: number;
+    hasHalfStarClass: boolean;
     constructor();
     /**
      * $onChanges
@@ -91,8 +102,10 @@ export declare class StarRatingController implements IStarRatingCompBindings {
      * based on rating. This function also triggers the onUpdate emitter.
      *
      * @param value
+     * @param showHalfStars?
+     *
      */
-    private updateRating(value);
+    private updateRating(value, showHalfStars?);
     /**
      * updateNumOfStars
      *
@@ -103,7 +116,16 @@ export declare class StarRatingController implements IStarRatingCompBindings {
      */
     private updateNumOfStars(numOfStars);
     /**
-     * calculateColor
+     * hasHalfStarClass
+     *
+     * Returns true if there should be a half star visible, and false if not.
+     *
+     * @param value
+     * @returns {boolean}
+     */
+    private _calcHalfStarClass;
+    /**
+     * _calculateColor
      *
      * The default function for color calculation
      * based on the current rating and the the number of stars possible.
@@ -114,5 +136,5 @@ export declare class StarRatingController implements IStarRatingCompBindings {
      * @param staticColor
      * @returns {starRatingColors}
      */
-    private calculateColor;
+    private _calculateColor;
 }

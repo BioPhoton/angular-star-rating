@@ -31849,7 +31849,18 @@
 	    //
 	    function StarRatingController() {
 	        /**
-	         * calculateColor
+	         * hasHalfStarClass
+	         *
+	         * Returns true if there should be a half star visible, and false if not.
+	         *
+	         * @param value
+	         * @returns {boolean}
+	         */
+	        this._calcHalfStarClass = function (value) {
+	            return value % 1 > 0;
+	        };
+	        /**
+	         * _calculateColor
 	         *
 	         * The default function for color calculation
 	         * based on the current rating and the the number of stars possible.
@@ -31860,7 +31871,7 @@
 	         * @param staticColor
 	         * @returns {starRatingColors}
 	         */
-	        this.calculateColor = function (rating, numOfStars, staticColor) {
+	        this._calculateColor = function (rating, numOfStars, staticColor) {
 	            //if a fix color is set use this one
 	            if (staticColor) {
 	                return staticColor;
@@ -31879,11 +31890,14 @@
 	        };
 	        //set default values
 	        this.classEmpty = this.classEmpty || StarRatingController.DefaultClassEmpty;
+	        this.classHalf = this.classHalf || StarRatingController.DefaultClassHalf;
 	        this.classFilled = this.classFilled || StarRatingController.DefaultClassFilled;
 	        this.pathEmpty = this.pathEmpty || StarRatingController.DefaultSvgPathEmpty;
+	        this.pathHalf = this.pathHalf || StarRatingController.DefaultSvgPathHalf;
 	        this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPathFilled;
 	        this.numOfStars = (this.numOfStars && this.numOfStars > 0) ? this.numOfStars : StarRatingController.DefaultNumOfStars;
-	        this.getColor = (typeof this.getColor === "function") ? this.getColor : this.calculateColor;
+	        this.getColor = (typeof this.getColor === "function") ? this.getColor : this._calculateColor;
+	        this.getHalfStarClass = this.getHalfStarClass || this._calcHalfStarClass;
 	        this.onUpdate = this.onUpdate || function () { };
 	        this.onClick = this.onClick || function () { };
 	        this.updateNumOfStars(this.numOfStars);
@@ -31921,7 +31935,7 @@
 	        };
 	        //number
 	        if (valueChanged('rating', changes)) {
-	            this.updateRating(changes.rating.currentValue);
+	            this.updateRating(changes.rating.currentValue, this.showHalfStars);
 	        }
 	        if (valueChanged('numOfStars', changes)) {
 	            this.updateNumOfStars(changes.numOfStars.currentValue);
@@ -31932,7 +31946,7 @@
 	        }
 	        if (valueChanged('color', changes)) {
 	            this.staticColor = (changes.color.currentValue) ? changes.color.currentValue : undefined;
-	            this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+	            this.color = this.getColor(this.ratingAsInteger, this.numOfStars, this.staticColor);
 	        }
 	        if (valueChanged('size', changes)) {
 	            this.size = changes.size.currentValue || StarRatingController.DefaultSize;
@@ -31947,6 +31961,11 @@
 	            this.starType = changes.starType.currentValue || StarRatingController.DefaultStarType;
 	        }
 	        //boolean
+	        if (valueChanged('showHalfStars', changes)) {
+	            this.showHalfStars = !!changes.showHalfStars.currentValue;
+	            console.log('show-half-stars changed: ', this.showHalfStars);
+	            this.updateRating(this.rating, this.showHalfStars);
+	        }
 	        if (valueChanged('spread', changes)) {
 	            this.spread = !!changes.spread.currentValue;
 	        }
@@ -31981,10 +32000,17 @@
 	     * based on rating. This function also triggers the onUpdate emitter.
 	     *
 	     * @param value
+	     * @param showHalfStars?
+	     *
 	     */
-	    StarRatingController.prototype.updateRating = function (value) {
+	    StarRatingController.prototype.updateRating = function (value, showHalfStars) {
 	        this.rating = value;
+	        //if showHalfStars is true use the hasHalfStarClass function to determine if half a star is visible
+	        this.hasHalfStarClass = (showHalfStars) ? this.getHalfStarClass(value) : false;
+	        this.ratingAsInteger = parseInt(this.rating.toString());
+	        //
 	        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+	        //
 	        this.onUpdate({ rating: this.rating });
 	    };
 	    /**
@@ -32004,6 +32030,7 @@
 	}());
 	exports.StarRatingController = StarRatingController;
 	StarRatingController.DefaultClassEmpty = "default-star-empty-icon";
+	StarRatingController.DefaultClassHalf = "default-star-half-icon";
 	StarRatingController.DefaultClassFilled = "default-star-filled-icon";
 	StarRatingController.DefaultNumOfStars = 5;
 	StarRatingController.DefaultSize = "medium";
@@ -32012,9 +32039,11 @@
 	StarRatingController.DefaultStarType = "svg";
 	StarRatingController.DefaultAssetsPath = "assets/images/";
 	StarRatingController.DefaultSvgPath = StarRatingController.DefaultAssetsPath + "star-rating.icons.svg";
-	StarRatingController.DefaultSvgEmptySymbolId = "star";
+	StarRatingController.DefaultSvgEmptySymbolId = "star-empty";
+	StarRatingController.DefaultSvgHalfSymbolId = "star-half";
 	StarRatingController.DefaultSvgFilledSymbolId = "star-filled";
 	StarRatingController.DefaultSvgPathEmpty = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgEmptySymbolId;
+	StarRatingController.DefaultSvgPathHalf = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgHalfSymbolId;
 	StarRatingController.DefaultSvgPathFilled = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgFilledSymbolId;
 
 
@@ -32040,6 +32069,7 @@
 	            disabled: '<',
 	            rating: '<',
 	            labelPosition: '<',
+	            showHalfStars: '<',
 	            getColor: '&?',
 	            onClick: '&?',
 	            onUpdate: '&?'
@@ -32058,7 +32088,7 @@
 /***/ function(module, exports) {
 
 	var path = 'src/star-rating.tpl.html';
-	var html = "<div id=\"{{$ctrl.id}}\"\r\n     class=\"rating {{$ctrl.rating?'value-'+$ctrl.rating:0}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}}\"\r\n     ng-class=\"{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled, 'spread':$ctrl.spread}\">\r\n\r\n  <div ng-show=\"$ctrl.text\" class=\"label-value\">{{$ctrl.text}}</div>\r\n\r\n  <div class=\"star-container\">\r\n    <div class=\"star\"\r\n        ng-repeat=\"star in $ctrl.stars track by $index\"\r\n        ng-click=\"$ctrl.onStarClicked(star)\">\r\n\r\n        <i class=\"star-empty {{$ctrl.classEmpty}}\"></i>\r\n        <i class=\"star-filled {{$ctrl.classFilled}}\"></i>\r\n\r\n        <svg class=\"star-empty {{$ctrl.classEmpty}}\">\r\n          <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathEmpty}}\"></use>\r\n        </svg>\r\n        <svg class=\"star-filled {{$ctrl.classFilled}}\">\r\n            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathFilled}}\"></use>\r\n        </svg>\r\n\r\n       </div>\r\n  </div>\r\n\r\n</div>";
+	var html = "<div id=\"{{$ctrl.id}}\"\r\n     class=\"rating {{$ctrl.rating?'value-'+$ctrl.ratingAsInteger:0}} {{$ctrl.hasHalfStarClass?'half':''}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}}\"\r\n     ng-class=\"{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled, 'spread':$ctrl.spread}\">\r\n\r\n  <div ng-show=\"$ctrl.text\" class=\"label-value\">{{$ctrl.text}}</div>\r\n\r\n  <div class=\"star-container\">\r\n    <div class=\"star\"\r\n        ng-repeat=\"star in $ctrl.stars track by $index\"\r\n        ng-click=\"$ctrl.onStarClicked(star)\">\r\n\r\n        <i class=\"star-empty {{$ctrl.classEmpty}}\"></i>\r\n        <i class=\"star-empty {{$ctrl.classHalf}}\"></i>\r\n        <i class=\"star-filled {{$ctrl.classFilled}}\"></i>\r\n\r\n        <svg class=\"star-empty {{$ctrl.classEmpty}}\">\r\n          <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathEmpty}}\"></use>\r\n        </svg>\r\n        <svg class=\"star-half {{$ctrl.classHalf}}\">\r\n            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathHalf}}\"></use>\r\n        </svg>\r\n        <svg class=\"star-filled {{$ctrl.classFilled}}\">\r\n            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathFilled}}\"></use>\r\n        </svg>\r\n\r\n       </div>\r\n  </div>\r\n\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -32097,7 +32127,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".rating{display:flex;align-items:center;justify-content:center;margin-bottom:5px}.rating .star-container{display:flex;align-items:center;flex:0 0 auto}.rating .star-container .star{position:relative}.rating .star-container .star svg,.rating .star-container .star i,.rating .star-container .star img{position:absolute;top:0;left:0;width:100%;height:100%}.rating .star-container .star svg.star-filled,.rating .star-container .star i.star-filled,.rating .star-container .star img.star-filled{opacity:0}.rating .star-container .star svg{z-index:3}.rating .star-container .star i{z-index:2}.rating .star-container .star img{z-index:1}.rating .star-container .star+.star{margin-left:5px}.rating.value-1 .star-container .star:nth-child(-n+1) svg.star-filled,.rating.value-1 .star-container .star:nth-child(-n+1) i.star-filled{opacity:1}.rating.value-1 .star-container .star svg,.rating.value-1 .star-container .star i{fill:#f03c56;color:#f03c56}.rating.value-2 .star-container .star:nth-child(-n+2) svg.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) i.star-filled{opacity:1}.rating.value-2 .star-container .star svg,.rating.value-2 .star-container .star i{fill:#f03c56;color:#f03c56}.rating.value-3 .star-container .star:nth-child(-n+3) svg.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) i.star-filled{opacity:1}.rating.value-3 .star-container .star svg,.rating.value-3 .star-container .star i{fill:#ffc058;color:#ffc058}.rating.value-4 .star-container .star:nth-child(-n+4) svg.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) i.star-filled{opacity:1}.rating.value-4 .star-container .star svg,.rating.value-4 .star-container .star i{fill:#7ed321;color:#7ed321}.rating.value-5 .star-container .star:nth-child(-n+5) svg.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) i.star-filled{opacity:1}.rating.value-5 .star-container .star svg,.rating.value-5 .star-container .star i{fill:#7ed321;color:#7ed321}.rating.value-6 .star-container .star:nth-child(-n+6) svg.star-filled,.rating.value-6 .star-container .star:nth-child(-n+6) i.star-filled{opacity:1}.rating.value-6 .star-container .star svg,.rating.value-6 .star-container .star i{fill:#7ed321;color:#7ed321}.rating.value-7 .star-container .star:nth-child(-n+7) svg.star-filled,.rating.value-7 .star-container .star:nth-child(-n+7) i.star-filled{opacity:1}.rating.value-7 .star-container .star svg,.rating.value-7 .star-container .star i{fill:#7ed321;color:#7ed321}.rating.value-8 .star-container .star:nth-child(-n+8) svg.star-filled,.rating.value-8 .star-container .star:nth-child(-n+8) i.star-filled{opacity:1}.rating.value-8 .star-container .star svg,.rating.value-8 .star-container .star i{fill:#7ed321;color:#7ed321}.rating.value-9 .star-container .star:nth-child(-n+9) svg.star-filled,.rating.value-9 .star-container .star:nth-child(-n+9) i.star-filled{opacity:1}.rating.value-9 .star-container .star svg,.rating.value-9 .star-container .star i{fill:#7ed321;color:#7ed321}.rating.value-10 .star-container .star:nth-child(-n+10) svg.star-filled,.rating.value-10 .star-container .star:nth-child(-n+10) i.star-filled{opacity:1}.rating.value-10 .star-container .star svg,.rating.value-10 .star-container .star i{fill:#7ed321;color:#7ed321}.rating.label-top{flex-direction:column}.rating.label-top .label-value+.star-container{margin-left:0;margin-right:0;margin-top:5px}.rating .star-container{margin-left:5px;margin-right:5px}.rating.label-left .label-value{flex:0 0 auto}.rating.label-left .label-value+.star-container{margin-left:5px;margin-right:0}.rating.label-right{flex-direction:row-reverse}.rating.label-right .label-value+.star-container{margin-left:0;margin-right:5px}.rating.label-bottom{flex-direction:column-reverse}.rating.label-bottom .label-value+.star-container{margin-left:0;margin-right:0;margin-bottom:5px}.rating .star{transition:all .3s ease}.rating .star svg,.rating .star i{transition:all .3s ease}.rating.immediately .star{transition:none}.rating.immediately .star svg,.rating.immediately .star i{transition:none}.rating.noticeable .star{transition:all .3s ease}.rating.noticeable .star svg,.rating.noticeable .star i{transition:all .3s ease}.rating.slow .star{transition:all .8s ease}.rating.slow .star svg,.rating.slow .star i{transition:all .8s ease}.rating .star svg,.rating .star i,.rating .star img{display:block;font-style:normal}.rating .star i.star-empty:before{content:\"\\2606\"}.rating .star i.star-filled:before{content:\"\\2605\"}.rating.star-icon .star svg{display:none}.rating.star-icon .star img{display:none}.rating.star-icon .star i{display:block}.rating.star-img .star svg{display:none}.rating.star-img .star i{display:none}.rating.star-img .star img{display:block}.rating.star-svg .star svg{display:block}.rating.star-svg .star i{display:none}.rating.star-svg .star img{display:none}.rating.small .star{width:10px;height:9,5px}.rating.small .star i{font-size:11px;line-height:10px}.rating.small .label-value{font-size:9.5px;line-height:9.5px}.rating .star{width:20px;height:20px}.rating .star i{font-size:26px;line-height:21px;margin-left:-1px}.rating .label-value{font-size:18px;line-height:18px}.rating.medium .star{width:20px;height:20px}.rating.medium .star i{font-size:26px;line-height:21px}.rating.medium .label-value{font-size:18px;line-height:21px}.rating.large .star{width:35px;height:33.3px}.rating.large .star i{font-size:36px;line-height:35px}.rating.large .label-value{font-size:28px;line-height:35px}.rating .star-container{justify-content:center}.rating.spread .star-container{flex:1 1 auto;justify-content:space-between}.rating.color-default .star-container .star svg{fill:#999}.rating.color-default .star-container .star i{color:#999}.rating .star-container .star svg{fill:#999}.rating .star-container .star i{color:#999}.rating.color-negative .star-container .star svg{fill:#f03c56}.rating.color-negative .star-container .star i{color:#f03c56}.rating.color-middle .star-container .star svg{fill:#ffc058}.rating.color-middle .star-container .star i{color:#ffc058}.rating.color-positive .star-container .star svg{fill:#7ed321}.rating.color-positive .star-container .star i{color:#7ed321}.rating.disabled .label-value{opacity:.5}.rating.disabled .star-container .star{opacity:.5}\n", ""]);
+	exports.push([module.id, ".rating{display:flex;align-items:center;justify-content:center;margin-bottom:5px}.rating .star-container{display:flex;align-items:center;flex:0 0 auto}.rating .star-container .star{position:relative}.rating .star-container .star svg,.rating .star-container .star i,.rating .star-container .star img{position:absolute;top:0;left:0;width:100%;height:100%}.rating .star-container .star svg.star-filled,.rating .star-container .star i.star-filled,.rating .star-container .star img.star-filled{opacity:0}.rating .star-container .star svg{z-index:3}.rating .star-container .star i{z-index:2}.rating .star-container .star img{z-index:1}.rating .star-container .star+.star{margin-left:5px}.rating.value-1 .star-container .star:nth-child(-n+1) svg.star-filled,.rating.value-1 .star-container .star:nth-child(-n+1) i.star-filled,.rating.value-1 .star-container .star:nth-child(-n+1) img.star-filled{opacity:1}.rating.value-1 .star-container .star svg,.rating.value-1 .star-container .star i,.rating.value-1 .star-container .star img{fill:#f03c56;color:#f03c56}.rating.value-2 .star-container .star:nth-child(-n+2) svg.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) i.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) img.star-filled{opacity:1}.rating.value-2 .star-container .star svg,.rating.value-2 .star-container .star i,.rating.value-2 .star-container .star img{fill:#f03c56;color:#f03c56}.rating.value-3 .star-container .star:nth-child(-n+3) svg.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) i.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) img.star-filled{opacity:1}.rating.value-3 .star-container .star svg,.rating.value-3 .star-container .star i,.rating.value-3 .star-container .star img{fill:#ffc058;color:#ffc058}.rating.value-4 .star-container .star:nth-child(-n+4) svg.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) i.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) img.star-filled{opacity:1}.rating.value-4 .star-container .star svg,.rating.value-4 .star-container .star i,.rating.value-4 .star-container .star img{fill:#7ed321;color:#7ed321}.rating.value-5 .star-container .star:nth-child(-n+5) svg.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) i.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) img.star-filled{opacity:1}.rating.value-5 .star-container .star svg,.rating.value-5 .star-container .star i,.rating.value-5 .star-container .star img{fill:#7ed321;color:#7ed321}.rating svg.star-half,.rating i.star-half,.rating img.star-half{opacity:0}.rating.value-0.half .star svg,.rating.value-0.half .star i,.rating.value-0.half .star img{fill:#f03c56;color:#f03c56}.rating.value-0.half .star:nth-child(1) .star-half{opacity:1}.rating.value-1.half .star-container .star:nth-child(2) svg.star-half,.rating.value-1.half .star-container .star:nth-child(2) i.star-half,.rating.value-1.half .star-container .star:nth-child(2) img.star-half{opacity:1}.rating.value-2.half .star-container .star:nth-child(3) svg.star-half,.rating.value-2.half .star-container .star:nth-child(3) i.star-half,.rating.value-2.half .star-container .star:nth-child(3) img.star-half{opacity:1}.rating.value-3.half .star-container .star:nth-child(4) svg.star-half,.rating.value-3.half .star-container .star:nth-child(4) i.star-half,.rating.value-3.half .star-container .star:nth-child(4) img.star-half{opacity:1}.rating.value-4.half .star-container .star:nth-child(5) svg.star-half,.rating.value-4.half .star-container .star:nth-child(5) i.star-half,.rating.value-4.half .star-container .star:nth-child(5) img.star-half{opacity:1}.rating.label-top{flex-direction:column}.rating.label-top .label-value+.star-container{margin-left:0;margin-right:0;margin-top:5px}.rating .star-container{margin-left:5px;margin-right:5px}.rating.label-left .label-value{flex:0 0 auto}.rating.label-left .label-value+.star-container{margin-left:5px;margin-right:0}.rating.label-right{flex-direction:row-reverse}.rating.label-right .label-value+.star-container{margin-left:0;margin-right:5px}.rating.label-bottom{flex-direction:column-reverse}.rating.label-bottom .label-value+.star-container{margin-left:0;margin-right:0;margin-bottom:5px}.rating .star{transition:all .3s ease}.rating .star svg,.rating .star i{transition:all .3s ease}.rating.immediately .star{transition:none}.rating.immediately .star svg,.rating.immediately .star i{transition:none}.rating.noticeable .star{transition:all .3s ease}.rating.noticeable .star svg,.rating.noticeable .star i{transition:all .3s ease}.rating.slow .star{transition:all .8s ease}.rating.slow .star svg,.rating.slow .star i{transition:all .8s ease}.rating .star svg,.rating .star i,.rating .star img{display:block;font-style:normal}.rating .star i.star-empty:before{content:\"\\2606\"}.rating .star i.star-half:before{content:\"\\F089\"}.rating .star i.star-filled:before{content:\"\\2605\"}.rating.star-icon .star svg{display:none}.rating.star-icon .star img{display:none}.rating.star-icon .star i{display:block}.rating.star-img .star svg{display:none}.rating.star-img .star i{display:none}.rating.star-img .star img{display:block}.rating.star-svg .star svg{display:block}.rating.star-svg .star i{display:none}.rating.star-svg .star img{display:none}.rating.small .star{width:10px;height:9,5px}.rating.small .star i{font-size:11px;line-height:10px}.rating.small .label-value{font-size:9.5px;line-height:9.5px}.rating .star{width:20px;height:20px}.rating .star i{font-size:26px;line-height:21px;margin-left:-1px}.rating .label-value{font-size:18px;line-height:18px}.rating.medium .star{width:20px;height:20px}.rating.medium .star i{font-size:26px;line-height:21px}.rating.medium .label-value{font-size:18px;line-height:21px}.rating.large .star{width:35px;height:33.3px}.rating.large .star i{font-size:36px;line-height:35px}.rating.large .label-value{font-size:28px;line-height:35px}.rating .star-container{justify-content:center}.rating.spread .star-container{flex:1 1 auto;justify-content:space-between}.rating.color-default .star-container .star svg{fill:#999}.rating.color-default .star-container .star i{color:#999}.rating .star-container .star svg{fill:#999}.rating .star-container .star i{color:#999}.rating.color-negative .star-container .star svg{fill:#f03c56}.rating.color-negative .star-container .star i{color:#f03c56}.rating.color-middle .star-container .star svg{fill:#ffc058}.rating.color-middle .star-container .star i{color:#ffc058}.rating.color-positive .star-container .star svg{fill:#7ed321}.rating.color-positive .star-container .star i{color:#7ed321}.rating.disabled .label-value{opacity:.5}.rating.disabled .star-container .star{opacity:.5}\n", ""]);
 	
 	// exports
 

@@ -22,6 +22,7 @@ export interface IStarRatingCompBindings {
     numOfStars?: number;
     //&
     getColor?: Function;
+    getHalfStarClass?:Function;
     onClick?: Function;
     onUpdate?: Function;
 }
@@ -91,6 +92,7 @@ export class StarRatingController implements IStarRatingCompBindings{
     rating: number;
     numOfStars: number;
     //&
+    getHalfStarClass:Function;
     getColor: Function;
     onClick: Function;
     onUpdate: Function;
@@ -119,7 +121,8 @@ export class StarRatingController implements IStarRatingCompBindings{
         this.pathHalf = this.pathHalf || StarRatingController.DefaultSvgPathHalf;
         this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPathFilled;
         this.numOfStars = (this.numOfStars && this.numOfStars > 0)?this.numOfStars:StarRatingController.DefaultNumOfStars;
-        this.getColor  = (typeof this.getColor === "function")?this.getColor:this.calculateColor;
+        this.getColor  = (typeof this.getColor === "function")?this.getColor:this._calculateColor;
+        this.getHalfStarClass = this.getHalfStarClass || this._calcHalfStarClass;
         this.onUpdate  = this.onUpdate || function () {};
         this.onClick  = this.onClick || function () {};
 
@@ -221,33 +224,18 @@ export class StarRatingController implements IStarRatingCompBindings{
      * based on rating. This function also triggers the onUpdate emitter.
      *
      * @param value
+     * @param showHalfStars?
+     *
      */
-    private updateRating(value: number, halfStars?:boolean) {
+    private updateRating(value: number, showHalfStars?:boolean):void {
         this.rating = value;
-        //if showHalfStars is true use the getHasHalfStarClass function to determine if half a star is visible
-        this.hasHalfStarClass = (this.showHalfStars)?this.getHasHalfStarClass(this.rating):false;
-        console.log('this.hasHalfStarClass: ', this.hasHalfStarClass);
+        //if showHalfStars is true use the hasHalfStarClass function to determine if half a star is visible
+        this.hasHalfStarClass = (showHalfStars)?this.getHalfStarClass(value):false;
         this.ratingAsInteger = parseInt(this.rating.toString());
-        console.log('this.ratingAsInteger: ', this.ratingAsInteger);
         //
         this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
         //
         this.onUpdate({rating: this.rating});
-    }
-
-    /**
-     * getHasHalfStarClass
-     *
-     * Returns true if there should be a half star visible, and false if not.
-     *
-     * @param value
-     * @returns {boolean}
-     */
-    getHasHalfStarClass(value: number) {
-        if(value%1>0) {
-            return true;
-        }
-        return false;
     }
 
     /**
@@ -258,14 +246,26 @@ export class StarRatingController implements IStarRatingCompBindings{
      *
      * @param {number} numOfStars the number of stars
      */
-    private updateNumOfStars(numOfStars: number) {
+    private updateNumOfStars(numOfStars: number): void  {
         this.numOfStars = (numOfStars && numOfStars > 0)?numOfStars:StarRatingController.DefaultNumOfStars;
         this.stars = StarRatingController.getStarsArray(this.numOfStars);
         this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
     }
 
     /**
-     * calculateColor
+     * hasHalfStarClass
+     *
+     * Returns true if there should be a half star visible, and false if not.
+     *
+     * @param value
+     * @returns {boolean}
+     */
+    private _calcHalfStarClass = (value: number): boolean => {
+        return value % 1 > 0;
+    };
+
+    /**
+     * _calculateColor
      *
      * The default function for color calculation
      * based on the current rating and the the number of stars possible.
@@ -276,7 +276,7 @@ export class StarRatingController implements IStarRatingCompBindings{
      * @param staticColor
      * @returns {starRatingColors}
      */
-    private calculateColor = (rating:number, numOfStars:number, staticColor?:starRatingColors):starRatingColors => {
+    private _calculateColor = (rating:number, numOfStars:number, staticColor?:starRatingColors):starRatingColors => {
         //if a fix color is set use this one
         if(staticColor) { return staticColor; }
 
