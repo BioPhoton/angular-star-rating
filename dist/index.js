@@ -31857,6 +31857,7 @@
 	         * @returns {boolean}
 	         */
 	        this._calcHalfStarClass = function (value) {
+	            console.log('_calcHalfStarClass');
 	            return value % 1 > 0;
 	        };
 	        /**
@@ -32004,9 +32005,9 @@
 	     *
 	     */
 	    StarRatingController.prototype.updateRating = function (value, showHalfStars) {
-	        this.rating = value;
+	        this.rating = value || 0;
 	        //if showHalfStars is true use the hasHalfStarClass function to determine if half a star is visible
-	        this.hasHalfStarClass = (showHalfStars) ? this.getHalfStarClass(value) : false;
+	        this.hasHalfStarClass = (showHalfStars) ? this.getHalfStarClass({ rating: this.rating }) : false;
 	        this.ratingAsInteger = parseInt(this.rating.toString());
 	        //
 	        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
@@ -32071,6 +32072,7 @@
 	            labelPosition: '<',
 	            showHalfStars: '<',
 	            getColor: '&?',
+	            getHalfStarClass: '&?',
 	            onClick: '&?',
 	            onUpdate: '&?'
 	        };
