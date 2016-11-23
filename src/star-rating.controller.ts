@@ -17,6 +17,7 @@ export interface IStarRatingCompBindings {
     spread?: boolean;
     readOnly?: boolean;
     disabled?: boolean;
+    showHalfStars?: boolean;
     rating?: number;
     numOfStars?: number;
     //&
@@ -28,6 +29,8 @@ export interface IStarRatingCompBindings {
 export class StarRatingController implements IStarRatingCompBindings{
 
     static DefaultClassEmpty:string = "default-star-empty-icon";
+
+    static DefaultClassHalf:string = "default-star-half-icon";
 
     static DefaultClassFilled:string = "default-star-filled-icon";
 
@@ -44,10 +47,13 @@ export class StarRatingController implements IStarRatingCompBindings{
     static DefaultAssetsPath:string = "assets/images/";
 
     static DefaultSvgPath:string = StarRatingController.DefaultAssetsPath+"star-rating.icons.svg";
-    static DefaultSvgEmptySymbolId:string = "star";
+    static DefaultSvgEmptySymbolId:string = "star-empty";
+    static DefaultSvgHalfSymbolId:string = "star-half";
     static DefaultSvgFilledSymbolId:string = "star-filled";
 
     static DefaultSvgPathEmpty:string = StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgEmptySymbolId;
+
+    static DefaultSvgPathHalf:string = StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgHalfSymbolId;
 
     static DefaultSvgPathFilled:string = StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgFilledSymbolId;
 
@@ -81,6 +87,7 @@ export class StarRatingController implements IStarRatingCompBindings{
     spread: boolean;
     readOnly: boolean;
     disabled: boolean;
+    showHalfStars: boolean;
     rating: number;
     numOfStars: number;
     //&
@@ -90,18 +97,26 @@ export class StarRatingController implements IStarRatingCompBindings{
 
     //ctrl only
     classEmpty:string;
+    classHalf:string;
     classFilled:string;
+
     pathEmpty: string;
+    pathHalf:string;
     pathFilled:string;
+
     stars: Array<number>;
     staticColor:starRatingColors;
+    ratingAsInteger:number;
+    hasHalfStarClass:boolean;
 
     //
     constructor() {
         //set default values
         this.classEmpty = this.classEmpty || StarRatingController.DefaultClassEmpty;
+        this.classHalf = this.classHalf || StarRatingController.DefaultClassHalf;
         this.classFilled = this.classFilled || StarRatingController.DefaultClassFilled;
         this.pathEmpty = this.pathEmpty || StarRatingController.DefaultSvgPathEmpty;
+        this.pathHalf = this.pathHalf || StarRatingController.DefaultSvgPathHalf;
         this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPathFilled;
         this.numOfStars = (this.numOfStars && this.numOfStars > 0)?this.numOfStars:StarRatingController.DefaultNumOfStars;
         this.getColor  = (typeof this.getColor === "function")?this.getColor:this.calculateColor;
@@ -127,7 +142,7 @@ export class StarRatingController implements IStarRatingCompBindings{
 
         //number
         if (valueChanged('rating', changes)) {
-            this.updateRating(changes.rating.currentValue);
+            this.updateRating(changes.rating.currentValue, this.showHalfStars);
         }
 
         if ( valueChanged('numOfStars', changes)) {
@@ -141,7 +156,7 @@ export class StarRatingController implements IStarRatingCompBindings{
 
         if (valueChanged('color' , changes)) {
             this.staticColor =(changes.color.currentValue)?changes.color.currentValue:undefined;
-            this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+            this.color = this.getColor(this.ratingAsInteger, this.numOfStars, this.staticColor);
         }
 
         if (valueChanged('size', changes)) {
@@ -161,6 +176,12 @@ export class StarRatingController implements IStarRatingCompBindings{
         }
 
         //boolean
+        if (valueChanged('showHalfStars' , changes)) {
+            this.showHalfStars = !!changes.showHalfStars.currentValue;
+            console.log('show-half-stars changed: ', this.showHalfStars);
+            this.updateRating(this.rating, this.showHalfStars);
+        }
+
         if (valueChanged('spread' , changes)) {
             this.spread = !!changes.spread.currentValue;
         }
@@ -201,10 +222,32 @@ export class StarRatingController implements IStarRatingCompBindings{
      *
      * @param value
      */
-    private updateRating(value: number) {
+    private updateRating(value: number, halfStars?:boolean) {
         this.rating = value;
+        //if showHalfStars is true use the getHasHalfStarClass function to determine if half a star is visible
+        this.hasHalfStarClass = (this.showHalfStars)?this.getHasHalfStarClass(this.rating):false;
+        console.log('this.hasHalfStarClass: ', this.hasHalfStarClass);
+        this.ratingAsInteger = parseInt(this.rating.toString());
+        console.log('this.ratingAsInteger: ', this.ratingAsInteger);
+        //
         this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+        //
         this.onUpdate({rating: this.rating});
+    }
+
+    /**
+     * getHasHalfStarClass
+     *
+     * Returns true if there should be a half star visible, and false if not.
+     *
+     * @param value
+     * @returns {boolean}
+     */
+    getHasHalfStarClass(value: number) {
+        if(value%1>0) {
+            return true;
+        }
+        return false;
     }
 
     /**
