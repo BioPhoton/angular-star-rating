@@ -89,7 +89,7 @@ Options are:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5] track by $index" ng-click="data.rating = $index+1">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -124,7 +124,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-half">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-half"></use>
@@ -154,7 +154,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-half">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-half"></use>
@@ -169,7 +169,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-half">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-half"></use>
@@ -184,7 +184,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-half">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-half"></use>
@@ -199,7 +199,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-half">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-half"></use>
@@ -214,7 +214,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-half">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-half"></use>
@@ -229,7 +229,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-half">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-half"></use>
@@ -262,7 +262,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -287,7 +287,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -315,7 +315,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -327,7 +327,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -339,7 +339,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -351,7 +351,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -381,7 +381,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -394,7 +394,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -407,7 +407,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -420,7 +420,7 @@ markup:
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -445,7 +445,7 @@ Styleguide 1.6
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -458,7 +458,7 @@ Styleguide 1.6
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -471,7 +471,7 @@ Styleguide 1.6
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -484,7 +484,7 @@ Styleguide 1.6
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -510,7 +510,7 @@ Styleguide 1.6
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5] track by $index" ng-click="data.rating = (data.rating == 1)?5:1">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
@@ -537,7 +537,7 @@ Styleguide 1.6
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5] track by $index">
             <svg class="star-empty">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
             </svg>
             <svg class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
