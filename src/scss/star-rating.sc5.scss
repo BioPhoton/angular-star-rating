@@ -3,6 +3,12 @@
 /*VARIABLES
 ====================================================*/
 
+/*Range*/
+$from-numOfStars: 1;
+$to-numOfStars: 5;
+$fractionSteps: 3;
+$fractionSize: $to-numOfStars/$fractionSteps;
+
 /*Spacing*/
 $rating-margin-bottom: 5px;
 $default-stars-label-margin: 5px;
@@ -14,6 +20,7 @@ $color-positive-rating: #7ed321 !default;
 $color-disabled-rating: #999 !default;
 
 /*Sizes*/
+
 //default
 $default-star-width: 20px !default;
 $default-star-height: 20px !default;
@@ -323,6 +330,18 @@ markup:
         </div>
     </div>
 </div>
+<div class="rating value-1 {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
 <div class="rating value-2 {$modifiers}">
     <div class="star-container">
         <div class="star" ng-repeat="i in [1,2,3,4,5]">
@@ -359,6 +378,19 @@ markup:
         </div>
     </div>
 </div>
+<div class="rating value-5 {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+
 
 Styleguide 1.5
 */
@@ -553,66 +585,72 @@ Styleguide 1.6
    Styleguide 1.9
 */
 
-/*Default styles and modifier
-====================================================*/
 
-.rating {
+/*
+Star element
+==================================================================*/
+.star {
+  position: relative;
+
+  svg, i, img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    font-style: normal;
+
+    &.star-filled {
+      opacity: 0;
+    }
+  }
+}
+
+/*
+Star Container
+==================================================================*/
+.star-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: $rating-margin-bottom;
+  flex: 0 0 auto;
 
-  .star-container {
+  svg {
+    z-index: 3;
+  }
+  i {
+    z-index: 2;
+  }
+  img {
+    z-index: 1;
+  }
+}
+
+  /*Default styles and modifier
+  ====================================================*/
+
+  .rating {
     display: flex;
     align-items: center;
-    flex: 0 0 auto;
+    justify-content: center;
+    margin-bottom: $rating-margin-bottom;
 
-    .star {
-      position: relative;
-
-      svg, i, img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-
-        &.star-filled {
-          opacity: 0;
-        }
-      }
-
-      svg {
-        z-index: 3;
-      }
-      i {
-        z-index: 2;
-      }
-      img {
-        z-index: 1;
-      }
-
+    .star-container {
       + .star {
         margin-left: $default-stars-label-margin;
       }
     }
-  }
 
   /*Rating Value
   ====================================================*/
-  $from-numOfStars: 1;
-  $to-numOfStars: 5;
-  $fractionSteps: 3;
-  $fractionSize: $to-numOfStars/$fractionSteps;
 
   @for $i from $from-numOfStars through $to-numOfStars {
     &.value-#{$i} {
 
       .star-container {
         .star:nth-child(-n+#{$i}) {
-          svg,
-          i,
-          img {
+          svg, i, img {
             &.star-filled {
               opacity: 1;
             }
@@ -620,9 +658,7 @@ Styleguide 1.6
         }
 
         .star {
-          svg,
-          i,
-          img {
+          svg, i, img {
             @if $i <= 2 {
               fill: $color-negative-rating;
               color: $color-negative-rating;
@@ -673,9 +709,7 @@ Styleguide 1.6
       .star-container {
         @if ($i < $to-numOfStars) {
           .star:nth-child(#{$i+1}) {
-            svg,
-            i,
-            img {
+            svg, i, img {
               &.star-half {
                 opacity: 1;
               }
@@ -782,10 +816,6 @@ Styleguide 1.6
 
   //default
   .star {
-    svg, i, img {
-      display: block;
-      font-style: normal;
-    }
     i {
       &.star-empty:before {
         content: $default-star-character-empty;
