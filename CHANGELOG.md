@@ -1,3 +1,27 @@
+<a name="1.0.7"></a>
+## [1.0.7](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.6...v1.0.7) (2016-11-25)
+
+
+### Bug Fixes
+
+* **build:** build new version ([071e934](https://github.com/BioPhoton/angular-star-rating/commit/071e934))
+* **readme:** updated shields ([56e4c86](https://github.com/BioPhoton/angular-star-rating/commit/56e4c86))
+* **readme:** updated shields ([6f9f6d1](https://github.com/BioPhoton/angular-star-rating/commit/6f9f6d1))
+* **resources:** images ([094e7b0](https://github.com/BioPhoton/angular-star-rating/commit/094e7b0))
+* **scss:** refactor scss ([cdd1982](https://github.com/BioPhoton/angular-star-rating/commit/cdd1982))
+
+
+### Features
+
+* **half-star modifier:** implement halfStar callback [#25](https://github.com/BioPhoton/angular-star-rating/issues/25) ([1fd589e](https://github.com/BioPhoton/angular-star-rating/commit/1fd589e))
+* **half-star modifier:** implement scss modifier [#25](https://github.com/BioPhoton/angular-star-rating/issues/25) ([49a90e9](https://github.com/BioPhoton/angular-star-rating/commit/49a90e9))
+* **half-star modifier:** start implement component functionality [#25](https://github.com/BioPhoton/angular-star-rating/issues/25) ([383f59c](https://github.com/BioPhoton/angular-star-rating/commit/383f59c))
+* **half-star modifier:** test component functionality [#25](https://github.com/BioPhoton/angular-star-rating/issues/25) ([9b6d8ce](https://github.com/BioPhoton/angular-star-rating/commit/9b6d8ce))
+* **half-star modifier:** test component functionality [#25](https://github.com/BioPhoton/angular-star-rating/issues/25) ([f44a2f7](https://github.com/BioPhoton/angular-star-rating/commit/f44a2f7))
+* **half-star modifier:** tested halfStar callback [#25](https://github.com/BioPhoton/angular-star-rating/issues/25) ([a135396](https://github.com/BioPhoton/angular-star-rating/commit/a135396))
+
+
+
 <a name="1.0.6"></a>
 ## [1.0.6](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.5...v1.0.6) (2016-11-22)
 
