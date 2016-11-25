@@ -9,7 +9,7 @@ Angular Star Rating is a >1.5 Angular component written in typescript.
 It is based on a fully customizable css only star rating component written in scss. 
 
 ## DEMOS
-![alt tag](https://github.com/BioPhoton/angular-star-rating/blob/master/resources/star-rating-options.PNG)
+![alt tag](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/star-rating-options.PNG)
 
 ## Install
 
@@ -68,10 +68,10 @@ Default: left
 <star-rating-comp label-position="'top'"></star-rating-comp>
 ```
 
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-top.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-bottom.PNG" width="250">  
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-right.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-label-left.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-top.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-bottom.PNG" width="250">  
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-right.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-left.PNG" width="250">
 
 **spread**: boolean (Optional)  
 If the start use the whole space or not.  
@@ -80,8 +80,8 @@ Default: false
 ```html
 <star-rating-comp spread="true"></star-rating-comp>
 ```
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-spread-false.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-spread-true.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-spread-false.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-spread-true.PNG" width="250">
 
 **numOfStars**: number (Optional)  
 The possible number of stars to choose from  
@@ -98,7 +98,7 @@ Default: undefined
 ```html
 <star-rating-comp rating="3"></star-rating-comp>
 ```
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-value.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-value.PNG" width="250">
 
 **color**: starRatingColors (Optional)  
 Possible color names for the stars.  
@@ -108,10 +108,10 @@ Default: undefined
 ```html
 <star-rating-comp color="'positive'"></star-rating-comp>
 ```
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-default.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-positive.PNG" width="250">  
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-middle.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-color-negative.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-default.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-positive.PNG" width="250">  
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-middle.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-negative.PNG" width="250">
 
 **disabled**: boolean (Optional)  
 The click callback is disabled, colors are transparent   
@@ -121,8 +121,8 @@ Default: false
 <star-rating-comp disabled="true"></star-rating-comp>
 ```
 
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-disabled-false.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-disabled-true.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-true.PNG" width="250">
   
 **readOnly**: boolean (Optional)  
 The click callback is disabled  
@@ -131,8 +131,8 @@ Default: false
 ```html
 <star-rating-comp read-only="true"></star-rating-comp>
 ```
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-disabled-false.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-disabled-false.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="250">
 
 **size**: starRatingSizes (Optional)  
 The height and width of the stars.    
@@ -142,9 +142,9 @@ Default: middle
 ```html
 <star-rating-comp size="'small'"></star-rating-comp>
 ```
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-size-small.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-size-medium.PNG" width="250">
-<img src="https://github.com/BioPhoton/angular-star-rating/blob/master/resources/prop-size-large.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-size-small.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-size-medium.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-size-large.PNG" width="250">
 
 **speed**: starRatingSpeed (Optional)  
 The duration of the animation in ms.   
