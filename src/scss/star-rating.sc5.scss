@@ -783,35 +783,47 @@ Star Container
   ====================================================*/
 
   //default
-  .star {
-    transition: all $default-animation-speed $default-animation-type;
-    svg, i {
+    .star-container {
       transition: all $default-animation-speed $default-animation-type;
+      .star {
+        transition: all $default-animation-speed $default-animation-type;
+        svg, i, img{
+          transition: all $default-animation-speed $default-animation-type;
+        }
+      }
     }
-  }
 
   &.immediately
-  .star {
-    transition: $immediately-animation-type;
-    svg, i {
+  .star-container {
+    transition: all $immediately-animation-type;
+    .star {
       transition: $immediately-animation-type;
+      svg, i, img {
+        transition: $immediately-animation-type;
+      }
     }
   }
 
   &.noticeable {
-    .star {
+    .star-container {
       transition: all $default-animation-speed $default-animation-type;
-      svg, i {
+      .star {
         transition: all $default-animation-speed $default-animation-type;
+        svg, i, img {
+          transition: all $default-animation-speed $default-animation-type;
+        }
       }
     }
   }
 
   &.slow {
-    .star {
+    .star-container {
       transition: all $slow-animation-speed $default-animation-type;
-      svg, i {
+      .star {
         transition: all $slow-animation-speed $default-animation-type;
+        svg, i, img {
+          transition: all $slow-animation-speed $default-animation-type;
+        }
       }
     }
   }
