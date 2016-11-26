@@ -1,5 +1,5 @@
 export type starRatingSizes = "small" | "medium" | "large";
-export type starRatingColors = "negative" | "middle" | "positive";
+export type starRatingColors = "default" | "negative" | "middle" | "positive";
 export type starRatingSpeed = "immediately" | "noticeable" | "slow";
 export type starRatingPosition = "left" | "right" | "top" | "bottom";
 export type starRatingStarTypes = "svg" | "icon" | "image";
@@ -284,7 +284,8 @@ export class StarRatingController implements IStarRatingCompBindings{
         let fractionSize = numOfStars / 3;
 
         //apply color by fraction
-        let color:starRatingColors = 'negative';
+        let color:starRatingColors = 'default';
+        if (rating > 0) { color = 'negative'; }
         if (rating > fractionSize) { color = 'middle'; }
         if (rating > fractionSize * 2) { color = 'positive'; }
 
