@@ -1,5 +1,5 @@
 export declare type starRatingSizes = "small" | "medium" | "large";
-export declare type starRatingColors = "negative" | "middle" | "positive";
+export declare type starRatingColors = "default" | "negative" | "middle" | "positive";
 export declare type starRatingSpeed = "immediately" | "noticeable" | "slow";
 export declare type starRatingPosition = "left" | "right" | "top" | "bottom";
 export declare type starRatingStarTypes = "svg" | "icon" | "image";
@@ -120,7 +120,7 @@ export declare class StarRatingController implements IStarRatingCompBindings {
      *
      * Returns true if there should be a half star visible, and false if not.
      *
-     * @param value
+     * @param rating
      * @returns {boolean}
      */
     private _calcHalfStarClass;
