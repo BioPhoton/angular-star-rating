@@ -257,12 +257,11 @@ export class StarRatingController implements IStarRatingCompBindings{
      *
      * Returns true if there should be a half star visible, and false if not.
      *
-     * @param value
+     * @param rating
      * @returns {boolean}
      */
-    private _calcHalfStarClass = (value: number): boolean => {
-        console.log('_calcHalfStarClass');
-        return value % 1 > 0;
+    private _calcHalfStarClass = (rating: number): boolean => {
+        return rating % 1 > 0;
     };
 
     /**
