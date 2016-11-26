@@ -139,7 +139,7 @@ export class StarRatingController implements IStarRatingCompBindings{
      $onChanges(changes): void {
         let valueChanged = function(key:string, changes):boolean {
             if (key in changes)
-                if (changes[key].currentValue != changes[key].previousValue) { console.log('key', changes[key].currentValue); return true; }
+                if (changes[key].currentValue != changes[key].previousValue) { return true; }
             return false;
         };
 
@@ -181,7 +181,6 @@ export class StarRatingController implements IStarRatingCompBindings{
         //boolean
         if (valueChanged('showHalfStars' , changes)) {
             this.showHalfStars = !!changes.showHalfStars.currentValue;
-            console.log('show-half-stars changed: ', this.showHalfStars);
             this.updateRating(this.rating, this.showHalfStars);
         }
 
