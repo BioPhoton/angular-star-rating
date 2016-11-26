@@ -20,7 +20,7 @@ It is based on a fully customizable css only star rating component written in sc
  
 **Load library**
 ```html
-<script src="bower_components/ng-drupal-7-services/dist/ng-drupal-7-services.js"></script>
+<script src="bower_components/angular-star-rating/dist/index.js"></script>
 ```
 
 **inject it into angular**
@@ -59,6 +59,17 @@ Default: undefined
 ```html
 <star-rating-comp text="'My text!'"></star-rating-comp>
 ```
+
+**showHalfStars**: boolean (Optional)
+To show half stars or not  
+Options: true, flase  
+Default: false
+
+```html
+<star-rating-comp show-half-stars="true"></star-rating-comp>
+```
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-show_half_stars-false.PNG" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-show_half_stars-true.PNG" width="250">  
 
 **labelPosition**: starRatingPosition (Optional)  
 The position of the label  
@@ -170,6 +181,11 @@ Default: svg
 **getColor**: Function (Optional)  
 Calculation of the color by rating.  
 Params: rating, number,numOfStars and staticColor  
+Return: color name  
+
+**getHalfStarClass**: Function (Optional)  
+Calculation for adding the "half" class or not, depending in the rating.  
+Params: rating  
 Return: color name  
 
 **onClick**: Function (Optional)  
