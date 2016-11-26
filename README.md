@@ -184,9 +184,9 @@ Params: rating, number,numOfStars and staticColor
 Return: color name  
 
 **getHalfStarClass**: Function (Optional)  
-Calculation for adding the "half" class or not, depending in the rating.  
+Calculation for adding the "half" class or not, depending on the rating value.  
 Params: rating  
-Return: color name  
+Return: boolean 
 
 **onClick**: Function (Optional)  
 Callback function for star click event 
@@ -195,8 +195,3 @@ Params: rating
 **onUpdate**: Function (Optional)  
 Callback function for rating update event 
 Params: rating
-
-## Usage 
-### ES5
-### ES6 
-### TS 
