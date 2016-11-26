@@ -57,7 +57,7 @@ The text next to the stars.
 Default: undefined  
 
 ```html
-<star-rating-comp text="'My text!'"></star-rating-comp>
+<star-rating-comp text="'My text'"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-text.PNG" width="290">
 
