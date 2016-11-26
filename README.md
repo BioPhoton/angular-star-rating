@@ -101,6 +101,7 @@ Default: 5
 ```html
 <star-rating-comp num-of-stars="6"></star-rating-comp>
 ```
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-num_of_stars.PNG" width="250">
 
 **rating**: number (Optional)  
 The actual star rating value  
