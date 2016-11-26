@@ -8,6 +8,9 @@
   ],
   "license": "MIT",
   "keywords": [
+    "Rating",
+    "Stars",
+    "Star Rating",
     "Star-Rating",
     "Starrating",
     "Icon",
@@ -15,11 +18,14 @@
     "PNG",
     "JPEG",
     "CSS",
-    "CSS",
-    "only",
+    "CSS only",
     "JavaScript",
+    "Angular",
+    "Angular Component",
     "Angular1",
+    "Angular1 Component",
     "Angular1.5",
+    "Angular1.5 Component",
     "Angular2",
     "Typescript"
   ],
@@ -42,5 +48,6 @@
     "typings.json",
     "tsconfig.json",
     "webpack.config.js"
-  ]
+  ],
+  "dependencies": {}
 }

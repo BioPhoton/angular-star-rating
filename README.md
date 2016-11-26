@@ -154,6 +154,12 @@ Default: noticeable
 ```html
 <star-rating-comp speed="'slow'"></star-rating-comp>
 ```
+
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-immediately.gif" width="250">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-noticeable.gif" width="250">  
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-slow.gif" width="250">
+
+
 **starType**: starRatingStarTypes (Optional)  
 The type of start resource to use.     
 Options: svg, icon, image  
