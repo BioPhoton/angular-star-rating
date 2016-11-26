@@ -9,7 +9,7 @@ Angular Star Rating is a >1.5 Angular component written in typescript.
 It is based on a fully customizable css only star rating component written in scss. 
 
 ## DEMOS
-![alt tag](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/star-rating-options.PNG)
+![alt tag](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/exmple-usage.gif)
 
 ## Install
 
