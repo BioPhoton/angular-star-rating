@@ -8,7 +8,7 @@
 Angular Star Rating is a >1.5 Angular component written in typescript.   
 It is based on a fully customizable css only star rating component written in scss. 
 
-## DEMOS
+## DEMO
 ![alt tag](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/example-usage.gif)
 
 ## Install
@@ -184,10 +184,21 @@ Calculation of the color by rating.
 Params: rating, number,numOfStars and staticColor  
 Return: color name  
 
+```html
+<star-rating-comp get-color="ctrl.getColor(rating, numOfStars, staticColor)"></star-rating-comp>
+```
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_color-function.PNG" width="290">
+
 **getHalfStarClass**: Function (Optional)  
 Calculation for adding the "half" class or not, depending on the rating value.  
 Params: rating  
 Return: boolean 
+
+```html
+<star-rating-comp get-half-star-class="ctrl.getHalfStarClass(rating)"></star-rating-comp>
+```
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_class-function.PNG" width="290">
+
 
 **onClick**: Function (Optional)  
 Callback function for star click event 
