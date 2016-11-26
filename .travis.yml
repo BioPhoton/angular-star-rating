@@ -4,7 +4,7 @@ node_js:
   - '5.0'
 
 install:
-  - sudo npm i -g typings
+  - npm i -g typings
   - npm i
 
 before_script:
