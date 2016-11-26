@@ -59,6 +59,7 @@ Default: undefined
 ```html
 <star-rating-comp text="'My text!'"></star-rating-comp>
 ```
+
 **labelPosition**: starRatingPosition (Optional)  
 The position of the label  
 Options: top, right, bottom, left  
@@ -67,7 +68,6 @@ Default: left
 ```html
 <star-rating-comp label-position="'top'"></star-rating-comp>
 ```
-
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-top.PNG" width="250">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-bottom.PNG" width="250">  
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-right.PNG" width="250">
@@ -120,7 +120,6 @@ Default: false
 ```html
 <star-rating-comp disabled="true"></star-rating-comp>
 ```
-
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="250">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-true.PNG" width="250">
   
@@ -154,11 +153,9 @@ Default: noticeable
 ```html
 <star-rating-comp speed="'slow'"></star-rating-comp>
 ```
-
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-immediately.gif" width="250">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-noticeable.gif" width="250">  
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-noticeable.gif" width="250">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-slow.gif" width="250">
-
 
 **starType**: starRatingStarTypes (Optional)  
 The type of start resource to use.     
