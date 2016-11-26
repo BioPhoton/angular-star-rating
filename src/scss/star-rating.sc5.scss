@@ -4,10 +4,10 @@
 ====================================================*/
 
 /*Range*/
-$from-numOfStars: 1;
-$to-numOfStars: 5;
-$fractionSteps: 3;
-$fractionSize: $to-numOfStars/$fractionSteps;
+$minRatingValue: 1;
+$maxNumOfStars: 6;
+$numFractions: 3;
+$fractionSize: $maxNumOfStars/$numFractions;
 
 /*Spacing*/
 $rating-margin-bottom: 5px;
@@ -120,6 +120,7 @@ Different styles for different rating values.
 Default colors are red for values equal to 2 or below, yellow for 3, and green for 4 or above.
 
 default                 - 0 rating
+.value-0                - 0 rating
 .value-1                - 1 rating
 .value-2                - 2 rating
 .value-3                - 3 rating
@@ -145,6 +146,38 @@ markup:
 
 
 Styleguide 1.1
+*/
+
+/*
+Value Fallback
+
+The different value modifiers are defined over the $maxNumOfStars. Values greater then this value get are handled here.
+This is mostly useful for people hwo generate this html dynamically
+
+.value-4                - 4 rating
+.value-5                - 5 rating
+.value-6                - 6 rating
+.value-7                - 7 rating
+.value-8                - 8 rating
+
+markup:
+<div class="rating {$modifiers}">
+    <div class="star-container">
+        <div class="star" ng-repeat="i in [1,2,3,4,5,6,7]">
+            <svg class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-empty"></use>
+            </svg>
+            <svg class="star-half">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-half"></use>
+            </svg>
+            <svg class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="assets/images/star-rating.icons.svg#star-filled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+
+Styleguide 1.1.1
 */
 
 /*
@@ -590,7 +623,6 @@ Styleguide 1.6
    Styleguide 1.9
 */
 
-
 /*
 Star element
 ==================================================================*/
@@ -607,6 +639,7 @@ Star element
     display: block;
     font-style: normal;
 
+    &.star-half,
     &.star-filled {
       opacity: 0;
     }
@@ -632,25 +665,25 @@ Star Container
   }
 }
 
-  /*Default styles and modifier
-  ====================================================*/
+/*Default styles and modifier
+====================================================*/
 
-  .rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: $rating-margin-bottom;
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $rating-margin-bottom;
 
-    .star-container {
-      + .star {
-        margin-left: $default-stars-label-margin;
-      }
+  .star-container {
+    + .star {
+      margin-left: $default-stars-label-margin;
     }
+  }
 
   /*Rating Value
   ====================================================*/
 
-  @for $i from $from-numOfStars through $to-numOfStars {
+  @for $i from $minRatingValue through $maxNumOfStars {
     &.value-#{$i} {
 
       .star-container {
@@ -663,20 +696,70 @@ Star Container
         }
 
         .star {
-          svg, i, img {
-            @if $i <= 2 {
+          @if $i <= 2 {
+            svg {
               fill: $color-negative-rating;
+            }
+            i {
               color: $color-negative-rating;
             }
-            @if $i == 3 {
+            img {
+              color: $color-negative-rating;
+            }
+          }
+
+          @if $i == 3 {
+            svg {
               fill: $color-middle-rating;
+            }
+            i {
               color: $color-middle-rating;
             }
-            @if $i >= 4 {
+            img {
+              color: $color-middle-rating;
+            }
+          }
+
+          @if $i >= 4 {
+            svg {
               fill: $color-positive-rating;
+            }
+            i {
+              color: $color-positive-rating;
+            }
+            img {
               color: $color-positive-rating;
             }
           }
+        }
+      }
+    }
+  }
+
+  //Handling values > $maxNumOfStars up to $maxNumOfStars*2 (i know it's ugly)
+  @for $i from $maxNumOfStars through $maxNumOfStars*2 {
+    &.value-#{$i} {
+
+      .star-container {
+        .star:nth-child(-n+#{$i}) {
+          svg, i, img {
+            &.star-filled {
+              opacity: 1;
+            }
+          }
+        }
+
+        .star {
+          svg {
+            fill: $color-positive-rating;
+          }
+          i {
+            color: $color-positive-rating;
+          }
+          img {
+            color: $color-positive-rating;
+          }
+
         }
       }
     }
@@ -694,10 +777,13 @@ Star Container
   //if we hals ratings > 0 && < 1 we color the first star
   &.value-0.half {
     .star {
-      svg,
-      i,
-      img {
+      svg {
         fill: $color-negative-rating;
+      }
+      i {
+        color: $color-negative-rating;
+      }
+      img {
         color: $color-negative-rating;
       }
     }
@@ -708,11 +794,11 @@ Star Container
     }
   }
 
-  @for $i from $from-numOfStars through $to-numOfStars {
+  @for $i from $minRatingValue through $maxNumOfStars {
     &.value-#{$i}.half {
 
       .star-container {
-        @if ($i < $to-numOfStars) {
+        @if ($i < $maxNumOfStars) {
           .star:nth-child(#{$i+1}) {
             svg, i, img {
               &.star-half {
@@ -783,15 +869,15 @@ Star Container
   ====================================================*/
 
   //default
-    .star-container {
+  .star-container {
+    transition: all $default-animation-speed $default-animation-type;
+    .star {
       transition: all $default-animation-speed $default-animation-type;
-      .star {
+      svg, i, img {
         transition: all $default-animation-speed $default-animation-type;
-        svg, i, img{
-          transition: all $default-animation-speed $default-animation-type;
-        }
       }
     }
+  }
 
   &.immediately
   .star-container {
@@ -968,7 +1054,8 @@ Star Container
     }
   }
 
-  /* Color override */
+  /* Static Color
+    ====================================================*/
 
   &.color-default {
     .star-container {
@@ -978,6 +1065,9 @@ Star Container
         }
         i {
           color: $color-disabled-rating;
+        }
+        img {
+          color: $color-negative-rating;
         }
       }
     }
@@ -992,6 +1082,9 @@ Star Container
       i {
         color: $color-disabled-rating;
       }
+      img {
+        color: $color-disabled-rating;
+      }
     }
   }
 
@@ -1002,6 +1095,9 @@ Star Container
           fill: $color-negative-rating;
         }
         i {
+          color: $color-negative-rating;
+        }
+        img {
           color: $color-negative-rating;
         }
       }
@@ -1017,6 +1113,9 @@ Star Container
         i {
           color: $color-middle-rating;
         }
+        img {
+          color: $color-middle-rating;
+        }
       }
     }
   }
@@ -1028,6 +1127,9 @@ Star Container
           fill: $color-positive-rating;
         }
         i {
+          color: $color-positive-rating;
+        }
+        img {
           color: $color-positive-rating;
         }
       }
@@ -1047,4 +1149,5 @@ Star Container
       }
     }
   }
+
 }
