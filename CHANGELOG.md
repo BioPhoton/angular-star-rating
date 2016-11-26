@@ -1,3 +1,18 @@
+<a name="1.0.8"></a>
+## [1.0.8](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.7...v1.0.8) (2016-11-26)
+
+
+### Bug Fixes
+
+* **build:** rebuild project ([a53f68f](https://github.com/BioPhoton/angular-star-rating/commit/a53f68f))
+* **color:** display default color if rating is 0 ([cee14a8](https://github.com/BioPhoton/angular-star-rating/commit/cee14a8))
+* **component:** add default color for 0 rating ([2090275](https://github.com/BioPhoton/angular-star-rating/commit/2090275))
+* **refactoring:** removed console.log ([02efb08](https://github.com/BioPhoton/angular-star-rating/commit/02efb08))
+* **refactoring:** removed console.log ([0d36f55](https://github.com/BioPhoton/angular-star-rating/commit/0d36f55))
+* **scss:** added img to animation section ([2c1bf4c](https://github.com/BioPhoton/angular-star-rating/commit/2c1bf4c))
+
+
+
 <a name="1.0.7"></a>
 ## [1.0.7](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.6...v1.0.7) (2016-11-25)
 
