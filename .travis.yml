@@ -3,6 +3,11 @@ sudo: false
 node_js:
   - '5.0'
 
+cache:
+  directories:
+     - ./node_modules
+     - ./typings
+
 install:
   - npm i -g typings
   - npm i
