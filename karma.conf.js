@@ -39,6 +39,7 @@ module.exports = function (config) {
             , "karma-jasmine"
             , "karma-coverage"
             , "karma-chrome-launcher"
+            , "karma-phantomjs-launcher"
         ],
 
         // Coverage reporter generates the coverage

@@ -10,5 +10,4 @@ install:
 before_script:
 
 script:
-  - npm run webpack:compile
   - npm run test
