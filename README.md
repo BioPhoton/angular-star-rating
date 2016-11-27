@@ -3,7 +3,7 @@
 
 [![Bower version](https://badge.fury.io/bo/angular1-star-rating.svg)](https://badge.fury.io/bo/angular1-star-rating)
 [![npm version](https://badge.fury.io/js/angular-star-rating.svg)](https://badge.fury.io/js/angular-star-rating)  
-[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=dev)](https://travis-ci.org/BioPhoton/angular-star-rating)
+[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=dev)](https://travis-ci.org/BioPhoton/angular-star-rating)  
 [![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)
 
 Angular Star Rating is a >1.5 Angular component written in typescript.   
