@@ -62,6 +62,7 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
     "merge-stream": "^1.0.0",
@@ -95,7 +96,7 @@
     "generateLcov": "remap-istanbul -b src/ -i coverage/coverage-final.json -o coverage/lcov.info -t lcovonly",
     "styleguide": "gulp styleguide:watch",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "version:bump":"gulp version:bump",
+    "version:bump": "gulp version:bump",
     "release": "npm publish bower publish"
   }
 }
