@@ -89,6 +89,8 @@ describe('Controller Test', () => {
             //&
             , getColor: function () {
                 return this.color
+            }, getHalfStarClass: function () {
+                return true;
             }
             , onClick: function () {
                 return 'onClick'
