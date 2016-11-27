@@ -1,10 +1,15 @@
 # Angular Star Rating
 #### Angular 1.5 Component written in typescript, based on css only techniques.
 
-[![Bower version](https://badge.fury.io/bo/angular1-star-rating.svg)](https://badge.fury.io/bo/angular1-star-rating)
-[![npm version](https://badge.fury.io/js/angular-star-rating.svg)](https://badge.fury.io/js/angular-star-rating)  
-[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=dev)](https://travis-ci.org/BioPhoton/angular-star-rating)  
-[![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)
+![License](https://img.shields.io/npm/l/angular-star-rating.svg) 
+![Bower Version](https://img.shields.io/bower/v/angular1-star-rating.svg)
+[![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
+[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular-star-rating) 
+
+[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=dev)](https://travis-ci.org/BioPhoton/angular-star-rating)
+[![npm](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
+
+[![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)  
 
 Angular Star Rating is a >1.5 Angular component written in typescript.   
 It is based on a fully customizable css only star rating component written in scss. 
