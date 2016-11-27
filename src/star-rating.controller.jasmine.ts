@@ -1,7 +1,6 @@
 import angular = require('angular');
 import ngMock = require('angular-mocks');
 
-
 import IRootScopeService = angular.IRootScopeService;
 
 import './index.ts';

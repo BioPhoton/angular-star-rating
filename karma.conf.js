@@ -16,14 +16,13 @@ module.exports = function (config) {
         logLevel: config.LOG_INFO,
         colors: true,
         autoWatch: true,
-        browsers: ["PhantomJS"],
+        browsers: ["Chrome"],
 
-        /*customLaunchers: {
+        customLaunchers: {
             Chrome_Travis_CI: {
-                base: 'Chrome',
-                flags: ['--no-sandbox']
+                base: 'PhantomJS'
             }
-        },*/
+        },
 
         files: [
             "./node_modules/angular/angular.js"
@@ -69,7 +68,7 @@ module.exports = function (config) {
     };
 
     if (process.env.TRAVIS) {
-        //cfg.browsers = ['Chrome_Travis_CI'];
+        cfg.browsers = ['Chrome_Travis_CI'];
     }
 
     config.set(cfg);
