@@ -37,8 +37,6 @@
   "main": "dist/index.js",
   "devDependencies": {
     "angular-mocks": "^1.5.8",
-    "awesome-typescript-loader": "^2.2.4",
-    "baggage-loader": "^0.2.4",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
     "extendify": "^1.0.0",

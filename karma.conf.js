@@ -5,9 +5,11 @@ var base_config = require("./chore/chore.config");
 
 webpackConfig.entry = {};
 
-module.exports = function (config) {
 
-    config.set({
+// Karma configuration
+// Generated on Fri Jan 16 2015 01:40:34 GMT+0200 (EET)
+module.exports = function (config) {
+    var cfg = {
         basePath: ".",
         frameworks: ["jasmine"],
         port: 9876,
@@ -16,8 +18,15 @@ module.exports = function (config) {
         autoWatch: true,
         browsers: ["Chrome"],
 
+        customLaunchers: {
+            Chrome_Travis_CI: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
+
         files: [
-             "./node_modules/angular/angular.js"
+            "./node_modules/angular/angular.js"
             , "./node_modules/angular-mocks/angular-mocks.js"
             , "./dist/index.js"
             , "./src/star-rating.controller.jasmine.ts"
@@ -26,7 +35,7 @@ module.exports = function (config) {
 
         // Karma plugins loaded
         plugins: [
-              "karma-webpack"
+            "karma-webpack"
             , "karma-jasmine"
             , "karma-coverage"
             , "karma-chrome-launcher"
@@ -43,7 +52,7 @@ module.exports = function (config) {
             //, "src/*!(*.jasmine*|*.protractor*|*.mock*|*.bundle*).ts": ["webpack", "coverage"]
             //, "./src/star-rating.controller.ts": ["webpack", "coverage"]
             //, "./src/star-rating.component.ts": ["webpack", "coverage"]
-            ,  "./dist/*.js*":["coverage"]
+            , "./dist/*.js*": ["coverage"]
         },
 
         webpack: webpackConfig,
@@ -56,5 +65,11 @@ module.exports = function (config) {
         },
 
         singleRun: true
-    })
+    };
+
+    if (process.env.TRAVIS) {
+        cfg.browsers = ['Chrome_Travis_CI'];
+    }
+
+    config.set(cfg);
 };
