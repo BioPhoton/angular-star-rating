@@ -1,3 +1,15 @@
+<a name="1.0.12"></a>
+## [1.0.12](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.11...v1.0.12) (2016-11-28)
+
+
+### Bug Fixes
+
+* **build:** rebuild project ([ae41d5a](https://github.com/BioPhoton/angular-star-rating/commit/ae41d5a))
+* **dependencies:** edit dependencies in example folder ([44d2870](https://github.com/BioPhoton/angular-star-rating/commit/44d2870))
+* **halfstar callback:** fixed half-star callback param ([07b1373](https://github.com/BioPhoton/angular-star-rating/commit/07b1373))
+
+
+
 <a name="1.0.11"></a>
 ## [1.0.11](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.10...v1.0.11) (2016-11-28)
 
