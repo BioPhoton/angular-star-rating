@@ -32009,7 +32009,7 @@
 	        //if rating parseInt it if not set to 0
 	        this.ratingAsInteger = (this.rating) ? parseInt(this.rating.toString()) : 0;
 	        //if showHalfStars is true use the hasHalfStarClass function to determine if half a star is visible
-	        this.hasHalfStarClass = (showHalfStars) ? this.getHalfStarClass({ rating: this.rating }) : false;
+	        this.hasHalfStarClass = (showHalfStars) ? this.getHalfStarClass(this.rating) : false;
 	        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
 	        this.onUpdate({ rating: this.rating });
 	    };
