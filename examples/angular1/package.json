@@ -17,7 +17,7 @@
   "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
   "main": "index.js",
   "devDependencies": {
-    "angular-star-rating": "^1.0.1",
+    "angular-star-rating": "^1.0",
     "bootstrap": "^4.0.0-alpha.4",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
