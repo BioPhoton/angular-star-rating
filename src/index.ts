@@ -3,8 +3,8 @@ import "angular";
 import {StarRatingController} from "./star-rating.controller";
 import {StarRatingComponent} from "./star-rating.component";
 
-import styles = require('./scss/star-rating.sc5.scss');
-import icons = require('./star-rating.icons.svg');
+import styles = require('css-star-rating/dist/scss/star-rating.scss');
+import icons = require('css-star-rating/dist/images/star-rating.icons.svg');
 let styles = styles;
 let icons = icons;
 
