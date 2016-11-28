@@ -3,7 +3,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('./node_modules/html-webpack-plugin');
 
-var base_c = require('../chore/chore.config');
+var base_c = require('../../chore/chore.config');
 
 module.exports = function makeWebpackConfig() {
 
