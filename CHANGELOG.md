@@ -1,3 +1,14 @@
+<a name="1.0.11"></a>
+## [1.0.11](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.10...v1.0.11) (2016-11-28)
+
+
+### Features
+
+* **dependency update:** removed scss files ([e23234c](https://github.com/BioPhoton/angular-star-rating/commit/e23234c))
+* **updated dependencies:** fixed build, updated packages ([4c3fb34](https://github.com/BioPhoton/angular-star-rating/commit/4c3fb34))
+
+
+
 <a name="1.0.10"></a>
 ## [1.0.10](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.9...v1.0.10) (2016-11-27)
 

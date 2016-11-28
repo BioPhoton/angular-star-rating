@@ -30,7 +30,7 @@ It is based on a fully customizable css only star rating component written in sc
 <script src="bower_components/angular-star-rating/dist/index.js"></script>
 ```
 
-**inject it into angular**
+**Inject it into angular**
 ```javascript
 angular.module('myApp', ['star-rating'])
 ```
