@@ -8,13 +8,6 @@ engines:
     enabled: true
   csslint:
     enabled: true
-  duplication:
-  	enabled: true
-    config:
-    	languages:
-      - ruby
-      	#mass_threshold: 30
-      - javascript
 
 exclude_paths:
 - ".idea/"
