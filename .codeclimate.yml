@@ -1,23 +1,29 @@
-## other configuration excluded from example...
+engines:
+  rubocop:
+    enabled: true
+    #checks:
+    #	Rubocop/Metrics/ClassLength:
+    #  	enabled: false
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+
 exclude_paths:
 - ".idea/"
 - "chore/"
 - "dist/"
-- "example/"
+- "examples/"
 - "resources/"
 - ".gitignore"
 - ".npmignore"
 - ".travis.yml"
-- "bower.json"
-- "CHANGELOG.md"
+- "*.json"
+- "*.md"
 - "gulpfile.js"
 - "karma.config.js"
+- "webpack.config.js"
 - "LICENSE"
-- "package.json"
-- "README.md"
-- "tsconfig.json"
-- "tzpings.json"
-- "webpack.config.json"
 
 
 
