@@ -20,9 +20,9 @@ export interface IStarRatingCompBindings {
     showHalfStars?: boolean;
     rating?: number;
     numOfStars?: number;
-    //&
     getColor?: Function;
-    getHalfStarClass?:Function;
+    getHalfStarVisible?:Function;
+    //&
     onClick?: Function;
     onUpdate?: Function;
 }
@@ -92,7 +92,7 @@ export class StarRatingController implements IStarRatingCompBindings{
     rating: number;
     numOfStars: number;
     //&
-    getHalfStarClass:Function;
+    getHalfStarVisible:Function;
     getColor: Function;
     onClick: Function;
     onUpdate: Function;
@@ -120,9 +120,9 @@ export class StarRatingController implements IStarRatingCompBindings{
         this.pathEmpty = this.pathEmpty || StarRatingController.DefaultSvgPathEmpty;
         this.pathHalf = this.pathHalf || StarRatingController.DefaultSvgPathHalf;
         this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPathFilled;
-        this.numOfStars = (this.numOfStars && this.numOfStars > 0)?this.numOfStars:StarRatingController.DefaultNumOfStars;
-        this.getColor  = (typeof this.getColor === "function")?this.getColor:this._calculateColor;
-        this.getHalfStarClass = this.getHalfStarClass || this._calcHalfStarClass;
+        this.numOfStars = (this.numOfStars && this.numOfStars > 0) ? this.numOfStars : StarRatingController.DefaultNumOfStars;
+        this.getColor  = (typeof this.getColor === "function") ? this.getColor : this._calculateColor;
+        this.getHalfStarVisible = (typeof this.getHalfStarVisible === "function") ? this.getHalfStarVisible : this._calcHalfStarClass;
         this.onUpdate  = this.onUpdate || function () {};
         this.onClick  = this.onClick || function () {};
 
@@ -196,6 +196,15 @@ export class StarRatingController implements IStarRatingCompBindings{
             this.disabled = !!changes.disabled.currentValue;
         }
 
+        //functions
+        if (valueChanged('getColor' , changes)) {
+            this.getColor  = (typeof changes.getColor.currentValue === "function") ? changes.getColor.currentValue : this._calculateColor;
+        }
+
+        if (valueChanged('getHalfStarVisible' , changes)) {
+            this.getHalfStarVisible  = (typeof changes.getHalfStarVisible.currentValue === "function") ? changes.getHalfStarVisible.currentValue : this._calcHalfStarClass;
+        }
+
     }
 
     /**
@@ -231,7 +240,7 @@ export class StarRatingController implements IStarRatingCompBindings{
         //if rating parseInt it if not set to 0
         this.ratingAsInteger = (this.rating)?parseInt(this.rating.toString()):0;
         //if showHalfStars is true use the hasHalfStarClass function to determine if half a star is visible
-        this.hasHalfStarClass = (showHalfStars)?this.getHalfStarClass(this.rating):false;
+        this.hasHalfStarClass = (showHalfStars)?this.getHalfStarVisible(this.rating):false;
         this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
 
         this.onUpdate({rating: this.rating});
@@ -260,7 +269,7 @@ export class StarRatingController implements IStarRatingCompBindings{
      * @returns {boolean}
      */
     private _calcHalfStarClass = (rating: number): boolean => {
-        return rating % 1 > 0;
+        return Math.abs(rating % 1) > 0;
     };
 
     /**
@@ -276,6 +285,8 @@ export class StarRatingController implements IStarRatingCompBindings{
      * @returns {starRatingColors}
      */
     private _calculateColor = (rating:number, numOfStars:number, staticColor?:starRatingColors):starRatingColors => {
+        rating = rating || 0;
+
         //if a fix color is set use this one
         if(staticColor) { return staticColor; }
 

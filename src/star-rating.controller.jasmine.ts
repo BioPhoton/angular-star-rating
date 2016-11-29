@@ -21,6 +21,10 @@ describe('Controller Test', () => {
     let okColor: starRatingColors = "middle";
     let positiveColor: starRatingColors = "positive";
 
+    let lowRating = 1;
+    let okRating = 3;
+    let highRating = 5;
+
     beforeEach(angular.mock.module('star-rating'));
 
     beforeEach(inject(($rootScope, _$componentController_) => {
@@ -54,8 +58,9 @@ describe('Controller Test', () => {
         expect(starRatingCtrl.disabled).toBe(undefined);
         expect(starRatingCtrl.rating).toBe(undefined);
         expect(starRatingCtrl.numOfStars).toBe(StarRatingController.DefaultNumOfStars);
-        //&
         expect(typeof starRatingCtrl.getColor).toBe("function");
+        expect(typeof starRatingCtrl.getHalfStarVisible).toBe("function");
+        //&
         expect(typeof starRatingCtrl.onUpdate).toBe("function");
         expect(typeof starRatingCtrl.onClick).toBe("function");
 
@@ -114,70 +119,81 @@ describe('Controller Test', () => {
         expect(starRatingCtrl.disabled).toBe(bindings.disabled);
         expect(starRatingCtrl.rating).toBe(bindings.rating);
         expect(starRatingCtrl.getColor()).toBe(bindings.getColor());
+        expect(starRatingCtrl.getHalfStarVisible()).toBe(bindings.getHalfStarVisible());
         expect(starRatingCtrl.onClick()).toBe(bindings.onClick());
         expect(starRatingCtrl.onUpdate()).toBe(bindings.onUpdate());
     });
 
+
     it("should return proper values when firing _calculateColor function", () => {
 
-        let lowRating = 1;
-        let okRating = 6;
-        let highRating = 15;
-
         let testValues = {};
-        testValues[defaultValue] = defaultColor;
         testValues[negativeValue] = defaultColor;
+        testValues[defaultValue] = defaultColor;
         testValues[lowRating] = negativeColor;
         testValues[okRating] = okColor;
         testValues[highRating] = positiveColor;
 
-        let bindings = <IStarRatingCompBindings>{
-            numOfStars: highRating
-        };
+        starRatingCtrl = getStarRatingCtrl({});
 
-        //default return values
-        for (let value in testValues) {
-            bindings.rating = parseInt(value);
-            starRatingCtrl = getStarRatingCtrl(bindings);
-            expect(starRatingCtrl._calculateColor(starRatingCtrl.rating, starRatingCtrl.numOfStars, starRatingCtrl.color)).toBe(testValues[value]);
+        let numOfStars = StarRatingController.DefaultNumOfStars;
+        let staticColor = negativeColor;
+
+        //test with required properties
+        for (let rating in testValues) {
+            expect(starRatingCtrl._calculateColor(rating, numOfStars)).toBe(testValues[rating]);
         }
 
-        //return values when staticColor is given
-        let staticColor = testValues[negativeValue];
-        bindings.color = staticColor;
-        for (let value in testValues) {
-            bindings.rating = parseInt(value);
-            starRatingCtrl = getStarRatingCtrl(bindings);
-            expect(starRatingCtrl._calculateColor(starRatingCtrl.rating, starRatingCtrl.numOfStars, staticColor)).toBe(staticColor);
+        //test with optional staticColor property
+        for (let rating in testValues) {
+            expect(starRatingCtrl._calculateColor(rating, numOfStars,staticColor)).toBe(negativeColor);
         }
 
     });
 
     it("should return proper values when firing _calcHalfStarClass function", () => {
 
-        let okRating = 3;
-
         let testValues = {};
-        testValues[-0.1] = false;
-        testValues[-0.5] = false;
-        testValues[-0.9] = false;
-        testValues[defaultValue+0.1] = true;
+        testValues[negativeValue+0.5] = true;
         testValues[defaultValue+0.5] = true;
-        testValues[defaultValue+0.9] = true;
-        testValues[okRating+0.1] = true;
+        testValues[lowRating+0.5] = true;
         testValues[okRating+0.5] = true;
-        testValues[okRating+0.9] = true;
 
-        let bindings = <IStarRatingCompBindings>{};
+        testValues[lowRating+0.1] = true;
+        testValues[lowRating+0.2] = true;
+        testValues[lowRating+0.3] = true;
+        testValues[lowRating+0.4] = true;
 
-        //default return values
-        for (let value in testValues) {
-            bindings.rating = parseFloat(value);
-            starRatingCtrl = getStarRatingCtrl(bindings);
-            expect(starRatingCtrl._calcHalfStarClass(starRatingCtrl.rating)).toBe(testValues[value]);
+        testValues[lowRating+0.6] = true;
+        testValues[lowRating+0.7] = true;
+        testValues[lowRating+0.8] = true;
+        testValues[lowRating+0.9] = true;
+
+        testValues[negativeValue+0.1] = true;
+        testValues[negativeValue+0.2] = true;
+        testValues[negativeValue+0.3] = true;
+        testValues[negativeValue+0.4] = true;
+
+        testValues[negativeValue+0.6] = true;
+        testValues[negativeValue+0.7] = true;
+        testValues[negativeValue+0.8] = true;
+        testValues[negativeValue+0.9] = true;
+
+        testValues[negativeValue] = false;
+        testValues[defaultValue] = false;
+        testValues[lowRating] = false;
+        testValues[okRating] = false;
+        testValues[highRating] = false;
+
+        starRatingCtrl = getStarRatingCtrl({});
+
+        //test default calculation
+        for (let rating in testValues) {
+            expect(starRatingCtrl._calcHalfStarClass(rating)).toBe(testValues[rating]);
         }
 
     });
+
 
     it("should return proper values when firing updateNumOfStars function", () => {
 
@@ -214,10 +230,6 @@ describe('Controller Test', () => {
 
     it("should return proper values when firing updateRating function", () => {
 
-        let lowRating = 1;
-        let okRating = 3;
-        let highRating = 5;
-
         let testValues = {};
         testValues[negativeValue] = defaultColor;
         testValues[defaultValue] = defaultColor;
@@ -237,11 +249,15 @@ describe('Controller Test', () => {
 
             expect(starRatingCtrl.rating).toBe(rating);
             expect(newRatingValue).toBe(starRatingCtrl.rating);
+
             //@TODO spy on getColor
 
             expect(starRatingCtrl.color).toBe(testValues[rating]);
+
             //@TODO spy on onUpdate
         }
+
+        /////////////////////////
 
         function onUpdate(updateObject) {
             newRatingValue = updateObject.rating;
@@ -281,6 +297,56 @@ describe('Controller Test', () => {
         //@TODO with disabled
     });
 
+    it("should return proper values when firing getColor function", () => {
+        let testValues = {};
+        testValues[lowRating] = okColor;
+        testValues[okRating] = positiveColor;
+        testValues[highRating] = negativeColor;
+
+        let bindings:IStarRatingCompBindings = {
+            getColor : customGetColor
+        };
+        starRatingCtrl = getStarRatingCtrl(bindings);
+
+        //default return values
+        let count = 0;
+        for (let rating in testValues) {
+            starRatingCtrl.updateRating(rating);
+            expect(starRatingCtrl.color).toBe(testValues[rating]);
+        }
+
+        //return values when staticColor is given
+        starRatingCtrl.staticColor = positiveColor;
+        for (let rating in testValues) {
+            starRatingCtrl.updateRating(rating);
+            expect(starRatingCtrl.color).toBe(positiveColor);
+        }
+
+        /////////////////////////
+
+        function customGetColor(rating:number, numOfStars:number, staticColor?:starRatingColors) {
+            rating = rating || 0;
+
+            //if a fix color is set use this one
+            if(staticColor) {
+                return staticColor;
+            }
+
+            //calculate size of smallest fraction
+            let fractionSize = numOfStars / 3;
+
+            //apply color by fraction
+            let color:starRatingColors = defaultColor;
+            if (rating > 0) { color = okColor; }
+            if (rating > fractionSize) { color = positiveColor; }
+            if (rating > fractionSize * 2) { color = negativeColor; }
+
+            return color;
+
+        }
+
+    });
+
     //@TODO implement test
     //it("should return proper values when firing $onChange function", () => {});
 
@@ -293,7 +359,7 @@ describe('Controller Test', () => {
      * @returns {*}
      */
     function getStarRatingCtrl(bindingsProperties?: IStarRatingCompBindings): any {
-        bindingsProperties = bindingsProperties || <IStarRatingCompBindings>{};
+        bindingsProperties = angular.copy(bindingsProperties) || <IStarRatingCompBindings>{};
         return $componentController('starRatingComp', null, bindingsProperties);
     }
 

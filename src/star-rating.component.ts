@@ -23,8 +23,8 @@ export class StarRatingComponent implements ng.IComponentOptions {
             , rating: '<'
             , labelPosition: '<'
             , showHalfStars: '<'
-            , getColor: '&?'
-            , getHalfStarClass: '&?'
+            , getColor: '<'
+            , getHalfStarVisible: '<'
             , onClick: '&?'
             , onUpdate: '&?'
         };
