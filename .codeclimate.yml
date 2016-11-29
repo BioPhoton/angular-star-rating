@@ -1,18 +1,19 @@
-exclude_paths:
-- ".idea/"
-- "chore/"
-- "dist/"
-- "examples/"
-- "resources/"
+engines:
+  rubocop:
+    enabled: true
+  brakeman:
+   	enabled: true
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true
+  duplication:
+  	enabled: true
+    config:
+    	languages:
+      - javascript
+include_paths:
 - ".gitignore"
-- ".npmignore"
-- ".travis.yml"
-- "*.json"
-- "*.md"
-- "gulpfile.js"
-- "karma.config.js"
-- "webpack.config.js"
-- "LICENSE"
-
+- "src/"
 
 
