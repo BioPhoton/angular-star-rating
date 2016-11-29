@@ -2,20 +2,24 @@ import {starRatingColors, starRatingPosition, starRatingStarTypes, starRatingSpe
 
 export class InitController {
 
+    //option sets
+    colorOptions:Array<starRatingColors|string> = ['default','negative', 'middle', 'positive'];
+    labelPositionOptions:Array<starRatingPosition|string> = ['top','right', 'left', 'bottom'];
+    starOptions:Array<starRatingStarTypes> = ['svg', 'icon', 'image'];
+    speedOptions:Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
+    sizeOptions:Array<starRatingSizes> = ['small', 'medium', 'large'];
+
+    //component @ properties
     id: string;
-    pathEmpty: string;
-    pathFilled:string;
+    //component > properties
+    //pathEmpty: string;
+    //pathFilled:string;
+    numOfStars:number = 5;
     rating: number = 3;
     text: number = this.rating;
     color:starRatingColors;
-    colorOptions:Array<starRatingColors|string> = ['default','negative', 'middle', 'positive'];
-    labelPositionOptions:Array<starRatingPosition|string> = ['top','right', 'left', 'bottom'];
-    numOfStars:number = 5;
-    starOptions:Array<starRatingStarTypes> = ['svg', 'icon', 'image'];
     speed:starRatingSpeed|string;
-    speedOptions:Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
     size: starRatingSizes|string;
-    sizeOptions:Array<starRatingSizes> = ['small', 'medium', 'large'];
     spread: boolean = false;
     readOnly: boolean = false;
     disabled: boolean = false;
@@ -23,17 +27,17 @@ export class InitController {
 
     constructor() {
         console.log('constructor');
-        this.getHalfStarClass(2);
     }
 
-    getColor(rating, numOfStars, fixColor):string {
-        console.log('getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', fixColor);
+    //component & properties
+    getColor(rating, numOfStars, staticColor):string {
+        console.log('getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
         return 'default';
     }
 
-    getHalfStarClass(rating:number):boolean {
-        console.log('getHalfStarClass rating: ',rating, rating%1);
-        return (rating%1 >= 0.5);
+    getHalfStarVisible(rating:number):boolean {
+        console.log('getHalfStarVisible rating: ',rating, rating%1);
+        return (rating<2);
     }
 
     onClick(rating:number):number {

@@ -131,6 +131,7 @@
             </div>
             <div class="col-xs-4">
                 <fieldset class="form-group">
+
                     <legend>Styling
                         <star-rating-comp
                                 color="init.color"
@@ -139,8 +140,8 @@
                                 rating="init.rating"
                                 on-update="init.onUpdate(rating)">
                         </star-rating-comp>
-
                     </legend>
+
                     <div class="form-group row">
                         <label class="col-xs-4 col-form-label">Color</label>
                         <div class="col-xs-8">
@@ -151,12 +152,14 @@
                             </select>
                         </div>
                     </div>
+
                     <div class="form-check">
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" ng-model="init.disabled">
                             Disabled
                         </label>
                     </div>
+
                     <div class="form-group row">
                         <label class="col-xs-4 col-form-label">Speed: {{init.speed}}</label>
                         <div class="col-xs-8">
@@ -184,14 +187,17 @@
                                 read-only="init.readOnly"
                                 rating="init.rating"
                                 show-half-stars="init.showHalfStars"
-                                on-update="init.onUpdate(rating)">
+                                get-color="init.getColor"
+                                get-half-star-visible="init.getHalfStarVisible"
+                                on-update="init.onUpdate(rating)"
+                                on-click="init.onClick(rating)">
                         </star-rating-comp>
                     </legend>
 
                     <div class="form-group row">
                         <label class="col-xs-6 col-form-label">Id</label>
-                        <div class="col-xs-6"><input type="text" class="form-control" placeholder="Id"
-                                                     ng-model="init.id">
+                        <div class="col-xs-6">
+                            <input type="text" class="form-control" placeholder="Id" ng-model="init.id">
                         </div>
                     </div>
 
@@ -221,13 +227,6 @@
                         <div class="col-xs-6">
                             <input type="text" class="form-control" placeholder="text:number" ng-model="init.text">
                         </div>
-                    </div>
-
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" ng-model="init.customGetColor">
-                            custom getColor
-                        </label>
                     </div>
 
                 </fieldset>
