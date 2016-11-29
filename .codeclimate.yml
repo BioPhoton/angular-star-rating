@@ -1,4 +1,3 @@
-## other configuration excluded from example...
 exclude_paths:
 - ".idea/"
 - "chore/"
@@ -16,7 +15,7 @@ exclude_paths:
 - "package.json"
 - "README.md"
 - "tsconfig.json"
-- "tzpings.json"
+- "typings.json"
 - "webpack.config.json"
 
 
