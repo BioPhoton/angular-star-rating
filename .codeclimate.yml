@@ -1,0 +1,23 @@
+## other configuration excluded from example...
+exclude_paths:
+- ".idea/"
+- "chore/"
+- "dist/"
+- "example/"
+- "resources/"
+- ".gitignore"
+- ".npmignore"
+- ".travis.yml"
+- "bower.json"
+- "CHANGELOG.md"
+- "gulpfile.js"
+- "karma.config.js"
+- "LICENSE"
+- "package.json"
+- "README.md"
+- "tsconfig.json"
+- "tzpings.json"
+- "webpack.config.json"
+
+
+
