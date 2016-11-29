@@ -18,7 +18,7 @@ export interface IStarRatingCompBindings {
     rating?: number;
     numOfStars?: number;
     getColor?: Function;
-    getHalfStarClass?: Function;
+    getHalfStarVisible?: Function;
     onClick?: Function;
     onUpdate?: Function;
 }
@@ -61,7 +61,7 @@ export declare class StarRatingController implements IStarRatingCompBindings {
     showHalfStars: boolean;
     rating: number;
     numOfStars: number;
-    getHalfStarClass: Function;
+    getHalfStarVisible: Function;
     getColor: Function;
     onClick: Function;
     onUpdate: Function;

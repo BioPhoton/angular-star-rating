@@ -31857,7 +31857,7 @@
 	         * @returns {boolean}
 	         */
 	        this._calcHalfStarClass = function (rating) {
-	            return rating % 1 > 0;
+	            return Math.abs(rating % 1) > 0;
 	        };
 	        /**
 	         * _calculateColor
@@ -31872,6 +31872,7 @@
 	         * @returns {starRatingColors}
 	         */
 	        this._calculateColor = function (rating, numOfStars, staticColor) {
+	            rating = rating || 0;
 	            //if a fix color is set use this one
 	            if (staticColor) {
 	                return staticColor;
@@ -31900,7 +31901,7 @@
 	        this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPathFilled;
 	        this.numOfStars = (this.numOfStars && this.numOfStars > 0) ? this.numOfStars : StarRatingController.DefaultNumOfStars;
 	        this.getColor = (typeof this.getColor === "function") ? this.getColor : this._calculateColor;
-	        this.getHalfStarClass = this.getHalfStarClass || this._calcHalfStarClass;
+	        this.getHalfStarVisible = (typeof this.getHalfStarVisible === "function") ? this.getHalfStarVisible : this._calcHalfStarClass;
 	        this.onUpdate = this.onUpdate || function () { };
 	        this.onClick = this.onClick || function () { };
 	        this.updateNumOfStars(this.numOfStars);
@@ -31976,6 +31977,13 @@
 	        if (valueChanged('disabled', changes)) {
 	            this.disabled = !!changes.disabled.currentValue;
 	        }
+	        //functions
+	        if (valueChanged('getColor', changes)) {
+	            this.getColor = (typeof changes.getColor.currentValue === "function") ? changes.getColor.currentValue : this._calculateColor;
+	        }
+	        if (valueChanged('getHalfStarVisible', changes)) {
+	            this.getHalfStarVisible = (typeof changes.getHalfStarVisible.currentValue === "function") ? changes.getHalfStarVisible.currentValue : this._calcHalfStarClass;
+	        }
 	    };
 	    /**
 	     * onStarClicked
@@ -32009,7 +32017,7 @@
 	        //if rating parseInt it if not set to 0
 	        this.ratingAsInteger = (this.rating) ? parseInt(this.rating.toString()) : 0;
 	        //if showHalfStars is true use the hasHalfStarClass function to determine if half a star is visible
-	        this.hasHalfStarClass = (showHalfStars) ? this.getHalfStarClass(this.rating) : false;
+	        this.hasHalfStarClass = (showHalfStars) ? this.getHalfStarVisible(this.rating) : false;
 	        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
 	        this.onUpdate({ rating: this.rating });
 	    };
@@ -32070,8 +32078,8 @@
 	            rating: '<',
 	            labelPosition: '<',
 	            showHalfStars: '<',
-	            getColor: '&?',
-	            getHalfStarClass: '&?',
+	            getColor: '<',
+	            getHalfStarVisible: '<',
 	            onClick: '&?',
 	            onUpdate: '&?'
 	        };
