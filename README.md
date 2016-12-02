@@ -186,8 +186,8 @@ Default: rtl
 ```html
 <star-rating-comp direction="'ltr'"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-direction-rtl.gif" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-direction-ltr.gif" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-direction-rtl.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-direction-ltr.PNG" width="290">
   
 **readOnly**: boolean (Optional)  
 The click callback is disabled  
