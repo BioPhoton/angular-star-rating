@@ -1,5 +1,5 @@
-# Angular Star Rating
-#### Angular 1.5 Component written in typescript, based on css only techniques.
+# Angular Star Rating ⭐⭐⭐⭐⭐
+#### ⭐ Angular 1.5 Component written in typescript, based on css only techniques. ⭐
 
 ![License](https://img.shields.io/npm/l/angular-star-rating.svg) 
 ![Bower Version](https://img.shields.io/bower/v/angular1-star-rating.svg)
