@@ -93,7 +93,7 @@ Default: undefined
 
 **rating**: number (Optional)  
 The actual star rating value  
-Default: undefined  
+Default: no  
 
 ```html
 <star-rating-comp rating="3"></star-rating-comp>
@@ -102,7 +102,7 @@ Default: undefined
 
 **showHalfStars**: boolean (Optional)
 To show half stars or not  
-Options: true, flase  
+Options: true, false  
 Default: false
 
 ```html
