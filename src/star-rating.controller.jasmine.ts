@@ -91,12 +91,12 @@ describe('Controller Test', () => {
             , disabled: true
             , rating: 3
             , numOfStars: 8
-            //&
             , getColor: function () {
                 return this.color
-            }, getHalfStarClass: function () {
+            }, getHalfStarVisible: function () {
                 return true;
             }
+            //&
             , onClick: function () {
                 return 'onClick'
             }

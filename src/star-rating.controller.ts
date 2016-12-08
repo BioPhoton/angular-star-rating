@@ -91,9 +91,9 @@ export class StarRatingController implements IStarRatingCompBindings{
     showHalfStars: boolean;
     rating: number;
     numOfStars: number;
-    //&
     getHalfStarVisible:Function;
     getColor: Function;
+    //&
     onClick: Function;
     onUpdate: Function;
 

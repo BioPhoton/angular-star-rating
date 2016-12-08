@@ -1,3 +1,28 @@
+<a name="1.0.14"></a>
+## [1.0.14](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.13...v1.0.14) (2016-12-08)
+
+
+### Bug Fixes
+
+* **codeclimate:** changed zml config ([ec64685](https://github.com/BioPhoton/angular-star-rating/commit/ec64685))
+* **component:** changed order of props ([bb5c31b](https://github.com/BioPhoton/angular-star-rating/commit/bb5c31b))
+* **readme:** updated readme ([93ddeb0](https://github.com/BioPhoton/angular-star-rating/commit/93ddeb0))
+* **readme:** updated readme ([87021ea](https://github.com/BioPhoton/angular-star-rating/commit/87021ea))
+* **resources:** added images ([49ee7e2](https://github.com/BioPhoton/angular-star-rating/commit/49ee7e2))
+
+
+
+<a name="1.0.13"></a>
+## [1.0.13](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.12...v1.0.13) (2016-11-29)
+
+
+### Bug Fixes
+
+* **bindings:** change & binding to > of getColor and getHalfStarVisible ([6d49256](https://github.com/BioPhoton/angular-star-rating/commit/6d49256))
+* **build:** rebuild project ([9e6ee9d](https://github.com/BioPhoton/angular-star-rating/commit/9e6ee9d))
+
+
+
 <a name="1.0.12"></a>
 ## [1.0.12](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.11...v1.0.12) (2016-11-28)
 
@@ -7,11 +32,6 @@
 * **build:** rebuild project ([ae41d5a](https://github.com/BioPhoton/angular-star-rating/commit/ae41d5a))
 * **dependencies:** edit dependencies in example folder ([44d2870](https://github.com/BioPhoton/angular-star-rating/commit/44d2870))
 * **halfstar callback:** fixed half-star callback param ([07b1373](https://github.com/BioPhoton/angular-star-rating/commit/07b1373))
-
-
-
-<a name="1.0.11"></a>
-## [1.0.11](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.10...v1.0.11) (2016-11-28)
 
 
 ### Features
@@ -40,21 +60,6 @@
 * **refactoring:** removed console.log ([0d36f55](https://github.com/BioPhoton/angular-star-rating/commit/0d36f55))
 * **scss:** added img to animation section ([2c1bf4c](https://github.com/BioPhoton/angular-star-rating/commit/2c1bf4c))
 * **scss:** fix value modifiers greater then the numOfStars ([8be4ff7](https://github.com/BioPhoton/angular-star-rating/commit/8be4ff7))
-
-
-
-<a name="1.0.8"></a>
-## [1.0.8](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.7...v1.0.8) (2016-11-26)
-
-
-### Bug Fixes
-
-* **build:** rebuild project ([a53f68f](https://github.com/BioPhoton/angular-star-rating/commit/a53f68f))
-* **color:** display default color if rating is 0 ([cee14a8](https://github.com/BioPhoton/angular-star-rating/commit/cee14a8))
-* **component:** add default color for 0 rating ([2090275](https://github.com/BioPhoton/angular-star-rating/commit/2090275))
-* **refactoring:** removed console.log ([02efb08](https://github.com/BioPhoton/angular-star-rating/commit/02efb08))
-* **refactoring:** removed console.log ([0d36f55](https://github.com/BioPhoton/angular-star-rating/commit/0d36f55))
-* **scss:** added img to animation section ([2c1bf4c](https://github.com/BioPhoton/angular-star-rating/commit/2c1bf4c))
 
 
 
@@ -89,12 +94,15 @@
 ### Bug Fixes
 
 * **build:** build project ([2f11b48](https://github.com/BioPhoton/angular-star-rating/commit/2f11b48))
+* **clog:** removed config ([32ac62d](https://github.com/BioPhoton/angular-star-rating/commit/32ac62d))
+* **compile:** compiled project ([4b3b92d](https://github.com/BioPhoton/angular-star-rating/commit/4b3b92d))
 * **component:** change component name ([9aa1049](https://github.com/BioPhoton/angular-star-rating/commit/9aa1049))
 * **controller:** change variable name ([7a520b6](https://github.com/BioPhoton/angular-star-rating/commit/7a520b6))
 * **defaults:** extend default values ([8831b38](https://github.com/BioPhoton/angular-star-rating/commit/8831b38))
 * **example:** updated example, changed num serve script ([07f3d86](https://github.com/BioPhoton/angular-star-rating/commit/07f3d86))
 * **example:** use d.ts files ([6dccda9](https://github.com/BioPhoton/angular-star-rating/commit/6dccda9))
 * **formatting:** removed empty line ([db1b0ec](https://github.com/BioPhoton/angular-star-rating/commit/db1b0ec))
+* **gitignore:** updated ignore file ([0fb3b4c](https://github.com/BioPhoton/angular-star-rating/commit/0fb3b4c))
 * **ng1:** added ctrl in index.ts ([abc5bf9](https://github.com/BioPhoton/angular-star-rating/commit/abc5bf9))
 * **styleguide:** edit gulp task options ([ffc8efb](https://github.com/BioPhoton/angular-star-rating/commit/ffc8efb))
 * **styleguide:** removed imports for now because of styleguide import error ([f874c72](https://github.com/BioPhoton/angular-star-rating/commit/f874c72))
@@ -115,128 +123,59 @@
 
 
 <a name="1.0.5"></a>
-## [1.0.5](https://github.com/BioPhoton/angular-star/compare/v1.0.4...v1.0.5) (2016-10-30)
+## [1.0.5](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.4...v1.0.5) (2016-10-30)
 
 
 ### Features
 
-* **changelog:** implement npm script for changelog file ([0324329](https://github.com/BioPhoton/angular-star/commit/0324329))
-* **compress scss and js:** compress and strip comments in scss and js ([ea12929](https://github.com/BioPhoton/angular-star/commit/ea12929)), closes [#20](https://github.com/BioPhoton/angular-star/issues/20)
+* **changelog:** implement npm script for changelog file ([0324329](https://github.com/BioPhoton/angular-star-rating/commit/0324329))
+* **compress scss and js:** compress and strip comments in scss and js ([ea12929](https://github.com/BioPhoton/angular-star-rating/commit/ea12929)), closes [#20](https://github.com/BioPhoton/angular-star-rating/issues/20)
 
 
 
 <a name="1.0.4"></a>
-## 1.0.4 (2016-10-30)
+## [1.0.4](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.3...v1.0.4) (2016-10-30)
 
 
 ### Bug Fixes
 
-* **app:** setup basic project, started example ([689cee9](https://github.com/BioPhoton/angular-star/commit/689cee9))
-* **assets handling:** refactored path's, file handling, removed inline svg ([8e18959](https://github.com/BioPhoton/angular-star/commit/8e18959))
-* **demo:** implement default color ([df0677a](https://github.com/BioPhoton/angular-star/commit/df0677a))
-* **icon as star:** static colors ([dc51478](https://github.com/BioPhoton/angular-star/commit/dc51478))
-* **renamed:** renamed bundle.js to index.js ([e2282db](https://github.com/BioPhoton/angular-star/commit/e2282db))
+* **assets handling:** refactored path's, file handling, removed inline svg ([8e18959](https://github.com/BioPhoton/angular-star-rating/commit/8e18959))
+* **renamed:** renamed bundle.js to index.js ([e2282db](https://github.com/BioPhoton/angular-star-rating/commit/e2282db))
 
 
 ### Features
 
-* **component:** polished docs, scss, logic ([ab048b8](https://github.com/BioPhoton/angular-star/commit/ab048b8))
-* **create examples folder:** copy setup ([78093e8](https://github.com/BioPhoton/angular-star/commit/78093e8))
-* **create examples folder:** refactore old src folder structure [#14](https://github.com/BioPhoton/angular-star/issues/14) ([501b8d4](https://github.com/BioPhoton/angular-star/commit/501b8d4))
-* **create examples folder:** refactored package.json ([538ff9b](https://github.com/BioPhoton/angular-star/commit/538ff9b))
-* **create examples folder:** refactored root src folder ([10e8143](https://github.com/BioPhoton/angular-star/commit/10e8143))
-* **create examples folder:** refactoring ([74b08c7](https://github.com/BioPhoton/angular-star/commit/74b08c7))
-* **create examples folder:** started task [#14](https://github.com/BioPhoton/angular-star/issues/14) ([2e7f4d5](https://github.com/BioPhoton/angular-star/commit/2e7f4d5))
-* **demo:** cleanup ([9210b13](https://github.com/BioPhoton/angular-star/commit/9210b13)), closes [#7](https://github.com/BioPhoton/angular-star/issues/7)
-* **demo:** implement new features ([18dd439](https://github.com/BioPhoton/angular-star/commit/18dd439))
-* **icon as star:** implement option fir icon as star ([17c89fa](https://github.com/BioPhoton/angular-star/commit/17c89fa)), closes [#11](https://github.com/BioPhoton/angular-star/issues/11)
-* **label-position:** implement top and bottom position ([378ebe5](https://github.com/BioPhoton/angular-star/commit/378ebe5)), closes [#10](https://github.com/BioPhoton/angular-star/issues/10)
-* **star-type:** star implementing star types ([d4ecf4a](https://github.com/BioPhoton/angular-star/commit/d4ecf4a))
-* **tested as module:** tested in other project, refactored build ([ec70273](https://github.com/BioPhoton/angular-star/commit/ec70273))
-* **testing:** progress setup unit tests ([00a98cc](https://github.com/BioPhoton/angular-star/commit/00a98cc))
-* **unit testing:** fix webpack integration ([6b9921a](https://github.com/BioPhoton/angular-star/commit/6b9921a))
+* **tested as module:** tested in other project, refactored build ([ec70273](https://github.com/BioPhoton/angular-star-rating/commit/ec70273))
 
 
 
-<a name="1.0.4"></a>
-## 1.0.4 (2016-10-30)
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/BioPhoton/angular-star-rating/compare/689cee9...v1.0.3) (2016-10-23)
 
 
 ### Bug Fixes
 
-* **app:** setup basic project, started example ([689cee9](https://github.com/BioPhoton/angular-star/commit/689cee9))
-* **assets handling:** refactored path's, file handling, removed inline svg ([8e18959](https://github.com/BioPhoton/angular-star/commit/8e18959))
-* **demo:** implement default color ([df0677a](https://github.com/BioPhoton/angular-star/commit/df0677a))
-* **icon as star:** static colors ([dc51478](https://github.com/BioPhoton/angular-star/commit/dc51478))
-* **renamed:** renamed bundle.js to index.js ([e2282db](https://github.com/BioPhoton/angular-star/commit/e2282db))
+* **app:** setup basic project, started example ([689cee9](https://github.com/BioPhoton/angular-star-rating/commit/689cee9))
+* **demo:** implement default color ([df0677a](https://github.com/BioPhoton/angular-star-rating/commit/df0677a))
+* **icon as star:** static colors ([dc51478](https://github.com/BioPhoton/angular-star-rating/commit/dc51478))
 
 
 ### Features
 
-* **component:** polished docs, scss, logic ([ab048b8](https://github.com/BioPhoton/angular-star/commit/ab048b8))
-* **create examples folder:** copy setup ([78093e8](https://github.com/BioPhoton/angular-star/commit/78093e8))
-* **create examples folder:** refactore old src folder structure [#14](https://github.com/BioPhoton/angular-star/issues/14) ([501b8d4](https://github.com/BioPhoton/angular-star/commit/501b8d4))
-* **create examples folder:** refactored package.json ([538ff9b](https://github.com/BioPhoton/angular-star/commit/538ff9b))
-* **create examples folder:** refactored root src folder ([10e8143](https://github.com/BioPhoton/angular-star/commit/10e8143))
-* **create examples folder:** refactoring ([74b08c7](https://github.com/BioPhoton/angular-star/commit/74b08c7))
-* **create examples folder:** started task [#14](https://github.com/BioPhoton/angular-star/issues/14) ([2e7f4d5](https://github.com/BioPhoton/angular-star/commit/2e7f4d5))
-* **demo:** cleanup ([9210b13](https://github.com/BioPhoton/angular-star/commit/9210b13)), closes [#7](https://github.com/BioPhoton/angular-star/issues/7)
-* **demo:** implement new features ([18dd439](https://github.com/BioPhoton/angular-star/commit/18dd439))
-* **icon as star:** implement option fir icon as star ([17c89fa](https://github.com/BioPhoton/angular-star/commit/17c89fa)), closes [#11](https://github.com/BioPhoton/angular-star/issues/11)
-* **label-position:** implement top and bottom position ([378ebe5](https://github.com/BioPhoton/angular-star/commit/378ebe5)), closes [#10](https://github.com/BioPhoton/angular-star/issues/10)
-* **star-type:** star implementing star types ([d4ecf4a](https://github.com/BioPhoton/angular-star/commit/d4ecf4a))
-* **tested as module:** tested in other project, refactored build ([ec70273](https://github.com/BioPhoton/angular-star/commit/ec70273))
-* **testing:** progress setup unit tests ([00a98cc](https://github.com/BioPhoton/angular-star/commit/00a98cc))
-* **unit testing:** fix webpack integration ([6b9921a](https://github.com/BioPhoton/angular-star/commit/6b9921a))
+* **component:** polished docs, scss, logic ([ab048b8](https://github.com/BioPhoton/angular-star-rating/commit/ab048b8))
+* **create examples folder:** copy setup ([78093e8](https://github.com/BioPhoton/angular-star-rating/commit/78093e8))
+* **create examples folder:** refactore old src folder structure [#14](https://github.com/BioPhoton/angular-star-rating/issues/14) ([501b8d4](https://github.com/BioPhoton/angular-star-rating/commit/501b8d4))
+* **create examples folder:** refactored package.json ([538ff9b](https://github.com/BioPhoton/angular-star-rating/commit/538ff9b))
+* **create examples folder:** refactored root src folder ([10e8143](https://github.com/BioPhoton/angular-star-rating/commit/10e8143))
+* **create examples folder:** refactoring ([74b08c7](https://github.com/BioPhoton/angular-star-rating/commit/74b08c7))
+* **create examples folder:** started task [#14](https://github.com/BioPhoton/angular-star-rating/issues/14) ([2e7f4d5](https://github.com/BioPhoton/angular-star-rating/commit/2e7f4d5))
+* **demo:** cleanup ([9210b13](https://github.com/BioPhoton/angular-star-rating/commit/9210b13)), closes [#7](https://github.com/BioPhoton/angular-star-rating/issues/7)
+* **demo:** implement new features ([18dd439](https://github.com/BioPhoton/angular-star-rating/commit/18dd439))
+* **icon as star:** implement option fir icon as star ([17c89fa](https://github.com/BioPhoton/angular-star-rating/commit/17c89fa)), closes [#11](https://github.com/BioPhoton/angular-star-rating/issues/11)
+* **label-position:** implement top and bottom position ([378ebe5](https://github.com/BioPhoton/angular-star-rating/commit/378ebe5)), closes [#10](https://github.com/BioPhoton/angular-star-rating/issues/10)
+* **star-type:** star implementing star types ([d4ecf4a](https://github.com/BioPhoton/angular-star-rating/commit/d4ecf4a))
+* **testing:** progress setup unit tests ([00a98cc](https://github.com/BioPhoton/angular-star-rating/commit/00a98cc))
+* **unit testing:** fix webpack integration ([6b9921a](https://github.com/BioPhoton/angular-star-rating/commit/6b9921a))
 
 
-<a name=""></a>
-##  Angular StarRating (2016-09-17)
 
-
-#### Documentation
-
-* **changelog:**
-  *  init changelog ([9e296411](https://github.com/BioPhoton/angular-stars.git/commit/9e29641177154920d883b8daab66739976f45dfe))
-  *  setup clog for automated changelog ([ef3cfe7c](https://github.com/BioPhoton/angular-stars.git/commit/ef3cfe7c16e667a2f14ce61e5b5aa968ce6b37e1))
-* **demo:**  polished form setup, create interaction ([c0480180](https://github.com/BioPhoton/angular-stars.git/commit/c0480180e02e305eee09332b692e1d7c36dd19c9))
-* **license:**  add license file ([72f905f9](https://github.com/BioPhoton/angular-stars.git/commit/72f905f926487a6c166820a9e9bd12b5d776cea9))
-* **styleguide:**  Implement sc5 styleguide with webpack ([9a5b6a09](https://github.com/BioPhoton/angular-stars.git/commit/9a5b6a095910333d4d7eacc4d480bfe5e20bc92f), closes [#1](https://github.com/BioPhoton/angular-stars.git/issues/1))
-* **ts-inline-docs:**  initial docs for controller ([bb20cf63](https://github.com/BioPhoton/angular-stars.git/commit/bb20cf63ec45f155b7340d9beb50c9725c0e932f))
-
-#### Chore
-
-* **git:**  implement .gitignore ([de3525d0](https://github.com/BioPhoton/angular-stars.git/commit/de3525d01c6bd8365cff07f4c9cce9e96259eafb))
-* **webpack:**
-  *  implement config file ([a99c1b9b](https://github.com/BioPhoton/angular-stars.git/commit/a99c1b9b77c4b93d79a771258dac5efc7999ddd2))
-  *  implement webpack and dependencies ([77b489c5](https://github.com/BioPhoton/angular-stars.git/commit/77b489c5da8013ff3e5fe37d2e108cd84617a249))
-
-#### Features
-
-* **component:**  polished docs, scss, logic ([ab048b89](https://github.com/BioPhoton/angular-stars.git/commit/ab048b89321dc87ec27173c154155e31ccbff2b0))
-* **demo:**  cleanup ([9210b13b](https://github.com/BioPhoton/angular-stars.git/commit/9210b13bd90728ec1969abc679df6b12bf473b5f), closes [#7](https://github.com/BioPhoton/angular-stars.git/issues/7))
-
-#### Bug Fixes
-
-* **app:**  setup basic project, started example ([689cee90](https://github.com/BioPhoton/angular-stars.git/commit/689cee909a92b3d6949650ae39d97454c3595ecb))
-
-
-<a name=""></a>
-##  Angular StarRating (2016-09-17)
-
-
-#### Chore
-
-* **git:**  implement .gitignore ([de3525d0](https://github.com/BioPhoton/angular-stars.git/commit/de3525d01c6bd8365cff07f4c9cce9e96259eafb))
-* **webpack:**
-  *  implement config file ([a99c1b9b](https://github.com/BioPhoton/angular-stars.git/commit/a99c1b9b77c4b93d79a771258dac5efc7999ddd2))
-  *  implement webpack and dependencies ([77b489c5](https://github.com/BioPhoton/angular-stars.git/commit/77b489c5da8013ff3e5fe37d2e108cd84617a249))
-
-#### Bug Fixes
-
-* **app:**  setup basic project, started example ([689cee90](https://github.com/BioPhoton/angular-stars.git/commit/689cee909a92b3d6949650ae39d97454c3595ecb))
-
-#### Documentation
-
-* **changelog:**  setup clog for automated changelog ([ef3cfe7c](https://github.com/BioPhoton/angular-stars.git/commit/ef3cfe7c16e667a2f14ce61e5b5aa968ce6b37e1))
-* **license:**  add license file ([72f905f9](https://github.com/BioPhoton/angular-stars.git/commit/72f905f926487a6c166820a9e9bd12b5d776cea9))

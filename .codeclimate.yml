@@ -1,14 +1,16 @@
 engines:
   rubocop:
     enabled: true
-    #checks:
-    #	Rubocop/Metrics/ClassLength:
-    #  	enabled: false
+    checks:
+    	Rubocop/Metrics/ClassLength:
+      	enabled: false
   eslint:
     enabled: true
   csslint:
     enabled: true
-
+ratings:
+   paths:
+   - "src/**/*"
 exclude_paths:
 - ".idea/"
 - "chore/"

@@ -1,5 +1,5 @@
-# Angular Star Rating
-#### Angular 1.5 Component written in typescript, based on css only techniques.
+# Angular Star Rating ⭐⭐⭐⭐⭐
+#### ⭐ Angular 1.5 Component written in typescript, based on css only techniques. ⭐
 
 ![License](https://img.shields.io/npm/l/angular-star-rating.svg) 
 ![Bower Version](https://img.shields.io/bower/v/angular1-star-rating.svg)
@@ -12,10 +12,42 @@
 [![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)  
 
 Angular Star Rating is a >1.5 Angular component written in typescript.   
-It is based on a fully customizable css only star rating component written in scss. 
+It is based on [css-sar-rating](https://github.com/BioPhoton/css-star-rating), a fully featured and customizable css only star rating component written in scss.  
 
 ## DEMO
 ![alt tag](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/example-usage.gif)
+
+## Features
+This module implements all Features from [CSS-STAR-RATING](https://github.com/BioPhoton/css-star-rating).
+It also provides callbacks for all calculation functions used in the component as well as all possible event emitters.
+
+- [x] **id** - The html id attribute of the star rating
+- [x] **rating** -  The actual Star rating
+- [x] **showHalfStars** - To display half stars or not
+- [x] **numOfStars** - The max number of stars you can rate
+- [x] **size** - The different sizes of the component
+- [x] **spread** - Stars are spreaded over whole width or not
+- [x] **color** - A static color for the stars
+- [x] **disabled** - Component is in disabled mode
+- [x] **starType** - Stars can be displayed as svg, character or icon-font like fontawesome, glyphicons or ionicons
+- [x] **text** - The value of the label text
+- [x] **labelPosition** - The position of the label
+- [x] **speed** - The duration of the animation
+- [x] **direction** - The direction of the component i.e. right to left
+- [x] **readOnly** - Click event is disabled
+- [x] **getColor** - Custom function to calculate the color for a rating
+- [x] **getHalfStarVisible** - Custom function to calculate value for displaying half stars or not
+- [x] **onClick** - Hook for Click action
+- [x] **onUpdate** - Hook for onUpdate event
+
+## Browser support
+
+
+| IE | Firefox | Chrome | Safari | Opera |
+|--- |---	   |--- 	|---	 |---|
+| 11  	|  50 	|   55	|  10 	|   41	|
+| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/ie.png" width="100">	| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/firefox.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/chrome.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/safari.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/opera.png" width="100"> |
+
 
 ## Install
 
@@ -61,7 +93,7 @@ Default: undefined
 
 **rating**: number (Optional)  
 The actual star rating value  
-Default: undefined  
+Default: no  
 
 ```html
 <star-rating-comp rating="3"></star-rating-comp>
@@ -70,7 +102,7 @@ Default: undefined
 
 **showHalfStars**: boolean (Optional)
 To show half stars or not  
-Options: true, flase  
+Options: true, false  
 Default: false
 
 ```html
@@ -155,6 +187,17 @@ Default: false
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="290">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-true.PNG" width="290">
   
+**direction**: string (Optional)  
+The direction of the stars and label.   
+Options: rtl, ltr  
+Default: rtl  
+
+```html
+<star-rating-comp direction="'ltr'"></star-rating-comp>
+```
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-direction-rtl.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-direction-ltr.PNG" width="290">
+  
 **readOnly**: boolean (Optional)  
 The click callback is disabled  
 Default: false  
@@ -179,12 +222,33 @@ Default: noticeable
 
 **starType**: starRatingStarTypes (Optional)  
 The type of start resource to use.     
-Options: svg, icon, image  
+Options: svg, icon
 Default: svg  
 
 ```html
 <star-rating-comp star-type="'icon'"></star-rating-comp>
 ```
+
+**getColor**: Function (Optional)  
+Calculation of the color by rating.  
+Params: rating, number,numOfStars and staticColor  
+Return: color name  
+
+```html
+<star-rating-comp get-color="ctrl.getColor(rating, numOfStars, staticColor)"></star-rating-comp>
+```
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_color-function.PNG" width="290">
+
+**getHalfStarVisible**: Function (Optional)  
+Calculation for adding the "half" class or not, depending on the rating value.  
+Params: rating  
+Return: boolean 
+
+```html
+<star-rating-comp get-half-star-class="ctrl.getHalfStarClass(rating)" rating="3.2"></star-rating-comp>
+```
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_class-function.PNG" width="290">
+
 ### & bindings
 
 **onClick**: Function (Optional)  
@@ -202,23 +266,3 @@ Params: rating
 <star-rating-comp on-update="ctrl.onUpdate(rating)"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_update-function.PNG" width="290">
-
-**getColor**: Function (Optional)  
-Calculation of the color by rating.  
-Params: rating, number,numOfStars and staticColor  
-Return: color name  
-
-```html
-<star-rating-comp get-color="ctrl.getColor(rating, numOfStars, staticColor)"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_color-function.PNG" width="290">
-
-**getHalfStarClass**: Function (Optional)  
-Calculation for adding the "half" class or not, depending on the rating value.  
-Params: rating  
-Return: boolean 
-
-```html
-<star-rating-comp get-half-star-class="ctrl.getHalfStarClass(rating)"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_class-function.PNG" width="290">
