@@ -42,6 +42,10 @@
   },
   "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
   "main": "dist/index.js",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "css-star-rating": "^1.0"
+  },
   "devDependencies": {
     "angular-mocks": "^1.5.8",
     "css-loader": "^0.25.0",
@@ -89,10 +93,6 @@
     "webpack-dev-server": "^1.16.2",
     "wrench": "^1.5.9",
     "yargs": "^6.3.0"
-  },
-  "dependencies": {
-    "angular": "^1.5.8",
-    "css-star-rating": "^1.0"
   },
   "scripts": {
     "init": ".\\chore\\scripts\\init-project.sh",
