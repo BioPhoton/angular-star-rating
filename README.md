@@ -40,6 +40,15 @@ It also provides callbacks for all calculation functions used in the component a
 - [x] **onClick** - Hook for Click action
 - [x] **onUpdate** - Hook for onUpdate event
 
+## Browser support
+
+
+| IE | Firefox | Chrome | Safari | Opera |
+|--- |---	   |--- 	|---	 |---|
+| 11  	|  50 	|   55	|  10 	|   41	|
+| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/ie.png" width="100">	| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/firefox.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/chrome.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/safari.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browsers/opera.png" width="100"> |
+
+
 ## Install
 
 **Get Angular Star Rating:**
