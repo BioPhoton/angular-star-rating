@@ -6,13 +6,17 @@
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular-star-rating) 
 
-[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=dev)](https://travis-ci.org/BioPhoton/angular-star-rating)
-[![npm](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
+[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=master)](https://travis-ci.org/BioPhoton/angular-star-rating)
+[![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
+
+[![NPM](https://nodei.co/npm/angular-star-rating.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/angular-star-rating)
+[![NPM](https://nodei.co/npm-dl/angular-star-rating.png?height=3&months=9)](https://npmjs.org/angular-star-rating)
+
 
 [![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)  
 
 Angular Star Rating is a >1.5 Angular component written in typescript.   
-It is based on [css-sar-rating](https://github.com/BioPhoton/css-star-rating), a fully featured and customizable css only star rating component written in scss.  
+It is based on [css-star-rating](https://github.com/BioPhoton/css-star-rating), a fully featured and customizable css only star rating component written in scss.  
 
 ## DEMO
 ![alt tag](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/example-usage.gif)
@@ -45,7 +49,7 @@ It also provides callbacks for all calculation functions used in the component a
 
 | IE | Firefox | Chrome | Safari | Opera |
 |--- |---	   |--- 	|---	 |---|
-| 11  	|  50 	|   55	|  10 	|   41	|
+| > 11  	|  > 50 	|   > 55	|  > 10 	|   > 41	|
 | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/ie.png" width="100">	| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/firefox.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/chrome.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/safari.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/opera.png" width="100"> |
 
 
