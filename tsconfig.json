@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "declaration":true,
+    "target": "es5",
+    "experimentalDecorators": true,
+    "sourceMap": true
+    , "outDir": "./"
+  },
+  "exclude": [
+     "./src/**/*.jasmine.ts",
+     "examples",
+     "node_modules"
+  ]
+}

@@ -1,3 +1,12 @@
 <h1>
-  {{title}}
+  {{title}} {{rating}}
 </h1>
+
+<star-rating rating="{{rating}}" (onUpdate)="onUpdate($event)" (onClick)="onClick($event)">
+  Star Rating dont work
+</star-rating>
+
+
+<star-rating rating="{{rating}}" (onUpdate)="onUpdate($event)" (onClick)="onClick($event)">
+  Star Rating dont work
+</star-rating>

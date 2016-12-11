@@ -3,10 +3,12 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'angular2-star-rating': 'vendor/angular2-star-rating'
 };
 
 /** User packages configuration. */
 const packages: any = {
+  'angular2-star-rating': { defaultExtension: 'js', main: 'index.js' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
