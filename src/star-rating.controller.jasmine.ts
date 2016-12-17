@@ -8,7 +8,7 @@ import IComponentController = angular.IComponentController;
 import {StarRatingController, IStarRatingCompBindings, starRatingColors} from "./star-rating.controller";
 
 describe('Controller Test', () => {
-
+    console.log('Controller Test');
     let $componentController;
     let starRatingCtrl;
     let scope;
@@ -31,6 +31,11 @@ describe('Controller Test', () => {
         scope = $rootScope.$new();
         $componentController = _$componentController_;
     }));
+
+    fit('should console.log TEST', () => {
+        console.log('TEST');
+    });
+
 
     it('should expose a `starRatingComp` object', () => {
         starRatingCtrl = getStarRatingCtrl();
@@ -81,7 +86,7 @@ describe('Controller Test', () => {
             id: 'custom-id'
             //<
             , text: 'custom-text'
-            , color: 'positive'
+            , staticColor: 'positive'
             , labelPosition: 'right'
             , speed: 'immediately'
             , size: 'small'
@@ -91,16 +96,16 @@ describe('Controller Test', () => {
             , disabled: true
             , rating: 3
             , numOfStars: 8
-            , getColor: function () {
+            , getColor: function (rating, numOfStars, staticColor) {
                 return this.color
-            }, getHalfStarVisible: function () {
+            }, getHalfStarVisible: function (rating) {
                 return true;
             }
             //&
-            , onClick: function () {
+            , onClick: function ($event) {
                 return 'onClick'
             }
-            , onUpdate: function () {
+            , onUpdate: function ($event) {
                 return 'onUpdate'
             }
         };
@@ -109,7 +114,7 @@ describe('Controller Test', () => {
 
         expect(starRatingCtrl.id).toBe(bindings.id);
         expect(starRatingCtrl.text).toBe(bindings.text);
-        expect(starRatingCtrl.color).toBe(bindings.color);
+        expect(starRatingCtrl.color).toBe(bindings.staticColor);
         expect(starRatingCtrl.labelPosition).toBe(bindings.labelPosition);
         expect(starRatingCtrl.speed).toBe(bindings.speed);
         expect(starRatingCtrl.size).toBe(bindings.size);
@@ -118,10 +123,10 @@ describe('Controller Test', () => {
         expect(starRatingCtrl.readOnly).toBe(bindings.readOnly);
         expect(starRatingCtrl.disabled).toBe(bindings.disabled);
         expect(starRatingCtrl.rating).toBe(bindings.rating);
-        expect(starRatingCtrl.getColor()).toBe(bindings.getColor());
-        expect(starRatingCtrl.getHalfStarVisible()).toBe(bindings.getHalfStarVisible());
-        expect(starRatingCtrl.onClick()).toBe(bindings.onClick());
-        expect(starRatingCtrl.onUpdate()).toBe(bindings.onUpdate());
+        expect(starRatingCtrl.getColor(1, 5)).toBe(bindings.getColor(1, 5));
+        expect(starRatingCtrl.getHalfStarVisible(1)).toBe(bindings.getHalfStarVisible(1));
+        expect(starRatingCtrl.onClick({rating:1})).toBe(bindings.onClick({$event:{rating:1}}));
+        //expect(starRatingCtrl.onUpdate({rating:1})).toBe(bindings.onUpdate({$event:{rating:1}}));
     });
 
 
@@ -239,7 +244,7 @@ describe('Controller Test', () => {
 
         let newRatingValue;
         let bindings:IStarRatingCompBindings = {
-            onUpdate : onUpdate
+            //onUpdate : onUpdate
         };
 
         starRatingCtrl = getStarRatingCtrl(bindings);

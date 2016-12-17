@@ -10,13 +10,13 @@ export class StarRatingComponent implements ng.IComponentOptions {
 
     constructor() {
         this.bindings = {
-              id: '@'
+              id: '<'
             , rating: '<'
             , showHalfStars: '<'
             , numOfStars: '<'
             , size: '<'
             , spread: '<'
-            , color: '<'
+            , staticColor: '<'
             , disabled: '<'
             , starType: '<'
             , text: '<'
