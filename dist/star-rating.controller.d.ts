@@ -124,6 +124,7 @@ export declare class StarRatingController implements ng.IComponentController, IS
     text: string;
     id: string;
     setGetColor(func: any): void;
+    setGetHalfStarVisible(func: any): void;
     constructor();
     /**
      * onStarClicked
