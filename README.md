@@ -6,7 +6,7 @@
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular-star-rating) 
 
-[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=dev)](https://travis-ci.org/BioPhoton/angular-star-rating)
+[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=master)](https://travis-ci.org/BioPhoton/angular-star-rating)
 [![npm](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 
 [![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)  
