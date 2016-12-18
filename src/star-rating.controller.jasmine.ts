@@ -75,7 +75,7 @@ describe('Star rating controller', () => {
         expect(starRatingCtrl.color).toBe('default');
     });
 
-    it('should set custom bindings properly', () => {
+    fit('should set custom bindings properly', () => {
         let bindings = <IStarRatingCompBindings>{
             //<
             id: 'custom-id'
