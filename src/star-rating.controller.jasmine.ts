@@ -78,7 +78,7 @@ describe('Star rating controller', () => {
     it('should set custom bindings properly', () => {
         let bindings = <IStarRatingCompBindings>{
             //<
-            id: 'custom-id'
+              id: 'custom-id'
             , text: 'custom-text'
             , staticColor: 'positive'
             , labelPosition: 'right'
@@ -123,7 +123,6 @@ describe('Star rating controller', () => {
         expect(starRatingCtrl.onClick({$event: {rating: 1}})).toBe(bindings.onClick({$event: {rating: 1}}));
         expect(starRatingCtrl.onUpdate({$event: {rating: 1}})).toBe(bindings.onUpdate({$event: {rating: 1}}));
     });
-
 
     it("should return proper values when firing _getColor function", () => {
 
