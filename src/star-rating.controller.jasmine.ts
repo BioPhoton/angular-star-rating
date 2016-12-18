@@ -53,8 +53,8 @@ describe('Controller Test', () => {
         expect(starRatingCtrl.id).toBe(undefined);
         //<
         expect(starRatingCtrl.text).toBe(undefined);
-        expect(typeof starRatingCtrl.color).toBe("string");
-        expect(starRatingCtrl.color).toBe(starRatingCtrl._getColor(starRatingCtrl.rating, starRatingCtrl.numOfStars));
+        expect(typeof starRatingCtrl.staticColor).toBe("string");
+        expect(starRatingCtrl.staticColor).toBe(starRatingCtrl._getColor(starRatingCtrl.rating, starRatingCtrl.numOfStars));
         expect(starRatingCtrl.labelPosition).toBe(undefined);
         expect(starRatingCtrl.speed).toBe(undefined);
         expect(starRatingCtrl.size).toBe(undefined);
@@ -83,9 +83,8 @@ describe('Controller Test', () => {
 
     it('should set custom bindings properly', () => {
         let bindings = <IStarRatingCompBindings>{
-            //@
-            id: 'custom-id'
             //<
+              id: 'custom-id'
             , text: 'custom-text'
             , staticColor: 'positive'
             , labelPosition: 'right'
@@ -115,7 +114,7 @@ describe('Controller Test', () => {
 
         expect(starRatingCtrl.id).toBe(bindings.id);
         expect(starRatingCtrl.text).toBe(bindings.text);
-        expect(starRatingCtrl.color).toBe(bindings.staticColor);
+        expect(starRatingCtrl.staticColor).toBe(bindings.staticColor);
         expect(starRatingCtrl.labelPosition).toBe(bindings.labelPosition);
         expect(starRatingCtrl.speed).toBe(bindings.speed);
         expect(starRatingCtrl.size).toBe(bindings.size);
@@ -227,7 +226,7 @@ describe('Controller Test', () => {
             let expectedNumOfStars = (numOfStars && parseInt(numOfStars) > 0)?parseInt(numOfStars):StarRatingController.DefaultNumOfStars;
             expect(starRatingCtrl.numOfStars).toBe(expectedNumOfStars);
             //@TODO spy on getColor
-            expect(starRatingCtrl.color).toBe(testValues[numOfStars]);
+            expect(starRatingCtrl.staticColor).toBe(testValues[numOfStars]);
             expect(typeof starRatingCtrl.stars).toBe("object");
             expect(starRatingCtrl.stars.length).toBe(parseInt(starRatingCtrl.numOfStars));
             expect(starRatingCtrl.stars[0]).toBe(1);
@@ -258,7 +257,7 @@ describe('Controller Test', () => {
 
             //@TODO spy on getColor
 
-            expect(starRatingCtrl.color).toBe(testValues[rating]);
+            expect(starRatingCtrl.staticColor).toBe(testValues[rating]);
 
             //@TODO spy on onUpdate
         }
@@ -292,7 +291,7 @@ describe('Controller Test', () => {
 
             expect(starRatingCtrl.rating).toBe(rating);
             //@TODO spy on updateRating
-            expect(starRatingCtrl.color).toBe(testValues[rating]);
+            expect(starRatingCtrl.staticColor).toBe(testValues[rating]);
             //@TODO spy on onClick
         }
 
@@ -318,14 +317,14 @@ describe('Controller Test', () => {
         let count = 0;
         for (let rating in testValues) {
             starRatingCtrl.updateRating(rating);
-            expect(starRatingCtrl.color).toBe(testValues[rating]);
+            expect(starRatingCtrl.staticColor).toBe(testValues[rating]);
         }
 
         //return values when staticColor is given
         starRatingCtrl.staticColor = positiveColor;
         for (let rating in testValues) {
             starRatingCtrl.updateRating(rating);
-            expect(starRatingCtrl.color).toBe(positiveColor);
+            expect(starRatingCtrl.staticColor).toBe(positiveColor);
         }
 
         /////////////////////////
