@@ -12,11 +12,11 @@ module.exports = function (config) {
     var cfg = {
         basePath: ".",
         frameworks: ["jasmine"],
-        port: 9876,
+        port: 3000,
         logLevel: config.LOG_INFO,
         colors: true,
         autoWatch: true,
-        browsers: ["Chrome"],
+        browsers: ["PhantomJS"],
 
         customLaunchers: {
             Chrome_Travis_CI: {

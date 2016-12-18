@@ -74,7 +74,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
      * @param numOfStars
      * @returns {Array}
      */
-    protected static _getStarsArray(numOfStars: number): Array<number> {
+    static _getStarsArray(numOfStars: number): Array<number> {
         let stars = [];
         for (let i = 0; i < numOfStars; i++) {
             stars.push(i + 1);
@@ -90,7 +90,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
      * @param rating
      * @returns {boolean}
      */
-    protected static _getHalfStarVisible(rating: number): boolean {
+    static _getHalfStarVisible(rating: number): boolean {
         return Math.abs(rating % 1) > 0;
     }
 
@@ -106,7 +106,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
      * @param staticColor
      * @returns {starRatingColors}
      */
-    protected static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors {
+    static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors {
         rating = rating || 0;
 
         //if a fix color is set use this one
@@ -192,7 +192,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
 
     set rating(value: number) {
         //validate and apply newRating
-        let newRating:number;
+        let newRating:number = 0;
         if( value >= 0
             && value <= this.numOfStars) {
             newRating = value;
@@ -204,7 +204,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this._rating = newRating;
 
         //update ratingAsInteger. rating parsed to int for the value-[n] modifier
-        this.ratingAsInteger = parseInt(<string>this.rating);
+        this.ratingAsInteger = parseInt(<string>this._rating);
 
         //update halfStarsVisible
         this.halfStarVisible = (this.showHalfStars) ? this.getHalfStarVisible(this._rating) : false;
