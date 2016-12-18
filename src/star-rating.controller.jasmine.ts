@@ -6,6 +6,7 @@ import IRootScopeService = angular.IRootScopeService;
 import './index.ts';
 import IComponentController = angular.IComponentController;
 import {StarRatingController, IStarRatingCompBindings, starRatingColors} from "./star-rating.controller";
+import {StarRatingComponent} from "./star-rating.component";
 
 describe('Controller Test', () => {
     console.log('Controller Test');
@@ -41,7 +42,7 @@ describe('Controller Test', () => {
         starRatingCtrl = getStarRatingCtrl();
 
         expect(starRatingCtrl).toBeDefined();
-        expect(typeof starRatingCtrl._calculateColor).toBe('function');
+        expect(typeof starRatingCtrl.onStarClicked).toBe('function');
     });
 
     it('should contain proper default values if no bindings are set', () => {
@@ -53,7 +54,7 @@ describe('Controller Test', () => {
         //<
         expect(starRatingCtrl.text).toBe(undefined);
         expect(typeof starRatingCtrl.color).toBe("string");
-        expect(starRatingCtrl.color).toBe(starRatingCtrl._calculateColor(starRatingCtrl.rating, starRatingCtrl.numOfStars));
+        expect(starRatingCtrl.color).toBe(starRatingCtrl._getColor(starRatingCtrl.rating, starRatingCtrl.numOfStars));
         expect(starRatingCtrl.labelPosition).toBe(undefined);
         expect(starRatingCtrl.speed).toBe(undefined);
         expect(starRatingCtrl.size).toBe(undefined);
@@ -130,7 +131,7 @@ describe('Controller Test', () => {
     });
 
 
-    it("should return proper values when firing _calculateColor function", () => {
+    it("should return proper values when firing _getColor function", () => {
 
         let testValues = {};
         testValues[negativeValue] = defaultColor;
@@ -146,17 +147,17 @@ describe('Controller Test', () => {
 
         //test with required properties
         for (let rating in testValues) {
-            expect(starRatingCtrl._calculateColor(rating, numOfStars)).toBe(testValues[rating]);
+            expect(starRatingCtrl._getColor(rating, numOfStars)).toBe(testValues[rating]);
         }
 
         //test with optional staticColor property
         for (let rating in testValues) {
-            expect(starRatingCtrl._calculateColor(rating, numOfStars,staticColor)).toBe(negativeColor);
+            expect(starRatingCtrl._getColor(rating, numOfStars,staticColor)).toBe(negativeColor);
         }
 
     });
 
-    it("should return proper values when firing _calcHalfStarClass function", () => {
+    it("should return proper values when firing _getHalfStarVisible function", () => {
 
         let testValues = {};
         testValues[negativeValue+0.5] = true;
@@ -194,7 +195,7 @@ describe('Controller Test', () => {
 
         //test default calculation
         for (let rating in testValues) {
-            expect(starRatingCtrl._calcHalfStarClass(rating)).toBe(testValues[rating]);
+            expect(starRatingCtrl._getHalfStarVisible(rating)).toBe(testValues[rating]);
         }
 
     });
