@@ -1,3 +1,4 @@
+import IChangesObject = angular.IChangesObject;
 export type starRatingSizes = "small" | "medium" | "large";
 export type starRatingColors = "default" | "negative" | "middle" | "positive";
 export type starRatingSpeed = "immediately" | "noticeable" | "slow";
@@ -9,152 +10,61 @@ export interface IStarRatingCompBindings {
     id?: string;
     text?: string;
     staticColor?: starRatingColors;
-    labelPosition?:starRatingPosition;
-    speed?:starRatingSpeed;
+    labelPosition?: starRatingPosition;
+    speed?: starRatingSpeed;
     size?: starRatingSizes;
-    starType?:starRatingStarTypes;
+    starType?: starRatingStarTypes;
     spread?: boolean;
     readOnly?: boolean;
     disabled?: boolean;
     showHalfStars?: boolean;
     rating?: number;
     numOfStars?: number;
-    getHalfStarVisible?(rating: number) : boolean;
-    getColor?(rating:number, numOfStars:number, staticColor?:starRatingColors) : starRatingColors;
+    getHalfStarVisible?(rating: number): boolean;
+    getColor?(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
     //&
-    onClick?:($event: any) =>  IStarRatingOnClickEvent;
-    onUpdate?:($event: any) => IStarRatingOnUpdateEvent;
+    onClick?: ($event: any) =>  IStarRatingOnClickEvent;
+    onUpdate?: ($event: any) => IStarRatingOnUpdateEvent;
 }
 
-export interface IStarRatingOnClickEvent{
-    rating:number;
+export interface IStarRatingOnClickEvent {
+    rating: number;
 }
 
-export interface IStarRatingOnUpdateEvent{
-    rating:number;
+export interface IStarRatingOnUpdateEvent {
+    rating: number;
 }
 
-export class StarRatingController implements IStarRatingCompBindings{
+export class StarRatingController implements ng.IComponentController, IStarRatingCompBindings{
 
-    set numOfStars(value: number) {
-        this._numOfStars = value;
-    }
-    get numOfStars():number {
-        return this._numOfStars;
-    }
+    static DefaultClassEmpty: string = "default-star-empty-icon";
 
-    set rating(value: number) {
-        this._rating = value;
-    }
-    get rating(): number {
-        return this._rating;
-    }
+    static DefaultClassHalf: string = "default-star-half-icon";
 
-    set showHalfStars(value: boolean) {
-        this._showHalfStars = !!value;
-    }
-    get showHalfStars():boolean {
-        return this._showHalfStars;
-    }
+    static DefaultClassFilled: string = "default-star-filled-icon";
 
-    set disabled(value: boolean) {
-        this._disabled = !!value;
-    }
-    get disabled():boolean {
-        return this._disabled;
-    }
+    static DefaultNumOfStars: number = 5;
 
-    set readOnly(value: boolean) {
-        this._readOnly = !!value;
-    }
-    get readOnly(): boolean {
-        return this._readOnly;
-    }
+    static DefaultSize: starRatingSizes = "medium";
 
-    set spread(value: boolean) {
-        this._spread = !!value;
-    }
-    get spread() : boolean{
-        return this._spread;
-    }
+    static DefaultSpeed: starRatingSpeed = "noticeable";
 
-    set starType(value: starRatingStarTypes) {
-        this._starType = value || StarRatingController.DefaultStarType;
-    }
-    get starType(): starRatingStarTypes {
-        return this._starType;
-    }
+    static DefaultLabelPosition: starRatingPosition = "left";
 
-    set size(value: starRatingSizes) {
-        this._size = value || StarRatingController.DefaultSize;
-    }
-    get size() : starRatingSizes{
-        return this._size;
-    }
+    static DefaultStarType: starRatingStarTypes = "svg";
 
-    set speed(value: starRatingSpeed) {
-        this._speed = value || StarRatingController.DefaultSpeed;
-    }
-    get speed(): starRatingSpeed {
-        return this._speed;
-    }
+    static DefaultAssetsPath: string = "assets/images/";
 
-    set labelPosition(value: starRatingPosition) {
-        this._labelPosition = value  || StarRatingController.DefaultLabelPosition;
-    }
-    get labelPosition(): starRatingPosition {
-        return this._labelPosition;
-    }
+    static DefaultSvgPath: string = StarRatingController.DefaultAssetsPath + "star-rating.icons.svg";
+    static DefaultSvgEmptySymbolId: string = "star-empty";
+    static DefaultSvgHalfSymbolId: string = "star-half";
+    static DefaultSvgFilledSymbolId: string = "star-filled";
 
-    set staticColor(value: starRatingColors) {
-        this._staticColor = value || undefined;
-    }
-    get staticColor(): starRatingColors {
-        return this._staticColor;
-    }
+    static DefaultSvgPathEmpty: string = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgEmptySymbolId;
 
-    set text(value: string) {
-        this._text = value;
-    }
-    get text(): string {
-        return this._text;
-    }
+    static DefaultSvgPathHalf: string = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgHalfSymbolId;
 
-    set id(value: string) {
-        this._id = value || (Math.random()*1000).toString();
-    }
-    get id(): string {
-        return this._id;
-    }
-
-    static DefaultClassEmpty:string = "default-star-empty-icon";
-
-    static DefaultClassHalf:string = "default-star-half-icon";
-
-    static DefaultClassFilled:string = "default-star-filled-icon";
-
-    static DefaultNumOfStars:number = 5;
-
-    static DefaultSize:starRatingSizes = "medium";
-
-    static DefaultSpeed:starRatingSpeed = "noticeable";
-
-    static DefaultLabelPosition:starRatingPosition = "left";
-
-    static DefaultStarType:starRatingStarTypes = "svg";
-
-    static DefaultAssetsPath:string = "assets/images/";
-
-    static DefaultSvgPath:string = StarRatingController.DefaultAssetsPath+"star-rating.icons.svg";
-    static DefaultSvgEmptySymbolId:string = "star-empty";
-    static DefaultSvgHalfSymbolId:string = "star-half";
-    static DefaultSvgFilledSymbolId:string = "star-filled";
-
-    static DefaultSvgPathEmpty:string = StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgEmptySymbolId;
-
-    static DefaultSvgPathHalf:string = StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgHalfSymbolId;
-
-    static DefaultSvgPathFilled:string = StarRatingController.DefaultSvgPath+"#"+StarRatingController.DefaultSvgFilledSymbolId;
+    static DefaultSvgPathFilled: string = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgFilledSymbolId;
 
     /**
      * _getStarsArray
@@ -196,20 +106,28 @@ export class StarRatingController implements IStarRatingCompBindings{
      * @param staticColor
      * @returns {starRatingColors}
      */
-    protected static _getColor(rating:number, numOfStars:number, staticColor?:starRatingColors):starRatingColors {
+    protected static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors {
         rating = rating || 0;
 
         //if a fix color is set use this one
-        if(staticColor) { return staticColor; }
+        if (staticColor) {
+            return staticColor;
+        }
 
         //calculate size of smallest fraction
         let fractionSize = numOfStars / 3;
 
         //apply color by fraction
-        let color:starRatingColors = 'default';
-        if (rating > 0) { color = 'negative'; }
-        if (rating > fractionSize) { color = 'middle'; }
-        if (rating > fractionSize * 2) { color = 'positive'; }
+        let color: starRatingColors = 'default';
+        if (rating > 0) {
+            color = 'negative';
+        }
+        if (rating > fractionSize) {
+            color = 'middle';
+        }
+        if (rating > fractionSize * 2) {
+            color = 'positive';
+        }
 
         return color;
     }
@@ -221,77 +139,250 @@ export class StarRatingController implements IStarRatingCompBindings{
     protected _id: string;
     protected _text: string;
     protected _staticColor: starRatingColors;
-    protected _labelPosition:starRatingPosition;
-    protected _speed:starRatingSpeed;
+    protected _labelPosition: starRatingPosition;
+    protected _speed: starRatingSpeed;
     protected _size: starRatingSizes;
-    protected _starType:starRatingStarTypes;
+    protected _starType: starRatingStarTypes;
     protected _spread: boolean;
     protected _readOnly: boolean;
     protected _disabled: boolean;
     protected _showHalfStars: boolean;
     protected _rating: number;
     protected _numOfStars: number;
-    getHalfStarVisible:(rating: number) => boolean;
-    getColor: (rating:number, numOfStars:number, staticColor?:starRatingColors) => starRatingColors;
+    getHalfStarVisible: (rating: number) => boolean;
+    getColor: (rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors = StarRatingController._getColor;
 
     //outputs
-    onClick?:($event:any) =>  IStarRatingOnClickEvent;
-    onUpdate?:($event:any) => IStarRatingOnUpdateEvent;
+    onClick?: ($event: any) =>  IStarRatingOnClickEvent;
+    onUpdate?: ($event: any) => IStarRatingOnUpdateEvent;
 
     //ctrl only
-    classEmpty:string;
-    classHalf:string;
-    classFilled:string;
+    classEmpty: string;
+    classHalf: string;
+    classFilled: string;
 
     pathEmpty: string;
-    pathHalf:string;
-    pathFilled:string;
+    pathHalf: string;
+    pathFilled: string;
 
     color: starRatingColors;
     stars: Array<number>;
-    ratingAsInteger:number;
-    hasHalfStarClass:boolean;
+    ratingAsInteger: number;
+    halfStarVisible: boolean;
 
-    //
+    $onInit?(): void;
+    $onChanges?(changesObj: {[property:string]: IChangesObject}): void;
+    $onDestroy?(): void;
+    $postLink?(): void;
+
+
+    //getter and setter
+    set numOfStars(value: number) {
+        this._numOfStars = (value > 0)?value:StarRatingController.DefaultNumOfStars;
+
+        //update stars array
+        this.stars = StarRatingController._getStarsArray(this.numOfStars);
+
+        //update color
+        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+    }
+    get numOfStars(): number {
+        return this._numOfStars;
+    }
+
+    set rating(value: number) {
+        //validate and apply newRating
+        let newRating:number;
+        if( value >= 0
+            && value <= this.numOfStars) {
+            newRating = value;
+        }
+        //limit max value to max number of stars
+        if(value > this.numOfStars) {
+            newRating = this.numOfStars;
+        }
+        this._rating = newRating;
+
+        //update ratingAsInteger. rating parsed to int for the value-[n] modifier
+        this.ratingAsInteger = parseInt(<string>this.rating);
+
+        //update color
+        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+
+        //@TODO rethink triggering event here
+        //fire onUpdate event
+        let $event:IStarRatingOnUpdateEvent = {rating: this._rating};
+        this.onUpdate({$event:$event});
+    }
+    get rating(): number {
+        return this._rating;
+    }
+
+    set showHalfStars(value: boolean) {
+        this._showHalfStars = !!value;
+
+        //update halfStarVisible
+        //if _showHalfStars is true use the hasHalfStarClass function to determine if half a star is visible
+        //else half star is never visible
+        this.halfStarVisible = (this._showHalfStars) ? this.getHalfStarVisible(this.rating) : false;
+    }
+    get showHalfStars(): boolean {
+        return this._showHalfStars;
+    }
+
+    set disabled(value: boolean) {
+        this._disabled = !!value;
+    }
+    get disabled(): boolean {
+        return this._disabled;
+    }
+
+    set readOnly(value: boolean) {
+        this._readOnly = !!value;
+    }
+    get readOnly(): boolean {
+        return this._readOnly;
+    }
+
+    set spread(value: boolean) {
+        this._spread = !!value;
+    }
+    get spread(): boolean {
+        return this._spread;
+    }
+
+    set starType(value: starRatingStarTypes) {
+        this._starType = value || StarRatingController.DefaultStarType;
+    }
+    get starType(): starRatingStarTypes {
+        return this._starType;
+    }
+
+    set size(value: starRatingSizes) {
+        this._size = value || StarRatingController.DefaultSize;
+    }
+    get size(): starRatingSizes {
+        return this._size;
+    }
+
+    set speed(value: starRatingSpeed) {
+        this._speed = value || StarRatingController.DefaultSpeed;
+    }
+    get speed(): starRatingSpeed {
+        return this._speed;
+    }
+
+    set labelPosition(value: starRatingPosition) {
+        this._labelPosition = value || StarRatingController.DefaultLabelPosition;
+    }
+    get labelPosition(): starRatingPosition {
+        return this._labelPosition;
+    }
+
+    set staticColor(value: starRatingColors) {
+        this._staticColor = value || undefined;
+
+        //update color.
+        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+    }
+    get staticColor(): starRatingColors {
+        return this._staticColor;
+    }
+
+    set text(value: string) {
+        this._text = value;
+    }
+    get text(): string {
+        return this._text;
+    }
+
+    set id(value: string) {
+        this._id = value || (parseInt(Math.random() * 10000)).toString();
+    }
+    get id(): string {
+        return this._id;
+    }
+
+    setGetColor(func:any) {
+        //@TODO implement custom setter and getter
+        this.getColor = (typeof func === "function") ? func : StarRatingController._getColor;
+        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+    }
+
     constructor() {
-        //set default values
-        this.classEmpty = this.classEmpty || StarRatingController.DefaultClassEmpty;
-        this.classHalf = this.classHalf || StarRatingController.DefaultClassHalf;
-        this.classFilled = this.classFilled || StarRatingController.DefaultClassFilled;
-        this.pathEmpty = this.pathEmpty || StarRatingController.DefaultSvgPathEmpty;
-        this.pathHalf = this.pathHalf || StarRatingController.DefaultSvgPathHalf;
-        this.pathFilled = this.pathFilled || StarRatingController.DefaultSvgPathFilled;
-        this.numOfStars = (this.numOfStars && this.numOfStars > 0) ? this.numOfStars : StarRatingController.DefaultNumOfStars;
-        this.getColor  = (typeof this.getColor === "function") ? this.getColor : StarRatingController._getColor;
-        this.getHalfStarVisible = (typeof this.getHalfStarVisible === "function") ? this.getHalfStarVisible : StarRatingController._getHalfStarVisible;
-        //this.onUpdate  = this.onUpdate || function () {};
-        //this.onClick  = this.onClick || function () {};
+        //set default ctrl props
+        this.classEmpty = StarRatingController.DefaultClassEmpty;
+        this.classHalf = StarRatingController.DefaultClassHalf;
+        this.classFilled = StarRatingController.DefaultClassFilled;
+        this.pathEmpty = StarRatingController.DefaultSvgPathEmpty;
+        this.pathHalf = StarRatingController.DefaultSvgPathHalf;
+        this.pathFilled = StarRatingController.DefaultSvgPathFilled;
 
-        this.updateNumOfStars(this.numOfStars);
+        //set default Component Inputs
+        this.getColor = StarRatingController._getColor;
+        this.getHalfStarVisible = StarRatingController._getHalfStarVisible;
+        this._numOfStars = StarRatingController.DefaultNumOfStars;
+        this._rating = 0;
+
+        //set default Outputs
+        this.onClick = function ($event: IStarRatingOnClickEvent) {
+            return <IStarRatingOnClickEvent>{}
+        };
+        this.onUpdate = function ($event: IStarRatingOnUpdateEvent) {
+            return <IStarRatingOnUpdateEvent>{}
+        };
     }
 
     /**
      * $onChanges
      *
-     *The components $onChange hook
+     * The components $onChange hook
      *
      * @param changes
      */
-     $onChanges(changes): void {
+    $onChanges(changes): void {
+        //@TODO why is getColor undefined but after constructor it is
+        if(this.getColor === undefined) {
+            this.getColor = StarRatingController._getColor;
+        }
 
-        let valueChanged = function(key:string, changes):boolean {
-            if (key in changes)
-                if (changes[key].currentValue != changes[key].previousValue) { return true; }
+        let valueChanged = function (key: string, changes): boolean {
+            if (key in changes) {
+                if (
+                    //(changes[key].previousValue != 'UNINITIALIZED_VALUE' && changes[key].currentValue !== undefined)
+                     changes[key].currentValue != changes[key].previousValue) {
+                    return true;
+                }
+            }
             return false;
         };
 
-        //number
-        if (valueChanged('rating', changes)) {
-            this.updateRating(changes.rating.currentValue, this.showHalfStars);
+        //---------------------------------------
+
+        //boolean
+        if (valueChanged('showHalfStars', changes)) {
+            this.showHalfStars = changes.showHalfStars.currentValue;
         }
 
-        if ( valueChanged('numOfStars', changes)) {
-            this.updateNumOfStars(changes.numOfStars.currentValue);
+        if (valueChanged('spread', changes)) {
+            this.spread = changes.spread.currentValue;
+        }
+
+        if (valueChanged('readOnly', changes)) {
+            this.readOnly = changes.readOnly.currentValue;
+        }
+
+        if (valueChanged('disabled', changes)) {
+            this.disabled = !!changes.disabled.currentValue;
+        }
+
+        //number
+        if (valueChanged('rating', changes)) {
+            this.rating = changes.rating.currentValue;
+        }
+
+        if (valueChanged('numOfStars', changes)) {
+            this.numOfStars = changes.numOfStars.currentValue;
         }
 
         //string
@@ -299,9 +390,8 @@ export class StarRatingController implements IStarRatingCompBindings{
             this.text = changes.text.currentValue;
         }
 
-        if (valueChanged('staticColor' , changes)) {
+        if (valueChanged('staticColor', changes)) {
             this.staticColor = changes.staticColor.currentValue;
-            this.color = this.getColor(this.ratingAsInteger, this.numOfStars, this.staticColor);
         }
 
         if (valueChanged('size', changes)) {
@@ -320,30 +410,12 @@ export class StarRatingController implements IStarRatingCompBindings{
             this.starType = changes.starType.currentValue;
         }
 
-        //boolean
-        if (valueChanged('showHalfStars' , changes)) {
-            this.showHalfStars = changes.showHalfStars.currentValue;
-            this.updateRating(this.rating, this.showHalfStars);
-        }
-
-        if (valueChanged('spread' , changes)) {
-            this.spread = changes.spread.currentValue;
-        }
-
-        if (valueChanged('readOnly' , changes)) {
-            this.readOnly = changes.readOnly.currentValue;
-        }
-
-        if (valueChanged('disabled' , changes)) {
-            this.disabled = !!changes.disabled.currentValue;
-        }
-
         //functions
-        if (valueChanged('getColor' , changes)) {
-            this.getColor  = (typeof changes.getColor.currentValue === "function") ? changes.getColor.currentValue : this._calculateColor;
+        if (valueChanged('getColor', changes)) {
+            this.setGetColor(changes.getColor.currentValue);
         }
 
-        if (valueChanged('getHalfStarVisible' , changes)) {
+        if (valueChanged('getHalfStarVisible', changes)) {
             this.getHalfStarVisible = (typeof changes.getHalfStarVisible.currentValue === "function") ? changes.getHalfStarVisible.currentValue : StarRatingController._getHalfStarVisible;
         }
 
@@ -360,49 +432,15 @@ export class StarRatingController implements IStarRatingCompBindings{
      * @param rating
      */
     protected onStarClicked(rating: number): void {
-        if (this.readOnly || this.disabled) { return; }
-        //rerender component
-        this.updateRating(rating);
+        if (this.readOnly || this.disabled) {
+            return;
+        }
 
-        //emit onClick event
-        this.onClick({$event: {rating: rating}});
-    }
+        this.rating = rating;
 
-    /**
-     * updateRating
-     *
-     * Used to set the rating value and update other variables
-     * based on rating. This function also emits the onUpdate event.
-     *
-     * @param value
-     * @param showHalfStars?
-     *
-     */
-    protected updateRating(value: number, showHalfStars?:boolean):void {
-        this.rating = value;
-
-        //if rating parseInt it if not set to 0
-        this.ratingAsInteger = (this.rating)?parseInt(this.rating.toString()):0;
-
-        //if showHalfStars is true use the hasHalfStarClass function to determine if half a star is visible
-        this.hasHalfStarClass = (showHalfStars)?this.getHalfStarVisible(this.rating):false;
-        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
-        //emit onUpdate event
-        this.onUpdate({$event: {rating: this.rating}});
-    }
-
-    /**
-     * updateNumOfStars
-     *
-     * Used to set the numOfStars value and update other variables
-     * based on numOfStars.
-     *
-     * @param {number} numOfStars the number of stars
-     */
-    protected updateNumOfStars(numOfStars: number): void  {
-        this.numOfStars = numOfStars;
-        this.stars = StarRatingController._getStarsArray(this.numOfStars);
-        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+        //fire onClick event
+        let $event:IStarRatingOnClickEvent = {rating: rating};
+        this.onClick({$event:$event});
     }
 
 }
