@@ -78,7 +78,7 @@ describe('Star rating controller', () => {
     it('should set custom bindings properly', () => {
         let bindings = <IStarRatingCompBindings>{
             //<
-              id: 'custom-id'
+            id: 'custom-id'
             , text: 'custom-text'
             , staticColor: 'positive'
             , labelPosition: 'right'
@@ -146,7 +146,7 @@ describe('Star rating controller', () => {
         for (let rating in testValues) {
             starRatingCtrl.rating = rating;
 
-            if(rating != negativeValue && rating != defaultValue) {
+            if (rating != negativeValue && rating != defaultValue) {
                 expect(StarRatingController._getColor(starRatingCtrl.rating, starRatingCtrl.numOfStars)).toBe(negativeColor);
             }
             else {
@@ -251,7 +251,7 @@ describe('Star rating controller', () => {
 
         let newRatingValue;
         let bindings: IStarRatingCompBindings = {
-            onUpdate : onUpdate
+            onUpdate: onUpdate
         };
 
         starRatingCtrl = getStarRatingCtrl(bindings);
@@ -259,7 +259,7 @@ describe('Star rating controller', () => {
         for (let rating in testValues) {
             starRatingCtrl.rating = rating;
 
-            if(rating == negativeValue) {
+            if (rating == negativeValue) {
                 expect(starRatingCtrl.rating).toBe(defaultValue);
                 expect(starRatingCtrl.color).toBe(defaultColor);
 
@@ -305,7 +305,7 @@ describe('Star rating controller', () => {
 
 
             //@TODO spy on updateRating
-            if(rating == negativeValue) {
+            if (rating == negativeValue) {
                 expect(starRatingCtrl.rating).toBe(defaultValue);
                 expect(starRatingCtrl.color).toBe(defaultColor);
             } else {
