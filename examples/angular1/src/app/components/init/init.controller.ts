@@ -1,6 +1,8 @@
 import {starRatingColors, starRatingPosition, starRatingStarTypes, starRatingSpeed, starRatingSizes} from "../../../../../dist/star-rating.controller";
+import {IStarRatingOnUpdateEvent, IStarRatingOnClickEvent} from "../../../../../../dist/star-rating.controller";
 
 export class InitController {
+
 
     //option sets
     colorOptions:Array<starRatingColors|string> = ['default','negative', 'middle', 'positive'];
@@ -9,9 +11,8 @@ export class InitController {
     speedOptions:Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
     sizeOptions:Array<starRatingSizes> = ['small', 'medium', 'large'];
 
-    //component @ properties
+    //component input (> bindings)
     id: string;
-    //component > properties
     //pathEmpty: string;
     //pathFilled:string;
     numOfStars:number = 5;
@@ -24,30 +25,28 @@ export class InitController {
     readOnly: boolean = false;
     disabled: boolean = false;
     showHalfStars:boolean = false;
-
-    constructor() {
-        console.log('constructor');
-    }
-
-    //component & properties
-    getColor(rating, numOfStars, staticColor):string {
-        console.log('getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
+    getColor(rating:number, numOfStars:number, staticColor:string):string{
+        console.log('init getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
         return 'default';
-    }
-
+    };
     getHalfStarVisible(rating:number):boolean {
         console.log('getHalfStarVisible rating: ',rating, rating%1);
         return (rating<2);
+    };
+
+    constructor() {
+
     }
 
-    onClick(rating:number):number {
-        console.log('onClick rating: ',rating);
-        return rating;
+    //component output (& bindings)
+    onClick($event:IStarRatingOnClickEvent): void {
+        console.log('init onClick rating: ',$event.rating);
     }
 
-    onUpdate(rating:number): void {
-        console.log('onUpdate rating: ',rating);
-        this.rating = rating;
+    onUpdate($event:IStarRatingOnUpdateEvent): void {
+        console.log('init onUpdate rating: ',$event.rating);
+        this.rating = $event.rating;
     }
+
 
 }

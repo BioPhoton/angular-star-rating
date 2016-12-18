@@ -1,0 +1,231 @@
+<div id="init-view" class="container">
+
+    <div class="jumbotron">
+        <h1 class="display-3">Angular Stars</h1>
+        <p class="lead">Css only star rating inc angular component</p>
+        <p>
+            <star-rating-comp
+                    id="single.id"
+                    rating="single.rating"
+                    show-half-stars="single.showHalfStars"
+                    disabled="single.disabled"
+                    read-only="single.readOnly"
+                    spread="single.spread"
+                    size="single.size"
+                    num-of-stars="single.numOfStars"
+                    static-color="single.color"
+                    speed="single.speed"
+                    text="single.rating"
+                    label-position="single.position"
+                    star-type="single.starType"
+                    get-color="single.getColor"
+                    get-half-star-visible="single.getHalfStarVisible"
+                    on-click="single.onClick($event)"
+                    on-update="single.onUpdate($event)">
+            </star-rating-comp>
+            <!--
+            get-color="single.getColor(rating, numOfStars)"
+                    on-click="single.onClick($event)"
+                    on-update="single.onUpdate(rating)"
+            -->
+        </p>
+    </div>
+
+    <!--
+    <div style="width: 300px; margin: 30px auto; background: #fafafa; height: 100px; display:flex; align-items: center; justify-content: center;">
+        <div style="width: 100%;">
+            <star-rating-comp
+                    id="single.id"
+
+                    rating="single.rating"
+                    show-half-stars="single.showHalfStars"
+                    disabled="single.disabled"
+                    read-only="single.readOnly"
+                    spread="single.spread"
+                    size="single.size"
+                    num-of-stars="single.numOfStars"
+
+                    color="single.color"
+                    speed="single.speed"
+
+
+                    text="single.rating"
+                    label-position="single.position"
+
+                    star-type="single.starType"
+
+
+                    get-half-star-class="single.getHalfStarClass(rating)"
+                    on-update="single.onUpdate(rating)"
+                    on-click="single.onClick($event)">
+            </star-rating-comp>
+        </div>
+    </div>
+     -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-4">
+                <fieldset class="form-group">
+                    <legend>Layout</legend>
+                    <div class="form-check">
+                        <label class="col-xs-4 col-form-label">Lable Position</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" ng-model="single.position">
+                                <option value="">position</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in single.labelPositionOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-6 col-form-label">starOptions: {{single.starType}}</label>
+                        <div class="col-xs-6">
+                            <select class="form-control" ng-model="single.starType">
+                                <option value="">starType</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in single.starOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-model="single.spread">
+                            Spread
+                        </label>
+                    </div>
+                </fieldset>
+
+            </div>
+            <div class="col-xs-4">
+                <fieldset class="form-group">
+                    <legend>Dimensions
+                    </legend>
+                    <div class="form-group row">
+                        <label class="col-xs-6 col-form-label">NumOfStars</label>
+                        <div class="col-xs-6">
+                            <input type="number" class="form-control" placeholder="NumOfStars"
+                                   ng-model="single.numOfStars">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-xs-6 col-form-label">Size: {{single.size}}</label>
+                        <div class="col-xs-6">
+                            <select class="form-control" ng-model="single.size">
+                                <option value="">size</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in single.sizeOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+            </div>
+            <div class="col-xs-4">
+                <fieldset class="form-group">
+
+                    <legend>Styling
+                    </legend>
+
+                    <div class="form-group row">
+                        <label class="col-xs-4 col-form-label">Color</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" ng-model="single.color">
+                                <option value="">color</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in single.colorOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-model="single.disabled">
+                            Disabled
+                        </label>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-xs-4 col-form-label">Speed: {{single.speed}}</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" ng-model="single.speed">
+                                <option value="">speed</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in single.speedOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-4">
+                <fieldset class="form-group">
+                    <legend>Other
+                    </legend>
+
+                    <div class="form-group row">
+                        <label class="col-xs-6 col-form-label">Id</label>
+                        <div class="col-xs-6">
+                            <input type="text" class="form-control" placeholder="Id" ng-model="single.id">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-xs-6 col-form-label">Rating</label>
+                        <div class="col-xs-6">
+                            <input type="number" class="form-control" placeholder="rating" ng-model="single.rating">
+                        </div>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-model="single.showHalfStars">
+                            showHalfStars
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-change="single.updateGetColorBinding()" ng-model="single.useCustomCetColor">
+                            use custom getColor function
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-model="single.readOnly">
+                            ReadOnly
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-change="single.updateGetHalfStarVisibleBinding()" ng-model="single.useCustomGetHalfStarVisible">
+                            use custom getHalfStarVisible function
+                        </label>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-xs-6 col-form-label">Text</label>
+                        <div class="col-xs-6">
+                            <input type="text" class="form-control" placeholder="text:number" ng-model="single.text">
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+</div>

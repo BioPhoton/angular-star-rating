@@ -12,13 +12,15 @@ import 'angular-star-rating';
 //import {angularStars} from "angular-star-rating/dist/index.js";
 
 import {initPage} from "./components/init/index";
+import {singlePage} from "./components/single/index";
 
 angular.module('app',
       [
-          "ui.router"
+            "star-rating"
+          , "ui.router"
           , initPage
-          , 'star-rating'
+          , singlePage
       ])
     .config(($urlRouterProvider) => {
-        $urlRouterProvider.otherwise('init');
+        $urlRouterProvider.otherwise('single');
     });
