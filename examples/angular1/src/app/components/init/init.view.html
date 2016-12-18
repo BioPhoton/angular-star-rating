@@ -8,22 +8,26 @@
                     size="'large'"
                     rating="init.rating"
                     text="init.rating"
-                    on-click="init.onClick(rating)"
-                    on-update="init.onUpdate(rating)">
+                    on-click="init.onClick($event)"
+                    on-update="init.onUpdate($event)">
             </star-rating-comp>
             <!--
             get-color="init.getColor(rating, numOfStars)"
-                    on-click="init.onClick(rating)"
+                    on-click="init.onClick($event)"
                     on-update="init.onUpdate(rating)"
             -->
         </p>
     </div>
 
+    <single>
+        ERROR
+    </single>
+
     <!--
     <div style="width: 300px; margin: 30px auto; background: #fafafa; height: 100px; display:flex; align-items: center; justify-content: center;">
         <div style="width: 100%;">
             <star-rating-comp
-                    id="{{init.id}}"
+                    id="init.id"
 
                     rating="init.rating"
                     show-half-stars="init.showHalfStars"
@@ -44,8 +48,8 @@
 
 
                     get-half-star-class="init.getHalfStarClass(rating)"
-                    on-update="init.onUpdate(rating)"
-                    on-click="init.onClick(rating)">
+                    on-update="init.onUpdate($event)"
+                    on-click="init.onClick($event)">
             </star-rating-comp>
         </div>
     </div>
@@ -62,7 +66,7 @@
                                 label-position="init.position"
                                 spread="init.spread"
                                 star-type="init.starType"
-                                on-update="init.onUpdate(rating)">
+                                on-update="init.onUpdate($event)">
                         </star-rating-comp>
                     </legend>
                     <div class="form-check">
@@ -104,7 +108,7 @@
                                 num-of-stars="init.numOfStars"
                                 rating="init.rating"
                                 star-type="init.starType"
-                                on-update="init.onUpdate(rating)">
+                                on-update="init.onUpdate($event)">
                         </star-rating-comp>
                     </legend>
                     <div class="form-group row">
@@ -138,7 +142,7 @@
                                 speed="init.speed"
                                 disabled="init.disabled"
                                 rating="init.rating"
-                                on-update="init.onUpdate(rating)">
+                                on-update="init.onUpdate($event)">
                         </star-rating-comp>
                     </legend>
 
@@ -182,15 +186,15 @@
                 <fieldset class="form-group">
                     <legend>Other
                         <star-rating-comp
-                                id="{{init.id}}"
+                                id="init.id"
                                 text="init.text"
                                 read-only="init.readOnly"
                                 rating="init.rating"
                                 show-half-stars="init.showHalfStars"
                                 get-color="init.getColor"
                                 get-half-star-visible="init.getHalfStarVisible"
-                                on-update="init.onUpdate(rating)"
-                                on-click="init.onClick(rating)">
+                                on-update="init.onUpdate($event)"
+                                on-click="init.onClick($event)">
                         </star-rating-comp>
                     </legend>
 
