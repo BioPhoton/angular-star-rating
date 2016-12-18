@@ -71775,7 +71775,7 @@
 	    };
 	    ;
 	    InitController.prototype._getHalfStarVisible = function (rating) {
-	        console.log('getHalfStarVisible rating: ', rating, rating % 1);
+	        console.log('getHalfStarVisible rating: ', rating);
 	        return (rating < 3);
 	    };
 	    ;
@@ -71884,8 +71884,8 @@
 	    };
 	    SingleController.prototype._getColor = function (rating, numOfStars, staticColor) {
 	        console.log('single getColor rating: ', rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
-	        var clors = ['default', 'negative', 'middle', 'positive'];
-	        return clors[Math.floor(Math.random() * clors.length)];
+	        var colors = ['default', 'negative', 'middle', 'positive'];
+	        return colors[Math.floor(Math.random() * colors.length)];
 	    };
 	    ;
 	    SingleController.prototype._getHalfStarVisible = function (rating) {
