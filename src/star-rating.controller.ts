@@ -206,6 +206,9 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         //update ratingAsInteger. rating parsed to int for the value-[n] modifier
         this.ratingAsInteger = parseInt(<string>this.rating);
 
+        //update halfStarsVisible
+        this.halfStarVisible = (this.showHalfStars) ? this.getHalfStarVisible(this._rating) : false;
+
         //update color
         this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
 
@@ -222,8 +225,6 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this._showHalfStars = !!value;
 
         //update halfStarVisible
-        //if _showHalfStars is true use the hasHalfStarClass function to determine if half a star is visible
-        //else half star is never visible
         this.halfStarVisible = (this._showHalfStars) ? this.getHalfStarVisible(this.rating) : false;
     }
     get showHalfStars(): boolean {
@@ -304,9 +305,14 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
     }
 
     setGetColor(func:any) {
-        //@TODO implement custom setter and getter
         this.getColor = (typeof func === "function") ? func : StarRatingController._getColor;
         this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+    }
+
+    setGetHalfStarVisible(func:any) {
+        this.getHalfStarVisible = (typeof func === "function") ? func : StarRatingController._getHalfStarVisible;
+        //update halfStarVisible
+        this.halfStarVisible = (this.showHalfStars) ? this.getHalfStarVisible(this.rating) : false;
     }
 
     constructor() {
@@ -341,7 +347,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
      * @param changes
      */
     $onChanges(changes): void {
-        //@TODO why is getColor undefined but after constructor it is
+        //@TODO why is getColor undefined? I use defaults in the constructor
         if(this.getColor === undefined) {
             this.getColor = StarRatingController._getColor;
         }
@@ -416,7 +422,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         }
 
         if (valueChanged('getHalfStarVisible', changes)) {
-            this.getHalfStarVisible = (typeof changes.getHalfStarVisible.currentValue === "function") ? changes.getHalfStarVisible.currentValue : StarRatingController._getHalfStarVisible;
+            this.setGetHalfStarVisible(changes.getHalfStarVisible.currentValue);
         }
 
     }
