@@ -32,7 +32,7 @@ describe('Controller Test', () => {
         $componentController = _$componentController_;
     }));
 
-    fit('should console.log TEST', () => {
+    it('should console.log TEST', () => {
         console.log('TEST');
     });
 
