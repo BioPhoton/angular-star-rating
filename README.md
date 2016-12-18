@@ -226,12 +226,15 @@ Default: noticeable
 
 **starType**: starRatingStarTypes (Optional)  
 The type of start resource to use.     
-Options: svg, icon
+Options: svg, icon, custom-icon
 Default: svg  
 
 ```html
 <star-rating-comp star-type="'icon'"></star-rating-comp>
 ```
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-type-svg.gif" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-type-icon.gif" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-type-custom_icon.gif" width="290">
 
 **getColor**: Function (Optional)  
 Calculation of the color by rating.  
