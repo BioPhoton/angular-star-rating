@@ -71,7 +71,7 @@ export class InitController {
         return clors[Math.floor(Math.random() * clors.length)];
     };
     _getHalfStarVisible(rating:number):boolean {
-        console.log('getHalfStarVisible rating: ',rating, rating%1);
+        console.log('getHalfStarVisible rating: ',rating);
         return (rating<3);
     };
 
