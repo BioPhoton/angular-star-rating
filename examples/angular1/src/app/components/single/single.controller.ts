@@ -15,7 +15,7 @@ export class SingleController {
     //pathEmpty: string;
     //pathFilled:string;
     numOfStars:number = 5;
-    rating: number = 3;
+    rating: number = 3.5;
     text: number = this.rating;
     color:starRatingColors;
     speed:starRatingSpeed|string;
@@ -67,11 +67,12 @@ export class SingleController {
 
     _getColor(rating :number|string, numOfStars:number, staticColor:string):string {
         console.log('single getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
-        return 'default';
+        let colors = ['default', 'negative', 'middle', 'positive'];
+        return colors[Math.floor(Math.random() * colors.length)];
     };
     _getHalfStarVisible(rating:number):boolean {
         console.log('getHalfStarVisible rating: ',rating, rating%1);
-        return (rating<2);
+        return (rating<3);
     };
 
 }

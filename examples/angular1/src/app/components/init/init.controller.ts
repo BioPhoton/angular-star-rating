@@ -3,7 +3,6 @@ import {IStarRatingOnUpdateEvent, IStarRatingOnClickEvent} from "../../../../../
 
 export class InitController {
 
-
     //option sets
     colorOptions:Array<starRatingColors|string> = ['default','negative', 'middle', 'positive'];
     labelPositionOptions:Array<starRatingPosition|string> = ['top','right', 'left', 'bottom'];
@@ -11,12 +10,12 @@ export class InitController {
     speedOptions:Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
     sizeOptions:Array<starRatingSizes> = ['small', 'medium', 'large'];
 
-    //component input (> bindings)
+    //component input properties (> bindings)
     id: string;
     //pathEmpty: string;
     //pathFilled:string;
     numOfStars:number = 5;
-    rating: number = 3;
+    rating: number = 3.5;
     text: number = this.rating;
     color:starRatingColors;
     speed:starRatingSpeed|string;
@@ -25,14 +24,11 @@ export class InitController {
     readOnly: boolean = false;
     disabled: boolean = false;
     showHalfStars:boolean = false;
-    getColor(rating:number, numOfStars:number, staticColor:string):string{
-        console.log('init getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
-        return 'default';
-    };
-    getHalfStarVisible(rating:number):boolean {
-        console.log('getHalfStarVisible rating: ',rating, rating%1);
-        return (rating<2);
-    };
+    //component input functions (> bindings)
+    getColor;
+    useCustomCetColor:boolean = false;
+    getHalfStarVisible;
+    useCustomGetHalfStarVisible:boolean = false;
 
     constructor() {
 
@@ -40,13 +36,43 @@ export class InitController {
 
     //component output (& bindings)
     onClick($event:IStarRatingOnClickEvent): void {
-        console.log('init onClick rating: ',$event.rating);
+        console.log('single onClick rating: ',$event.rating);
     }
 
     onUpdate($event:IStarRatingOnUpdateEvent): void {
-        console.log('init onUpdate rating: ',$event.rating);
+        console.log('single onUpdate rating: ',$event.rating);
         this.rating = $event.rating;
     }
 
+    updateGetColorBinding() {
+        console.log('update Bind ', this.useCustomCetColor, this.getColor);
+        if(this.useCustomCetColor) {
+            this.getColor = this._getColor;
+        }
+        else {
+            this.getColor = undefined;
+        }
+
+        console.log('updated this.getColor ', this.getColor);
+    }
+
+    updateGetHalfStarVisibleBinding() {
+        if(this.useCustomGetHalfStarVisible) {
+            this.getHalfStarVisible = this._getHalfStarVisible;
+        }
+        else {
+            this.getHalfStarVisible = undefined;
+        }
+    }
+
+    _getColor(rating :number|string, numOfStars:number, staticColor:string):string {
+        console.log('single getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
+        let clors = ['default', 'negative', 'middle', 'positive'];
+        return clors[Math.floor(Math.random() * clors.length)];
+    };
+    _getHalfStarVisible(rating:number):boolean {
+        console.log('getHalfStarVisible rating: ',rating, rating%1);
+        return (rating<3);
+    };
 
 }

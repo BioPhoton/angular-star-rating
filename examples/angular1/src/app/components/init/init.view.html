@@ -37,7 +37,7 @@
                     size="init.size"
                     num-of-stars="init.numOfStars"
 
-                    color="init.color"
+                    static-color="init.color"
                     speed="init.speed"
 
 
@@ -138,10 +138,11 @@
 
                     <legend>Styling
                         <star-rating-comp
-                                color="init.color"
+                                static-color="init.color"
                                 speed="init.speed"
                                 disabled="init.disabled"
                                 rating="init.rating"
+                                get-color="init.getColor"
                                 on-update="init.onUpdate($event)">
                         </star-rating-comp>
                     </legend>
@@ -155,6 +156,13 @@
                                 </option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-change="init.updateGetColorBinding()" ng-model="init.useCustomCetColor">
+                            use custom getColor function
+                        </label>
                     </div>
 
                     <div class="form-check">
@@ -191,7 +199,6 @@
                                 read-only="init.readOnly"
                                 rating="init.rating"
                                 show-half-stars="init.showHalfStars"
-                                get-color="init.getColor"
                                 get-half-star-visible="init.getHalfStarVisible"
                                 on-update="init.onUpdate($event)"
                                 on-click="init.onClick($event)">
@@ -208,7 +215,7 @@
                     <div class="form-group row">
                         <label class="col-xs-6 col-form-label">Rating</label>
                         <div class="col-xs-6">
-                            <input type="number" class="form-control" placeholder="rating" ng-model="init.rating">
+                            <input type="number" class="form-control" placeholder="rating" step="0.5" ng-model="init.rating">
                         </div>
                     </div>
 
@@ -216,6 +223,14 @@
                         <label class="form-check-label">
                             <input type="checkbox" class="form-check-input" ng-model="init.showHalfStars">
                             showHalfStars
+                        </label>
+                    </div>
+
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" ng-change="init.updateGetHalfStarVisibleBinding()" ng-model="init.useCustomGetHalfStarVisible">
+                            use custom getHalfStarVisible function
                         </label>
                     </div>
 
