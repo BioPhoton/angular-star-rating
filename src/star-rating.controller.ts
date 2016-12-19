@@ -175,7 +175,6 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
     $onDestroy?(): void;
     $postLink?(): void;
 
-
     //getter and setter
     set numOfStars(value: number) {
         this._numOfStars = (value > 0)?value:StarRatingController.DefaultNumOfStars;
@@ -210,9 +209,8 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this.halfStarVisible = (this.showHalfStars) ? this.getHalfStarVisible(this._rating) : false;
 
         //update color
-        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+        this.color = this.getColor(this._rating, this.numOfStars, this.staticColor);
 
-        //@TODO rethink triggering event here
         //fire onUpdate event
         let $event:IStarRatingOnUpdateEvent = {rating: this._rating};
         this.onUpdate({$event:$event});
@@ -347,11 +345,6 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
      * @param changes
      */
     $onChanges(changes): void {
-        //@TODO why is getColor undefined? I use defaults in the constructor
-        if(this.getColor === undefined) {
-            this.getColor = StarRatingController._getColor;
-        }
-
         let valueChanged = function (key: string, changes): boolean {
             if (key in changes) {
                 if (
@@ -364,6 +357,16 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         };
 
         //---------------------------------------
+
+        //functions
+        //@Notice For some reason callback functions is not defined even there are defaults in the constructor
+        if (valueChanged('getColor', changes)) {
+            this.setGetColor(changes.getColor.currentValue);
+        }
+
+        if (valueChanged('getHalfStarVisible', changes)) {
+            this.setGetHalfStarVisible(changes.getHalfStarVisible.currentValue);
+        }
 
         //boolean
         if (valueChanged('showHalfStars', changes)) {
@@ -414,15 +417,6 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
 
         if (valueChanged('starType', changes)) {
             this.starType = changes.starType.currentValue;
-        }
-
-        //functions
-        if (valueChanged('getColor', changes)) {
-            this.setGetColor(changes.getColor.currentValue);
-        }
-
-        if (valueChanged('getHalfStarVisible', changes)) {
-            this.setGetHalfStarVisible(changes.getHalfStarVisible.currentValue);
         }
 
     }

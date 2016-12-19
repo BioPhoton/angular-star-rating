@@ -75,7 +75,7 @@ describe('Star rating controller', () => {
         expect(starRatingCtrl.color).toBe('default');
     });
 
-    fit('should set custom bindings properly', () => {
+    it('should set custom bindings properly', () => {
         let bindings = <IStarRatingCompBindings>{
             //<
             id: 'custom-id'
@@ -90,9 +90,9 @@ describe('Star rating controller', () => {
             , disabled: true
             , rating: 3
             , numOfStars: 8
-            /* , getColor: function (rating, numOfStars, staticColor) {
+            , getColor: function (rating, numOfStars, staticColor) {
                 return "default";
-            }*/
+            }
             , getHalfStarVisible: function (rating) {
                 return true;
             }
@@ -107,21 +107,21 @@ describe('Star rating controller', () => {
 
         starRatingCtrl = getStarRatingCtrl(bindings);
 
-        //expect(starRatingCtrl.id).toBe(bindings.id);
-        //expect(starRatingCtrl.text).toBe(bindings.text);
-        //expect(starRatingCtrl.staticColor).toBe(bindings.staticColor);
-        //expect(starRatingCtrl.labelPosition).toBe(bindings.labelPosition);
-        //expect(starRatingCtrl.speed).toBe(bindings.speed);
-        //expect(starRatingCtrl.size).toBe(bindings.size);
-        //expect(starRatingCtrl.starType).toBe(bindings.starType);
-        //expect(starRatingCtrl.spread).toBe(bindings.spread);
-        //expect(starRatingCtrl.readOnly).toBe(bindings.readOnly);
-        //expect(starRatingCtrl.disabled).toBe(bindings.disabled);
-        //expect(starRatingCtrl.rating).toBe(bindings.rating);
-        //expect(starRatingCtrl.getColor(1, 5, 'default')).toBe(bindings.getColor(1, 5, 'default'));
-        //expect(starRatingCtrl.getHalfStarVisible(1)).toBe(bindings.getHalfStarVisible(1));
-        //expect(starRatingCtrl.onClick({$event: {rating: 1}})).toBe(bindings.onClick({$event: {rating: 1}}));
-        //expect(starRatingCtrl.onUpdate({$event: {rating: 1}})).toBe(bindings.onUpdate({$event: {rating: 1}}));
+        expect(starRatingCtrl.id).toBe(bindings.id);
+        expect(starRatingCtrl.text).toBe(bindings.text);
+        expect(starRatingCtrl.staticColor).toBe(bindings.staticColor);
+        expect(starRatingCtrl.labelPosition).toBe(bindings.labelPosition);
+        expect(starRatingCtrl.speed).toBe(bindings.speed);
+        expect(starRatingCtrl.size).toBe(bindings.size);
+        expect(starRatingCtrl.starType).toBe(bindings.starType);
+        expect(starRatingCtrl.spread).toBe(bindings.spread);
+        expect(starRatingCtrl.readOnly).toBe(bindings.readOnly);
+        expect(starRatingCtrl.disabled).toBe(bindings.disabled);
+        expect(starRatingCtrl.rating).toBe(bindings.rating);
+        expect(starRatingCtrl.getColor(1, 5, 'default')).toBe(bindings.getColor(1, 5, 'default'));
+        expect(starRatingCtrl.getHalfStarVisible(1)).toBe(bindings.getHalfStarVisible(1));
+        expect(starRatingCtrl.onClick({$event: {rating: 1}})).toBe(bindings.onClick({$event: {rating: 1}}));
+        expect(starRatingCtrl.onUpdate({$event: {rating: 1}})).toBe(bindings.onUpdate({$event: {rating: 1}}));
     });
 
     it("should return proper values when firing _getColor function", () => {
@@ -231,7 +231,6 @@ describe('Star rating controller', () => {
 
             //update stars array
             let expectedNumOfStars = (numOfStars && parseInt(numOfStars) > 0) ? parseInt(numOfStars) : StarRatingController.DefaultNumOfStars;
-            expect(starRatingCtrl.getColor).toHaveBeenCalled();
             //@TODO spy on StarRatingController.getStarsArray
             expect(starRatingCtrl.numOfStars).toBe(expectedNumOfStars);
             //@TODO spy on getColor
