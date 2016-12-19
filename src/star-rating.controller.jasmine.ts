@@ -323,7 +323,7 @@ describe('Star rating controller', () => {
         //@TODO with disabled
     });
 
-    it("should return proper values when firing getColor function", () => {
+    fit("should return proper values when firing getColor function", () => {
         let testValues = {};
         testValues[lowRating] = okColor;
         testValues[okRating] = positiveColor;
@@ -338,6 +338,7 @@ describe('Star rating controller', () => {
         let count = 0;
         for (let rating in testValues) {
             starRatingCtrl.rating = rating;
+            console.log("RATING: ", rating);
             expect(starRatingCtrl.color).toBe(testValues[rating]);
         }
 
