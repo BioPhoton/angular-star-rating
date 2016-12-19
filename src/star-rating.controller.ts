@@ -209,6 +209,9 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this.halfStarVisible = (this.showHalfStars) ? this.getHalfStarVisible(this._rating) : false;
 
         //update color
+        if(this.getColor === undefined) {
+            this.setGetColor(StarRatingController._getColor);
+        }
         this.color = this.getColor(this._rating, this.numOfStars, this.staticColor);
 
         //fire onUpdate event
