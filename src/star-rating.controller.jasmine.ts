@@ -75,7 +75,7 @@ describe('Star rating controller', () => {
         expect(starRatingCtrl.color).toBe('default');
     });
 
-    it('should set custom bindings properly', () => {
+    xit('should set custom bindings properly', () => {
         let bindings = <IStarRatingCompBindings>{
             //<
             id: 'custom-id'
@@ -323,7 +323,7 @@ describe('Star rating controller', () => {
         //@TODO with disabled
     });
 
-    fit("should return proper values when firing getColor function", () => {
+    xit("should return proper values when firing getColor function", () => {
         let testValues = {};
         testValues[lowRating] = okColor;
         testValues[okRating] = positiveColor;
