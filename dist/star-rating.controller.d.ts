@@ -1,9 +1,10 @@
 import IChangesObject = angular.IChangesObject;
 export declare type starRatingSizes = "small" | "medium" | "large";
-export declare type starRatingColors = "default" | "negative" | "middle" | "positive";
+export declare type starRatingColors = "default" | "negative" | "ok" | "positive";
 export declare type starRatingSpeed = "immediately" | "noticeable" | "slow";
 export declare type starRatingPosition = "left" | "right" | "top" | "bottom";
 export declare type starRatingStarTypes = "svg" | "icon" | "image";
+export declare type starRatingStarSpace = "no" | "between" | "around";
 export interface IStarRatingCompBindings {
     id?: string;
     text?: string;
@@ -12,7 +13,7 @@ export interface IStarRatingCompBindings {
     speed?: starRatingSpeed;
     size?: starRatingSizes;
     starType?: starRatingStarTypes;
-    spread?: boolean;
+    space?: starRatingStarSpace;
     readOnly?: boolean;
     disabled?: boolean;
     showHalfStars?: boolean;
@@ -54,7 +55,7 @@ export declare class StarRatingController implements ng.IComponentController, IS
      * @param numOfStars
      * @returns {Array}
      */
-    protected static _getStarsArray(numOfStars: number): Array<number>;
+    static _getStarsArray(numOfStars: number): Array<number>;
     /**
      * _getHalfStarVisible
      *
@@ -63,7 +64,7 @@ export declare class StarRatingController implements ng.IComponentController, IS
      * @param rating
      * @returns {boolean}
      */
-    protected static _getHalfStarVisible(rating: number): boolean;
+    static _getHalfStarVisible(rating: number): boolean;
     /**
      * _getColor
      *
@@ -76,7 +77,7 @@ export declare class StarRatingController implements ng.IComponentController, IS
      * @param staticColor
      * @returns {starRatingColors}
      */
-    protected static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
+    static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
     protected _id: string;
     protected _text: string;
     protected _staticColor: starRatingColors;
@@ -84,7 +85,7 @@ export declare class StarRatingController implements ng.IComponentController, IS
     protected _speed: starRatingSpeed;
     protected _size: starRatingSizes;
     protected _starType: starRatingStarTypes;
-    protected _spread: boolean;
+    protected _space: starRatingStarSpace;
     protected _readOnly: boolean;
     protected _disabled: boolean;
     protected _showHalfStars: boolean;
@@ -115,7 +116,7 @@ export declare class StarRatingController implements ng.IComponentController, IS
     showHalfStars: boolean;
     disabled: boolean;
     readOnly: boolean;
-    spread: boolean;
+    space: starRatingStarSpace;
     starType: starRatingStarTypes;
     size: starRatingSizes;
     speed: starRatingSpeed;
