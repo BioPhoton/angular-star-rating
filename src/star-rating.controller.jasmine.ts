@@ -20,7 +20,7 @@ describe('Star rating controller', () => {
 
     let defaultColor: starRatingColors = "default";
     let negativeColor: starRatingColors = "negative";
-    let okColor: starRatingColors = "middle";
+    let okColor: starRatingColors = "ok";
     let positiveColor: starRatingColors = "positive";
 
     let lowRating = 1;
