@@ -11,7 +11,7 @@
                     show-half-stars="single.showHalfStars"
                     disabled="single.disabled"
                     read-only="single.readOnly"
-                    spread="single.spread"
+                    space="single.space"
                     size="single.size"
                     num-of-stars="single.numOfStars"
                     static-color="single.color"
@@ -42,7 +42,7 @@
                     show-half-stars="single.showHalfStars"
                     disabled="single.disabled"
                     read-only="single.readOnly"
-                    spread="single.spread"
+                    space="single.space"
                     size="single.size"
                     num-of-stars="single.numOfStars"
 
@@ -91,12 +91,18 @@
 
                     </div>
 
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" ng-model="single.spread">
-                            Spread
-                        </label>
+                    <div class="form-group row">
+                        <label class="col-xs-4 col-form-label">Space</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" ng-model="single.space">
+                                <option value="">space</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in single.spaceOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
+
                     </div>
+
                 </fieldset>
 
             </div>

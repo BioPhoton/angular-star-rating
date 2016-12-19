@@ -33,7 +33,7 @@
                     show-half-stars="init.showHalfStars"
                     disabled="init.disabled"
                     read-only="init.readOnly"
-                    spread="init.spread"
+                    space="init.space"
                     size="init.size"
                     num-of-stars="init.numOfStars"
 
@@ -64,7 +64,7 @@
                                 rating="init.rating"
                                 text="init.rating"
                                 label-position="init.position"
-                                spread="init.spread"
+                                space="init.space"
                                 star-type="init.starType"
                                 on-update="init.onUpdate($event)">
                         </star-rating-comp>
@@ -91,11 +91,15 @@
 
                     </div>
 
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" ng-model="init.spread">
-                            Spread
-                        </label>
+                    <div class="form-group row">
+                        <label class="col-xs-4 col-form-label">Space</label>
+                        <div class="col-xs-8">
+                            <select class="form-control" ng-model="single.space">
+                                <option value="">space</option>
+                                <option value="{{value}}" ng-repeat="(key, value) in single.spaceOptions">{{value}}
+                                </option>
+                            </select>
+                        </div>
                     </div>
                 </fieldset>
 

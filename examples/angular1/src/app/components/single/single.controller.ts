@@ -1,14 +1,15 @@
-import {starRatingColors, starRatingPosition, starRatingStarTypes, starRatingSpeed, starRatingSizes} from "../../../../../dist/star-rating.controller";
+import {starRatingColors, starRatingPosition, starRatingStarTypes, starRatingSpeed, starRatingSizes, starRatingStarSpace} from "../../../../../dist/star-rating.controller";
 import {IStarRatingOnUpdateEvent, IStarRatingOnClickEvent} from "../../../../../../dist/star-rating.controller";
 
 export class SingleController {
 
     //option sets
-    colorOptions:Array<starRatingColors|string> = ['default','negative', 'middle', 'positive'];
+    colorOptions:Array<starRatingColors|string> = ['default','negative', 'ok', 'positive'];
     labelPositionOptions:Array<starRatingPosition|string> = ['top','right', 'left', 'bottom'];
     starOptions:Array<starRatingStarTypes> = ['svg', 'icon', 'image'];
     speedOptions:Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
     sizeOptions:Array<starRatingSizes> = ['small', 'medium', 'large'];
+    spaceOptions:Array<starRatingStarSpace|string> = ['around', 'between', 'no'];
 
     //component input properties (> bindings)
     id: string;
@@ -20,7 +21,7 @@ export class SingleController {
     color:starRatingColors;
     speed:starRatingSpeed|string;
     size: starRatingSizes|string;
-    spread: boolean = false;
+    space: boolean = false;
     readOnly: boolean = false;
     disabled: boolean = false;
     showHalfStars:boolean = false;
@@ -67,7 +68,7 @@ export class SingleController {
 
     _getColor(rating :number|string, numOfStars:number, staticColor:string):string {
         console.log('single getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
-        let colors = ['default', 'negative', 'middle', 'positive'];
+        let colors = ['default', 'negative', 'ok', 'positive'];
         return colors[Math.floor(Math.random() * colors.length)];
     };
     _getHalfStarVisible(rating:number):boolean {

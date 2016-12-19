@@ -3,12 +3,14 @@ import {IStarRatingOnUpdateEvent, IStarRatingOnClickEvent} from "../../../../../
 
 export class InitController {
 
+
     //option sets
-    colorOptions:Array<starRatingColors|string> = ['default','negative', 'middle', 'positive'];
+    colorOptions:Array<starRatingColors|string> = ['default','negative', 'ok', 'positive'];
     labelPositionOptions:Array<starRatingPosition|string> = ['top','right', 'left', 'bottom'];
     starOptions:Array<starRatingStarTypes> = ['svg', 'icon', 'image'];
     speedOptions:Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
     sizeOptions:Array<starRatingSizes> = ['small', 'medium', 'large'];
+    spaceOptions:Array<starRatingStarSpace|string> = ['around', 'between', 'no'];
 
     //component input properties (> bindings)
     id: string;
@@ -20,7 +22,7 @@ export class InitController {
     color:starRatingColors;
     speed:starRatingSpeed|string;
     size: starRatingSizes|string;
-    spread: boolean = false;
+    space: boolean = false;
     readOnly: boolean = false;
     disabled: boolean = false;
     showHalfStars:boolean = false;
@@ -67,11 +69,11 @@ export class InitController {
 
     _getColor(rating :number|string, numOfStars:number, staticColor:string):string {
         console.log('single getColor rating: ',rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
-        let clors = ['default', 'negative', 'middle', 'positive'];
-        return clors[Math.floor(Math.random() * clors.length)];
+        let colors = ['default', 'negative', 'ok', 'positive'];
+        return colors[Math.floor(Math.random() * colors.length)];
     };
     _getHalfStarVisible(rating:number):boolean {
-        console.log('getHalfStarVisible rating: ',rating);
+        console.log('getHalfStarVisible rating: ',rating, rating%1);
         return (rating<3);
     };
 
