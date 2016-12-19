@@ -79,7 +79,7 @@ describe('Star rating controller', () => {
         let bindings = <IStarRatingCompBindings>{
             //<
             id: 'custom-id'
-            , text: 'custom-text'
+           /* , text: 'custom-text'
             , staticColor: 'positive'
             , labelPosition: 'right'
             , speed: 'immediately'
@@ -102,7 +102,7 @@ describe('Star rating controller', () => {
             }
             , onUpdate: function ($event) {
                 return 'onUpdate'
-            }
+            }*/
         };
 
         starRatingCtrl = getStarRatingCtrl(bindings);
