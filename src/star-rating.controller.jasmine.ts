@@ -79,7 +79,7 @@ describe('Star rating controller', () => {
         let bindings = <IStarRatingCompBindings>{
             //<
             id: 'custom-id'
-           /* , text: 'custom-text'
+            , text: 'custom-text'
             , staticColor: 'positive'
             , labelPosition: 'right'
             , speed: 'immediately'
@@ -90,9 +90,9 @@ describe('Star rating controller', () => {
             , disabled: true
             , rating: 3
             , numOfStars: 8
-            , getColor: function (rating, numOfStars, staticColor) {
+            /* , getColor: function (rating, numOfStars, staticColor) {
                 return "default";
-            }
+            }*/
             , getHalfStarVisible: function (rating) {
                 return true;
             }
@@ -102,7 +102,7 @@ describe('Star rating controller', () => {
             }
             , onUpdate: function ($event) {
                 return 'onUpdate'
-            }*/
+            }
         };
 
         starRatingCtrl = getStarRatingCtrl(bindings);
