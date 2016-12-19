@@ -242,7 +242,7 @@ describe('Star rating controller', () => {
         }
     });
 
-    it("should return proper values when update rating", () => {
+    xit("should return proper values when update rating", () => {
 
         let testValues = {};
         testValues[negativeValue] = defaultColor;
