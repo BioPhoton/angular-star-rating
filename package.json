@@ -44,7 +44,7 @@
   "main": "dist/index.js",
   "dependencies": {
     "angular": "^1.5.8",
-    "css-star-rating": "^1.0"
+    "css-star-rating": "^1.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.8",
