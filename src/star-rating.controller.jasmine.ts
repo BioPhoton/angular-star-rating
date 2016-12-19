@@ -52,7 +52,7 @@ describe('Star rating controller', () => {
         expect(starRatingCtrl.speed).toBe(undefined);
         expect(starRatingCtrl.size).toBe(undefined);
         expect(starRatingCtrl.starType).toBe(undefined);
-        expect(starRatingCtrl.spread).toBe(undefined);
+        expect(starRatingCtrl.space).toBe(undefined);
         expect(starRatingCtrl.readOnly).toBe(undefined);
         expect(starRatingCtrl.disabled).toBe(undefined);
         expect(starRatingCtrl.rating).toBe(0);
@@ -85,7 +85,7 @@ describe('Star rating controller', () => {
             , speed: 'immediately'
             , size: 'small'
             , starType: 'icon'
-            , spread: true
+            , space: 'around'
             , readOnly: true
             , disabled: true
             , rating: 3
@@ -114,7 +114,7 @@ describe('Star rating controller', () => {
         expect(starRatingCtrl.speed).toBe(bindings.speed);
         expect(starRatingCtrl.size).toBe(bindings.size);
         expect(starRatingCtrl.starType).toBe(bindings.starType);
-        expect(starRatingCtrl.spread).toBe(bindings.spread);
+        expect(starRatingCtrl.space).toBe(bindings.space);
         expect(starRatingCtrl.readOnly).toBe(bindings.readOnly);
         expect(starRatingCtrl.disabled).toBe(bindings.disabled);
         expect(starRatingCtrl.rating).toBe(bindings.rating);

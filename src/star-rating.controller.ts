@@ -1,9 +1,10 @@
 import IChangesObject = angular.IChangesObject;
 export type starRatingSizes = "small" | "medium" | "large";
-export type starRatingColors = "default" | "negative" | "middle" | "positive";
+export type starRatingColors = "default" | "negative" | "ok" | "positive";
 export type starRatingSpeed = "immediately" | "noticeable" | "slow";
 export type starRatingPosition = "left" | "right" | "top" | "bottom";
 export type starRatingStarTypes = "svg" | "icon" | "image";
+export type starRatingStarSpace= "no" | "between" | "around";
 
 export interface IStarRatingCompBindings {
     //<
@@ -14,7 +15,7 @@ export interface IStarRatingCompBindings {
     speed?: starRatingSpeed;
     size?: starRatingSizes;
     starType?: starRatingStarTypes;
-    spread?: boolean;
+    space?: starRatingStarSpace;
     readOnly?: boolean;
     disabled?: boolean;
     showHalfStars?: boolean;
@@ -123,7 +124,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
             color = 'negative';
         }
         if (rating > fractionSize) {
-            color = 'middle';
+            color = 'ok';
         }
         if (rating > fractionSize * 2) {
             color = 'positive';
@@ -143,7 +144,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
     protected _speed: starRatingSpeed;
     protected _size: starRatingSizes;
     protected _starType: starRatingStarTypes;
-    protected _spread: boolean;
+    protected _space: starRatingStarSpace;
     protected _readOnly: boolean;
     protected _disabled: boolean;
     protected _showHalfStars: boolean;
@@ -246,11 +247,11 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         return this._readOnly;
     }
 
-    set spread(value: boolean) {
-        this._spread = !!value;
+    set space(value: starRatingStarSpace) {
+        this._space = value;
     }
-    get spread(): boolean {
-        return this._spread;
+    get space(): starRatingStarSpace {
+        return this._space;
     }
 
     set starType(value: starRatingStarTypes) {
@@ -376,8 +377,8 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
             this.showHalfStars = changes.showHalfStars.currentValue;
         }
 
-        if (valueChanged('spread', changes)) {
-            this.spread = changes.spread.currentValue;
+        if (valueChanged('space', changes)) {
+            this.space = changes.space.currentValue;
         }
 
         if (valueChanged('readOnly', changes)) {
