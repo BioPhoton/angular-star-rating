@@ -9,7 +9,7 @@ export type starRatingStarSpace= "no" | "between" | "around";
 export interface IStarRatingCompBindings {
     //<
     id?: string;
-    text?: string;
+    labelText?: string;
     staticColor?: starRatingColors;
     labelPosition?: starRatingPosition;
     speed?: starRatingSpeed;
@@ -138,7 +138,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
 
     //inputs
     protected _id: string;
-    protected _text: string;
+    protected _labelText: string;
     protected _staticColor: starRatingColors;
     protected _labelPosition: starRatingPosition;
     protected _speed: starRatingSpeed;
@@ -292,11 +292,11 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         return this._staticColor;
     }
 
-    set text(value: string) {
-        this._text = value;
+    set labelText(value: string) {
+        this._labelText = value;
     }
-    get text(): string {
-        return this._text;
+    get labelText(): string {
+        return this._labelText;
     }
 
     set id(value: string) {
@@ -399,8 +399,8 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         }
 
         //string
-        if (valueChanged('text', changes)) {
-            this.text = changes.text.currentValue;
+        if (valueChanged('labelText', changes)) {
+            this.labelText = changes.labelText.currentValue;
         }
 
         if (valueChanged('staticColor', changes)) {

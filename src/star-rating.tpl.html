@@ -1,8 +1,8 @@
 <div id="{{$ctrl.id}}"
-     class="rating {{$ctrl.rating?'value-'+$ctrl.ratingAsInteger:'value-0'}} {{$ctrl.halfStarVisible?'half':''}} {{$ctrl.space?'space-'+$ctrl.space:''}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}}"
+     class="rating {{$ctrl.rating?'value-'+$ctrl.ratingAsInteger:'value-0'}} {{$ctrl.halfStarVisible?'half':''}} {{$ctrl.space?'space-'+$ctrl.space:''}} {{$ctrl.labelVisible?'label-'+$ctrl.labelVisible:''}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}}"
      ng-class="{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled}">
 
-  <div ng-show="$ctrl.text" class="label-value">{{$ctrl.text}}</div>
+  <div ng-show="$ctrl.labelText" class="label-value">{{$ctrl.labelText}}</div>
 
   <div class="star-container">
     <div class="star"
