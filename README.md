@@ -81,6 +81,10 @@ angular.module('myApp', ['star-rating'])
  </star-rating-comp>
 ```
 
+If you work with typescript you also have to have typings installed globally.
+To check if you have typings installed on your machine try to type ```typings``` in your commandline.
+In case of an error install it with ```npm install typings --global```
+
 ## Component Properties
 
 ### @ bindings
