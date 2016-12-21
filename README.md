@@ -30,8 +30,8 @@ It also provides callbacks for all calculation functions used in the component a
 - [x] **showHalfStars** - To display half stars or not
 - [x] **numOfStars** - The max number of stars you can rate
 - [x] **size** - The different sizes of the component
-- [x] **spread** - Stars are spreaded over whole width or not
-- [x] **color** - A static color for the stars
+- [x] **space** - The space between stars
+- [x] **staticColor** - A static color for the stars
 - [x] **disabled** - Component is in disabled mode
 - [x] **starType** - Stars can be displayed as svg, character or icon-font like fontawesome, glyphicons or ionicons
 - [x] **text** - The value of the label text
@@ -150,20 +150,22 @@ Default: left
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-right.PNG" width="290">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-left.PNG" width="290">
 
-**spread**: boolean (Optional)  
-If the start use the whole space or not.  
-Default: false  
+**space**: string (Optional)  
+If the start use the whole space or not. 
+Options: no, between, around
+Default: no  
 
 ```html
-<star-rating-comp spread="true"></star-rating-comp>
+<star-rating-comp space="around"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-spread-false.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-spread-true.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-spcae-default.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-space-between.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-space-around.PNG" width="290">
 
 **size**: starRatingSizes (Optional)  
 The height and width of the stars.    
 Options: small, medium, large  
-Default: middle  
+Default: ok  
 
 ```html
 <star-rating-comp size="'small'"></star-rating-comp>
@@ -174,7 +176,7 @@ Default: middle
 
 **color**: starRatingColors (Optional)  
 Possible color names for the stars.  
-Options: default, negative, middle, positive  
+Options: default, negative, ok, positive  
 Default: undefined  
 
 ```html
@@ -182,7 +184,7 @@ Default: undefined
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-default.PNG" width="290">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-positive.PNG" width="290">  
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-middle.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-ok.PNG" width="290">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-negative.PNG" width="290">
 
 **disabled**: boolean (Optional)  
