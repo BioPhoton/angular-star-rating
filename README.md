@@ -268,6 +268,11 @@ Params: $event
 ```html
 <star-rating-comp on-click="ctrl.onClick($event)"></star-rating-comp>
 ```
+```javascript
+function onClick($event) {
+    console.log($event.rating);
+}
+```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_click-function.PNG" width="290">
 
 **onUpdate**: Function (Optional)  
@@ -275,5 +280,10 @@ Callback function for rating update event
 Params: $event
 ```html
 <star-rating-comp on-update="ctrl.onUpdate($event)"></star-rating-comp>
+```
+```javascript
+function onUpdate($event) {
+    console.log($event.rating);
+}
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_update-function.PNG" width="290">
