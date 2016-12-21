@@ -49,7 +49,7 @@
   },
   "scripts": {
       "postinstall": "typings install"
-    , "webpack:compile": "webpack --progress --colors"
-    , "serve": "http-server -c-1 -o -p 9875 ./dist"
+    , "build": "webpack --progress --colors"
+    , "serve": "npm run build && http-server -c-1 -o -p 9875 ./dist"
   }
 }

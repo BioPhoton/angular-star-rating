@@ -1,28 +1,36 @@
+import IChangesObject = angular.IChangesObject;
 export declare type starRatingSizes = "small" | "medium" | "large";
-export declare type starRatingColors = "default" | "negative" | "middle" | "positive";
+export declare type starRatingColors = "default" | "negative" | "ok" | "positive";
 export declare type starRatingSpeed = "immediately" | "noticeable" | "slow";
 export declare type starRatingPosition = "left" | "right" | "top" | "bottom";
 export declare type starRatingStarTypes = "svg" | "icon" | "image";
+export declare type starRatingStarSpace = "no" | "between" | "around";
 export interface IStarRatingCompBindings {
     id?: string;
     text?: string;
-    color?: starRatingColors;
+    staticColor?: starRatingColors;
     labelPosition?: starRatingPosition;
     speed?: starRatingSpeed;
     size?: starRatingSizes;
     starType?: starRatingStarTypes;
-    spread?: boolean;
+    space?: starRatingStarSpace;
     readOnly?: boolean;
     disabled?: boolean;
     showHalfStars?: boolean;
     rating?: number;
     numOfStars?: number;
-    getColor?: Function;
-    getHalfStarVisible?: Function;
-    onClick?: Function;
-    onUpdate?: Function;
+    getHalfStarVisible?(rating: number): boolean;
+    getColor?(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
+    onClick?: ($event: any) => IStarRatingOnClickEvent;
+    onUpdate?: ($event: any) => IStarRatingOnUpdateEvent;
 }
-export declare class StarRatingController implements IStarRatingCompBindings {
+export interface IStarRatingOnClickEvent {
+    rating: number;
+}
+export interface IStarRatingOnUpdateEvent {
+    rating: number;
+}
+export declare class StarRatingController implements ng.IComponentController, IStarRatingCompBindings {
     static DefaultClassEmpty: string;
     static DefaultClassHalf: string;
     static DefaultClassFilled: string;
@@ -40,92 +48,25 @@ export declare class StarRatingController implements IStarRatingCompBindings {
     static DefaultSvgPathHalf: string;
     static DefaultSvgPathFilled: string;
     /**
-     * getStarsArray
+     * _getStarsArray
      *
      * returns an array of increasing numbers starting at 1
      *
      * @param numOfStars
      * @returns {Array}
      */
-    private static getStarsArray(numOfStars);
-    id: string;
-    text: string;
-    color: starRatingColors;
-    labelPosition: starRatingPosition;
-    speed: starRatingSpeed;
-    size: starRatingSizes;
-    starType: starRatingStarTypes;
-    spread: boolean;
-    readOnly: boolean;
-    disabled: boolean;
-    showHalfStars: boolean;
-    rating: number;
-    numOfStars: number;
-    getHalfStarVisible: Function;
-    getColor: Function;
-    onClick: Function;
-    onUpdate: Function;
-    classEmpty: string;
-    classHalf: string;
-    classFilled: string;
-    pathEmpty: string;
-    pathHalf: string;
-    pathFilled: string;
-    stars: Array<number>;
-    staticColor: starRatingColors;
-    ratingAsInteger: number;
-    hasHalfStarClass: boolean;
-    constructor();
+    static _getStarsArray(numOfStars: number): Array<number>;
     /**
-     * $onChanges
-     *
-     *The components $onChange hook
-     *
-     * @param changes
-     */
-    $onChanges(changes: any): void;
-    /**
-     * onStarClicked
-     *
-     * Is fired when a star is clicked. And updated the rating value.
-     * This function returns if the disabled or readOnly
-     * property is set. If provided it calls the custom onClick
-     * handler with the actual rating value.
-     *
-     * @param rating
-     */
-    onStarClicked(rating: number): void;
-    /**
-     * updateRating
-     *
-     * Used to set the rating value and update other variables
-     * based on rating. This function also triggers the onUpdate emitter.
-     *
-     * @param value
-     * @param showHalfStars?
-     *
-     */
-    private updateRating(value, showHalfStars?);
-    /**
-     * updateNumOfStars
-     *
-     * Used to set the numOfStars value and update other variables
-     * based on numOfStars.
-     *
-     * @param {number} numOfStars the number of stars
-     */
-    private updateNumOfStars(numOfStars);
-    /**
-     * hasHalfStarClass
+     * _getHalfStarVisible
      *
      * Returns true if there should be a half star visible, and false if not.
      *
      * @param rating
      * @returns {boolean}
      */
-    private _calcHalfStarClass;
+    static _getHalfStarVisible(rating: number): boolean;
     /**
-     * _calculateColor
+     * _getColor
      *
      * The default function for color calculation
      * based on the current rating and the the number of stars possible.
@@ -136,5 +77,65 @@ export declare class StarRatingController implements IStarRatingCompBindings {
      * @param staticColor
      * @returns {starRatingColors}
      */
-    private _calculateColor;
+    static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
+    protected _id: string;
+    protected _text: string;
+    protected _staticColor: starRatingColors;
+    protected _labelPosition: starRatingPosition;
+    protected _speed: starRatingSpeed;
+    protected _size: starRatingSizes;
+    protected _starType: starRatingStarTypes;
+    protected _space: starRatingStarSpace;
+    protected _readOnly: boolean;
+    protected _disabled: boolean;
+    protected _showHalfStars: boolean;
+    protected _rating: number;
+    protected _numOfStars: number;
+    getHalfStarVisible: (rating: number) => boolean;
+    getColor: (rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
+    onClick?: ($event: any) => IStarRatingOnClickEvent;
+    onUpdate?: ($event: any) => IStarRatingOnUpdateEvent;
+    classEmpty: string;
+    classHalf: string;
+    classFilled: string;
+    pathEmpty: string;
+    pathHalf: string;
+    pathFilled: string;
+    color: starRatingColors;
+    stars: Array<number>;
+    ratingAsInteger: number;
+    halfStarVisible: boolean;
+    $onInit?(): void;
+    $onChanges?(changesObj: {
+        [property: string]: IChangesObject;
+    }): void;
+    $onDestroy?(): void;
+    $postLink?(): void;
+    numOfStars: number;
+    rating: number;
+    showHalfStars: boolean;
+    disabled: boolean;
+    readOnly: boolean;
+    space: starRatingStarSpace;
+    starType: starRatingStarTypes;
+    size: starRatingSizes;
+    speed: starRatingSpeed;
+    labelPosition: starRatingPosition;
+    staticColor: starRatingColors;
+    text: string;
+    id: string;
+    setGetColor(func: any): void;
+    setGetHalfStarVisible(func: any): void;
+    constructor();
+    /**
+     * onStarClicked
+     *
+     * Is fired when a star is clicked. And updated the rating value.
+     * This function returns if the disabled or readOnly
+     * property is set. If provided it emits the onClick event
+     * handler with the actual rating value.
+     *
+     * @param rating
+     */
+    protected onStarClicked(rating: number): void;
 }

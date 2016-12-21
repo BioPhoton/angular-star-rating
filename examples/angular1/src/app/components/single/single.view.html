@@ -4,52 +4,61 @@
         <h1 class="display-3">Angular Stars</h1>
         <p class="lead">Css only star rating inc angular component</p>
         <p>
+            {{single.showHalfStars}}?
             <star-rating-comp
-                    size="'large'"
-                    rating="init.rating"
-                    text="init.rating"
-                    on-click="init.onClick($event)"
-                    on-update="init.onUpdate($event)">
+                    id="single.id"
+                    rating="single.rating"
+                    show-half-stars="single.showHalfStars"
+                    disabled="single.disabled"
+                    read-only="single.readOnly"
+                    space="single.space"
+                    size="single.size"
+                    num-of-stars="single.numOfStars"
+                    static-color="single.color"
+                    speed="single.speed"
+                    text="single.rating"
+                    label-position="single.position"
+                    star-type="single.starType"
+                    get-color="single.getColor"
+                    get-half-star-visible="single.getHalfStarVisible"
+                    on-click="single.onClick($event)"
+                    on-update="single.onUpdate($event)">
             </star-rating-comp>
             <!--
-            get-color="init.getColor(rating, numOfStars)"
-                    on-click="init.onClick($event)"
-                    on-update="init.onUpdate(rating)"
+            get-color="single.getColor(rating, numOfStars)"
+                    on-click="single.onClick($event)"
+                    on-update="single.onUpdate(rating)"
             -->
         </p>
     </div>
-
-    <single>
-        ERROR
-    </single>
 
     <!--
     <div style="width: 300px; margin: 30px auto; background: #fafafa; height: 100px; display:flex; align-items: center; justify-content: center;">
         <div style="width: 100%;">
             <star-rating-comp
-                    id="init.id"
+                    id="single.id"
 
-                    rating="init.rating"
-                    show-half-stars="init.showHalfStars"
-                    disabled="init.disabled"
-                    read-only="init.readOnly"
-                    space="init.space"
-                    size="init.size"
-                    num-of-stars="init.numOfStars"
+                    rating="single.rating"
+                    show-half-stars="single.showHalfStars"
+                    disabled="single.disabled"
+                    read-only="single.readOnly"
+                    space="single.space"
+                    size="single.size"
+                    num-of-stars="single.numOfStars"
 
-                    static-color="init.color"
-                    speed="init.speed"
-
-
-                    text="init.rating"
-                    label-position="init.position"
-
-                    star-type="init.starType"
+                    color="single.color"
+                    speed="single.speed"
 
 
-                    get-half-star-class="init.getHalfStarClass(rating)"
-                    on-update="init.onUpdate($event)"
-                    on-click="init.onClick($event)">
+                    text="single.rating"
+                    label-position="single.position"
+
+                    star-type="single.starType"
+
+
+                    get-half-star-class="single.getHalfStarClass(rating)"
+                    on-update="single.onUpdate(rating)"
+                    on-click="single.onClick($event)">
             </star-rating-comp>
         </div>
     </div>
@@ -59,32 +68,23 @@
         <div class="row">
             <div class="col-xs-4">
                 <fieldset class="form-group">
-                    <legend>Layout
-                        <star-rating-comp
-                                rating="init.rating"
-                                text="init.rating"
-                                label-position="init.position"
-                                space="init.space"
-                                star-type="init.starType"
-                                on-update="init.onUpdate($event)">
-                        </star-rating-comp>
-                    </legend>
+                    <legend>Layout</legend>
                     <div class="form-check">
                         <label class="col-xs-4 col-form-label">Lable Position</label>
                         <div class="col-xs-8">
-                            <select class="form-control" ng-model="init.position">
+                            <select class="form-control" ng-model="single.position">
                                 <option value="">position</option>
-                                <option value="{{value}}" ng-repeat="(key, value) in init.labelPositionOptions">{{value}}
+                                <option value="{{value}}" ng-repeat="(key, value) in single.labelPositionOptions">{{value}}
                                 </option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-xs-6 col-form-label">starOptions: {{init.starType}}</label>
+                        <label class="col-xs-6 col-form-label">starOptions: {{single.starType}}</label>
                         <div class="col-xs-6">
-                            <select class="form-control" ng-model="init.starType">
+                            <select class="form-control" ng-model="single.starType">
                                 <option value="">starType</option>
-                                <option value="{{value}}" ng-repeat="(key, value) in init.starOptions">{{value}}
+                                <option value="{{value}}" ng-repeat="(key, value) in single.starOptions">{{value}}
                                 </option>
                             </select>
                         </div>
@@ -100,34 +100,29 @@
                                 </option>
                             </select>
                         </div>
+
                     </div>
+
                 </fieldset>
 
             </div>
             <div class="col-xs-4">
                 <fieldset class="form-group">
                     <legend>Dimensions
-                        <star-rating-comp
-                                size="init.size"
-                                num-of-stars="init.numOfStars"
-                                rating="init.rating"
-                                star-type="init.starType"
-                                on-update="init.onUpdate($event)">
-                        </star-rating-comp>
                     </legend>
                     <div class="form-group row">
                         <label class="col-xs-6 col-form-label">NumOfStars</label>
                         <div class="col-xs-6">
                             <input type="number" class="form-control" placeholder="NumOfStars"
-                                   ng-model="init.numOfStars">
+                                   ng-model="single.numOfStars">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-xs-6 col-form-label">Size: {{init.size}}</label>
+                        <label class="col-xs-6 col-form-label">Size: {{single.size}}</label>
                         <div class="col-xs-6">
-                            <select class="form-control" ng-model="init.size">
+                            <select class="form-control" ng-model="single.size">
                                 <option value="">size</option>
-                                <option value="{{value}}" ng-repeat="(key, value) in init.sizeOptions">{{value}}
+                                <option value="{{value}}" ng-repeat="(key, value) in single.sizeOptions">{{value}}
                                 </option>
                             </select>
                         </div>
@@ -141,47 +136,40 @@
                 <fieldset class="form-group">
 
                     <legend>Styling
-                        <star-rating-comp
-                                static-color="init.color"
-                                speed="init.speed"
-                                disabled="init.disabled"
-                                rating="init.rating"
-                                get-color="init.getColor"
-                                on-update="init.onUpdate($event)">
-                        </star-rating-comp>
                     </legend>
 
                     <div class="form-group row">
                         <label class="col-xs-4 col-form-label">Color</label>
                         <div class="col-xs-8">
-                            <select class="form-control" ng-model="init.color">
+                            <select class="form-control" ng-model="single.color">
                                 <option value="">color</option>
-                                <option value="{{value}}" ng-repeat="(key, value) in init.colorOptions">{{value}}
+                                <option value="{{value}}" ng-repeat="(key, value) in single.colorOptions">{{value}}
                                 </option>
                             </select>
                         </div>
+
                     </div>
 
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" ng-change="init.updateGetColorBinding()" ng-model="init.useCustomCetColor">
+                            <input type="checkbox" class="form-check-input" ng-change="single.updateGetColorBinding()" ng-model="single.useCustomCetColor">
                             use custom getColor function
                         </label>
                     </div>
 
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" ng-model="init.disabled">
+                            <input type="checkbox" class="form-check-input" ng-model="single.disabled">
                             Disabled
                         </label>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-xs-4 col-form-label">Speed: {{init.speed}}</label>
+                        <label class="col-xs-4 col-form-label">Speed: {{single.speed}}</label>
                         <div class="col-xs-8">
-                            <select class="form-control" ng-model="init.speed">
+                            <select class="form-control" ng-model="single.speed">
                                 <option value="">speed</option>
-                                <option value="{{value}}" ng-repeat="(key, value) in init.speedOptions">{{value}}
+                                <option value="{{value}}" ng-repeat="(key, value) in single.speedOptions">{{value}}
                                 </option>
                             </select>
                         </div>
@@ -197,50 +185,39 @@
             <div class="col-xs-4">
                 <fieldset class="form-group">
                     <legend>Other
-                        <star-rating-comp
-                                id="init.id"
-                                text="init.text"
-                                read-only="init.readOnly"
-                                rating="init.rating"
-                                show-half-stars="init.showHalfStars"
-                                get-half-star-visible="init.getHalfStarVisible"
-                                on-update="init.onUpdate($event)"
-                                on-click="init.onClick($event)">
-                        </star-rating-comp>
                     </legend>
 
                     <div class="form-group row">
                         <label class="col-xs-6 col-form-label">Id</label>
                         <div class="col-xs-6">
-                            <input type="text" class="form-control" placeholder="Id" ng-model="init.id">
+                            <input type="text" class="form-control" placeholder="Id" ng-model="single.id">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-xs-6 col-form-label">Rating</label>
                         <div class="col-xs-6">
-                            <input type="number" class="form-control" placeholder="rating" step="0.5" ng-model="init.rating">
+                            <input type="number" class="form-control" placeholder="rating" step="0.5" ng-model="single.rating">
                         </div>
                     </div>
 
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" ng-model="init.showHalfStars">
+                            <input type="checkbox" class="form-check-input" ng-model="single.showHalfStars">
                             showHalfStars
                         </label>
                     </div>
 
-
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" ng-change="init.updateGetHalfStarVisibleBinding()" ng-model="init.useCustomGetHalfStarVisible">
+                            <input type="checkbox" class="form-check-input" ng-change="single.updateGetHalfStarVisibleBinding()" ng-model="single.useCustomGetHalfStarVisible">
                             use custom getHalfStarVisible function
                         </label>
                     </div>
 
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" ng-model="init.readOnly">
+                            <input type="checkbox" class="form-check-input" ng-model="single.readOnly">
                             ReadOnly
                         </label>
                     </div>
@@ -248,7 +225,7 @@
                     <div class="form-group row">
                         <label class="col-xs-6 col-form-label">Text</label>
                         <div class="col-xs-6">
-                            <input type="text" class="form-control" placeholder="text:number" ng-model="init.text">
+                            <input type="text" class="form-control" placeholder="text:number" ng-model="single.text">
                         </div>
                     </div>
 
