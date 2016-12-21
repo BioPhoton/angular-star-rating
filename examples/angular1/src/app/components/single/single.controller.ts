@@ -17,7 +17,7 @@ export class SingleController {
     //pathFilled:string;
     numOfStars:number = 5;
     rating: number = 3.5;
-    text: number = this.rating;
+    labelText: number = this.rating;
     color:starRatingColors;
     speed:starRatingSpeed|string;
     size: starRatingSizes|string;

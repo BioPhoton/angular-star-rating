@@ -7,7 +7,7 @@
             <star-rating-comp
                     size="'large'"
                     rating="init.rating"
-                    text="init.rating"
+                    label-text="init.rating"
                     on-click="init.onClick($event)"
                     on-update="init.onUpdate($event)">
             </star-rating-comp>
@@ -41,7 +41,7 @@
                     speed="init.speed"
 
 
-                    text="init.rating"
+                    label-text="init.rating"
                     label-position="init.position"
 
                     star-type="init.starType"
@@ -62,7 +62,7 @@
                     <legend>Layout
                         <star-rating-comp
                                 rating="init.rating"
-                                text="init.rating"
+                                label-text="init.rating"
                                 label-position="init.position"
                                 space="init.space"
                                 star-type="init.starType"
@@ -199,7 +199,7 @@
                     <legend>Other
                         <star-rating-comp
                                 id="init.id"
-                                text="init.text"
+                                label-text="init.labelText"
                                 read-only="init.readOnly"
                                 rating="init.rating"
                                 show-half-stars="init.showHalfStars"
@@ -248,7 +248,7 @@
                     <div class="form-group row">
                         <label class="col-xs-6 col-form-label">Text</label>
                         <div class="col-xs-6">
-                            <input type="text" class="form-control" placeholder="text:number" ng-model="init.text">
+                            <input type="text" class="form-control" placeholder="Label text" ng-model="init.labelText">
                         </div>
                     </div>
 
