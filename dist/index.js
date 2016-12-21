@@ -33195,12 +33195,12 @@
 	        enumerable: true,
 	        configurable: true
 	    });
-	    Object.defineProperty(StarRatingController.prototype, "text", {
+	    Object.defineProperty(StarRatingController.prototype, "labelText", {
 	        get: function () {
-	            return this._text;
+	            return this._labelText;
 	        },
 	        set: function (value) {
-	            this._text = value;
+	            this._labelText = value;
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -33272,8 +33272,8 @@
 	            this.numOfStars = changes.numOfStars.currentValue;
 	        }
 	        //string
-	        if (valueChanged('text', changes)) {
-	            this.text = changes.text.currentValue;
+	        if (valueChanged('labelText', changes)) {
+	            this.labelText = changes.labelText.currentValue;
 	        }
 	        if (valueChanged('staticColor', changes)) {
 	            this.staticColor = changes.staticColor.currentValue;
@@ -33350,7 +33350,8 @@
 	            staticColor: '<',
 	            disabled: '<',
 	            starType: '<',
-	            text: '<',
+	            labelText: '<',
+	            labelVisible: '<',
 	            labelPosition: '<',
 	            speed: '<',
 	            readOnly: '<',
@@ -33373,7 +33374,7 @@
 /***/ function(module, exports) {
 
 	var path = 'src/star-rating.tpl.html';
-	var html = "<div id=\"{{$ctrl.id}}\"\r\n     class=\"rating {{$ctrl.rating?'value-'+$ctrl.ratingAsInteger:'value-0'}} {{$ctrl.halfStarVisible?'half':''}} {{$ctrl.space?'space-'+$ctrl.space:''}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}}\"\r\n     ng-class=\"{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled}\">\r\n\r\n  <div ng-show=\"$ctrl.text\" class=\"label-value\">{{$ctrl.text}}</div>\r\n\r\n  <div class=\"star-container\">\r\n    <div class=\"star\"\r\n        ng-repeat=\"star in $ctrl.stars track by $index\"\r\n        ng-click=\"$ctrl.onStarClicked(star)\">\r\n\r\n        <i class=\"star-empty {{$ctrl.classEmpty}}\"></i>\r\n        <i class=\"star-empty {{$ctrl.classHalf}}\"></i>\r\n        <i class=\"star-filled {{$ctrl.classFilled}}\"></i>\r\n\r\n        <svg class=\"star-empty {{$ctrl.classEmpty}}\">\r\n          <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathEmpty}}\"></use>\r\n        </svg>\r\n        <svg class=\"star-half {{$ctrl.classHalf}}\">\r\n            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathHalf}}\"></use>\r\n        </svg>\r\n        <svg class=\"star-filled {{$ctrl.classFilled}}\">\r\n            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathFilled}}\"></use>\r\n        </svg>\r\n\r\n       </div>\r\n  </div>\r\n\r\n</div>";
+	var html = "<div id=\"{{$ctrl.id}}\"\r\n     class=\"rating {{$ctrl.rating?'value-'+$ctrl.ratingAsInteger:'value-0'}} {{$ctrl.halfStarVisible?'half':''}} {{$ctrl.space?'space-'+$ctrl.space:''}} {{$ctrl.labelVisible?'label-'+$ctrl.labelVisible:''}} {{$ctrl.labelPosition?'label-'+$ctrl.labelPosition:''}} {{$ctrl.color?'color-'+$ctrl.color:''}} {{$ctrl.starType?'star-'+$ctrl.starType:''}} {{$ctrl.speed}} {{$ctrl.size}}\"\r\n     ng-class=\"{'read-only':$ctrl.readOnly, 'disabled':$ctrl.disabled}\">\r\n\r\n  <div ng-show=\"$ctrl.labelText\" class=\"label-value\">{{$ctrl.labelText}}</div>\r\n\r\n  <div class=\"star-container\">\r\n    <div class=\"star\"\r\n        ng-repeat=\"star in $ctrl.stars track by $index\"\r\n        ng-click=\"$ctrl.onStarClicked(star)\">\r\n\r\n        <i class=\"star-empty {{$ctrl.classEmpty}}\"></i>\r\n        <i class=\"star-empty {{$ctrl.classHalf}}\"></i>\r\n        <i class=\"star-filled {{$ctrl.classFilled}}\"></i>\r\n\r\n        <svg class=\"star-empty {{$ctrl.classEmpty}}\">\r\n          <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathEmpty}}\"></use>\r\n        </svg>\r\n        <svg class=\"star-half {{$ctrl.classHalf}}\">\r\n            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathHalf}}\"></use>\r\n        </svg>\r\n        <svg class=\"star-filled {{$ctrl.classFilled}}\">\r\n            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"{{$ctrl.pathFilled}}\"></use>\r\n        </svg>\r\n\r\n       </div>\r\n  </div>\r\n\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
