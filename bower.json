@@ -15,8 +15,6 @@
     "Starrating",
     "Icon",
     "SVG",
-    "PNG",
-    "JPEG",
     "CSS",
     "Pure CSS",
     "CSS only",
@@ -27,7 +25,6 @@
     "Angular1 Component",
     "Angular1.5",
     "Angular1.5 Component",
-    "Angular2",
     "Typescript"
   ],
   "homepage": "https://github.com/BioPhoton/angular-star-rating",

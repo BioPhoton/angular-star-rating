@@ -10,8 +10,6 @@
     "Starrating",
     "Icon",
     "SVG",
-    "PNG",
-    "JPEG",
     "CSS",
     "Pure CSS",
     "CSS only",
@@ -22,7 +20,6 @@
     "Angular1 Component",
     "Angular1.5",
     "Angular1.5 Component",
-    "Angular2",
     "Typescript"
   ],
   "description": "Angular Star Rating is a Angular1.5 component written in typescript.",

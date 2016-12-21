@@ -7,7 +7,6 @@
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular-star-rating) 
 
 [![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=master)](https://travis-ci.org/BioPhoton/angular-star-rating)
-
 [![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 
 [![NPM](https://nodei.co/npm/angular-star-rating.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/angular-star-rating)
@@ -34,7 +33,8 @@ It also provides callbacks for all calculation functions used in the component a
 - [x] **staticColor** - A static color for the stars
 - [x] **disabled** - Component is in disabled mode
 - [x] **starType** - Stars can be displayed as svg, character or icon-font like fontawesome, glyphicons or ionicons
-- [x] **text** - The value of the label text
+- [x] **labelText** - The value of the label text
+- [x] **labelVisible** - If the label is visible or not
 - [x] **labelPosition** - The position of the label
 - [x] **speed** - The duration of the animation
 - [x] **direction** - The direction of the component i.e. right to left
@@ -87,7 +87,7 @@ In case of an error install it with ```npm install typings --global```
 
 ## Component Properties
 
-### @ bindings
+### Input (< bindings)
 
 **id**: string (Optional)  
 The html id attribute of the star rating   
@@ -97,11 +97,9 @@ Default: undefined
 <star-rating-comp id="'my-id'"></star-rating-comp>
 ```
 
-### < bindings
-
 **rating**: number (Optional)  
 The actual star rating value  
-Default: no  
+Default: 0  
 
 ```html
 <star-rating-comp rating="3"></star-rating-comp>
@@ -158,7 +156,7 @@ Default: no
 ```html
 <star-rating-comp space="around"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-spcae-default.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-space-default.PNG" width="290">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-space-between.PNG" width="290">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-space-around.PNG" width="290">
 
@@ -262,20 +260,20 @@ Return: boolean
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_class-function.PNG" width="290">
 
-### & bindings
+### Output (& bindings)
 
 **onClick**: Function (Optional)  
 Callback function for star click event 
-Params: rating
+Params: $event
 ```html
-<star-rating-comp on-click="ctrl.onClick(rating)"></star-rating-comp>
+<star-rating-comp on-click="ctrl.onClick($event)"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_click-function.PNG" width="290">
 
 **onUpdate**: Function (Optional)  
 Callback function for rating update event 
-Params: rating
+Params: $event
 ```html
-<star-rating-comp on-update="ctrl.onUpdate(rating)"></star-rating-comp>
+<star-rating-comp on-update="ctrl.onUpdate($event)"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_update-function.PNG" width="290">
