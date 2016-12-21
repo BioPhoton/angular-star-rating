@@ -1,3 +1,31 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.14...v1.1.0) (2016-12-21)
+
+
+### Bug Fixes
+
+* **build:** rebuild project ([ebeeea3](https://github.com/BioPhoton/angular-star-rating/commit/ebeeea3))
+* **example:** rebuild example ([ce47446](https://github.com/BioPhoton/angular-star-rating/commit/ce47446))
+* **example:** update example ([e063731](https://github.com/BioPhoton/angular-star-rating/commit/e063731))
+
+
+### Features
+
+* **controller:** start implement getter and setter  [#38](https://github.com/BioPhoton/angular-star-rating/issues/38) ([e91541c](https://github.com/BioPhoton/angular-star-rating/commit/e91541c))
+* **example:** implement new props ([f410e9e](https://github.com/BioPhoton/angular-star-rating/commit/f410e9e))
+* **example:** implement new props ([e6cc7b1](https://github.com/BioPhoton/angular-star-rating/commit/e6cc7b1))
+* **examples:** migrate to component ui-routing ([cb709ca](https://github.com/BioPhoton/angular-star-rating/commit/cb709ca))
+* **examples:** migrate to component ui-routing ([2e23ab7](https://github.com/BioPhoton/angular-star-rating/commit/2e23ab7))
+* **refactoring:** setter getter, names, structure ([ce44cc1](https://github.com/BioPhoton/angular-star-rating/commit/ce44cc1))
+* **update bindings:** updated spread (now space) and color bindings ([0d2fe70](https://github.com/BioPhoton/angular-star-rating/commit/0d2fe70))
+* **update dependencies:** update css-star-rating to latest version ([88a80f0](https://github.com/BioPhoton/angular-star-rating/commit/88a80f0))
+* **update example:** update demo pages ([6d216a1](https://github.com/BioPhoton/angular-star-rating/commit/6d216a1))
+* **update example:** updated spread (now space) and color bindings ([3619141](https://github.com/BioPhoton/angular-star-rating/commit/3619141))
+* **update tests:** for new bindings ([4b0570d](https://github.com/BioPhoton/angular-star-rating/commit/4b0570d))
+* **update tests:** for new bindings ([e3ec99b](https://github.com/BioPhoton/angular-star-rating/commit/e3ec99b))
+
+
+
 <a name="1.0.14"></a>
 ## [1.0.14](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.13...v1.0.14) (2016-12-08)
 
