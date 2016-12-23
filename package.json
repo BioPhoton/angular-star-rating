@@ -32,12 +32,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BioPhoton/angular-star-rating.git"
+    "url": "git+https://github.com/BioPhoton/angular1-star-rating.git"
   },
   "bugs": {
-    "url": "https://github.com/BioPhoton/angular-star-rating/issues"
+    "url": "https://github.com/BioPhoton/angular1-star-rating/issues"
   },
-  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
+  "homepage": "https://github.com/BioPhoton/angular1-star-rating#readme",
   "main": "dist/index.js",
   "dependencies": {
     "angular": "^1.5.8",
