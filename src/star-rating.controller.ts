@@ -7,7 +7,7 @@ export type starRatingStarTypes = "svg" | "icon" | "image";
 export type starRatingStarSpace= "no" | "between" | "around";
 
 export interface IStarRatingCompBindings {
-    //<
+    //Inputs (< bindings)
     id?: string;
     labelText?: string;
     staticColor?: starRatingColors;
@@ -23,7 +23,7 @@ export interface IStarRatingCompBindings {
     numOfStars?: number;
     getHalfStarVisible?(rating: number): boolean;
     getColor?(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
-    //&
+    //Outputs (& bindings)
     onClick?: ($event: any) =>  IStarRatingOnClickEvent;
     onUpdate?: ($event: any) => IStarRatingOnUpdateEvent;
 }
@@ -331,6 +331,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this.getHalfStarVisible = StarRatingController._getHalfStarVisible;
         this._numOfStars = StarRatingController.DefaultNumOfStars;
         this._rating = 0;
+
 
         //set default Outputs
         this.onClick = function ($event: IStarRatingOnClickEvent) {
