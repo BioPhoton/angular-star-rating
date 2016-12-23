@@ -1,11 +1,11 @@
 # Angular Star Rating ⭐⭐⭐⭐⭐
 #### ⭐ Angular 1.5 Component written in typescript, based on css only techniques. ⭐
 
-![License](https://img.shields.io/npm/l/angular-star-rating.svg)
+![License](https://img.shields.io/npm/l/angular1-star-rating.svg)
 ![Bower Version](https://img.shields.io/bower/v/angular1-star-rating.svg)
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular-star-rating)  
-[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=master)](https://travis-ci.org/BioPhoton/angular-star-rating)
+[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular1-star-rating)  
+[![Build Status](https://travis-ci.org/BioPhoton/angular1-star-rating.svg?branch=master)](https://travis-ci.org/BioPhoton/angular1-star-rating)
 [![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 
 [![NPM](https://nodei.co/npm/angular-star-rating.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/angular-star-rating)
@@ -17,7 +17,7 @@ Angular Star Rating is a >1.5 Angular component written in typescript.
 It is based on [css-star-rating](https://github.com/BioPhoton/css-star-rating), a fully featured and customizable css only star rating component written in scss.  
 
 ## DEMO
-![alt tag](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/example-usage.gif)
+![alt tag](https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/example-usage.gif)
 
 ## Features
 This module implements all Features from [CSS-STAR-RATING](https://github.com/BioPhoton/css-star-rating).
@@ -49,7 +49,7 @@ It also provides callbacks for all calculation functions used in the component a
 | IE | Firefox | Chrome | Safari | Opera |
 |--- |---	   |--- 	|---	 |---|
 | > 11  	|  > 50 	|   > 55	|  > 10 	|   > 41	|
-| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/ie.png" width="100">	| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/firefox.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/chrome.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/safari.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/opera.png" width="100"> |
+| <img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/browser/ie.png" width="100">	| <img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/browser/firefox.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/browser/chrome.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/browser/safari.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/browser/opera.png" width="100"> |
 
 
 ## Install
@@ -99,7 +99,7 @@ Default: 0
 ```html
 <star-rating-comp rating="3"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-value.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-value.PNG" width="290">
 
 **showHalfStars**: boolean (Optional)
 To show half stars or not  
@@ -109,8 +109,8 @@ Default: false
 ```html
 <star-rating-comp show-half-stars="true"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-show_half_stars-false.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-show_half_stars-true.PNG" width="290">  
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-show_half_stars-false.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-show_half_stars-true.PNG" width="290">  
 
 **numOfStars**: number (Optional)  
 The possible number of stars to choose from  
@@ -119,7 +119,7 @@ Default: 5
 ```html
 <star-rating-comp num-of-stars="6"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-num_of_stars.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-num_of_stars.PNG" width="290">
 
 **label-text**: string (Optional)  
 The label text next to the stars.  
@@ -128,7 +128,7 @@ Default: undefined
 ```html
 <star-rating-comp label-text="'My text!'"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label_text.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-label_text.PNG" width="290">
 
 **labelPosition**: starRatingPosition (Optional)  
 The position of the label  
@@ -138,10 +138,10 @@ Default: left
 ```html
 <star-rating-comp label-position="'top'"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-top.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-bottom.PNG" width="290">  
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-right.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label-left.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-label-top.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-label-bottom.PNG" width="290">  
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-label-right.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-label-left.PNG" width="290">
 
 **space**: starRatingStarSpace (Optional)  
 If the start use the whole space or not. 
@@ -151,9 +151,9 @@ Default: no
 ```html
 <star-rating-comp space="around"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-space-default.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-space-around.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-space-between.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-space-default.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-space-around.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-space-between.PNG" width="290">
 
 **size**: starRatingSizes (Optional)  
 The height and width of the stars.    
@@ -163,9 +163,9 @@ Default: ok
 ```html
 <star-rating-comp size="'small'"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-size-small.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-size-medium.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-size-large.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-size-small.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-size-medium.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-size-large.PNG" width="290">
 
 **color**: starRatingColors (Optional)  
 Possible color names for the stars.  
@@ -175,10 +175,10 @@ Default: undefined
 ```html
 <star-rating-comp color="'positive'"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-default.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-positive.PNG" width="290">  
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-ok.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-color-negative.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-color-default.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-color-positive.PNG" width="290">  
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-color-ok.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-color-negative.PNG" width="290">
 
 **disabled**: boolean (Optional)  
 The click callback is disabled, colors are transparent   
@@ -187,8 +187,8 @@ Default: false
 ```html
 <star-rating-comp disabled="true"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-true.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-disabled-false.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-disabled-true.PNG" width="290">
   
 **direction**: string (Optional)  
 The direction of the stars and label.   
@@ -198,8 +198,8 @@ Default: rtl
 ```html
 <star-rating-comp direction="'ltr'"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-direction-rtl.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-direction-ltr.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-direction-rtl.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-direction-ltr.PNG" width="290">
   
 **readOnly**: boolean (Optional)  
 The click callback is disabled  
@@ -208,8 +208,8 @@ Default: false
 ```html
 <star-rating-comp read-only="true"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-disabled-false.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-disabled-false.PNG" width="290">
 
 **speed**: starRatingSpeed (Optional)  
 The duration of the animation in ms.   
@@ -219,9 +219,9 @@ Default: noticeable
 ```html
 <star-rating-comp speed="'slow'"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-immediately.gif" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-noticeable.gif" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-animation_speed-slow.gif" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-animation_speed-immediately.gif" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-animation_speed-noticeable.gif" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-animation_speed-slow.gif" width="290">
 
 **starType**: starRatingStarTypes (Optional)  
 The type of start resource to use.     
@@ -231,9 +231,9 @@ Default: svg
 ```html
 <star-rating-comp star-type="'icon'"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-type-svg.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-type-icon.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-type-custom_icon.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-type-svg.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-type-icon.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-type-custom_icon.PNG" width="290">
 
 **getColor**: Function (Optional)  
 Calculation of the color by rating.  
@@ -243,7 +243,7 @@ Return: colorName as string
 ```html
 <star-rating-comp get-color="parentCtrl.getColor(rating, numOfStars, staticColor)"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_color-function.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-get_color-function.PNG" width="290">
 
 **getHalfStarVisible**: Function (Optional)  
 Calculation for adding the "half" class or not, depending on the rating value.  
@@ -264,8 +264,8 @@ function getHalfStarVisible(rating) {
     return absDiff > 0;
 }
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_visible-default.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_visible-custom.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-get_half_star_visible-default.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-get_half_star_visible-custom.PNG" width="290">
 
 ### Output (& bindings)
 
@@ -280,7 +280,7 @@ function onClick($event) {
     parent.clickCount = parent.clickCount + 1;
 }
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_click-counter.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-on_click-counter.PNG" width="290">
 
 **onUpdate**: Function (Optional)  
 Callback function for rating update event 
@@ -293,4 +293,4 @@ function onUpdate($event) {
     parent.rating = $event.rating;
 }
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_update-2waybiding.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-on_update-2waybiding.PNG" width="290">
