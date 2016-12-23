@@ -1,3 +1,18 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/BioPhoton/angular1-star-rating/compare/v1.1.0...v1.2.0) (2016-12-23)
+
+
+### Bug Fixes
+
+* **build:** rebuild project ([0119d9a](https://github.com/BioPhoton/angular1-star-rating/commit/0119d9a))
+
+
+### Features
+
+* **new bindings:** implement new bindings ([0df2441](https://github.com/BioPhoton/angular1-star-rating/commit/0df2441))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/BioPhoton/angular-star-rating/compare/v1.0.14...v1.1.0) (2016-12-21)
 
