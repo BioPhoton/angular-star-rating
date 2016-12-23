@@ -92,7 +92,6 @@
     "yargs": "^6.3.0"
   },
   "scripts": {
-    "postinstall": "typings install",
     "clean:dist": "rimraf dist",
     "build": "webpack --progress --colors --display-error-details",
     "test": "node_modules/.bin/karma start karma.conf.js",
