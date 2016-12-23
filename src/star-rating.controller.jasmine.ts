@@ -46,7 +46,7 @@ describe('Star rating controller', () => {
         //bindings
         //<
         expect(starRatingCtrl.id).toBe(undefined);
-        expect(starRatingCtrl.text).toBe(undefined);
+        expect(starRatingCtrl.labelText).toBe(undefined);
         expect(starRatingCtrl.staticColor).toBe(undefined);
         expect(starRatingCtrl.labelPosition).toBe(undefined);
         expect(starRatingCtrl.speed).toBe(undefined);
@@ -79,7 +79,7 @@ describe('Star rating controller', () => {
         let bindings = <IStarRatingCompBindings>{
             //<
             id: 'custom-id'
-            , text: 'custom-text'
+            , labelText: 'custom-text'
             , staticColor: 'positive'
             , labelPosition: 'right'
             , speed: 'immediately'
@@ -108,7 +108,7 @@ describe('Star rating controller', () => {
         starRatingCtrl = getStarRatingCtrl(bindings);
 
         expect(starRatingCtrl.id).toBe(bindings.id);
-        expect(starRatingCtrl.text).toBe(bindings.text);
+        expect(starRatingCtrl.labelText).toBe(bindings.labelText);
         expect(starRatingCtrl.staticColor).toBe(bindings.staticColor);
         expect(starRatingCtrl.labelPosition).toBe(bindings.labelPosition);
         expect(starRatingCtrl.speed).toBe(bindings.speed);

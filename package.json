@@ -1,6 +1,6 @@
 {
   "name": "angular-star-rating",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
   "keywords": [
     "Rating",
@@ -10,8 +10,6 @@
     "Starrating",
     "Icon",
     "SVG",
-    "PNG",
-    "JPEG",
     "CSS",
     "Pure CSS",
     "CSS only",
@@ -22,7 +20,6 @@
     "Angular1 Component",
     "Angular1.5",
     "Angular1.5 Component",
-    "Angular2",
     "Typescript"
   ],
   "description": "Angular Star Rating is a Angular1.5 component written in typescript.",
@@ -35,12 +32,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BioPhoton/angular-star-rating.git"
+    "url": "git+https://github.com/BioPhoton/angular1-star-rating.git"
   },
   "bugs": {
-    "url": "https://github.com/BioPhoton/angular-star-rating/issues"
+    "url": "https://github.com/BioPhoton/angular1-star-rating/issues"
   },
-  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
+  "homepage": "https://github.com/BioPhoton/angular1-star-rating#readme",
   "main": "dist/index.js",
   "dependencies": {
     "angular": "^1.5.8",
@@ -95,7 +92,6 @@
     "yargs": "^6.3.0"
   },
   "scripts": {
-    "postinstall": "typings install",
     "clean:dist": "rimraf dist",
     "build": "webpack --progress --colors --display-error-details",
     "test": "node_modules/.bin/karma start karma.conf.js",

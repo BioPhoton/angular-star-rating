@@ -7,7 +7,7 @@ export declare type starRatingStarTypes = "svg" | "icon" | "image";
 export declare type starRatingStarSpace = "no" | "between" | "around";
 export interface IStarRatingCompBindings {
     id?: string;
-    text?: string;
+    labelText?: string;
     staticColor?: starRatingColors;
     labelPosition?: starRatingPosition;
     speed?: starRatingSpeed;
@@ -79,7 +79,7 @@ export declare class StarRatingController implements ng.IComponentController, IS
      */
     static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
     protected _id: string;
-    protected _text: string;
+    protected _labelText: string;
     protected _staticColor: starRatingColors;
     protected _labelPosition: starRatingPosition;
     protected _speed: starRatingSpeed;
@@ -122,7 +122,7 @@ export declare class StarRatingController implements ng.IComponentController, IS
     speed: starRatingSpeed;
     labelPosition: starRatingPosition;
     staticColor: starRatingColors;
-    text: string;
+    labelText: string;
     id: string;
     setGetColor(func: any): void;
     setGetHalfStarVisible(func: any): void;
