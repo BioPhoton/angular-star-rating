@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {StarRatingModule} from "./common/star-rating/star-rating.module";
+import {StarRatingModule} from "../../node_modules/angular-star-rating/src/star-rating.module";
 
 @NgModule({
   declarations: [

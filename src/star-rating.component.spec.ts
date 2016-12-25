@@ -1,46 +1,28 @@
-import {
-  beforeEach,
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
-  inject,
-} from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+/* tslint:disable:no-unused-variable */
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+
 import { StarRatingComponent } from './star-rating.component';
 
-describe('Component: StarRating', () => {
-  let builder: TestComponentBuilder;
+describe('StarRatingComponent', () => {
+  let component: StarRatingComponent;
+  let fixture: ComponentFixture<StarRatingComponent>;
 
-  beforeEachProviders(() => [StarRatingComponent]);
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ StarRatingComponent ]
+    })
+    .compileComponents();
   }));
 
-  it('should inject the component', inject([StarRatingComponent],
-      (component: StarRatingComponent) => {
+  beforeEach(() => {
+    fixture = TestBed.createComponent(StarRatingComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
     expect(component).toBeTruthy();
-  }));
-
-  it('should create the component', inject([], () => {
-    return builder.createAsync(StarRatingComponentTestController)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(StarRatingComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
+  });
 });
-
-@Component({
-  selector: 'test',
-  template: `
-    <star-rating></star-rating>
-  `,
-  directives: [StarRatingComponent]
-})
-class StarRatingComponentTestController {
-}
-
