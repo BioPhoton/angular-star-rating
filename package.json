@@ -99,10 +99,8 @@
     "yargs": "^6.3.0"
   },
   "scripts": {
-    "postinstall": "typings install",
     "clean:dist": "rimraf dist",
     "webpack:compile": "webpack --progress --colors --display-error-details",
-    "test": "node_modules/.bin/karma start karma.conf.js",
     "coverage": "http-server -c-1 -o -p 9875 ./coverage",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "version:bump": "gulp version:bump",

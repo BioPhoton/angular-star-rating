@@ -8,7 +8,7 @@ const map: any = {
 
 /** User packages configuration. */
 const packages: any = {
-  'angular2-star-rating': { defaultExtension: 'js', main: 'index.js' }
+  'angular2-star-rating': { defaultExtension: 'js', main: 'src/index.js' }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import {StarRatingComponent} from 'angular2-star-rating/dist/index';
+import {StarRatingComponent} from 'angular2-star-rating/src/index';
 
 console.log('StarRatingComponent: ', StarRatingComponent);
 @Component({
   moduleId: module.id,
   selector: 'angular2-star-rating-app',
   templateUrl: 'angular2-star-rating.component.html',
-  styleUrls: ['angular2-star-rating.component.css']
+  styleUrls: ['angular2-star-rating.component.css'],
+  directives : [StarRatingComponent]
 })
 
 export class Angular2StarRatingAppComponent {
-  title = 'angular2-star-rating works!';
+  title:string = 'angular2-star-rating works!';
   rating:number = 3;
 
  /*
