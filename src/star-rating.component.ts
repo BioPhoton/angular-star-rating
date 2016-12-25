@@ -16,9 +16,7 @@ export interface IStarRatingOnUpdateEvent{
 }
 
 export interface IStarRatingCompOneWayBindings {
-  //@
   id?: string;
-  //<
   text?: string;
   color?: starRatingColors;
   labelPosition?:starRatingPosition;

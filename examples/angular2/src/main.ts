@@ -1,9 +1,12 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import './polyfills.ts';
+
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { Angular2StarRatingAppComponent, environment } from './app/';
+import { environment } from './environments/environment';
+import { AppModule } from './app/app.module';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(Angular2StarRatingAppComponent);
+platformBrowserDynamic().bootstrapModule(AppModule);
