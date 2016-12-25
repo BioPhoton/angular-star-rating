@@ -13,7 +13,8 @@ import {StarRatingConfig} from "./star-rating-config";
 
 @Component({
   selector: 'star-rating-comp',
-  templateUrl: './star-rating.component.html'
+  templateUrl: './star-rating.component.html',
+  styleUrls : 'css-star-rating/dist/css/star-rating.css'
 })
 export class StarRatingComponent implements OnInit, OnChanges {
 

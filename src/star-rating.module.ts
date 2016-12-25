@@ -6,14 +6,12 @@ import { StarRatingConfig } from "./star-rating-config"
 export{ StarRatingComponent} from "./star-rating.component";
 export { StarRatingConfig } from "./star-rating-config"
 
-const EXPORTS = [StarRatingComponent];
+const EXPORTS = [ StarRatingComponent ];
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [ CommonModule ],
   exports:      [ EXPORTS ],
   declarations: [ EXPORTS ],
-  providers: [StarRatingConfig]
+  providers: [ StarRatingConfig ]
 })
 export class StarRatingModule { }
