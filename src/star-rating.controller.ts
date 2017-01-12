@@ -24,8 +24,8 @@ export interface IStarRatingCompBindings {
     getHalfStarVisible?(rating: number): boolean;
     getColor?(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
     //Outputs (& bindings)
-    onClick?: ($event: any) =>  IStarRatingOnClickEvent;
-    onUpdate?: ($event: any) => IStarRatingOnUpdateEvent;
+    onClick?: ($event: any) =>  any;
+    onUpdate?: ($event: any) => any;
 }
 
 export interface IStarRatingOnClickEvent {
@@ -151,7 +151,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
     protected _rating: number;
     protected _numOfStars: number;
     getHalfStarVisible: (rating: number) => boolean;
-    getColor: (rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors = StarRatingController._getColor;
+    getColor: (rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
 
     //outputs
     onClick?: ($event: any) =>  IStarRatingOnClickEvent;
@@ -171,11 +171,6 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
     ratingAsInteger: number;
     halfStarVisible: boolean;
 
-    $onInit?(): void;
-    $onChanges?(changesObj: {[property:string]: IChangesObject}): void;
-    $onDestroy?(): void;
-    $postLink?(): void;
-
     //getter and setter
     set numOfStars(value: number) {
         this._numOfStars = (value > 0)?value:StarRatingController.DefaultNumOfStars;
@@ -184,7 +179,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this.stars = StarRatingController._getStarsArray(this.numOfStars);
 
         //update color
-        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+        this.setColor();
     }
     get numOfStars(): number {
         return this._numOfStars;
@@ -204,16 +199,13 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this._rating = newRating;
 
         //update ratingAsInteger. rating parsed to int for the value-[n] modifier
-        this.ratingAsInteger = parseInt(<string>this._rating);
+        this.ratingAsInteger = parseInt(this._rating.toString());
 
         //update halfStarsVisible
         this.halfStarVisible = (this.showHalfStars) ? this.getHalfStarVisible(this._rating) : false;
 
-        //update color
-        if(this.getColor === undefined) {
-            this.setGetColor(StarRatingController._getColor);
-        }
-        this.color = this.getColor(this._rating, this.numOfStars, this.staticColor);
+        //update calculated Color
+        this.setColor();
 
         //fire onUpdate event
         let $event:IStarRatingOnUpdateEvent = {rating: this._rating};
@@ -225,9 +217,8 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
 
     set showHalfStars(value: boolean) {
         this._showHalfStars = !!value;
-
         //update halfStarVisible
-        this.halfStarVisible = (this._showHalfStars) ? this.getHalfStarVisible(this.rating) : false;
+        this.setHalfStarVisible();
     }
     get showHalfStars(): boolean {
         return this._showHalfStars;
@@ -286,7 +277,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this._staticColor = value || undefined;
 
         //update color.
-        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+        this.setColor();
     }
     get staticColor(): starRatingColors {
         return this._staticColor;
@@ -300,21 +291,37 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
     }
 
     set id(value: string) {
-        this._id = value || (parseInt(Math.random() * 10000)).toString();
+        this._id = value || (Math.random() * 10000).toString();
     }
     get id(): string {
         return this._id;
     }
 
-    setGetColor(func:any) {
-        this.getColor = (typeof func === "function") ? func : StarRatingController._getColor;
-        this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+    setColor() {
+        //check if custom function is given
+        if(typeof this.getColor === "function") {
+            this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+        }
+        else {
+            this.color = StarRatingController._getColor(this.rating, this.numOfStars, this.staticColor);
+        }
     }
 
-    setGetHalfStarVisible(func:any) {
-        this.getHalfStarVisible = (typeof func === "function") ? func : StarRatingController._getHalfStarVisible;
+    setHalfStarVisible() {
         //update halfStarVisible
-        this.halfStarVisible = (this.showHalfStars) ? this.getHalfStarVisible(this.rating) : false;
+        if(this.showHalfStars) {
+
+            //check if custom function is given
+            if(typeof this.getHalfStarVisible === "function") {
+                this.getHalfStarVisible(this.rating);
+            } else {
+                StarRatingController._getHalfStarVisible(this.rating);
+            }
+
+        }
+        else {
+            this.halfStarVisible = false;
+        }
     }
 
     constructor() {
@@ -327,11 +334,10 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this.pathFilled = StarRatingController.DefaultSvgPathFilled;
 
         //set default Component Inputs
-        this.getColor = StarRatingController._getColor;
-        this.getHalfStarVisible = StarRatingController._getHalfStarVisible;
         this._numOfStars = StarRatingController.DefaultNumOfStars;
         this._rating = 0;
-
+        this.stars = StarRatingController._getStarsArray(this.numOfStars);
+        this.setColor();
 
         //set default Outputs
         this.onClick = function ($event: IStarRatingOnClickEvent) {
@@ -366,11 +372,13 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         //functions
         //@Notice For some reason callback functions is not defined even there are defaults in the constructor
         if (valueChanged('getColor', changes)) {
-            this.setGetColor(changes.getColor.currentValue);
+            this.getColor = changes.getColor.currentValue;
+            this.setColor();
         }
 
         if (valueChanged('getHalfStarVisible', changes)) {
-            this.setGetHalfStarVisible(changes.getHalfStarVisible.currentValue);
+            this.getHalfStarVisible = changes.getHalfStarVisible.currentValue;
+            this.setHalfStarVisible();
         }
 
         //boolean
