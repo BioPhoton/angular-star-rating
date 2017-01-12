@@ -9,7 +9,9 @@ import 'angular-ui-router';
 import * as uiRouter from "angular-ui-router";
 
 import 'angular-star-rating';
-//import {angularStars} from "angular-star-rating/dist/index.js";
+import svg from "angular-star-rating/dist/assets/images/star-rating.icons.svg";
+
+let svg = svg;
 
 import {initPage} from "./components/init/index";
 import {singlePage} from "./components/single/index";

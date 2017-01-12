@@ -1,4 +1,3 @@
-import IChangesObject = angular.IChangesObject;
 export declare type starRatingSizes = "small" | "medium" | "large";
 export declare type starRatingColors = "default" | "negative" | "ok" | "positive";
 export declare type starRatingSpeed = "immediately" | "noticeable" | "slow";
@@ -21,8 +20,8 @@ export interface IStarRatingCompBindings {
     numOfStars?: number;
     getHalfStarVisible?(rating: number): boolean;
     getColor?(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
-    onClick?: ($event: any) => IStarRatingOnClickEvent;
-    onUpdate?: ($event: any) => IStarRatingOnUpdateEvent;
+    onClick?: ($event: any) => any;
+    onUpdate?: ($event: any) => any;
 }
 export interface IStarRatingOnClickEvent {
     rating: number;
@@ -105,12 +104,6 @@ export declare class StarRatingController implements ng.IComponentController, IS
     stars: Array<number>;
     ratingAsInteger: number;
     halfStarVisible: boolean;
-    $onInit?(): void;
-    $onChanges?(changesObj: {
-        [property: string]: IChangesObject;
-    }): void;
-    $onDestroy?(): void;
-    $postLink?(): void;
     numOfStars: number;
     rating: number;
     showHalfStars: boolean;
@@ -124,9 +117,17 @@ export declare class StarRatingController implements ng.IComponentController, IS
     staticColor: starRatingColors;
     labelText: string;
     id: string;
-    setGetColor(func: any): void;
-    setGetHalfStarVisible(func: any): void;
+    setColor(): void;
+    setHalfStarVisible(): void;
     constructor();
+    /**
+     * $onChanges
+     *
+     * The components $onChange hook
+     *
+     * @param changes
+     */
+    $onChanges(changes: any): void;
     /**
      * onStarClicked
      *
