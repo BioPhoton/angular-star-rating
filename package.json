@@ -99,6 +99,6 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "version:bump": "gulp version:bump",
     "release": "npm publish",
-    "update-example": "npm run build && gulp project:update-example"
+    "update-example": "npm run build && gulp project:update-example && cd examples/angular1 && npm run build"
   }
 }
