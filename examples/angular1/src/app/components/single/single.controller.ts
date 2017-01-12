@@ -1,4 +1,4 @@
-import {starRatingColors, starRatingPosition, starRatingStarTypes, starRatingSpeed, starRatingSizes, starRatingStarSpace} from "../../../../../../dist/star-rating.controller";
+import {starRatingColors, starRatingPosition, starRatingStarTypes, starRatingSpeed, starRatingSizes, starRatingStarSpace} from "../../../dist/star-rating.controller.d";
 import {IStarRatingOnUpdateEvent, IStarRatingOnClickEvent} from "../../../../../../dist/star-rating.controller";
 
 export class SingleController {
@@ -46,15 +46,12 @@ export class SingleController {
     }
 
     updateGetColorBinding() {
-        console.log('update Bind ', this.useCustomCetColor, this.getColor);
         if(this.useCustomCetColor) {
             this.getColor = this._getColor;
         }
         else {
             this.getColor = undefined;
         }
-
-        console.log('updated this.getColor ', this.getColor);
     }
 
     updateGetHalfStarVisibleBinding() {
