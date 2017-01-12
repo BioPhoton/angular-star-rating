@@ -1,3 +1,17 @@
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/BioPhoton/angular1-star-rating/compare/v1.2.0...v1.2.1) (2017-01-12)
+
+
+### Bug Fixes
+
+* **build:** build project ([e6c7e9f](https://github.com/BioPhoton/angular1-star-rating/commit/e6c7e9f))
+* **example:** updated example ([ada0aeb](https://github.com/BioPhoton/angular1-star-rating/commit/ada0aeb))
+* **example:** updated example ([6ddd4f6](https://github.com/BioPhoton/angular1-star-rating/commit/6ddd4f6))
+* **example:** updated example ([9ee88a3](https://github.com/BioPhoton/angular1-star-rating/commit/9ee88a3))
+* **property color:** refactored set color ([a003b6d](https://github.com/BioPhoton/angular1-star-rating/commit/a003b6d))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/BioPhoton/angular1-star-rating/compare/v1.1.0...v1.2.0) (2016-12-23)
 
