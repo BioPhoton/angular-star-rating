@@ -38145,14 +38145,12 @@
 	        this.rating = $event.rating;
 	    };
 	    SingleController.prototype.updateGetColorBinding = function () {
-	        console.log('update Bind ', this.useCustomCetColor, this.getColor);
 	        if (this.useCustomCetColor) {
 	            this.getColor = this._getColor;
 	        }
 	        else {
 	            this.getColor = undefined;
 	        }
-	        console.log('updated this.getColor ', this.getColor);
 	    };
 	    SingleController.prototype.updateGetHalfStarVisibleBinding = function () {
 	        if (this.useCustomGetHalfStarVisible) {
