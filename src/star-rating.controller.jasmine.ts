@@ -5,8 +5,12 @@ import IRootScopeService = angular.IRootScopeService;
 
 import './index.ts';
 import IComponentController = angular.IComponentController;
-import {StarRatingController, IStarRatingCompBindings, starRatingColors} from "./star-rating.controller";
+import {
+    StarRatingController, IStarRatingCompBindings, starRatingColors,
+    IStarRatingOnClickEvent, IStarRatingOnUpdateEvent
+} from "./star-rating.controller";
 import {StarRatingComponent} from "./star-rating.component";
+import createSpy = jasmine.createSpy;
 
 describe('Star rating controller', () => {
 
@@ -57,7 +61,7 @@ describe('Star rating controller', () => {
         expect(starRatingCtrl.disabled).toBe(undefined);
         expect(starRatingCtrl.rating).toBe(0);
         expect(starRatingCtrl.numOfStars).toBe(StarRatingController.DefaultNumOfStars);
-        //expect(typeof starRatingCtrl.getColor).toBe("function");
+        expect(starRatingCtrl.getColor).toBe(undefined);
         //expect(typeof starRatingCtrl.getHalfStarVisible).toBe("function");
         //&
         expect(typeof starRatingCtrl.onUpdate).toBe("function");
@@ -73,9 +77,43 @@ describe('Star rating controller', () => {
         expect(starRatingCtrl.stars.length).toBe(StarRatingController.DefaultNumOfStars);
         expect(starRatingCtrl.stars[0]).toBe(1);
         expect(starRatingCtrl.color).toBe('default');
+
     });
 
-    xit('should set custom bindings properly', () => {
+
+    it("should fire _getStarsArray function when create controller", () => {
+        //create spys
+        spyOn(StarRatingController, "_getStarsArray");
+        starRatingCtrl = getStarRatingCtrl();
+
+        //spys fired
+        expect(StarRatingController._getStarsArray).toHaveBeenCalled();
+    });
+
+    it("should fire _getColor function when create controller", () => {
+        //create spys
+        spyOn(StarRatingController, "_getColor");
+        starRatingCtrl = getStarRatingCtrl();
+
+        //spys fired
+        expect(StarRatingController._getColor).toHaveBeenCalled();
+
+        //custom callback undefined
+        expect(starRatingCtrl.getColor).toBe(undefined);
+    });
+
+    it("should fire setColor function when numOfStars changed", () => {
+        starRatingCtrl = getStarRatingCtrl();
+        //create spys
+        spyOn(starRatingCtrl, "setColor");
+        starRatingCtrl.numOfStars = 4;
+
+        //spys fired
+        expect(starRatingCtrl.setColor).toHaveBeenCalled();
+    });
+
+
+    it('should set custom bindings properly', () => {
         let bindings = <IStarRatingCompBindings>{
             //<
             id: 'custom-id'
@@ -97,11 +135,11 @@ describe('Star rating controller', () => {
                 return true;
             }
             //&
-            , onClick: function ($event) {
-                return 'onClick'
+            , onClick: function ($event:IStarRatingOnUpdateEvent) {
+                return $event;
             }
-            , onUpdate: function ($event) {
-                return 'onUpdate'
+            , onUpdate: function ($event:IStarRatingOnUpdateEvent) {
+                return $event;
             }
         };
 
@@ -120,8 +158,8 @@ describe('Star rating controller', () => {
         expect(starRatingCtrl.rating).toBe(bindings.rating);
         expect(starRatingCtrl.getColor(1, 5, 'default')).toBe(bindings.getColor(1, 5, 'default'));
         expect(starRatingCtrl.getHalfStarVisible(1)).toBe(bindings.getHalfStarVisible(1));
-        expect(starRatingCtrl.onClick({$event: {rating: 1}})).toBe(bindings.onClick({$event: {rating: 1}}));
-        expect(starRatingCtrl.onUpdate({$event: {rating: 1}})).toBe(bindings.onUpdate({$event: {rating: 1}}));
+        expect(starRatingCtrl.onClick({$event: {rating: 1}}).rating).toBe(bindings.onClick({$event: {rating: 1}}).rating);
+        expect(starRatingCtrl.onUpdate({$event: {rating: 2}}).rating).toBe(bindings.onUpdate({$event: {rating: 2}}).rating);
     });
 
     it("should return proper values when firing _getColor function", () => {
@@ -133,24 +171,24 @@ describe('Star rating controller', () => {
         testValues[okRating] = okColor;
         testValues[highRating] = positiveColor;
 
+        let numOfStars = 5;
         starRatingCtrl = getStarRatingCtrl({});
 
         //test with required properties
         for (let rating in testValues) {
-            starRatingCtrl.rating = rating;
-            expect(StarRatingController._getColor(starRatingCtrl.rating, starRatingCtrl.numOfStars)).toBe(testValues[rating]);
+            rating;
+            expect(StarRatingController._getColor(parseInt(rating), numOfStars)).toBe(testValues[rating]);
         }
 
         //test with optional staticColor property
-        starRatingCtrl.numOfStars = 20;
+        numOfStars = 20;
         for (let rating in testValues) {
-            starRatingCtrl.rating = rating;
 
-            if (rating != negativeValue && rating != defaultValue) {
-                expect(StarRatingController._getColor(starRatingCtrl.rating, starRatingCtrl.numOfStars)).toBe(negativeColor);
+            if (rating.toString() !==  negativeValue.toString() && rating.toString() !== defaultValue.toString()) {
+                expect(StarRatingController._getColor(parseInt(rating), numOfStars)).toBe(negativeColor);
             }
             else {
-                expect(StarRatingController._getColor(starRatingCtrl.rating, starRatingCtrl.numOfStars)).toBe(defaultColor);
+                expect(StarRatingController._getColor(parseInt(rating), numOfStars)).toBe(defaultColor);
             }
         }
 
@@ -208,7 +246,7 @@ describe('Star rating controller', () => {
 
     });
 
-    xit("should return proper values when firing _getStarsArray function", () => {
+    it("should return proper values when firing _getStarsArray function", () => {
 
         let lowNumOfStars = 1;
         let defaultNumOfStars = 6;
@@ -222,27 +260,51 @@ describe('Star rating controller', () => {
         testValues[highNumOfStars] = negativeColor;
 
         let bindings = <IStarRatingCompBindings>{
-            rating: 3
+            rating: 3,
         };
+        starRatingCtrl = getStarRatingCtrl(bindings);
+
 
         for (let numOfStars in testValues) {
-            bindings.numOfStars = parseInt(numOfStars);
-            starRatingCtrl = getStarRatingCtrl(bindings);
+            //update numOfStars
+            starRatingCtrl.numOfStars = parseInt(numOfStars);
 
-            //update stars array
-            let expectedNumOfStars = (numOfStars && parseInt(numOfStars) > 0) ? parseInt(numOfStars) : StarRatingController.DefaultNumOfStars;
-            //@TODO spy on StarRatingController.getStarsArray
-            expect(starRatingCtrl.numOfStars).toBe(expectedNumOfStars);
-            //@TODO spy on getColor
-            expect(starRatingCtrl.color).toBe(testValues[numOfStars]);
-
+            //stars array updated
             expect(typeof starRatingCtrl.stars).toBe("object");
             expect(starRatingCtrl.stars.length).toBe(parseInt(starRatingCtrl.numOfStars));
             expect(starRatingCtrl.stars[0]).toBe(1);
-        }
+
+            //numOfStars updated
+            let expectedNumOfStars = (numOfStars && parseInt(numOfStars) > 0) ? parseInt(numOfStars) : StarRatingController.DefaultNumOfStars;
+            expect(starRatingCtrl.numOfStars).toBe(expectedNumOfStars);
+
+            //color updated
+            expect(starRatingCtrl.color).toBe(testValues[numOfStars]);
+
+            }
     });
 
-    xit("should return proper values when update rating", () => {
+
+    it("should fire onUpdate when set", () => {
+        let bindings = <IStarRatingCompBindings>{
+            onUpdate: function ($event:IStarRatingOnUpdateEvent) {
+                return $event;
+            }
+        };
+
+        starRatingCtrl = getStarRatingCtrl(bindings);
+        //create spys
+        spyOn(starRatingCtrl, "onUpdate");
+        starRatingCtrl.rating = 4;
+
+        //spys fired
+        expect(starRatingCtrl.onUpdate).toHaveBeenCalled();
+
+    });
+
+
+
+    it("should return proper values when update rating", () => {
 
         let testValues = {};
         testValues[negativeValue] = defaultColor;
@@ -250,38 +312,26 @@ describe('Star rating controller', () => {
         testValues[lowRating] = negativeColor;
         testValues[okRating] = okColor;
         testValues[highRating] = positiveColor;
-
         let newRatingValue;
-        let bindings: IStarRatingCompBindings = {
-            onUpdate: onUpdate
-            , rating :0
-        };
 
+        let bindings: IStarRatingCompBindings = {
+            rating :0
+        };
         starRatingCtrl = getStarRatingCtrl(bindings);
 
         for (let rating in testValues) {
             starRatingCtrl.rating = rating;
 
-            if (rating == negativeValue) {
-                expect(starRatingCtrl.rating).toBe(defaultValue);
+            if (rating.toString() == negativeValue.toString()) {
+
+                expect(starRatingCtrl.rating.toString()).toBe(defaultValue.toString());
                 expect(starRatingCtrl.color).toBe(defaultColor);
 
             }
             else {
-                expect(starRatingCtrl.rating).toBe(rating);
+                expect(starRatingCtrl.rating.toString()).toBe(rating.toString());
                 expect(starRatingCtrl.color).toBe(testValues[rating]);
             }
-            expect(newRatingValue).toBe(starRatingCtrl.rating);
-
-            //@TODO spy on getColor
-
-            //@TODO spy on onUpdate
-        }
-
-        /////////////////////////
-
-        function onUpdate(data) {
-            newRatingValue = data.$event.rating;
         }
 
     });
@@ -307,25 +357,22 @@ describe('Star rating controller', () => {
             starRatingCtrl.onStarClicked(rating);
 
 
-            //@TODO spy on updateRating
-            if (rating == negativeValue) {
+            if (rating.toString() == negativeValue.toString()) {
                 expect(starRatingCtrl.rating).toBe(defaultValue);
                 expect(starRatingCtrl.color).toBe(defaultColor);
             } else {
                 expect(starRatingCtrl.rating).toBe(rating);
                 expect(starRatingCtrl.color).toBe(testValues[rating]);
             }
-            //@TODO spy on onClick
+
         }
 
-        //@TODO custom onClick function
-
-        //@TODO with readOnly
-
-        //@TODO with disabled
     });
 
-    xit("should return proper values when firing getColor function", () => {
+    //@TODO spy on onClick with readOnly, with disabled
+    //@TODO custom onClick function
+
+    it("should return proper values when firing getColor function", () => {
         let testValues = {};
         testValues[lowRating] = okColor;
         testValues[okRating] = positiveColor;
@@ -340,7 +387,6 @@ describe('Star rating controller', () => {
         let count = 0;
         for (let rating in testValues) {
             starRatingCtrl.rating = rating;
-            console.log("RATING: ", rating);
             expect(starRatingCtrl.color).toBe(testValues[rating]);
         }
 
@@ -382,8 +428,8 @@ describe('Star rating controller', () => {
 
     });
 
-    //@TODO implement test
-    //it("should return proper values when firing $onChange function", () => {});
+    //////////////////////////////////////////////////////////////////////////////
+
 
     /**
      * getStarRatingCtrl
