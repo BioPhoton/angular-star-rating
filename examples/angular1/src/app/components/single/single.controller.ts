@@ -1,4 +1,4 @@
-import {starRatingColors, starRatingPosition, starRatingStarTypes, starRatingSpeed, starRatingSizes, starRatingStarSpace} from "../../../../../dist/star-rating.controller";
+import {starRatingColors, starRatingPosition, starRatingStarTypes, starRatingSpeed, starRatingSizes, starRatingStarSpace} from "../../../../../../dist/star-rating.controller";
 import {IStarRatingOnUpdateEvent, IStarRatingOnClickEvent} from "../../../../../../dist/star-rating.controller";
 
 export class SingleController {
