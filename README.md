@@ -62,10 +62,13 @@ It also provides callbacks for all calculation functions used in the component a
  - [download as .zip](https://github.com/BioPhoton/angular1-star-rating/releases)
  - via **[npm](https://www.npmjs.org/)**: by running `$ npm install angular-star-rating` from your console
  - via **[bower](https://bower.io/)**: by running `$ bower install angular1-star-rating` from your console
- 
+ - via **[cdn](https://cdn.rawgit.com/BioPhoton/angular1-star-rating/2062d6bf/dist/index.js)**: by adding the git-cdn reference in your index.html  
+   ```html
+      <script src="https://cdn.rawgit.com/BioPhoton/angular1-star-rating/2062d6bf/dist/index.js"></script>
+   ```
 **Load library**
 ```html
-<script src="[bower or npm folder]/angular-star-rating/dist/index.js"></script>
+<script src="[bower or npm folder or git-cdn path]/angular-star-rating/dist/index.js"></script>
 ```
 
 **Inject it into angular**
