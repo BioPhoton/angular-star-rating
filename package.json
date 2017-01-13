@@ -1,6 +1,6 @@
 {
   "name": "angular-star-rating",
-  "version": "2.0.0",
+  "version": "2.0.0-beta.0 ",
   "license": "MIT",
   "keywords": [
     "Rating",
@@ -20,7 +20,7 @@
     "Angular2 Component",
     "Typescript"
   ],
-  "description": "Angular Star Rating is a Angular2 component written in typescript.",
+  "description": "Angular Star Rating is a Angular2 component written in typescript. Based on css only techniquest utilizing scc and css3 features ",
   "author": "Michael Hladky",
   "contributors": [
     {
@@ -30,12 +30,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BioPhoton/angular2-star-rating.git"
+    "url": "git+https://github.com/BioPhoton/angular-star-rating.git"
   },
   "bugs": {
-    "url": "https://github.com/BioPhoton/angular2-star-rating/issues"
+    "url": "https://github.com/BioPhoton/angular-star-rating/issues"
   },
-  "homepage": "https://github.com/BioPhoton/angular2-star-rating#readme",
+  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
   "main": "dist/index.js",
   "dependencies": {
     "@angular/common": "2.0.0-rc.1",
