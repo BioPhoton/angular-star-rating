@@ -65,9 +65,21 @@ It also provides callbacks for all calculation functions used in the component a
 <script src="[bower or npm folder]/angular-star-rating/dist/index.js"></script>
 ```
 
-**Inject it into angular**
+**Register module**
 ```javascript
-angular.module('myApp', ['star-rating'])
+...
+import { StarRatingBindingsFormComponent } from './common/star-rating-bindings-form/star-rating-bindings-form.component';
+...
+@NgModule({
+  ...
+  imports: [
+    ...
+    StarRatingModule,
+    ...
+  ]
+  ...
+})
+export class AppModule { }
 ```
 
 **Use it**
@@ -76,7 +88,7 @@ angular.module('myApp', ['star-rating'])
          [size]="'large'"
          [rating]="3"
          [text]="'Rating:'"
-         [(onUpdate)]="crtl.onUpdate(rating)">
+         (onUpdate)="crtl.onUpdate($event)">
  </star-rating-comp>
 ```
 
