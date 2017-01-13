@@ -296,4 +296,4 @@ function onUpdate($event) {
     parent.rating = $event.rating;
 }
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-on_update-2waybiding.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-on_update-2waybinding.PNG" width="290">
