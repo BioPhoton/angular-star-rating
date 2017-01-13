@@ -1,22 +1,15 @@
-import angular = require('angular');
-import ngMock = require('angular-mocks');
-
-import IRootScopeService = angular.IRootScopeService;
-
-import './index.ts';
-import IComponentController = angular.IComponentController;
 import {
     StarRatingController, IStarRatingCompBindings, starRatingColors,
     IStarRatingOnClickEvent, IStarRatingOnUpdateEvent
-} from "./star-rating.controller";
-import {StarRatingComponent} from "./star-rating.component";
+} from "./index";
+import IRootScopeService = angular.IRootScopeService;
+import IComponentController = angular.IComponentController;
 import createSpy = jasmine.createSpy;
 
 describe('Star rating controller', () => {
 
     let $componentController;
     let starRatingCtrl;
-    let rootScope;
     let scope;
 
     let negativeValue: number = -1;
@@ -103,6 +96,16 @@ describe('Star rating controller', () => {
     });
 
     it("should fire setColor function when numOfStars changed", () => {
+        starRatingCtrl = getStarRatingCtrl();
+        //create spys
+        spyOn(starRatingCtrl, "setColor");
+        starRatingCtrl.numOfStars = 4;
+
+        //spys fired
+        expect(starRatingCtrl.setColor).toHaveBeenCalled();
+    });
+
+    it("should calculate halfStarVisible correct when numOfStars changed", () => {
         starRatingCtrl = getStarRatingCtrl();
         //create spys
         spyOn(starRatingCtrl, "setColor");
