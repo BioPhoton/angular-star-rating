@@ -1,10 +1,10 @@
 var path = require("path");
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config.js");
-var base_config = require("./chore/chore.config");
+var base_c = require("./chore/chore.config");
 
 webpackConfig.entry = {};
-
+webpackConfig.output.filename = "[name].js";
 
 // Karma configuration
 // Generated on Fri Jan 16 2015 01:40:34 GMT+0200 (EET)
@@ -25,10 +25,9 @@ module.exports = function (config) {
         },
 
         files: [
-            "./node_modules/angular/angular.js"
-            , "./node_modules/angular-mocks/angular-mocks.js"
-            , "./dist/index.js"
-            , "./src/star-rating.controller.jasmine.ts"
+              "./dist/index.js"
+            //, "./src/index.ts"
+            , "./src/index.spec.ts"
         ],
 
 
@@ -36,6 +35,7 @@ module.exports = function (config) {
         plugins: [
             "karma-webpack"
             , "karma-jasmine"
+            , 'karma-typescript-preprocessor'
             , "karma-coverage"
             , "karma-chrome-launcher"
             , "karma-phantomjs-launcher"
@@ -47,20 +47,25 @@ module.exports = function (config) {
         // Source files that you wanna generate coverage for.
         // Do not include tests or libraries (these files will be instrumented by Istanbul)
         preprocessors: {
-            "src/*!(*.jasmine*|*.protractor|*.mock|*.bundle).ts": ["webpack", "coverage"]
-            //, "src/**/*.ts": ["webpack"]
-            //, "src/*!(*.jasmine*|*.protractor*|*.mock*|*.bundle*).ts": ["webpack", "coverage"]
-            //, "./src/star-rating.controller.ts": ["webpack", "coverage"]
-            //, "./src/star-rating.component.ts": ["webpack", "coverage"]
-            , "./dist/*.js*": ["coverage"]
-        },
+           // "./src/index.ts": ["webpack"]
+             "./src/*.spec.ts": ["webpack", "coverage"]
+            //"src/**/*!(*.spec*|*.protractor*|*.mock*|*.bundle*).ts": ["webpack", "coverage"]
 
+            //, "./src/star-rating.component.ts": ["webpack", "coverage"]
+            //, './src/index.ts':['webpack','coverage']
+            , './dist/*.js':['coverage']
+        },
         webpack: webpackConfig,
 
         coverageReporter: {
             reporters: [
                 {dir: "coverage/"},
-                {type: "lcov"}
+                {type: "text"},
+              {
+                    type : 'json',
+                    subdir : '.',
+                    file : 'coverage-final.json'
+                }
             ]
         },
 
