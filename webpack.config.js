@@ -28,6 +28,8 @@ module.exports = function makeWebpackConfig() {
         filename: "index.js"
         , path: path.join(__dirname, base_c.dist)
     };
+    //config.output.filename = "[name].js";
+
 
     // Source maps support
     config.devtool = 'source-map';
