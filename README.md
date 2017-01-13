@@ -1,7 +1,7 @@
 # Angular Star Rating ⭐⭐⭐⭐⭐
 #### ⭐ Angular 1.5 Component written in typescript, based on css only techniques. ⭐
 
-![License](https://img.shields.io/npm/l/angular1-star-rating.svg)
+![License](https://img.shields.io/npm/l/angular-star-rating.svg)
 ![Bower Version](https://img.shields.io/bower/v/angular1-star-rating.svg)
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular1-star-rating)  
@@ -16,8 +16,11 @@
 Angular Star Rating is a >1.5 Angular component written in typescript.   
 It is based on [css-star-rating](https://github.com/BioPhoton/css-star-rating), a fully featured and customizable css only star rating component written in scss.  
 
+![Angular1-Star-Rating](https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/example-usage.gif)
+
 ## DEMO
-![alt tag](https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/example-usage.gif)
+- [x] [Example-App](https://github.com/BioPhoton/angular1-star-rating/tree/master/examples/angular1)  
+- [x] [Example-App-Plnkr](https://run.plnkr.co/mEEIdRWQX1fqeOIq/)  
 
 ## Features
 This module implements all Features from [CSS-STAR-RATING](https://github.com/BioPhoton/css-star-rating).
@@ -59,10 +62,13 @@ It also provides callbacks for all calculation functions used in the component a
  - [download as .zip](https://github.com/BioPhoton/angular1-star-rating/releases)
  - via **[npm](https://www.npmjs.org/)**: by running `$ npm install angular-star-rating` from your console
  - via **[bower](https://bower.io/)**: by running `$ bower install angular1-star-rating` from your console
- 
+ - via **[cdn](https://cdn.rawgit.com/BioPhoton/angular1-star-rating/2062d6bf/dist/index.js)**: by adding the git-cdn reference in your index.html  
+   ```html
+      <script src="https://cdn.rawgit.com/BioPhoton/angular1-star-rating/2062d6bf/dist/index.js"></script>
+   ```
 **Load library**
 ```html
-<script src="[bower or npm folder]/angular-star-rating/dist/index.js"></script>
+<script src="[bower or npm folder or git-cdn path]/angular-star-rating/dist/index.js"></script>
 ```
 
 **Inject it into angular**
@@ -293,4 +299,4 @@ function onUpdate($event) {
     parent.rating = $event.rating;
 }
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-on_update-2waybiding.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/master/resources/prop-on_update-2waybinding.PNG" width="290">
