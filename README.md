@@ -20,7 +20,8 @@ It is based on [css-star-rating](https://github.com/BioPhoton/css-star-rating), 
 
 ## DEMO
 - [x] [Example-App](https://github.com/BioPhoton/angular1-star-rating/tree/master/examples/angular1)  
-- [x] [Example-App-Plnkr](https://run.plnkr.co/mEEIdRWQX1fqeOIq/)
+- [x] [Example-App-Plnkr](https://run.plnkr.co/mEEIdRWQX1fqeOIq/)  
+
 ## Features
 This module implements all Features from [CSS-STAR-RATING](https://github.com/BioPhoton/css-star-rating).
 It also provides callbacks for all calculation functions used in the component as well as all possible event emitters.
