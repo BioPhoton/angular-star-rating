@@ -1,3 +1,12 @@
+<a name="1.2.3"></a>
+## [1.2.3](https://github.com/BioPhoton/angular1-star-rating/compare/v1.2.2...v1.2.3) (2017-01-13)
+
+
+### Bug Fixes
+
+* **changelog:** updated changelog ([5b0cf9b](https://github.com/BioPhoton/angular1-star-rating/commit/5b0cf9b))
+* **docs:** fix cdn and plunker link ([d5c1d4c](https://github.com/BioPhoton/angular1-star-rating/commit/d5c1d4c))
+* **docs:** fix plunker link ([e03abc8](https://github.com/BioPhoton/angular1-star-rating/commit/e03abc8))
 
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/BioPhoton/angular1-star-rating/compare/v1.2.1...v1.2.2) (2017-01-12)
