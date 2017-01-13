@@ -41,11 +41,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
    * id property to identify the DOM element
    */
   protected _id: string;
-
-  get id(): string {
-    return this._id;
-  }
-
+  get id(): string { return this._id; }
   @Input('id')
   set id(value: string) {
     this._id = value || '';
@@ -56,7 +52,6 @@ export class StarRatingComponent implements OnInit, OnChanges {
    * labelText
    */
   protected _labelText: string;
-
   get labelText(): string {
     return this._labelText;
   }
@@ -71,7 +66,6 @@ export class StarRatingComponent implements OnInit, OnChanges {
    * labelPosition
    */
   protected _labelPosition: starRatingPosition;
-
   get labelPosition(): starRatingPosition {
     return this._labelPosition;
   }
