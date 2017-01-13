@@ -4,17 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {StarRatingModule} from "angular-star-rating/src/star-rating.module";
+//import {StarRatingModule} from "angular-star-rating/src/star-rating.module";
+//import { StarRatingBindingsFormComponent } from './common/star-rating-bindings-form/star-rating-bindings-form.component';
 
 @NgModule({
   declarations: [
-      AppComponent
+      AppComponent,
+      //StarRatingBindingsFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StarRatingModule
+    //StarRatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

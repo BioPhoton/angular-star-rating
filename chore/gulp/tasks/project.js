@@ -31,7 +31,7 @@ gulp.task('project:clean', function (done) {
 
 //helper for development
 gulp.task('project:update-example', function (done) {
-  var destination = path.join('examples','angular1', 'node_modules', 'angular-star-rating', 'dist' );
+  var destination = path.join('examples','angular2', 'node_modules', 'angular-star-rating', 'dist' );
   helper.log('update lib in example. copy ' + config.dist + ' to ' + destination);
   return gulp.src('./'+config.dist+'/*')
       .pipe(gulp.dest(destination), done);

@@ -46,7 +46,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._id;
   }
 
-  @Input('id')
+  @Input()
   set id(value: string) {
     this._id = value || '';
   }
@@ -61,7 +61,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._labelText;
   }
 
-  @Input('labelText')
+  @Input()
   set labelText(value: string) {
     this._labelText = value;
   }
@@ -76,7 +76,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._labelPosition;
   }
 
-  @Input('labelPosition')
+  @Input()
   set labelPosition(value: starRatingPosition) {
     this._labelPosition = value || this.config.labelPosition;
   }
@@ -91,7 +91,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._staticColor;
   }
 
-  @Input('staticColor')
+  @Input()
   set staticColor(value: starRatingColors) {
     this._staticColor = value || undefined;
 
@@ -109,7 +109,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._numOfStars;
   }
 
-  @Input('numOfStars')
+  @Input()
   set numOfStars(value: number) {
     this._numOfStars = (value > 0) ? value : this.config.numOfStars;
 
@@ -129,7 +129,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
   get speed(): starRatingSpeed {
     return this._speed;
   }
-  @Input('speed')
+  @Input()
   set speed(value: starRatingSpeed) {
     this._speed = value || this.config.speed;
   }
@@ -144,7 +144,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._size;
   }
 
-  @Input('size')
+  @Input()
   set size(value: starRatingSizes) {
     this._size = value || this.config.size;
   }
@@ -159,7 +159,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._starType;
   }
 
-  @Input('starType')
+  @Input()
   set starType(value: starRatingStarTypes) {
     this._starType = value || this.config.starType;
   }
@@ -174,7 +174,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._space;
   }
 
-  @Input('space')
+  @Input()
   set space(value: starRatingStarSpace) {
     this._space = value;
   }
@@ -189,7 +189,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._readOnly;
   }
 
-  @Input('readOnly')
+  @Input()
   set readOnly(value: boolean) {
     this._readOnly = !!value;
   }
@@ -204,7 +204,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._disabled;
   }
 
-  @Input('disabled')
+  @Input()
   set disabled(value: boolean) {
     this._disabled = !!value;
   }
@@ -219,7 +219,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._rating;
   }
 
-  @Input('rating')
+  @Input()
   set rating(value: number) {
     //validate and apply newRating
     let newRating: number = 0;
@@ -254,7 +254,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._showHalfStars;
   }
 
-  @Input('showHalfStars')
+  @Input()
   set showHalfStars(value: boolean) {
     this._showHalfStars = !!value;
 
@@ -265,8 +265,8 @@ export class StarRatingComponent implements OnInit, OnChanges {
 
 
   //getHalfStarVisible: (rating: number) => boolean;
-
-  //getColor: (rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
+  @Input()
+  getColor: (rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
 
 
   //Output

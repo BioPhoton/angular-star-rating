@@ -1,6 +1,216 @@
-<h1>
-  {{title}}
-</h1>
-<star-rating-comp>
-  COMPONENT IS NOT WORKING
-</star-rating-comp>
+
+<div id="init-view" class="container">
+
+  <div class="jumbotron">
+    <h1 class="">Angular Star Rating</h1>
+    <p class="lead">
+      Angular1 Star Rating is a >2 Angular component based on css only techniques written in scss<br/>
+      It is based on <a href="https://github.com/BioPhoton/css-star-rating">Css Star Rating</a>,
+      a fully featured and customizable css only star rating component written in scss.
+    </p>
+
+    <h1>
+      {{title}}
+    </h1>
+
+    <star-rating-comp
+      [rating]="4"
+      [id]="id"
+      [showHalfStars]="showHalfStars"
+      [disabled]="disabled"
+      [readOnly]="readOnly"
+      [space]="space"
+      [size]="size"
+      [numOfStars]="numOfStars"
+      [staticColor]="color"
+      [speed]="speed"
+      [labelText]="rating"
+      [labelPosition]="position"
+      [starType]="starType"
+
+
+      >
+      COMPONENT IS NOT WORKING
+    </star-rating-comp>
+
+
+  </div>
+
+  <div class="container">
+
+    <star-rating-bindings-form>
+
+    </star-rating-bindings-form>
+
+    <div class="row">
+      <div class="col-xs-4">
+        <fieldset class="form-group row">
+          <legend>Layout</legend>
+
+          <div class="form-check">
+            <label class="col-xs-4 col-form-label">Lable Position</label>
+            <div class="col-xs-8">
+              <select class="form-control" [ngModel]="position">
+                <option value="">position</option>
+                <option value="{{value}}" *ngFor="let value of labelPositionOptions">{{value}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-xs-6 col-form-label">starOptions: {{starType}}</label>
+            <div class="col-xs-6">
+              <select class="form-control" [ngModel]="starType">
+                <option value="">starType</option>
+                <option value="{{value}}" *ngFor="let value of starOptions">{{value}}
+                </option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="form-group row">
+            <label class="col-xs-4 col-form-label">Space</label>
+            <div class="col-xs-8">
+              <select class="form-control" [ngModel]="space">
+                <option value="">space</option>
+                <option value="{{value}}" *ngFor="let value of spaceOptions">{{value}}
+                </option>
+              </select>
+            </div>
+
+          </div>
+
+        </fieldset>
+
+      </div>
+      <div class="col-xs-4">
+        <fieldset class="form-group row">
+          <legend>Dimensions
+          </legend>
+          <div class="form-group">
+            <label class="col-xs-6 col-form-label">NumOfStars</label>
+            <div class="col-xs-6">
+              <input type="number" class="form-control" placeholder="NumOfStars"
+                     [ngModel]="numOfStars" (ngModelChange)="numOfStars = $event"> {{numOfStars}}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-xs-6 col-form-label">Size: {{size}}</label>
+            <div class="col-xs-6">
+              <select class="form-control" [ngModel]="size"  (ngModelChange)="size = $event">
+                <option value="">size</option>
+                <option value="{{value}}" *ngFor="let value of sizeOptions">{{value}}
+                </option>
+              </select>
+            </div>
+
+          </div>
+
+        </fieldset>
+
+      </div>
+      <div class="col-xs-4">
+        <fieldset class="form-group">
+
+          <legend>Styling
+          </legend>
+
+          <div class="form-group row">
+            <label class="col-xs-4 col-form-label">Color</label>
+            <div class="col-xs-8">
+              <select class="form-control" [ngModel]="color"   (ngModelChange)="color = $event">
+                <option value="">color</option>
+                <option value="{{value}}" *ngFor="let value of colorOptions">{{value}}
+                </option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" ng-change="updateGetColorBinding()" [ngModel]="useCustomCetColor" (ngModelChange)="size = $event">
+              use custom getColor function
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" [ngModel]="disabled" (ngModelChange)="disabled = $event">
+              Disabled
+            </label>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-xs-4 col-form-label">Speed: {{speed}}</label>
+            <div class="col-xs-8">
+              <select class="form-control" [ngModel]="speed" (ngModelChange)="speed = $event">
+                <option value="">speed</option>
+                <option value="{{value}}" *ngFor="let value of speedOptions">{{value}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+        </fieldset>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-xs-4">
+        <fieldset class="form-group">
+          <legend>Other
+          </legend>
+
+          <div class="form-group row">
+            <label class="col-xs-6 col-form-label">Id</label>
+            <div class="col-xs-6">
+              <input type="text" class="form-control" placeholder="Id" [ngModel]="id" (ngModelChange)="id = $event"">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-xs-6 col-form-label">Rating</label>
+            <div class="col-xs-6">
+              <input type="number" class="form-control" placeholder="rating" step="0.5" [ngModel]="rating" (ngModelChange)="rating = $event">
+            </div>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" [ngModel]="showHalfStars" (ngModelChange)="showHalfStars = $event">
+              showHalfStars
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" ng-change="updateGetHalfStarVisibleBinding()" [ngModel]="useCustomGetHalfStarVisible">
+              use custom getHalfStarVisible function
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" [ngModel]="readOnly" (ngModelChange)="readOnly = $event">
+              ReadOnly
+            </label>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-xs-6 col-form-label">Text</label>
+            <div class="col-xs-6">
+              <input type="text" class="form-control" placeholder=":Label text" [ngModel]="labelText" (ngModelChange)="labelText = $event">
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+    </div>
+    <!---->
+  </div>
+
+</div>

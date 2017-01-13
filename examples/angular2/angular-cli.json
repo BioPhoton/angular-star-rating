@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.24",
-    "name": "angular2"
+    "version": "2.0.0-beta.24",
+    "name": "angular-star-rating"
   },
   "apps": [
     {
