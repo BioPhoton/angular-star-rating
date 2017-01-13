@@ -1,40 +1,16 @@
+import {
+    IStarRatingCompBindings
+    ,starRatingSizes
+    , starRatingSpeed
+    , starRatingPosition
+    , starRatingStarTypes
+    , starRatingColors
+    , starRatingStarSpace
+    , IStarRatingOnClickEvent
+    , IStarRatingOnUpdateEvent
+} from "star-rating.structs"
+
 import IChangesObject = angular.IChangesObject;
-export type starRatingSizes = "small" | "medium" | "large";
-export type starRatingColors = "default" | "negative" | "ok" | "positive";
-export type starRatingSpeed = "immediately" | "noticeable" | "slow";
-export type starRatingPosition = "left" | "right" | "top" | "bottom";
-export type starRatingStarTypes = "svg" | "icon" | "image";
-export type starRatingStarSpace= "no" | "between" | "around";
-
-export interface IStarRatingCompBindings {
-    //Inputs (< bindings)
-    id?: string;
-    labelText?: string;
-    staticColor?: starRatingColors;
-    labelPosition?: starRatingPosition;
-    speed?: starRatingSpeed;
-    size?: starRatingSizes;
-    starType?: starRatingStarTypes;
-    space?: starRatingStarSpace;
-    readOnly?: boolean;
-    disabled?: boolean;
-    showHalfStars?: boolean;
-    rating?: number;
-    numOfStars?: number;
-    getHalfStarVisible?(rating: number): boolean;
-    getColor?(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
-    //Outputs (& bindings)
-    onClick?: ($event: any) =>  any;
-    onUpdate?: ($event: any) => any;
-}
-
-export interface IStarRatingOnClickEvent {
-    rating: number;
-}
-
-export interface IStarRatingOnUpdateEvent {
-    rating: number;
-}
 
 export class StarRatingController implements ng.IComponentController, IStarRatingCompBindings{
 
@@ -66,6 +42,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
     static DefaultSvgPathHalf: string = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgHalfSymbolId;
 
     static DefaultSvgPathFilled: string = StarRatingController.DefaultSvgPath + "#" + StarRatingController.DefaultSvgFilledSymbolId;
+
 
     /**
      * _getStarsArray
@@ -202,7 +179,7 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
         this.ratingAsInteger = parseInt(this._rating.toString());
 
         //update halfStarsVisible
-        this.halfStarVisible = (this.showHalfStars) ? this.getHalfStarVisible(this._rating) : false;
+        this.setHalfStarVisible();
 
         //update calculated Color
         this.setColor();
@@ -313,9 +290,9 @@ export class StarRatingController implements ng.IComponentController, IStarRatin
 
             //check if custom function is given
             if(typeof this.getHalfStarVisible === "function") {
-                this.getHalfStarVisible(this.rating);
+                this.halfStarVisible = this.getHalfStarVisible(this.rating);
             } else {
-                StarRatingController._getHalfStarVisible(this.rating);
+                this.halfStarVisible = StarRatingController._getHalfStarVisible(this.rating);
             }
 
         }

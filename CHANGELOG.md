@@ -1,3 +1,17 @@
+<a name="1.2.4"></a>
+## [1.2.4](https://github.com/BioPhoton/angular1-star-rating/compare/v1.2.3...v1.2.4) (2017-01-13)
+
+
+### Bug Fixes
+
+* **build:** rebuild project ([f0ebc77](https://github.com/BioPhoton/angular1-star-rating/commit/f0ebc77))
+* **half stars:** set half star visible ([f840614](https://github.com/BioPhoton/angular1-star-rating/commit/f840614))
+* **half stars:** fix setHalfstar call ([b07e5d1](https://github.com/BioPhoton/angular1-star-rating/commit/b07e5d1))
+* **imports:** refactored imports ([0461f00](https://github.com/BioPhoton/angular1-star-rating/commit/0461f00))
+* **rebuild:** rebuild src and example ([1105965](https://github.com/BioPhoton/angular1-star-rating/commit/1105965))
+
+
+
 <a name="1.2.3"></a>
 ## [1.2.3](https://github.com/BioPhoton/angular1-star-rating/compare/v1.2.2...v1.2.3) (2017-01-13)
 

@@ -6,7 +6,7 @@
     , "outDir": "./"
   },
   "exclude": [
-     "./src/**/*.jasmine.ts",
+     "./src/**/*.spec.ts",
      "examples",
      "node_modules"
   ]
