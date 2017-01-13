@@ -20,7 +20,7 @@ It is based on [css-star-rating](https://github.com/BioPhoton/css-star-rating), 
 
 ## DEMO
 - [x] [Example-App](https://github.com/BioPhoton/angular1-star-rating/tree/master/examples/angular1)  
-- [x] [Example-App-Plnkr](https://run.plnkr.co/mEEIdRWQX1fqeOIq/)  
+- [x] [Example-App-Plnkr](https://run.plnkr.co/plunks/OH8mOtkkNpsaqhAivEV8/)  
 
 ## Features
 This module implements all Features from [CSS-STAR-RATING](https://github.com/BioPhoton/css-star-rating).
