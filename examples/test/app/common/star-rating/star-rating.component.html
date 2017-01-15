@@ -1,0 +1,19 @@
+<div id="{{id}}"
+     class="star-icon rating {{rating?'value-'+ratingAsInteger:0}} {{hasHalfStarClass?'half':''}} {{color?'color-'+color:''}} {{starType?'star-'+starType:''}} {{speed}} {{size}} {{labelPosition?'label-'+labelPosition:''}}"
+     ng-class="{'read-only':readOnly, 'disabled':disabled, 'spread':spread}">
+
+  <div ng-show="text" class="label-value">{{text}}</div>
+
+  <div class="star-container">
+
+    <div class="star"
+         *ngFor="let star of stars"
+         (click)="onStarClicked(star)">
+
+      <i class="star-empty {{classEmpty}}"></i>
+      <i class="star-empty {{classHalf}}"></i>
+      <i class="star-filled {{classFilled}}"></i>
+
+    </div>
+  </div>
+</div>

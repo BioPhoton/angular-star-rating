@@ -2,8 +2,9 @@ import {Component, OnInit, Input, Output, OnChanges, EventEmitter} from '@angula
 import {ConfigFormConfig} from "./config-form-config";
 
 @Component({
+  moduleId: module.id,
   selector: 'config-form',
-  templateUrl: 'app/common/config-form/config-form.component.html',
+  templateUrl: 'config-form.component.html',
 })
 export class ConfigFormComponent implements OnInit, OnChanges {
 
@@ -18,4 +19,5 @@ export class ConfigFormComponent implements OnInit, OnChanges {
   ngOnChanges() {
 
   }
+
 }

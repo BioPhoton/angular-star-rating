@@ -5,7 +5,7 @@ import { AppComponent }  from './app.component';
 import {StartModule} from "./component/start/start.module";
 
 @NgModule({
-  imports:      [ BrowserModule, StartModule ],
+  imports:      [ BrowserModule, StartModule],
   declarations: [ AppComponent],
   bootstrap:    [ AppComponent ]
 })

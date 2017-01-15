@@ -1,8 +1,9 @@
 import {Component, OnInit, Input, Output, OnChanges, EventEmitter} from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'start',
-  templateUrl: 'app/component/start/start.component.html',
+  templateUrl: 'start.component.html',
 })
 export class StartComponent implements OnInit, OnChanges {
 
