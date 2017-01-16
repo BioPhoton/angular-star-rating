@@ -267,7 +267,8 @@ Return: boolean
 ```html
 <star-rating-comp [getHalfStarClass]="ctrl.getHalfStarClass(rating)" rating="3.2"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_class-function.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_visible-default.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_visible-custom.PNG" width="290">
 
 ### & bindings
 
