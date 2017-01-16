@@ -277,7 +277,7 @@ Params: rating
 ```html
 <star-rating-comp (onClick)="ctrl.onClick(rating)"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_click-function.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_click-counter.PNG" width="290">
 
 **onUpdate**: Function (Optional)  
 Callback function for rating update event 
@@ -285,4 +285,4 @@ Params: rating
 ```html
 <star-rating-comp (onUpdate)="ctrl.onUpdate(rating)"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_update-function.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_update-2waybinding.PNG" width="290">
