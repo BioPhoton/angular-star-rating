@@ -46,6 +46,8 @@ export class StarRatingConfig implements IStarRatingCompBindings {
 
   svgPathFilled: string = this.svgPath + "#" + this.svgFilledSymbolId;
 
+  getColor:(rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
+  /*
   getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors {
     rating = rating || 0;
 
@@ -71,7 +73,7 @@ export class StarRatingConfig implements IStarRatingCompBindings {
 
     return color;
   }
-
+*/
   getHalfStarVisible(rating: number): boolean {
     return Math.abs(rating % 1) > 0;
   }
