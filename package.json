@@ -1,8 +1,7 @@
 {
   "name": "angular-star-rating",
-  "version": "0.0.0",
+  "version": "2.0.0-beta.0",
   "license": "MIT",
-  "angular-cli": {},
   "scripts": {
     "start": "ng server",
     "postinstall": "typings install",

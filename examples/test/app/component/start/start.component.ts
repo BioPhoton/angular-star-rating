@@ -1,4 +1,5 @@
-import {Component, OnInit, Input, Output, OnChanges, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
+import {ItemService} from "./item.service";
 
 @Component({
   moduleId: module.id,
@@ -7,7 +8,11 @@ import {Component, OnInit, Input, Output, OnChanges, EventEmitter} from '@angula
 })
 export class StartComponent implements OnInit, OnChanges {
 
-  constructor() {}
+  questions: any[];
+
+  constructor(protected service:ItemService) {
+   this.questions = service.getQuestions();
+  }
 
   ngOnInit() {
 
