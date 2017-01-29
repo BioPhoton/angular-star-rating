@@ -2,6 +2,7 @@ import { Injectable }       from '@angular/core';
 import { ItemBase }     from '../../common/dynamic-form/item/item-base';
 import { SelectQuestion } from '../../common/dynamic-form/item/item-select';
 import { TextboxQuestion }  from '../../common/dynamic-form/item/item-textbox';
+import {RadioItem} from "../../common/dynamic-form/item/item-radio";
 
 @Injectable()
 export class ItemService {
@@ -20,6 +21,15 @@ export class ItemService {
           {key: 'good',   value: 'Good'}
           ],
         order: 3
+      }),
+      new RadioItem({
+        key: 'showHalfStars',
+        label: 'Show half stars',
+        options: [
+          {key: 'yes',   value: 'Yes'},
+          {key: 'no',  value: 'No'},
+        ],
+        order: 4
       }),
       new TextboxQuestion({
         key: 'numOfStars',

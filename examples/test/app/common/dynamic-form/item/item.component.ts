@@ -4,7 +4,7 @@ import { ItemBase }     from './item-base';
 @Component({
   moduleId: module.id,
   selector: 'df-question',
-  templateUrl: '../dynamic-form-question.component.html'
+  templateUrl: 'item.component.html',
 })
 export class DynamicFormQuestionComponent {
   @Input() question: ItemBase<any>;
