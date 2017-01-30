@@ -14,4 +14,6 @@ const EXPORTS = [ StarRatingComponent ];
   declarations: [ EXPORTS ],
   providers: [ StarRatingConfig ]
 })
-export class StarRatingModule { }
+export class StarRatingModule {
+
+}

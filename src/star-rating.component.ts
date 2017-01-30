@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, OnChanges, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, OnChanges, EventEmitter, SimpleChanges} from '@angular/core';
 import {
   starRatingSizes,
   starRatingSpeed,
@@ -7,16 +7,20 @@ import {
   starRatingStarSpace,
   starRatingStarTypes,
   IStarRatingOnClickEvent,
-  IStarRatingOnUpdateEvent
+  IStarRatingOnRatingChangeEvent
 } from "./star-rating-struct";
 import {StarRatingConfig} from "./star-rating-config";
 
 @Component({
+  moduleId: module.id,
   selector: 'star-rating-comp',
-  templateUrl: './star-rating.component.html',
-  styleUrls : ['css-star-rating/dist/css/star-rating.css']
+  templateUrl: 'star-rating.component.html',
+  styleUrls: ['star-rating.css']
 })
 export class StarRatingComponent implements OnInit, OnChanges {
+
+  //Static methods
+  ///////////////////////////////////////////////////////////////////////////////////////////
 
   /**
    * _getStarsArray
@@ -27,11 +31,61 @@ export class StarRatingComponent implements OnInit, OnChanges {
    * @returns {Array}
    */
   static _getStarsArray(numOfStars: number): Array<number> {
-    let stars = [];
+    let stars: Array<number> = [];
     for (let i = 0; i < numOfStars; i++) {
       stars.push(i + 1);
     }
     return stars;
+  }
+
+  /**
+   * _getHalfStarVisible
+   *
+   * Returns true if there should be a half star visible, and false if not.
+   *
+   * @param rating
+   * @returns {boolean}
+   */
+  static _getHalfStarVisible(rating: number): boolean {
+    return Math.abs(rating % 1) > 0;
+  }
+
+  /**
+   * _getColor
+   *
+   * The default function for color calculation
+   * based on the current rating and the the number of stars possible.
+   * If a staticColor is set the function will use it as return value.
+   *
+   * @param rating
+   * @param numOfStars
+   * @param staticColor
+   * @returns {starRatingColors}
+   */
+  static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors {
+    rating = rating || 0;
+
+    //if a fix color is set use this one
+    if (staticColor) {
+      return staticColor;
+    }
+
+    //calculate size of smallest fraction
+    let fractionSize = numOfStars / 3;
+
+    //apply color by fraction
+    let color: starRatingColors = 'default';
+    if (rating > 0) {
+      color = 'negative';
+    }
+    if (rating > fractionSize) {
+      color = 'ok';
+    }
+    if (rating > fractionSize * 2) {
+      color = 'positive';
+    }
+
+    return color;
   }
 
   //Inputs
@@ -41,11 +95,15 @@ export class StarRatingComponent implements OnInit, OnChanges {
    * id property to identify the DOM element
    */
   protected _id: string;
-  get id(): string { return this._id; }
-  @Input('id')
+  get id(): string {
+    return this._id;
+  }
+
+  @Input()
   set id(value: string) {
     this._id = value || '';
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -56,10 +114,11 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._labelText;
   }
 
-  @Input('labelText')
+  @Input()
   set labelText(value: string) {
     this._labelText = value;
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -70,10 +129,11 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._labelPosition;
   }
 
-  @Input('labelPosition')
+  @Input()
   set labelPosition(value: starRatingPosition) {
     this._labelPosition = value || this.config.labelPosition;
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -85,13 +145,14 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._staticColor;
   }
 
-  @Input('staticColor')
+  @Input()
   set staticColor(value: starRatingColors) {
     this._staticColor = value || undefined;
 
     //update color.
-    //this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+    this.setColor();
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -103,7 +164,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._numOfStars;
   }
 
-  @Input('numOfStars')
+  @Input()
   set numOfStars(value: number) {
     this._numOfStars = (value > 0) ? value : this.config.numOfStars;
 
@@ -111,8 +172,9 @@ export class StarRatingComponent implements OnInit, OnChanges {
     this.stars = StarRatingComponent._getStarsArray(this.numOfStars);
 
     //update color
-    //this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+    this.setColor();
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -123,10 +185,12 @@ export class StarRatingComponent implements OnInit, OnChanges {
   get speed(): starRatingSpeed {
     return this._speed;
   }
-  @Input('speed')
+
+  @Input()
   set speed(value: starRatingSpeed) {
     this._speed = value || this.config.speed;
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -138,10 +202,11 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._size;
   }
 
-  @Input('size')
+  @Input()
   set size(value: starRatingSizes) {
     this._size = value || this.config.size;
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -153,10 +218,11 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._starType;
   }
 
-  @Input('starType')
+  @Input()
   set starType(value: starRatingStarTypes) {
     this._starType = value || this.config.starType;
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -168,10 +234,11 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._space;
   }
 
-  @Input('space')
+  @Input()
   set space(value: starRatingStarSpace) {
     this._space = value;
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -183,10 +250,11 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._readOnly;
   }
 
-  @Input('readOnly')
+  @Input()
   set readOnly(value: boolean) {
     this._readOnly = !!value;
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -198,10 +266,11 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._disabled;
   }
 
-  @Input('disabled')
+  @Input()
   set disabled(value: boolean) {
     this._disabled = !!value;
   }
+
   /////////////////////////////////////////////
 
   /**
@@ -213,7 +282,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._rating;
   }
 
-  @Input('rating')
+  @Input()
   set rating(value: number) {
     //validate and apply newRating
     let newRating: number = 0;
@@ -231,11 +300,15 @@ export class StarRatingComponent implements OnInit, OnChanges {
     this.ratingAsInteger = parseInt(this._rating.toString());
 
     //update halfStarsVisible
-    //this.halfStarVisible = (this.showHalfStars) ? this.getHalfStarVisible(this._rating) : false;
+    this.setHalfStarVisible();
 
-    //fire onUpdate event
-    let $event: IStarRatingOnUpdateEvent = {rating: this._rating};
-    //this.onUpdate.emit($event);
+    //update calculated Color
+    this.setColor();
+
+
+    //fire onRatingChange event
+    let $event: IStarRatingOnRatingChangeEvent = {rating: this._rating};
+    this.onRatingChange.emit($event);
   }
 
 
@@ -248,27 +321,37 @@ export class StarRatingComponent implements OnInit, OnChanges {
     return this._showHalfStars;
   }
 
-  @Input('showHalfStars')
+  @Input()
   set showHalfStars(value: boolean) {
     this._showHalfStars = !!value;
 
     //update halfStarVisible
-    //this.halfStarVisible = (this._showHalfStars) ? this.getHalfStarVisible(this.rating) : false;
+    this.setHalfStarVisible();
   }
+
   /////////////////////////////////////////////
 
+  /**
+   * getColor
+   */
+  @Input()
+  getColor: (rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
+  /////////////////////////////////////////////
 
-  //getHalfStarVisible: (rating: number) => boolean;
-
-  //getColor: (rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
-
+  /**
+   * getHalfStarVisible
+   */
+  @Input()
+  getHalfStarVisible: (rating: number) => boolean;
+  /////////////////////////////////////////////
 
   //Output
   ///////////////////////////////////////////////////////////////////////////////////////////
-  @Output() onClick: EventEmitter<IStarRatingOnClickEvent>;
-  @Output() onUpdate: EventEmitter<IStarRatingOnUpdateEvent>;
+  @Output()
+  onClick: EventEmitter<IStarRatingOnClickEvent> = new EventEmitter<IStarRatingOnClickEvent>();
 
-
+  @Output()
+  onRatingChange: EventEmitter<IStarRatingOnRatingChangeEvent> = new EventEmitter<IStarRatingOnRatingChangeEvent>();
 
   //CTRL ONLY
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -286,6 +369,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
   halfStarVisible: boolean;
 
   constructor(protected config: StarRatingConfig) {
+
     //set default ctrl props
     this.classEmpty = config.classEmpty;
     this.classHalf = config.classHalf;
@@ -295,13 +379,45 @@ export class StarRatingComponent implements OnInit, OnChanges {
     this.pathFilled = config.svgPathFilled;
 
     //set default Component Inputs
-    //this.getColor = config.getColor;
-    //this.getHalfStarVisible = config.getHalfStarVisible;
+    if ('getColor' in config && typeof config.getColor === "function") {
+      this.getColor = config.getColor;
+    }
+
+    if ('getHalfStarVisible' in config && typeof config.getHalfStarVisible === "function") {
+      this.getHalfStarVisible = config.getHalfStarVisible;
+    }
+
     this.numOfStars = config.numOfStars;
     this.rating = 0;
 
   }
 
+
+  setColor(): void {
+    //check if custom function is given
+    if (typeof this.getColor === "function") {
+      this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+    }
+    else {
+      this.color = StarRatingComponent._getColor(this.rating, this.numOfStars, this.staticColor);
+    }
+  }
+
+  setHalfStarVisible(): void {
+    //update halfStarVisible
+    if (this.showHalfStars) {
+      //check if custom function is given
+      if (typeof this.getHalfStarVisible === "function") {
+        this.halfStarVisible = this.getHalfStarVisible(this.rating);
+      } else {
+        this.halfStarVisible = StarRatingComponent._getHalfStarVisible(this.rating);
+      }
+
+    }
+    else {
+      this.halfStarVisible = false;
+    }
+  }
 
   /**
    * onStarClicked
@@ -325,14 +441,20 @@ export class StarRatingComponent implements OnInit, OnChanges {
 
     this.rating = rating;
 
+    let onClickEventObject:IStarRatingOnClickEvent = {
+      rating:this.rating
+    };
+    this.onClick.emit(onClickEventObject);
+
   }
 
   ngOnInit() {
 
   }
 
-  ngOnChanges(changes) {
-    let valueChanged = function (key: string, changes): boolean {
+  ngOnChanges(changes: SimpleChanges): void {
+
+    let valueChanged = function (key: string, changes: SimpleChanges): boolean {
       if (key in changes) {
         if (
           //(changes[key].previousValue != 'UNINITIALIZED_VALUE' && changes[key].currentValue !== undefined)
@@ -349,53 +471,53 @@ export class StarRatingComponent implements OnInit, OnChanges {
 
     //boolean
     if (valueChanged('showHalfStars', changes)) {
-      this.showHalfStars = changes.showHalfStars.currentValue;
+      this.showHalfStars = changes['showHalfStars'].currentValue;
     }
 
     if (valueChanged('space', changes)) {
-      this.space = changes.space.currentValue;
+      this.space = changes['space'].currentValue;
     }
 
     if (valueChanged('readOnly', changes)) {
-      this.readOnly = changes.readOnly.currentValue;
+      this.readOnly = changes['readOnly'].currentValue;
     }
 
     if (valueChanged('disabled', changes)) {
-      this.disabled = !!changes.disabled.currentValue;
+      this.disabled = !!changes['disabled'].currentValue;
     }
 
     //number
     if (valueChanged('rating', changes)) {
-      this.rating = changes.rating.currentValue;
+      this.rating = changes['rating'].currentValue;
     }
 
     if (valueChanged('numOfStars', changes)) {
-      this.numOfStars = changes.numOfStars.currentValue;
+      this.numOfStars = changes['numOfStars'].currentValue;
     }
 
     //string
     if (valueChanged('labelText', changes)) {
-      this.labelText = changes.labelText.currentValue;
+      this.labelText = changes['labelText'].currentValue;
     }
 
     if (valueChanged('staticColor', changes)) {
-      this.staticColor = changes.staticColor.currentValue;
+      this.staticColor = changes['staticColor'].currentValue;
     }
 
     if (valueChanged('size', changes)) {
-      this.size = changes.size.currentValue;
+      this.size = changes['size'].currentValue;
     }
 
     if (valueChanged('speed', changes)) {
-      this.speed = changes.speed.currentValue;
+      this.speed = changes['speed'].currentValue;
     }
 
     if (valueChanged('labelPosition', changes)) {
-      this.labelPosition = changes.labelPosition.currentValue;
+      this.labelPosition = changes['labelPosition'].currentValue;
     }
 
     if (valueChanged('starType', changes)) {
-      this.starType = changes.starType.currentValue;
+      this.starType = changes['starType'].currentValue;
     }
 
   }

@@ -1,0 +1,605 @@
+@charset "UTF-8";
+/*VARIABLES
+====================================================*/
+/*Range*/
+/*Spacing*/
+/*Colors*/
+/*Sizes*/
+/*Animation*/
+/*Icons*/
+/*Disabled*/
+/*CSS Star Rating Elements
+=================================================================*/
+/*HELPER*/
+.center-all {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+/*
+Star element
+==================================================================*/
+.star {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    /*
+  Fill states
+  ==================================================================*/
+    /*
+  Colors
+  ==================================================================*/
+    /*
+  Icon Types
+  ==================================================================*/
+    /*
+  Star Size
+  ===================================================================*/
+    /*
+Disabled
+=================================================*/
+    /*
+  Direction
+  =================================================*/
+}
+
+.star svg, .star i {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-style: normal;
+}
+
+.star svg.star-half, .star svg.star-filled, .star i.star-half, .star i.star-filled {
+    opacity: 0;
+}
+
+.star i {
+    top: 1px;
+    display: none;
+}
+
+.star.icon i, .rating.star-icon i {
+    font-size: 25px;
+    line-height: 25px;
+}
+
+.star.icon i.star-empty:before, .rating.star-icon i.star-empty:before {
+    content: "☆";
+}
+
+.star.icon i.star-half:before, .rating.star-icon i.star-half:before {
+    content: "★";
+}
+
+.star.icon i.star-filled:before, .rating.star-icon i.star-filled:before {
+    content: "★";
+}
+
+.star.custom-icon i, .rating.star-custom-icon i, .rating.theme-kununu .star-container .star i {
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.star.empty svg.star-half, .star.empty svg.star-filled, .star.empty i.star-half, .star.empty i.star-filled {
+    opacity: 0;
+}
+
+.star.empty svg.star-empty, .star.empty i.star-empty {
+    opacity: 1;
+}
+
+.star.half svg.star-filled, .rating.value-0.half .star:nth-child(1) svg.star-filled, .rating.value-1.half .star-container .star:nth-child(2) svg.star-filled, .rating.value-2.half .star-container .star:nth-child(3) svg.star-filled, .rating.value-3.half .star-container .star:nth-child(4) svg.star-filled, .rating.value-4.half .star-container .star:nth-child(5) svg.star-filled, .rating.value-5.half .star-container .star:nth-child(6) svg.star-filled, .star.half svg.star-empty, .rating.value-0.half .star:nth-child(1) svg.star-empty, .rating.value-1.half .star-container .star:nth-child(2) svg.star-empty, .rating.value-2.half .star-container .star:nth-child(3) svg.star-empty, .rating.value-3.half .star-container .star:nth-child(4) svg.star-empty, .rating.value-4.half .star-container .star:nth-child(5) svg.star-empty, .rating.value-5.half .star-container .star:nth-child(6) svg.star-empty, .star.half i.star-filled, .rating.value-0.half .star:nth-child(1) i.star-filled, .rating.value-1.half .star-container .star:nth-child(2) i.star-filled, .rating.value-2.half .star-container .star:nth-child(3) i.star-filled, .rating.value-3.half .star-container .star:nth-child(4) i.star-filled, .rating.value-4.half .star-container .star:nth-child(5) i.star-filled, .rating.value-5.half .star-container .star:nth-child(6) i.star-filled, .star.half i.star-empty, .rating.value-0.half .star:nth-child(1) i.star-empty, .rating.value-1.half .star-container .star:nth-child(2) i.star-empty, .rating.value-2.half .star-container .star:nth-child(3) i.star-empty, .rating.value-3.half .star-container .star:nth-child(4) i.star-empty, .rating.value-4.half .star-container .star:nth-child(5) i.star-empty, .rating.value-5.half .star-container .star:nth-child(6) i.star-empty {
+    opacity: 0;
+}
+
+.star.half svg.star-half, .rating.value-0.half .star:nth-child(1) svg.star-half, .rating.value-1.half .star-container .star:nth-child(2) svg.star-half, .rating.value-2.half .star-container .star:nth-child(3) svg.star-half, .rating.value-3.half .star-container .star:nth-child(4) svg.star-half, .rating.value-4.half .star-container .star:nth-child(5) svg.star-half, .rating.value-5.half .star-container .star:nth-child(6) svg.star-half, .star.half i.star-half, .rating.value-0.half .star:nth-child(1) i.star-half, .rating.value-1.half .star-container .star:nth-child(2) i.star-half, .rating.value-2.half .star-container .star:nth-child(3) i.star-half, .rating.value-3.half .star-container .star:nth-child(4) i.star-half, .rating.value-4.half .star-container .star:nth-child(5) i.star-half, .rating.value-5.half .star-container .star:nth-child(6) i.star-half {
+    opacity: 1;
+}
+
+.star.filled svg.star-empty, .rating.value-1 .star-container .star:nth-child(-n+1) svg.star-empty, .rating.value-2 .star-container .star:nth-child(-n+2) svg.star-empty, .rating.value-3 .star-container .star:nth-child(-n+3) svg.star-empty, .rating.value-4 .star-container .star:nth-child(-n+4) svg.star-empty, .rating.value-5 .star-container .star:nth-child(-n+5) svg.star-empty, .rating.value-6 .star-container .star:nth-child(-n+6) svg.star-empty, .rating.value-7 .star-container .star:nth-child(-n+7) svg.star-empty, .rating.value-8 .star-container .star:nth-child(-n+8) svg.star-empty, .rating.value-9 .star-container .star:nth-child(-n+9) svg.star-empty, .rating.value-10 .star-container .star:nth-child(-n+10) svg.star-empty, .rating.value-11 .star-container .star:nth-child(-n+11) svg.star-empty, .rating.value-12 .star-container .star:nth-child(-n+12) svg.star-empty, .star.filled svg.star-filled, .rating.value-1 .star-container .star:nth-child(-n+1) svg.star-filled, .rating.value-2 .star-container .star:nth-child(-n+2) svg.star-filled, .rating.value-3 .star-container .star:nth-child(-n+3) svg.star-filled, .rating.value-4 .star-container .star:nth-child(-n+4) svg.star-filled, .rating.value-5 .star-container .star:nth-child(-n+5) svg.star-filled, .rating.value-6 .star-container .star:nth-child(-n+6) svg.star-filled, .rating.value-7 .star-container .star:nth-child(-n+7) svg.star-filled, .rating.value-8 .star-container .star:nth-child(-n+8) svg.star-filled, .rating.value-9 .star-container .star:nth-child(-n+9) svg.star-filled, .rating.value-10 .star-container .star:nth-child(-n+10) svg.star-filled, .rating.value-11 .star-container .star:nth-child(-n+11) svg.star-filled, .rating.value-12 .star-container .star:nth-child(-n+12) svg.star-filled, .star.filled i.star-empty, .rating.value-1 .star-container .star:nth-child(-n+1) i.star-empty, .rating.value-2 .star-container .star:nth-child(-n+2) i.star-empty, .rating.value-3 .star-container .star:nth-child(-n+3) i.star-empty, .rating.value-4 .star-container .star:nth-child(-n+4) i.star-empty, .rating.value-5 .star-container .star:nth-child(-n+5) i.star-empty, .rating.value-6 .star-container .star:nth-child(-n+6) i.star-empty, .rating.value-7 .star-container .star:nth-child(-n+7) i.star-empty, .rating.value-8 .star-container .star:nth-child(-n+8) i.star-empty, .rating.value-9 .star-container .star:nth-child(-n+9) i.star-empty, .rating.value-10 .star-container .star:nth-child(-n+10) i.star-empty, .rating.value-11 .star-container .star:nth-child(-n+11) i.star-empty, .rating.value-12 .star-container .star:nth-child(-n+12) i.star-empty, .star.filled i.star-filled, .rating.value-1 .star-container .star:nth-child(-n+1) i.star-filled, .rating.value-2 .star-container .star:nth-child(-n+2) i.star-filled, .rating.value-3 .star-container .star:nth-child(-n+3) i.star-filled, .rating.value-4 .star-container .star:nth-child(-n+4) i.star-filled, .rating.value-5 .star-container .star:nth-child(-n+5) i.star-filled, .rating.value-6 .star-container .star:nth-child(-n+6) i.star-filled, .rating.value-7 .star-container .star:nth-child(-n+7) i.star-filled, .rating.value-8 .star-container .star:nth-child(-n+8) i.star-filled, .rating.value-9 .star-container .star:nth-child(-n+9) i.star-filled, .rating.value-10 .star-container .star:nth-child(-n+10) i.star-filled, .rating.value-11 .star-container .star:nth-child(-n+11) i.star-filled, .rating.value-12 .star-container .star:nth-child(-n+12) i.star-filled {
+    opacity: 0;
+}
+
+.star.filled svg.star-filled, .rating.value-1 .star-container .star:nth-child(-n+1) svg.star-filled, .rating.value-2 .star-container .star:nth-child(-n+2) svg.star-filled, .rating.value-3 .star-container .star:nth-child(-n+3) svg.star-filled, .rating.value-4 .star-container .star:nth-child(-n+4) svg.star-filled, .rating.value-5 .star-container .star:nth-child(-n+5) svg.star-filled, .rating.value-6 .star-container .star:nth-child(-n+6) svg.star-filled, .rating.value-7 .star-container .star:nth-child(-n+7) svg.star-filled, .rating.value-8 .star-container .star:nth-child(-n+8) svg.star-filled, .rating.value-9 .star-container .star:nth-child(-n+9) svg.star-filled, .rating.value-10 .star-container .star:nth-child(-n+10) svg.star-filled, .rating.value-11 .star-container .star:nth-child(-n+11) svg.star-filled, .rating.value-12 .star-container .star:nth-child(-n+12) svg.star-filled, .star.filled i.star-filled, .rating.value-1 .star-container .star:nth-child(-n+1) i.star-filled, .rating.value-2 .star-container .star:nth-child(-n+2) i.star-filled, .rating.value-3 .star-container .star:nth-child(-n+3) i.star-filled, .rating.value-4 .star-container .star:nth-child(-n+4) i.star-filled, .rating.value-5 .star-container .star:nth-child(-n+5) i.star-filled, .rating.value-6 .star-container .star:nth-child(-n+6) i.star-filled, .rating.value-7 .star-container .star:nth-child(-n+7) i.star-filled, .rating.value-8 .star-container .star:nth-child(-n+8) i.star-filled, .rating.value-9 .star-container .star:nth-child(-n+9) i.star-filled, .rating.value-10 .star-container .star:nth-child(-n+10) i.star-filled, .rating.value-11 .star-container .star:nth-child(-n+11) i.star-filled, .rating.value-12 .star-container .star:nth-child(-n+12) i.star-filled {
+    opacity: 1;
+}
+
+.star.default svg, .star-container .star svg {
+    fill: #999;
+}
+
+.star.default i, .star-container .star i {
+    color: #999;
+}
+
+.star.negative svg, .rating.value-1 .star-container .star svg, .rating.value-2 .star-container .star svg, .rating.value-0.half .star svg, .rating.value-1.half .star-container .rating.value-0.star:nth-child(2) .star svg, .rating.value-2.half .star-container .rating.value-0.star:nth-child(3) .star svg, .rating.value-3.half .star-container .rating.value-0.star:nth-child(4) .star svg, .rating.value-4.half .star-container .rating.value-0.star:nth-child(5) .star svg, .rating.value-5.half .star-container .rating.value-0.star:nth-child(6) .star svg {
+    fill: #f03c56;
+}
+
+.star.negative i, .rating.value-1 .star-container .star i, .rating.value-2 .star-container .star i, .rating.value-0.half .star i, .rating.value-1.half .star-container .rating.value-0.star:nth-child(2) .star i, .rating.value-2.half .star-container .rating.value-0.star:nth-child(3) .star i, .rating.value-3.half .star-container .rating.value-0.star:nth-child(4) .star i, .rating.value-4.half .star-container .rating.value-0.star:nth-child(5) .star i, .rating.value-5.half .star-container .rating.value-0.star:nth-child(6) .star i {
+    color: #f03c56;
+}
+
+.star.middle svg, .rating.value-3 .star-container .star svg {
+    fill: #ffc058;
+}
+
+.star.middle i, .rating.value-3 .star-container .star i {
+    color: #ffc058;
+}
+
+.star.positive svg, .rating.value-4 .star-container .star svg, .rating.value-5 .star-container .star svg, .rating.value-6 .star-container .star svg, .rating.value-7 .star-container .star svg, .rating.value-8 .star-container .star svg, .rating.value-9 .star-container .star svg, .rating.value-10 .star-container .star svg, .rating.value-11 .star-container .star svg, .rating.value-12 .star-container .star svg {
+    fill: #7ed321;
+}
+
+.star.positive i, .rating.value-4 .star-container .star i, .rating.value-5 .star-container .star i, .rating.value-6 .star-container .star i, .rating.value-7 .star-container .star i, .rating.value-8 .star-container .star i, .rating.value-9 .star-container .star i, .rating.value-10 .star-container .star i, .rating.value-11 .star-container .star i, .rating.value-12 .star-container .star i {
+    color: #7ed321;
+}
+
+.star.svg i, .rating.star-svg i {
+    display: none;
+}
+
+.star.svg svg, .rating.star-svg svg {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.star.custom-icon svg, .rating.star-custom-icon svg, .rating.theme-kununu .star-container .star svg, .star.icon svg, .rating.star-icon svg {
+    display: none;
+}
+
+.star.custom-icon i, .rating.star-custom-icon i, .rating.theme-kununu .star-container .star i, .star.icon i, .rating.star-icon i {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.star.small, .rating.small .star {
+    width: 10px;
+    height: 9, 5px;
+}
+
+.star.small i, .rating.small .star i {
+    font-size: 11px;
+    line-height: 10px;
+}
+
+.star.medium, .rating.medium .star {
+    width: 20px;
+    height: 20px;
+}
+
+.star.medium i, .rating.medium .star i {
+    font-size: 25px;
+    line-height: 25px;
+}
+
+.star.large, .rating.large .star {
+    width: 35px;
+    height: 33.3px;
+}
+
+.star.large i, .rating.large .star i {
+    font-size: 36px;
+    line-height: 35px;
+}
+
+.star.disabled, .rating.disabled .star-container .star {
+    opacity: 0.5;
+}
+
+.star.direction-rtl svg.star-half, .star-container.direction-rtl .star svg.star-half, .rating.direction-rtl .star-container .star svg.star-half, .star.direction-rtl i.star-half, .star-container.direction-rtl .star i.star-half, .rating.direction-rtl .star-container .star i.star-half {
+    -webkit-transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+.star.direction-ltr svg.star-half, .star-container.direction-ltr .star svg.star-half, .star.direction-ltr i.star-half, .star-container.direction-ltr .star i.star-half {
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+/*
+Label Element
+===================================================================*/
+.label-value {
+    font-size: 18px;
+    line-height: 18px;
+    /*
+  Sizes
+  =================================================================*/
+    /*
+  Disabled
+  =================================================*/
+}
+
+.label-value.small, .rating.small .label-value {
+    font-size: 9.5px;
+    line-height: 9.5px;
+}
+
+.label-value.medium, .rating.medium .label-value {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.label-value.large, .rating.large .label-value {
+    font-size: 28px;
+    line-height: 35px;
+}
+
+.label-value.disabled, .rating.disabled .label-value {
+    opacity: 0.5;
+}
+
+/*
+Star Container
+==================================================================*/
+.star-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    /*
+ Direction
+ ===================================================*/
+    /*
+  Space
+  ======================================================*/
+}
+
+.star-container + .star {
+    margin-left: 5px;
+}
+
+.star-container .star {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.star-container .star svg, .star-container .star i {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.star-container svg {
+    z-index: 2;
+}
+
+.star-container i {
+    z-index: 1;
+}
+
+.star-container.direction-rtl, .rating.direction-rtl .star-container {
+    direction: rtl;
+}
+
+.star-container.direction-ltr {
+    direction: ltr;
+}
+
+.star-container.space-no, .rating.space-no .star-container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.star-container.space-between, .rating.space-between .star-container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.star-container.space-around, .rating.space-around .star-container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+/*
+Rating Component
+========================================================================= */
+.rating {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    /*Rating Value
+  ====================================================*/
+    /*Half stars
+  ====================================================*/
+    /*Label Visible
+  ====================================================*/
+    /*Label Position
+  ====================================================*/
+    /*
+Direction
+===================================================*/
+    /* Star Type
+  ====================================================*/
+    /* Sizes
+  ==========================================================*/
+    /* Space
+  ====================================================*/
+    /* Static Color
+    ====================================================*/
+    /*Disabled
+  ====================================================*/
+    /*AnimationSpeed
+ ====================================================*/
+}
+
+.rating.label-hidden .label-value {
+    display: none;
+}
+
+.rating.label-visible {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.rating.label-top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.rating.label-top .label-value + .star-container {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 5px;
+}
+
+.rating.label-left .label-value {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+
+.rating.label-left .label-value + .star-container {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.rating.label-right {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -moz-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+.rating.label-right .label-value + .star-container {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.rating.label-bottom {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -moz-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+}
+
+.rating.label-bottom .label-value + .star-container {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 5px;
+}
+
+.rating.direction-rtl {
+    direction: rtl;
+}
+
+.rating.direction-ltr {
+    direction: ltr;
+}
+
+.rating.color-default .star-container .star svg {
+    fill: #999;
+}
+
+.rating.color-default .star-container .star i {
+    color: #999;
+}
+
+.rating.color-ok .star-container .star svg {
+    fill: #ffc058;
+}
+
+.rating.color-ok .star-container .star i {
+    color: #ffc058;
+}
+
+.rating.color-positive .star-container .star svg {
+    fill: #7ed321;
+}
+
+.rating.color-positive .star-container .star i {
+    color: #7ed321;
+}
+
+.rating.color-negative .star-container .star svg {
+    fill: #f03c56;
+}
+
+.rating.color-negative .star-container .star i {
+    color: #f03c56;
+}
+
+.rating.immediately .star-container {
+    -webkit-transition: all none;
+    -moz-transition: all none;
+    transition: all none;
+}
+
+.rating.immediately .star-container .star {
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+}
+
+.rating.immediately .star-container .star svg, .rating.immediately .star-container .star i {
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+}
+
+.rating.noticeable .star-container {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.rating.noticeable .star-container .star {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.rating.noticeable .star-container .star svg, .rating.noticeable .star-container .star i {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.rating.slow .star-container {
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+
+.rating.slow .star-container .star {
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+
+.rating.slow .star-container .star svg, .rating.slow .star-container .star i {
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
