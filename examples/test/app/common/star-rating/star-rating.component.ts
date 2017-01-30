@@ -7,7 +7,7 @@ import {
   starRatingStarSpace,
   starRatingStarTypes,
   IStarRatingOnClickEvent,
-  IStarRatingOnUpdateEvent
+  IStarRatingOnRatingChangeEvent
 } from "./star-rating-struct";
 import {StarRatingConfig} from "./star-rating-config";
 
@@ -306,9 +306,9 @@ export class StarRatingComponent implements OnInit, OnChanges {
     this.setColor();
 
 
-    //fire onUpdate event
-    let $event: IStarRatingOnUpdateEvent = {rating: this._rating};
-    //this.onUpdate.emit($event);
+    //fire onRatingChange event
+    let $event: IStarRatingOnRatingChangeEvent = {rating: this._rating};
+    this.onRatingChange.emit($event);
   }
 
 
@@ -348,10 +348,10 @@ export class StarRatingComponent implements OnInit, OnChanges {
   //Output
   ///////////////////////////////////////////////////////////////////////////////////////////
   @Output()
-  onClick: EventEmitter<IStarRatingOnClickEvent>;
+  onClick: EventEmitter<IStarRatingOnClickEvent> = new EventEmitter<IStarRatingOnClickEvent>();
 
   @Output()
-  onUpdate: EventEmitter<IStarRatingOnUpdateEvent>;
+  onRatingChange: EventEmitter<IStarRatingOnRatingChangeEvent> = new EventEmitter<IStarRatingOnRatingChangeEvent>();
 
   //CTRL ONLY
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -369,7 +369,7 @@ export class StarRatingComponent implements OnInit, OnChanges {
   halfStarVisible: boolean;
 
   constructor(protected config: StarRatingConfig) {
-    console.log('config: ', config);
+
     //set default ctrl props
     this.classEmpty = config.classEmpty;
     this.classHalf = config.classHalf;
@@ -379,11 +379,11 @@ export class StarRatingComponent implements OnInit, OnChanges {
     this.pathFilled = config.svgPathFilled;
 
     //set default Component Inputs
-    if ('getColor' in config) {
+    if ('getColor' in config && typeof config.getColor === "function") {
       this.getColor = config.getColor;
     }
 
-    if ('getHalfStarVisible' in config) {
+    if ('getHalfStarVisible' in config && typeof config.getHalfStarVisible === "function") {
       this.getHalfStarVisible = config.getHalfStarVisible;
     }
 
@@ -440,6 +440,11 @@ export class StarRatingComponent implements OnInit, OnChanges {
     }
 
     this.rating = rating;
+
+    let onClickEventObject:IStarRatingOnClickEvent = {
+      rating:this.rating
+    };
+    this.onClick.emit(onClickEventObject);
 
   }
 
