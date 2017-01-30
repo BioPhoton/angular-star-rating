@@ -42,6 +42,8 @@ export class ItemService {
       new TextboxQuestion({
         key: 'labelText',
         label: 'Label Txt',
+        placeholder:"Show half stars",
+        help: "the help text",
         type: 'text',
         order: 2
       })

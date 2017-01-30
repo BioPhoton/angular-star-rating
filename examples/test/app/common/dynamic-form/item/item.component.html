@@ -3,19 +3,34 @@
 
   <div [ngSwitch]="question.controlType">
 
-  <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
-         [id]="question.key" [type]="question.type" class="form-control" [attr.aria-describedby]="question.key+'Help'" [attr.placeholder]="question.placeholder">
+  <input *ngSwitchCase="'textbox'"
+         [formControlName]="question.key"
+         [id]="question.key"
+         [type]="question.type"
+         [attr.class]="question.class + ' form-control'"
+         [attr.aria-describedby]="question.key+'Help'"
+         [attr.placeholder]="question.placeholder">
 
 
-  <input *ngSwitchCase="'radio'" [formControlName]="question.key"
-         [id]="question.key" [type]="'text'">
+  <input *ngSwitchCase="'radio'"
+         [formControlName]="question.key"
+         [id]="question.key"
+         [type]="question.type"
+         [attr.class]="question.class + ' form-control'"
+         [attr.aria-describedby]="question.key+'Help'"
+         [attr.placeholder]="question.placeholder">
 
-  <select [id]="question.key" *ngSwitchCase="'select'" [formControlName]="question.key">
+  <select
+    [id]="question.key"
+    *ngSwitchCase="'select'"
+    [formControlName]="question.key"
+    [attr.class]="question.class + ' form-control'"
+    [attr.aria-describedby]="question.key+'Help'"
+    [attr.placeholder]="question.placeholder">
     <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
   </select>
 
 </div>
-
 
   <small [attr.id]="question.key+'Help'" *ngIf="question.help" class="form-text text-muted">{{question.help}}</small>
   <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
