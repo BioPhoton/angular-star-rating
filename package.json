@@ -1,7 +1,41 @@
 {
   "name": "angular-star-rating",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "license": "MIT",
+  "keywords": [
+    "Rating",
+    "Stars",
+    "Star Rating",
+    "Star-Rating",
+    "Starrating",
+    "Angular",
+    "Angular Component",
+    "Icon",
+    "SVG",
+    "CSS",
+    "Pure CSS",
+    "CSS only",
+    "JavaScript",
+    "Typescript",
+    "Material Star Rating"
+  ],
+  "description": "Angular Star Rating is a >2 Angular component written in typescript, based on css only techniques utilizing scss and css3 features",
+  "author": "Michael Hladky",
+  "contributors": [
+    {
+      "name": "Michael Hladky",
+      "email": "michael@hladky.at"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BioPhoton/angular-star-rating.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BioPhoton/angular-star-rating/issues"
+  },
+  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
+  "main": "src/star-rating.module.ts",
   "scripts": {
     "start": "ng server",
     "postinstall": "typings install",
@@ -10,7 +44,6 @@
     "pree2e": "webdriver-manager update",
     "e2e": "protractor"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "2.0.0-rc.1",
     "@angular/compiler": "2.0.0-rc.1",
