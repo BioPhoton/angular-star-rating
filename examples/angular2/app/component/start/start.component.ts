@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, OnChanges, EventEmitter } from '@angular/core';
 import {ItemService} from "./item.service";
 import {IStarRatingOnClickEvent} from "angular-star-rating/src/star-rating-struct";
+import {IStarRatingCompBindings} from "angular-star-rating/src//star-rating-struct";
+import {IDynamicFormOnPayLoadChangeEvent} from "../../common/dynamic-form/dynamic-form-scruct";
 
 @Component({
   moduleId: module.id,
@@ -10,6 +12,9 @@ import {IStarRatingOnClickEvent} from "angular-star-rating/src/star-rating-struc
 export class StartComponent implements OnInit, OnChanges {
 
   questions: any[];
+  starRatingConfig:IStarRatingCompBindings = {
+    rating:0
+  };
 
   constructor(protected service:ItemService) {
    this.questions = service.getQuestions();
@@ -19,6 +24,10 @@ export class StartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+  }
+
+  onPayloadChange($event:IDynamicFormOnPayLoadChangeEvent) {
+    console.log('onPayloadChange $event', $event);
   }
 
   onClick($event:IStarRatingOnClickEvent) {

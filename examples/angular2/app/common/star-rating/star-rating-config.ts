@@ -16,67 +16,39 @@ import {
 @Injectable()
 export class StarRatingConfig implements IStarRatingCompBindings {
 
-  classEmpty: string = "default-star-empty-icon";
+  classEmpty?: string = "default-star-empty-icon";
 
-  classHalf: string = "default-star-half-icon";
+  classHalf?: string = "default-star-half-icon";
 
-  classFilled: string = "default-star-filled-icon";
+  classFilled?: string = "default-star-filled-icon";
 
-  numOfStars: number = 5;
+  numOfStars?: number = 5;
 
-  size: starRatingSizes = "medium";
+  size?: starRatingSizes = "medium";
 
-  speed: starRatingSpeed = "noticeable";
+  speed?: starRatingSpeed = "noticeable";
 
-  labelPosition: starRatingPosition = "left";
+  labelPosition?: starRatingPosition = "left";
 
-  starType: starRatingStarTypes = "svg";
+  starType?: starRatingStarTypes = "svg";
 
-  assetsPath: string = "assets/images/";
+  assetsPath?: string = "assets/images/";
 
 
-  svgPath: string = this.assetsPath + "star-rating.icons.svg";
-  svgEmptySymbolId: string = "star-empty";
-  svgHalfSymbolId: string = "star-half";
-  svgFilledSymbolId: string = "star-filled";
+  svgPath?: string = this.assetsPath + "star-rating.icons.svg";
+  svgEmptySymbolId?: string = "star-empty";
+  svgHalfSymbolId?: string = "star-half";
+  svgFilledSymbolId?: string = "star-filled";
 
-  svgPathEmpty: string = this.svgPath + "#" + this.svgEmptySymbolId;
+  svgPathEmpty?: string = this.svgPath + "#" + this.svgEmptySymbolId;
 
-  svgPathHalf: string = this.svgPath + "#" + this.svgHalfSymbolId;
+  svgPathHalf?: string = this.svgPath + "#" + this.svgHalfSymbolId;
 
-  svgPathFilled: string = this.svgPath + "#" + this.svgFilledSymbolId;
+  svgPathFilled?: string = this.svgPath + "#" + this.svgFilledSymbolId;
 
-  getColor:(rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
-  /*
-  getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors {
-    rating = rating || 0;
+  getColor?:(rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
 
-    //if a fix color is set use this one
-    if (staticColor) {
-      return staticColor;
-    }
-
-    //calculate size of smallest fraction
-    let fractionSize = numOfStars / 3;
-
-    //apply color by fraction
-    let color: starRatingColors = 'default';
-    if (rating > 0) {
-      color = 'negative';
-    }
-    if (rating > fractionSize) {
-      color = 'ok';
-    }
-    if (rating > fractionSize * 2) {
-      color = 'positive';
-    }
-
-    return color;
-  }
-*/
-  getHalfStarVisible(rating: number): boolean {
-    return Math.abs(rating % 1) > 0;
-  }
+  getHalfStarVisible?: (rating: number) => boolean
 
 
 }

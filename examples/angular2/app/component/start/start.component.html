@@ -1,4 +1,4 @@
 <h1>Start</h1>
 <star-rating-comp (onClick)="onClick($event)" (onRatingChange)="onRatingChange($event)"></star-rating-comp>
 
-<dynamic-form [questions]="questions"></dynamic-form>
+<dynamic-form [questions]="questions" (onPayloadChange)="onPayloadChange($event)"></dynamic-form>
