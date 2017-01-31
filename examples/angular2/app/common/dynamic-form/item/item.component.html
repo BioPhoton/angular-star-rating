@@ -5,46 +5,54 @@
 
   <div class="errorMessage" *ngIf="!isValid">{{item.label}} is required</div>
 
+  <input *ngIf="item.controlType === 'textbox'"
+         [formControlName]="item.key"
+         [id]="item.key"
+         [type]="item.type"
+         [attr.class]="'form-control ' + item.class"
+         [attr.aria-describedby]="item.key+'Help'"
+         [attr.placeholder]="item.placeholder">
 
-
-    <input *ngIf="item.controlType === 'textbox'"
-           [formControlName]="item.key"
-           [id]="item.key"
-           [type]="item.type"
-           [attr.class]=" 'form-control ' + item.class"
-           [attr.aria-describedby]="item.key+'Help'"
-           [attr.placeholder]="item.placeholder">
-
-    <label *ngIf="item.controlType === 'radio'">
-      <tr *ngFor="let option of item.options">
-        {{ option.value }}
-          <input [type]="item.type"
-                 [id]="item.key + ' ' + option.key"
-                 name="radiogroup"
-                 [type]="item.type"
-                 [attr.class]="item.class"
-                 [checked]="idx === 0"
-                 [value]="option.key">
-      </tr>
+  <div class="form-check" *ngIf="item.controlType === 'radio'">
+    <label class="form-check-label" *ngFor="let option of item.options">
+      <input [type]="item.type"
+             [id]="item.key + ' ' + option.key"
+             name="radiogroup"
+             [attr.class]="item.class"
+             [checked]="idx === 0"
+             [value]="option.key">
+      {{ option.value }}
     </label>
-    <input *ngIf="item.controlType === 'checkbox'"
-           [formControlName]="item.key"
-           [type]="item.type"
-           [id]="item.key"
-           [attr.class]=" 'form-control ' + item.class"
-           [attr.aria-describedby]="item.key+'Help'"
-           [attr.placeholder]="item.placeholder">
+  </div>
 
-    <select
-      [id]="item.key"
-      *ngIf="item.controlType === 'select'"
-      [formControlName]="item.key"
-      [attr.class]=" 'form-control select ' + item.class"
-      [attr.aria-describedby]="item.key+'Help'"
-      [attr.placeholder]="item.placeholder">
-      <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
-    </select>
+  <input *ngIf="item.controlType === 'checkbox'"
+         [formControlName]="item.key"
+         [type]="item.type"
+         [id]="item.key"
+         [attr.class]="'form-control ' + item.class"
+         [attr.aria-describedby]="item.key+'Help'"
+         [attr.placeholder]="item.placeholder">
 
+  <select
+    *ngIf="item.controlType === 'select'"
+    [id]="item.key"
+    [formControlName]="item.key"
+    [attr.class]="'form-control select ' + item.class"
+    [attr.aria-describedby]="item.key+'Help'"
+    [attr.placeholder]="item.placeholder">
+    <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
+  </select>
+
+  <select
+    *ngIf="item.controlType === 'multiselect'"
+    multiple
+    [id]="item.key"
+    [formControlName]="item.key"
+    [attr.class]="'form-control select ' + item.class"
+    [attr.aria-describedby]="item.key+'Help'"
+    [attr.placeholder]="item.placeholder">
+    <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
+  </select>
 
 
 </div>
