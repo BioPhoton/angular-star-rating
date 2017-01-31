@@ -223,7 +223,7 @@ The click callback is disabled
 Default: false  
 
 ```html
-<star-rating-comp {readOnly]="true"></star-rating-comp>
+<star-rating-comp [readOnly]="true"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="290">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-disabled-false.PNG" width="290">
