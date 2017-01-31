@@ -7,6 +7,6 @@ export interface IDynamicFormOnPayLoadChangeEvent {
 }
 
 export interface IDynamicFormBindings{
-  questions: ItemBase<any>[];
+  items: ItemBase<any>[];
   onPayloadChange:any;
 }
