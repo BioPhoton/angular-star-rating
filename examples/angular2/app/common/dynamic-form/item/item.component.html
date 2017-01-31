@@ -27,12 +27,10 @@
                  [value]="option.key">
       </tr>
     </label>
-
-
     <input *ngIf="item.controlType === 'checkbox'"
            [formControlName]="item.key"
+           [type]="item.type"
            [id]="item.key"
-
            [attr.class]=" 'form-control ' + item.class"
            [attr.aria-describedby]="item.key+'Help'"
            [attr.placeholder]="item.placeholder">
