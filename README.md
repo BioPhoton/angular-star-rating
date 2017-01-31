@@ -48,7 +48,7 @@ It also provides callbacks for all calculation functions used in the component a
 - [x] **getColor** - Custom function to calculate the color for a rating
 - [x] **getHalfStarVisible** - Custom function to calculate value for displaying half stars or not
 - [x] **onClick** - Hook for Click action
-- [x] **onUpdate** - Hook for onUpdate event
+- [x] **onRatingChange** - Hook for onRatingChange event
 
 ## Browser support
 
@@ -95,7 +95,7 @@ export class AppModule { }
          [size]="'large'"
          [rating]="3"
          [text]="'Rating:'"
-         (onUpdate)="crtl.onUpdate($event)">
+         (onRatingChange)="crtl.onRatingChange($event)">
  </star-rating-comp>
 ```
 
@@ -284,6 +284,6 @@ Params: rating
 Callback function for rating update event 
 Params: rating
 ```html
-<star-rating-comp (onUpdate)="ctrl.onUpdate(rating)"></star-rating-comp>
+<star-rating-comp (onRatingChange)="ctrl.onRatingChange(rating)"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_update-2waybinding.PNG" width="290">
