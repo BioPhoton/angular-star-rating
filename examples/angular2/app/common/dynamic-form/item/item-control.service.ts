@@ -7,12 +7,12 @@ import { ItemBase } from './item-base';
 export class ItemControlService {
   constructor() { }
 
-  toFormGroup(questions: ItemBase<any>[] ) {
-    let group: any = {};
+    toFormGroup(items: ItemBase<any>[] ) {
+      let group: any = {};
 
-    questions.forEach(question => {
-      group[question.key] = question.required ? new FormControl(question.value || '', Validators.required)
-        : new FormControl(question.value || '');
+    items.forEach(item => {
+      group[item.key] = item.required ? new FormControl(item.value || '', Validators.required)
+        : new FormControl(item.value || '');
     });
     return new FormGroup(group);
   }
