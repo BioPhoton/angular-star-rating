@@ -7,7 +7,7 @@ import { ItemBase }     from './item-base';
   templateUrl: 'item.component.html',
 })
 export class DynamicFormQuestionComponent {
-  @Input() question: ItemBase<any>;
+  @Input() item: ItemBase<any>;
   @Input() form: FormGroup;
-  get isValid() { return this.form.controls[this.question.key].valid; }
+  get isValid() { return this.form.controls[this.item.key].valid; }
 }

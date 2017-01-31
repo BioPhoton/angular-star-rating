@@ -1,50 +1,50 @@
 <div class="form-group" [formGroup]="form">
-  <label [attr.for]="question.key">{{question.label}}</label>
+  <label [attr.for]="item.key">{{item.label}}</label>
 
-  <small [attr.id]="question.key+'Help'" *ngIf="question.help" class="form-text text-muted">{{question.help}}</small>
+  <small [attr.id]="item.key+'Help'" *ngIf="item.help" class="form-text text-muted">{{item.help}}</small>
 
-  <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+  <div class="errorMessage" *ngIf="!isValid">{{item.label}} is required</div>
 
 
 
-    <input *ngIf="question.controlType === 'textbox'"
-           [formControlName]="question.key"
-           [id]="question.key"
-           [type]="question.type"
-           [attr.class]=" 'form-control ' + question.class"
-           [attr.aria-describedby]="question.key+'Help'"
-           [attr.placeholder]="question.placeholder">
+    <input *ngIf="item.controlType === 'textbox'"
+           [formControlName]="item.key"
+           [id]="item.key"
+           [type]="item.type"
+           [attr.class]=" 'form-control ' + item.class"
+           [attr.aria-describedby]="item.key+'Help'"
+           [attr.placeholder]="item.placeholder">
 
-    <label *ngIf="question.controlType === 'radio'">
-      <tr *ngFor="let option of question.options">
+    <label *ngIf="item.controlType === 'radio'">
+      <tr *ngFor="let option of item.options">
         {{ option.value }}
-          <input [type]="question.type"
-                 [id]="question.key + ' ' + option.key"
+          <input [type]="item.type"
+                 [id]="item.key + ' ' + option.key"
                  name="radiogroup"
-                 [type]="question.type"
-                 [attr.class]="question.class"
+                 [type]="item.type"
+                 [attr.class]="item.class"
                  [checked]="idx === 0"
                  [value]="option.key">
       </tr>
     </label>
 
 
-    <input *ngIf="question.controlType === 'checkbox'"
-           [formControlName]="question.key"
-           [id]="question.key"
+    <input *ngIf="item.controlType === 'checkbox'"
+           [formControlName]="item.key"
+           [id]="item.key"
 
-           [attr.class]=" 'form-control ' + question.class"
-           [attr.aria-describedby]="question.key+'Help'"
-           [attr.placeholder]="question.placeholder">
+           [attr.class]=" 'form-control ' + item.class"
+           [attr.aria-describedby]="item.key+'Help'"
+           [attr.placeholder]="item.placeholder">
 
     <select
-      [id]="question.key"
-      *ngIf="question.controlType === 'select'"
-      [formControlName]="question.key"
-      [attr.class]=" 'form-control select ' + question.class"
-      [attr.aria-describedby]="question.key+'Help'"
-      [attr.placeholder]="question.placeholder">
-      <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+      [id]="item.key"
+      *ngIf="item.controlType === 'select'"
+      [formControlName]="item.key"
+      [attr.class]=" 'form-control select ' + item.class"
+      [attr.aria-describedby]="item.key+'Help'"
+      [attr.placeholder]="item.placeholder">
+      <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
     </select>
 
 
