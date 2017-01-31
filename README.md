@@ -2,7 +2,7 @@
 #### ⭐ Angular Component written in typescript, based on css only techniques. ⭐
 
 ![License](https://img.shields.io/npm/l/angular-star-rating.svg) 
-![Bower Version](https://img.shields.io/bower/v/angular2-star-rating.svg)
+![Bower Version](https://img.shields.io/bower/v/angular-star-rating.svg)
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular-star-rating) 
 
