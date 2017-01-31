@@ -4,7 +4,6 @@ export class ItemBase<T>{
   label: string;
   required: boolean;
   order: number;
-  //placeholder:string;
   controlType: string;
 
   constructor(options: {

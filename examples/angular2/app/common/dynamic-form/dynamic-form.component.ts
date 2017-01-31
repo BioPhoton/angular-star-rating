@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, Output}  from '@angular/core';
 import {FormGroup}                 from '@angular/forms';
 import {ItemBase}              from './item/item-base';
-import {ItemControlService}    from './item/item-control.service';
+import {ItemControlService}    from './item/item.service';
 import {IDynamicFormOnPayLoadChangeEvent} from "./dynamic-form-scruct";
 
 @Component({

@@ -7,3 +7,6 @@ export interface IItemBaseOptions {
   order?: number,
   controlType?: string
 }
+
+//button checkbox color file image radio reset submit
+export type textboxTypes = "text" | "number" | "email" | "tel" | "password" | "date" | "time" | "datetime-local" | "week" | "month" | "url" | "hidden" | "range" | "search";
