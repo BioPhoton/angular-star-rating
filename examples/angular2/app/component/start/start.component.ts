@@ -11,13 +11,13 @@ import {IDynamicFormOnPayLoadChangeEvent} from "../../common/dynamic-form/dynami
 })
 export class StartComponent implements OnInit, OnChanges {
 
-  questions: any[];
+  items: any[];
   starRatingConfig:IStarRatingCompBindings = {
     rating:0
   };
 
   constructor(protected service:ItemService) {
-   this.questions = service.getQuestions();
+   this.items = service.getQuestions();
   }
 
   ngOnInit() {

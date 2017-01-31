@@ -2,8 +2,8 @@
 
 <div>
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let question of questions" class="form-row">
-      <df-item [item]="question" [form]="form"></df-item>
+    <div *ngFor="let item of items" class="form-row">
+      <df-item [item]="item" [form]="form"></df-item>
     </div>
 
     <div class="form-row">

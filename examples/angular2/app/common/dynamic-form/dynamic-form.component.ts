@@ -1,37 +1,38 @@
 import {Component, Input, OnInit, Output}  from '@angular/core';
-import { FormGroup }                 from '@angular/forms';
-import { ItemBase }              from './item/item-base';
-import { ItemControlService }    from './item/item-control.service';
+import {FormGroup}                 from '@angular/forms';
+import {ItemBase}              from './item/item-base';
+import {ItemControlService}    from './item/item-control.service';
 import {IDynamicFormOnPayLoadChangeEvent} from "./dynamic-form-scruct";
 
 @Component({
   moduleId: module.id,
   selector: 'dynamic-form',
   templateUrl: './dynamic-form.component.html',
-  providers: [ ItemControlService ]
+  providers: [ItemControlService]
 })
 export class DynamicFormComponent implements OnInit {
 
-  @Input() questions: ItemBase<any>[] = [];
+  @Input() items: ItemBase<any>[] = [];
   form: FormGroup;
 
   /*
-  @Output()
-  onPayloadChange:EventEmitter<IDynamicFormOnPayLoadChangeEvent> = new EventEmitter<IDynamicFormOnPayLoadChangeEvent>();
-  */
+   @Output()
+   onPayloadChange:EventEmitter<IDynamicFormOnPayLoadChangeEvent> = new EventEmitter<IDynamicFormOnPayLoadChangeEvent>();
+   */
 
-  payLoad:any;
+  payLoad: any;
 
-  constructor(private ics: ItemControlService) {  }
-
-  ngOnInit() {
-    this.form = this.ics.toFormGroup(this.questions);
+  constructor(private ics: ItemControlService) {
   }
 
-  onSubmit($event:IDynamicFormOnPayLoadChangeEvent) {
+  ngOnInit() {
+    this.form = this.ics.toFormGroup(this.items);
+  }
+
+  onSubmit($event: IDynamicFormOnPayLoadChangeEvent) {
 
     this.payLoad = JSON.stringify(this.form.value);
-    let onPayloadChangeEvent:IDynamicFormOnPayLoadChangeEvent = {payLoad: this.payLoad};
+    let onPayloadChangeEvent: IDynamicFormOnPayLoadChangeEvent = {payLoad: this.payLoad};
     //  this.onPayloadChange.emit(onPayloadChangeEvent);
   }
 
