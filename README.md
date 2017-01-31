@@ -147,7 +147,7 @@ Default: undefined
 ```html
 <star-rating-comp [text]="'My text!'"></star-rating-comp>
 ```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-text.PNG" width="290">
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-label_text.PNG" width="290">
 
 **labelPosition**: starRatingPosition (Optional)  
 The position of the label  
@@ -270,20 +270,20 @@ Return: boolean
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_visible-default.PNG" width="290">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-get_half_star_visible-custom.PNG" width="290">
 
-### & bindings
+### Outputs
 
 **onClick**: Function (Optional)  
 Callback function for star click event 
-Params: rating
+Params: $event
 ```html
-<star-rating-comp (onClick)="ctrl.onClick(rating)"></star-rating-comp>
+<star-rating-comp (onClick)="ctrl.onClick($event)"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_click-counter.PNG" width="290">
 
-**onUpdate**: Function (Optional)  
-Callback function for rating update event 
-Params: rating
+**onRatingChange**: Function (Optional)  
+Callback function for rating change event 
+Params: $event
 ```html
-<star-rating-comp (onRatingChange)="ctrl.onRatingChange(rating)"></star-rating-comp>
+<star-rating-comp (onRatingChange)="ctrl.onRatingChange($event)"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/prop-on_update-2waybinding.PNG" width="290">
