@@ -3,7 +3,7 @@
 <div>
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
     <div *ngFor="let question of questions" class="form-row">
-      <df-question [question]="question" [form]="form"></df-question>
+      <df-item [question]="question" [form]="form"></df-item>
     </div>
 
     <div class="form-row">

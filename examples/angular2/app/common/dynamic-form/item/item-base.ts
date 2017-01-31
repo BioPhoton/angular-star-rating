@@ -13,7 +13,6 @@ export class ItemBase<T>{
     label?: string,
     required?: boolean,
     order?: number,
-    //placeholder?:string;
     controlType?: string
   } = {}) {
     this.value = options.value;
@@ -21,7 +20,6 @@ export class ItemBase<T>{
     this.label = options.label || '';
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
-    //this.placeholder = options.placeholder || '';
     this.controlType = options.controlType || '';
   }
 }

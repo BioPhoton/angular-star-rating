@@ -1,5 +1,4 @@
 import {Component, Input, OnInit, Output}  from '@angular/core';
-import {EventEmitter} from "@angular/common";
 import { FormGroup }                 from '@angular/forms';
 import { ItemBase }              from './item/item-base';
 import { ItemControlService }    from './item/item-control.service';
@@ -21,7 +20,7 @@ export class DynamicFormComponent implements OnInit {
   onPayloadChange:EventEmitter<IDynamicFormOnPayLoadChangeEvent> = new EventEmitter<IDynamicFormOnPayLoadChangeEvent>();
   */
 
-  payLoad = '';
+  payLoad:any;
 
   constructor(private ics: ItemControlService) {  }
 
@@ -29,10 +28,10 @@ export class DynamicFormComponent implements OnInit {
     this.form = this.ics.toFormGroup(this.questions);
   }
 
-  onSubmit($event) {
+  onSubmit($event:IDynamicFormOnPayLoadChangeEvent) {
 
     this.payLoad = JSON.stringify(this.form.value);
-    let onPayloadChangeEvvent:IDynamicFormOnPayLoadChangeEvent = {payLoad: this.payLoad};
+    let onPayloadChangeEvent:IDynamicFormOnPayLoadChangeEvent = {payLoad: this.payLoad};
     //  this.onPayloadChange.emit(onPayloadChangeEvent);
   }
 

@@ -3,7 +3,7 @@ import { FormGroup }        from '@angular/forms';
 import { ItemBase }     from './item-base';
 @Component({
   moduleId: module.id,
-  selector: 'df-question',
+  selector: 'df-item',
   templateUrl: 'item.component.html',
 })
 export class DynamicFormQuestionComponent {
