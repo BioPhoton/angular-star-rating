@@ -20,9 +20,30 @@ export class StartComponent implements OnInit, OnChanges {
     labelPosition: "left",
     starType: "svg"
   };
+  demoForms:Array<any>;
 
   constructor(protected service: ItemService) {
     this.items = service.getConfigForm();
+    this.demoForms = [
+      {
+        value: 'Star Rating Config',
+        key: {
+          formItems: service.getConfigForm(),
+          formModel: {
+            rating: 4,
+            numOfStars: 7,
+            size: "large",
+          }
+        }
+      },
+      {
+        value: 'KitchenSink'
+        , key: {
+        forItems: service.getDemoset1()
+      }
+      }
+    ];
+
   }
 
   ngOnInit() {

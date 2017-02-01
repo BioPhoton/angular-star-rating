@@ -10,6 +10,11 @@
   (onRatingChange)="onRatingChange($event)">
 </star-rating-comp>
 
+<select
+  (change)="onDemoFormChane">
+  <option *ngFor="let opt of demoForms" [value]="opt.key">{{opt.value}}</option>
+</select>
+
 <dynamic-form
   [items]="items"
   [model]="starRatingConfig"
