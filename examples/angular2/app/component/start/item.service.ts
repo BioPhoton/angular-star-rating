@@ -5,12 +5,13 @@ import {TextboxItem}  from '../../common/dynamic-form/item/item-textbox';
 import {RadioItem} from "../../common/dynamic-form/item/item-radio";
 import {CheckboxItem} from "../../common/dynamic-form/item/item-checkbox";
 import {MultiselectQuestion} from "../../common/dynamic-form/item/item-multiselect";
+import {ButtonItem} from "../../common/dynamic-form/item/item-button";
 
 @Injectable()
 export class ItemService {
   // Todo: get from a remote source of question metadata
   // Todo: make asynchronous
-  getQuestions() {
+  getConfigForm() {
 
     let questions: ItemBase<any>[] = [
       // id
@@ -23,11 +24,11 @@ export class ItemService {
       }),
       // rating
       new TextboxItem({
-        key: 'labelText',
-        label: 'Label Text',
-        placeholder: "Show half stars",
-        help: "the help text",
-        type: 'text'
+        key: 'rating',
+        label: 'Rating',
+        placeholder: "The rating",
+        help: "Number of stars selected",
+        type: 'number'
       }),
       // showHalfStars
       new CheckboxItem({
@@ -140,12 +141,76 @@ export class ItemService {
           {key: 'no', value: 'No'},
         ],
       }),
+      new ButtonItem({
+        key: 'submit-button',
+        label: 'Reset',
+        type: 'reset'
+      })
       // getHalfStarVisible
 
       // onClick
       // onRatingChange
     ];
     return questions.sort((a, b) => a.order - b.order);
+
+  }
+
+  getDemoset1() {
+
+    let demoset1: ItemBase<any>[] = [
+      // textbox
+      new TextboxItem({
+        key: 'id',
+        label: 'Id',
+        placeholder: "A string here",
+        help: "The id attribute of the component",
+        type: 'text'
+      }),
+      // checkbox
+      new CheckboxItem({
+        key: 'showHalfStars',
+        label: 'showHalfStars',
+        value: 5,
+      }),
+      // select
+      new SelectQuestion({
+        key: 'size',
+        label: 'Stars size',
+        options: [
+          {key: 'small', value: 'Small'},
+          {key: 'medium', value: 'Medium'},
+          {key: 'large', value: 'Large'}
+        ]
+      }),
+      // multiselect
+      new MultiselectQuestion({
+        key: 'staticColor',
+
+        label: 'Static color of the stars',
+        options: [
+          {key: 'default', value: 'Default'},
+          {key: 'bad', value: 'Bad'},
+          {key: 'ok', value: 'Ok'},
+          {key: 'good', value: 'Good'}
+        ]
+      }),
+      //radio
+      new RadioItem({
+        key: 'showHalfStars',
+        label: 'Show half stars',
+        options: [
+          {key: 'yes', value: 'Yes'},
+          {key: 'no', value: 'No'},
+        ],
+      }),
+      //button
+      new ButtonItem({
+        key: 'submit-button',
+        label: 'Reset',
+        type: 'reset'
+      })
+    ];
+    return demoset1;
 
   }
 }

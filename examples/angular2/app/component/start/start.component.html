@@ -1,4 +1,17 @@
 <h1>Start</h1>
-<star-rating-comp (onClick)="onClick($event)" (onRatingChange)="onRatingChange($event)"></star-rating-comp>
+<star-rating-comp
+  [rating]="starRatingConfig.rating"
+  [numOfStars]="starRatingConfig.numOfStars"
+  [size]="starRatingConfig.size"
+  [speed]="starRatingConfig.speed"
+  [labelPosition]="starRatingConfig.labelPosition"
+  [starType]="starRatingConfig.starType"
+  (onClick)="onClick($event)"
+  (onRatingChange)="onRatingChange($event)">
+</star-rating-comp>
 
-<dynamic-form [items]="items" (onPayloadChange)="onPayloadChange($event)"></dynamic-form>
+<dynamic-form
+  [items]="items"
+  [model]="starRatingConfig"
+  (onPayloadChange)="onPayloadChange($event)">
+</dynamic-form>

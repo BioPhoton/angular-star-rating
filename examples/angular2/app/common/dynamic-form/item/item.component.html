@@ -54,5 +54,25 @@
     <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
   </select>
 
+  <textarea
+    *ngIf="item.controlType === 'textarea'"
+    [id]="item.key"
+    [formControlName]="item.key"
+    [attr.class]="'form-control select ' + item.class"
+    [attr.aria-describedby]="item.key+'Help'"
+    [attr.placeholder]="item.placeholder">
+  </textarea>
+
+
+  <button
+    *ngIf="item.controlType === 'textarea'"
+    [id]="item.key"
+    [formControlName]="item.key"
+    [attr.class]="'form-control select ' + item.class"
+    [attr.aria-describedby]="item.key+'Help'"
+    [attr.placeholder]="item.placeholder">
+    {{item.label}}
+  </button>
+
 
 </div>
