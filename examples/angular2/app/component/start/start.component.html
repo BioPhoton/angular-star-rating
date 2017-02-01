@@ -1,4 +1,5 @@
 <h1>Start</h1>
+
 <star-rating-comp
   [rating]="starRatingConfig.rating"
   [numOfStars]="starRatingConfig.numOfStars"
@@ -10,13 +11,15 @@
   (onRatingChange)="onRatingChange($event)">
 </star-rating-comp>
 
-<select
-  (change)="onDemoFormChane">
-  <option *ngFor="let opt of demoForms" [value]="opt.key">{{opt.value}}</option>
-</select>
+
+
+  <select
+    (input)="onSelectChange($event)">
+    <option *ngFor="let opt of demoForms" [value]="opt.key">{{opt.value}}</option>
+  </select>
 
 <dynamic-form
-  [items]="items"
-  [model]="starRatingConfig"
+  [items]="formItems"
+  [model]="formModel"
   (onPayloadChange)="onPayloadChange($event)">
 </dynamic-form>

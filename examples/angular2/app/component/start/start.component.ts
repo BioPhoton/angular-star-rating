@@ -11,7 +11,12 @@ import {IDynamicFormOnPayLoadChangeEvent} from "../../common/dynamic-form/dynami
 })
 export class StartComponent implements OnInit, OnChanges {
 
-  items: any[];
+  demoSelectionForm;
+  demoForms:Array<any>;
+
+  formItems: any[];
+  formModel: {};
+
   starRatingConfig: IStarRatingCompBindings = {
     rating: 4,
     numOfStars: 7,
@@ -20,10 +25,11 @@ export class StartComponent implements OnInit, OnChanges {
     labelPosition: "left",
     starType: "svg"
   };
-  demoForms:Array<any>;
 
   constructor(protected service: ItemService) {
-    this.items = service.getConfigForm();
+    this.formItems = service.getConfigForm();
+
+    this.formModel = this.starRatingConfig;
     this.demoForms = [
       {
         value: 'Star Rating Config',
@@ -52,11 +58,21 @@ export class StartComponent implements OnInit, OnChanges {
   ngOnChanges() {
   }
 
+  /*DEMO SELECT*/
+  onSelectChange($event) {
+    console.log('onSelectChange');
+  }
+  onDemoSelectionSubmit(value, valid) {
+    console.log('onSelectChange', value, valid);
+  }
+
+  /*DYNAMIC FORM COMPONENT*/
   onPayloadChange($event) {
     console.log('onPayloadChange $event', $event);
     this.starRatingConfig = $event.payLoad;
   }
 
+  /*STAR RATING COMPONENT*/
   onClick($event: IStarRatingOnClickEvent) {
     console.log('onClick $event', $event);
   }
@@ -68,4 +84,5 @@ export class StartComponent implements OnInit, OnChanges {
     //this.starRatingConfig =  JSON.parse(JSON.stringify(this.starRatingConfig));
 
   }
+
 }
