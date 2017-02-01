@@ -1,6 +1,6 @@
 import {Injectable}       from '@angular/core';
 import {ItemBase}     from '../../common/dynamic-form/item/item-base';
-import {SelectQuestion} from '../../common/dynamic-form/item/item-select';
+import {SelectItem} from '../../common/dynamic-form/item/item-select';
 import {TextboxItem}  from '../../common/dynamic-form/item/item-textbox';
 import {RadioItem} from "../../common/dynamic-form/item/item-radio";
 import {CheckboxItem} from "../../common/dynamic-form/item/item-checkbox";
@@ -44,7 +44,7 @@ export class ItemService {
         value: 5,
       }),
       // size
-      new SelectQuestion({
+      new SelectItem({
         key: 'size',
         label: 'Stars size',
         options: [
@@ -54,7 +54,7 @@ export class ItemService {
         ]
       }),
       // spread
-      new SelectQuestion({
+      new SelectItem({
         key: 'spread',
         label: 'Stars spread',
         options: [
@@ -66,7 +66,6 @@ export class ItemService {
       // staticColor
       new MultiselectQuestion({
         key: 'staticColor',
-
         label: 'Static color of the stars',
         options: [
           {key: 'default', value: 'Default'},
@@ -81,7 +80,7 @@ export class ItemService {
         label: 'Disabled'
       }),
       // starType
-      new SelectQuestion({
+      new SelectItem({
         key: 'starType',
         label: 'Type of the stars',
         options: [
@@ -97,7 +96,7 @@ export class ItemService {
         type: 'string'
       }),
       // labelPosition
-      new SelectQuestion({
+      new SelectItem({
         key: 'labelPosition',
         label: 'Label Position',
         options: [
@@ -108,7 +107,7 @@ export class ItemService {
         ]
       }),
       // speed
-      new SelectQuestion({
+      new SelectItem({
         key: 'speed',
         label: 'Animation Speed',
         options: [
@@ -118,7 +117,7 @@ export class ItemService {
         ]
       }),
       // direction
-      new SelectQuestion({
+      new SelectItem({
         key: 'direction',
         label: 'Direction',
         options: [
@@ -142,12 +141,11 @@ export class ItemService {
         ],
       }),
       new ButtonItem({
-        key: 'submit-button',
+        key: 'submitButton',
         label: 'Reset',
         type: 'reset'
       })
       // getHalfStarVisible
-
       // onClick
       // onRatingChange
     ];
@@ -155,16 +153,15 @@ export class ItemService {
 
   }
 
-  getDemoset1() {
-
+  getKitchenSink() {
     let demoset1: ItemBase<any>[] = [
       // textbox
       new TextboxItem({
-        key: 'id',
-        label: 'Id',
-        placeholder: "A string here",
-        help: "The id attribute of the component",
-        type: 'text'
+        key: "id",
+        label: "Id",
+        //placeholder: "A string here",
+        //help: "The id attribute of the component",
+        type: "text"
       }),
       // checkbox
       new CheckboxItem({
@@ -173,7 +170,7 @@ export class ItemService {
         value: 5,
       }),
       // select
-      new SelectQuestion({
+      new SelectItem({
         key: 'size',
         label: 'Stars size',
         options: [
@@ -211,6 +208,87 @@ export class ItemService {
       })
     ];
     return demoset1;
-
   }
+
+  getGenericElement() {
+
+    let genericElementConfig: ItemBase<any>[] = [
+      // controlTzpe
+      new SelectItem({
+        key: 'controlType',
+        label: 'Control Type',
+        help: "This value is used to identify the control type  of the element",
+        options: [
+          {key: 'textbox', value: 'Textbox'},
+          {key: 'select', value: 'Select'},
+          {key: 'multiselect', value: 'Multiselect'},
+          {key: 'checkbox', value: 'Checkbox'},
+          {key: 'checkboxInline', value: 'Checkbox Inline'},
+          {key: 'radioInline', value: 'Radio Inline'},
+          {key: 'textarea', value: 'Textarea'},
+          {key: 'sumbit', value: 'Submit'},
+          {key: 'reset', value: 'Reset'},
+          {key: 'button', value: 'Button'}
+        ],
+      }),
+      //key
+      new TextboxItem({
+        key: "key",
+        label: "Key",
+        placeholder: "The element key",
+        //help: "This value is used in the id and name attribute of the element",
+        type: "text"
+      }),
+      // label
+      new TextboxItem({
+        key: 'label',
+        label: 'Label',
+        placeholder: "The element label",
+        help: "This value is used in the lable of the element",
+        type: 'text'
+      }),
+      // placeholder
+      new TextboxItem({
+        key: 'placeholder',
+        label: 'Placeholder',
+        placeholder: "The element placeholder",
+        help: "This value is used in the placeholder of the element",
+        type: 'text'
+      }),
+      // help
+      new TextboxItem({
+        key: 'help',
+        label: 'Help',
+        placeholder: "The element help",
+        help: "This value is used in the help of the element",
+        type: 'text'
+      }),
+      // type
+      new SelectItem({
+        key: 'type',
+        label: 'type',
+        help: "This value is used in the type attribute of the element",
+        type: 'text',
+        options: [
+          {key: 'textbox', value: 'Textbox'},
+          {key: 'select', value: 'Select'},
+          {key: 'checkbox', value: 'Checkbox'},
+          {key: 'radio', value: 'Radio'},
+          {key: 'textarea', value: 'Textarea'},
+          {key: 'sumbit', value: 'Submit'},
+          {key: 'reset', value: 'Reset'},
+          {key: 'button', value: 'Button'}
+        ],
+      }),
+      //button
+      new ButtonItem({
+        key: 'submit-button',
+        label: 'Reset',
+        type: 'reset'
+      })
+      /**/
+    ];
+    return genericElementConfig;
+  }
+
 }

@@ -13,7 +13,7 @@ export class ItemControlService {
 
     items
       .map(applyModelValue(model))
-      .forEach(item => {
+      .forEach((item:ItemBase<any>) => {
       group[item.key] = item.required ? new FormControl(item.value || '', Validators.required)
         : new FormControl(item.value || '');
     });
@@ -22,7 +22,7 @@ export class ItemControlService {
     ////////////
 
     function applyModelValue(model?: any) {
-      return (item) => {
+      return (item:ItemBase<any>) => {
         item.value = model[item.key];
         return item;
       }

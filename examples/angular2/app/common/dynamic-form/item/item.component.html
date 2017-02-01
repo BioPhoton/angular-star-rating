@@ -35,7 +35,7 @@
     [attr.class]="'form-control select '"
     [attr.aria-describedby]="item.key+'Help'"
     [attr.placeholder]="item.placeholder">
-    <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
+    <option *ngFor="let opt of item.options" [ngValue]="opt.key">{{opt.value}}</option>
   </select>
 
   <select
@@ -46,7 +46,7 @@
     [attr.class]="'form-control'"
     [attr.aria-describedby]="item.key+'Help'"
     [attr.placeholder]="item.placeholder">
-    <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
+    <option *ngFor="let opt of item.options" [ngValue]="opt.key">{{opt.value}}</option>
   </select>
 
   <textarea

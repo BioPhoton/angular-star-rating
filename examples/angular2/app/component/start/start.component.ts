@@ -3,6 +3,7 @@ import {ItemService} from "./item.service";
 import {IStarRatingOnClickEvent} from "angular-star-rating/src/star-rating-struct";
 import {IStarRatingCompBindings} from "angular-star-rating/src//star-rating-struct";
 import {IDynamicFormOnPayLoadChangeEvent} from "../../common/dynamic-form/dynamic-form-scruct";
+import {ItemBase} from "../../common/dynamic-form/item/item-base";
 
 @Component({
   moduleId: module.id,
@@ -11,10 +12,10 @@ import {IDynamicFormOnPayLoadChangeEvent} from "../../common/dynamic-form/dynami
 })
 export class StartComponent implements OnInit, OnChanges {
 
-  demoSelectionForm;
-  demoForms:Array<any>;
+  demoSelectionForm: {};
+  demoForms: Array<any>;
 
-  formName:string;
+  formName: string;
   formItems: any[];
   formModel: {};
 
@@ -28,7 +29,7 @@ export class StartComponent implements OnInit, OnChanges {
   };
 
   constructor(protected service: ItemService) {
-    this.formItems = service.getConfigForm();
+    this.formItems = service.getKitchenSink();
 
     this.formModel = this.starRatingConfig;
     this.demoForms = [
@@ -39,15 +40,21 @@ export class StartComponent implements OnInit, OnChanges {
           formModel: {
             rating: 4,
             numOfStars: 7,
-            size: "large",
+            size: "large"
           }
         }
       },
       {
-        value: 'KitchenSink'
-        , key: {
-        forItems: service.getDemoset1()
-      }
+        value: 'KitchenSink',
+        key: {
+          forItems: service.getKitchenSink()
+        }
+      },
+      {
+        value: 'Generic form',
+        key: {
+          forItems: service.getGenericElement()
+        }
       }
     ];
 
@@ -60,20 +67,20 @@ export class StartComponent implements OnInit, OnChanges {
   }
 
   /*DEMO SELECT*/
-  onTemplateFromModelChange($event) {
+  onTemplateFromModelChange($event: {model: any}) {
     console.log('onTemplateFromModelChange', $event.model.demo.formItems);
 
-    if('model' in $event && 'demo' in $event.model) {
+    if ('model' in $event && 'demo' in $event.model) {
 
-      if('formName' in $event.model.demo) {
+      if ('formName' in $event.model.demo) {
         this.formName = $event.model.demo.formName;
       }
 
-      if('formItems' in $event.model.demo) {
+      if ('formItems' in $event.model.demo) {
         this.formItems = $event.model.demo.formItems;
       }
 
-      if('formModel' in $event.model.demo) {
+      if ('formModel' in $event.model.demo) {
         this.formModel = $event.model.demo.formModel;
       }
 
@@ -81,9 +88,9 @@ export class StartComponent implements OnInit, OnChanges {
   }
 
   /*DYNAMIC FORM COMPONENT*/
-  onPayloadChange($event) {
+  onPayloadChange($event: {}) {
     console.log('onPayloadChange $event', $event);
-    this.starRatingConfig = $event.payLoad;
+    this.starRatingConfig = $event['payLoad'];
   }
 
   /*STAR RATING COMPONENT*/
@@ -96,7 +103,6 @@ export class StartComponent implements OnInit, OnChanges {
     //create new ref
     this.starRatingConfig.rating = $event.rating;
     //this.starRatingConfig =  JSON.parse(JSON.stringify(this.starRatingConfig));
-
   }
 
 }

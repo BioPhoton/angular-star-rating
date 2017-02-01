@@ -8,12 +8,11 @@ import {ItemService} from "../../component/start/item.service";
 })
 export class TemplateFormComponent implements OnInit, OnChanges {
 
+  demoForms:Array<any>;
+
   //Inputs
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-  /**
-   * formModel property to identify the DOM element
-   */
   protected _formModel: {} = {};
   get formModel(): {} {
     return this._formModel;
@@ -26,33 +25,37 @@ export class TemplateFormComponent implements OnInit, OnChanges {
 
   @Output() onModelChange = new EventEmitter();
 
-  demoForms:Array<any>;
-
   constructor(protected itemService: ItemService) {
 
     console.log('constructor', this.formModel);
 
     this.formModel['demo'] = itemService.getConfigForm();
 
-    console.log('getDemoset1: ', itemService.getDemoset1());
+    console.log('getKitchenSink: ', itemService.getKitchenSink());
     this.demoForms = [
       {
         value: 'Star Rating Config',
         key: {
           formName: 'Star Rating Config',
-          formItems: itemService.getConfigForm(),
-          formModel: {
+          formItems: itemService.getConfigForm()
+          /*formModel: {
             rating: 4,
             numOfStars: 7,
             size: "large",
-          }
+          }*/
         }
       },
       {
         value: 'KitchenSink',
         key: {
           formName: 'KitchenSink',
-          formItems: itemService.getDemoset1(),
+          formItems: itemService.getKitchenSink()
+        }
+      },
+      {value : "generic Item",
+        key : {
+          formName : "",
+          formItems : itemService.getGenericElement()
         }
       }
     ];
@@ -82,7 +85,7 @@ export class TemplateFormComponent implements OnInit, OnChanges {
 
   }
 
-  onSubmit(value, valid) {
+  onSubmit(value:any, valid:boolean) {
     console.log('value, valid', value, valid);
     this.onModelChange.emit({model:this.formModel});
   }

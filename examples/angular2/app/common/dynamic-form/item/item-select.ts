@@ -1,6 +1,6 @@
 import { ItemBase } from './item-base';
 
-export class SelectQuestion extends ItemBase<string> {
+export class SelectItem extends ItemBase<string> {
   controlType = 'select';
   options: {key: string, value: string}[] = [];
 
