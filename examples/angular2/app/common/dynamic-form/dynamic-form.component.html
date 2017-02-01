@@ -1,20 +1,11 @@
-<h1>CONFIGFOEM</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
 
-<div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-
-    <div *ngFor="let item of items" class="form-row">
-      <df-item [item]="item" [form]="form"></df-item>
-    </div>
-
-    <div class="form-row">
-      <button type="submit" [disabled]="!form.valid">Save</button>
-    </div>
-
-  </form>
-
-  <div *ngIf="payLoad" class="form-row">
-    <strong>Saved the following values</strong><br>{{payLoad}}
+  <div *ngFor="let item of items" class="form-row">
+    <df-item [item]="item" [form]="form"></df-item>
   </div>
 
+</form>
+
+<div *ngIf="payLoad" class="form-row">
+  <strong>Saved the following values</strong><br>{{payLoad}}
 </div>

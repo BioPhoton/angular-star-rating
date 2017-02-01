@@ -6,7 +6,7 @@ import { ItemBase }     from './item-base';
   selector: 'df-item',
   templateUrl: 'item.component.html',
 })
-export class DynamicFormQuestionComponent {
+export class ItemComponent {
   @Input() item: ItemBase<any>;
   @Input() form: FormGroup;
   get isValid() { return this.form.controls[this.item.key].valid; }

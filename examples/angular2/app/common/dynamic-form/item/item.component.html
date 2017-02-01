@@ -1,15 +1,10 @@
 <div class="form-group" [formGroup]="form">
-  <label [attr.for]="item.key">{{item.label}}</label>
-
-  <small [attr.id]="item.key+'Help'" *ngIf="item.help" class="form-text text-muted">{{item.help}}</small>
-
-  <div class="errorMessage" *ngIf="!isValid">{{item.label}} is required</div>
 
   <input *ngIf="item.controlType === 'textbox'"
          [formControlName]="item.key"
          [id]="item.key"
          [type]="item.type"
-         [attr.class]="'form-control ' + item.class"
+         [attr.class]="'form-control '"
          [attr.aria-describedby]="item.key+'Help'"
          [attr.placeholder]="item.placeholder">
 
@@ -29,7 +24,7 @@
          [formControlName]="item.key"
          [type]="item.type"
          [id]="item.key"
-         [attr.class]="'form-control ' + item.class"
+         [attr.class]="'form-control '"
          [attr.aria-describedby]="item.key+'Help'"
          [attr.placeholder]="item.placeholder">
 
@@ -37,7 +32,7 @@
     *ngIf="item.controlType === 'select'"
     [id]="item.key"
     [formControlName]="item.key"
-    [attr.class]="'form-control select ' + item.class"
+    [attr.class]="'form-control select '"
     [attr.aria-describedby]="item.key+'Help'"
     [attr.placeholder]="item.placeholder">
     <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
@@ -48,7 +43,7 @@
     multiple
     [id]="item.key"
     [formControlName]="item.key"
-    [attr.class]="'form-control select ' + item.class"
+    [attr.class]="'form-control'"
     [attr.aria-describedby]="item.key+'Help'"
     [attr.placeholder]="item.placeholder">
     <option *ngFor="let opt of item.options" [value]="opt.key">{{opt.value}}</option>
@@ -58,21 +53,17 @@
     *ngIf="item.controlType === 'textarea'"
     [id]="item.key"
     [formControlName]="item.key"
-    [attr.class]="'form-control select ' + item.class"
+    [attr.class]="'form-control'"
     [attr.aria-describedby]="item.key+'Help'"
     [attr.placeholder]="item.placeholder">
   </textarea>
 
-
   <button
-    *ngIf="item.controlType === 'textarea'"
+    *ngIf="item.controlType === 'button'"
     [id]="item.key"
-    [formControlName]="item.key"
-    [attr.class]="'form-control select ' + item.class"
-    [attr.aria-describedby]="item.key+'Help'"
-    [attr.placeholder]="item.placeholder">
+    [type]="item.type"
+    [attr.class]="'btn btn-prinmary'">
     {{item.label}}
   </button>
-
 
 </div>

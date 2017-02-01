@@ -1,25 +1,35 @@
-<h1>Start</h1>
+<div class="jumbotron">
+  <h1 class="display-3">Dough-Fabric</h1>
+  <p class="lead">Generic API based form builder form donut.io</p>
+  <template-form-comp (onModelChange)="onTemplateFromModelChange($event)">
+  </template-form-comp>
+</div>
 
-<star-rating-comp
-  [rating]="starRatingConfig.rating"
-  [numOfStars]="starRatingConfig.numOfStars"
-  [size]="starRatingConfig.size"
-  [speed]="starRatingConfig.speed"
-  [labelPosition]="starRatingConfig.labelPosition"
-  [starType]="starRatingConfig.starType"
-  (onClick)="onClick($event)"
-  (onRatingChange)="onRatingChange($event)">
-</star-rating-comp>
+<div class="row marketing">
 
+  <div class="col-lg-6">
+    <h4>Form</h4>
 
+    <star-rating-comp
+      [rating]="starRatingConfig.rating"
+      [numOfStars]="starRatingConfig.numOfStars"
+      [size]="starRatingConfig.size"
+      [speed]="starRatingConfig.speed"
+      [labelPosition]="starRatingConfig.labelPosition"
+      [starType]="starRatingConfig.starType"
+      (onClick)="onClick($event)"
+      (onRatingChange)="onRatingChange($event)">
+    </star-rating-comp>
+  </div>
 
-  <select
-    (input)="onSelectChange($event)">
-    <option *ngFor="let opt of demoForms" [value]="opt.key">{{opt.value}}</option>
-  </select>
+  <div class="col-lg-6">
+    <h4>FormConfig: {{formName}}</h4>
 
-<dynamic-form
-  [items]="formItems"
-  [model]="formModel"
-  (onPayloadChange)="onPayloadChange($event)">
-</dynamic-form>
+    <dynamic-form
+      [items]="formItems"
+      [model]="formModel"
+      (onPayloadChange)="onPayloadChange($event)">
+    </dynamic-form>
+  </div>
+
+</div>

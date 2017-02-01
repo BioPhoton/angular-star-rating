@@ -14,6 +14,7 @@ export class StartComponent implements OnInit, OnChanges {
   demoSelectionForm;
   demoForms:Array<any>;
 
+  formName:string;
   formItems: any[];
   formModel: {};
 
@@ -59,11 +60,24 @@ export class StartComponent implements OnInit, OnChanges {
   }
 
   /*DEMO SELECT*/
-  onSelectChange($event) {
-    console.log('onSelectChange');
-  }
-  onDemoSelectionSubmit(value, valid) {
-    console.log('onSelectChange', value, valid);
+  onTemplateFromModelChange($event) {
+    console.log('onTemplateFromModelChange', $event.model.demo.formItems);
+
+    if('model' in $event && 'demo' in $event.model) {
+
+      if('formName' in $event.model.demo) {
+        this.formName = $event.model.demo.formName;
+      }
+
+      if('formItems' in $event.model.demo) {
+        this.formItems = $event.model.demo.formItems;
+      }
+
+      if('formModel' in $event.model.demo) {
+        this.formModel = $event.model.demo.formModel;
+      }
+
+    }
   }
 
   /*DYNAMIC FORM COMPONENT*/
