@@ -326,6 +326,24 @@ export class ItemService {
           {key: 'button', value: 'Button'}
         ],
       }),
+      // type
+      new SelectItem({
+        key: 'type',
+        label: 'type',
+        help: "This value is used in the type attribute of the element",
+        type: 'text',
+        options: [
+          {key: 'text', value: 'text'},
+          {key: 'number', value: 'number'},
+          {key: 'select', value: 'Select'},
+          {key: 'checkbox', value: 'Checkbox'},
+          {key: 'radio', value: 'Radio'},
+          {key: 'textarea', value: 'Textarea'},
+          {key: 'sumbit', value: 'Submit'},
+          {key: 'reset', value: 'Reset'},
+          {key: 'button', value: 'Button'}
+        ],
+      }),
       //key
       new TextboxItem({
         key: "key",
@@ -358,28 +376,11 @@ export class ItemService {
         help: "This value is used in the help of the element",
         type: 'text'
       }),
-      // type
-      new SelectItem({
-        key: 'type',
-        label: 'type',
-        help: "This value is used in the type attribute of the element",
-        type: 'text',
-        options: [
-          {key: 'textbox', value: 'Textbox'},
-          {key: 'select', value: 'Select'},
-          {key: 'checkbox', value: 'Checkbox'},
-          {key: 'radio', value: 'Radio'},
-          {key: 'textarea', value: 'Textarea'},
-          {key: 'sumbit', value: 'Submit'},
-          {key: 'reset', value: 'Reset'},
-          {key: 'button', value: 'Button'}
-        ],
-      }),
       //button
       new ButtonItem({
         key: 'submit-button',
-        label: 'Reset',
-        type: 'reset'
+        label: 'Update',
+        type: 'submit'
       })
       /**/
     ];

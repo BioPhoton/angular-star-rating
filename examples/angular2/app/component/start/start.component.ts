@@ -4,6 +4,7 @@ import {IStarRatingOnClickEvent} from "angular-star-rating/src/star-rating-struc
 import {IStarRatingCompBindings} from "angular-star-rating/src//star-rating-struct";
 import {IDynamicFormOnPayLoadChangeEvent} from "../../common/dynamic-form/dynamic-form-scruct";
 import {ItemBase} from "../../common/dynamic-form/item/item-base";
+import {ItemControlService} from "../../common/dynamic-form/item/item.service";
 
 @Component({
   moduleId: module.id,
@@ -19,6 +20,9 @@ export class StartComponent implements OnInit, OnChanges {
   formItems: any[];
   formModel: {};
 
+  dynamicItems:any[] = [];
+
+
   starRatingConfig: IStarRatingCompBindings = {
     rating: 4,
     numOfStars: 7,
@@ -29,7 +33,7 @@ export class StartComponent implements OnInit, OnChanges {
   };
 
   constructor(protected service: ItemService) {
-    this.formItems = service.getKitchenSink();
+    this.formItems = service.getGenericElement();
 
     this.formModel = this.starRatingConfig;
     this.demoForms = [
@@ -89,8 +93,11 @@ export class StartComponent implements OnInit, OnChanges {
 
   /*DYNAMIC FORM COMPONENT*/
   onPayloadChange($event: {}) {
-    console.log('onPayloadChange $event', $event);
-    this.starRatingConfig = $event['payLoad'];
+    console.log('onPayloadChange $event', $event['payLoad']);
+    let item: ItemBase<any> = ItemControlService.createFormItem($event['payLoad']);
+    if(item) {
+      this.dynamicItems.push(item);
+    }
   }
 
   /*STAR RATING COMPONENT*/

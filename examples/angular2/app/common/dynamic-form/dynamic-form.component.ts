@@ -26,11 +26,11 @@ export class DynamicFormComponent implements OnInit {
   set payLoad(value: any) {
     this._payLoad = value;
     let onPayloadChangeEvent: IDynamicFormOnPayLoadChangeEvent = {payLoad: this._payLoad};
-    //this.onPayloadChange.emit(onPayloadChangeEvent);
+    this.onPayloadChange.emit(onPayloadChangeEvent);
   }
 
   @Input() items: ItemBase<any>[] = [];
-  @Input() model:{};
+  @Input() model:{} = {};
   form: FormGroup;
 
   @Output()
@@ -48,8 +48,7 @@ export class DynamicFormComponent implements OnInit {
 
     let valueChanged = function (key: string, changes: SimpleChanges): boolean {
       if (key in changes) {
-        if (
-        changes[key].currentValue != changes[key].previousValue) {
+        if (changes[key].currentValue != changes[key].previousValue) {
           return true;
         }
       }

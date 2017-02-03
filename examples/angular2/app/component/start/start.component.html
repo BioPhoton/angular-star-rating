@@ -22,6 +22,12 @@
       (onRatingChange)="onRatingChange($event)">
     </star-rating-comp>
     -->
+
+    <pre>{{dynamicItems | json}}</pre>
+    <dynamic-form
+    [items]="dynamicItems">
+    </dynamic-form>
+
   </div>
 
   <div class="col-lg-6">
