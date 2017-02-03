@@ -1,4 +1,7 @@
 <div class="form-group" [formGroup]="form">
+  <label>
+    {{item.label}}
+  </label>
 
   <input *ngIf="item.controlType === 'textbox'"
          [formControlName]="item.key"

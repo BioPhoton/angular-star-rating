@@ -59,7 +59,12 @@ export class DynamicFormComponent implements OnInit {
     //---------------------------------------
 
     if (valueChanged('model', changes)) {
-      this.model = changes['model'].currentValue;
+      this.model = changes['model'].currentValue || {};
+      this.renderForm();
+    }
+
+    if (valueChanged('items', changes)) {
+      this.items = changes['items'].currentValue || [];
       this.renderForm();
     }
 
