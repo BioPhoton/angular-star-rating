@@ -4,7 +4,7 @@ import {SelectItem} from '../../common/dynamic-form/item/item-select';
 import {TextboxItem}  from '../../common/dynamic-form/item/item-textbox';
 import {RadioItem} from "../../common/dynamic-form/item/item-radio";
 import {CheckboxItem} from "../../common/dynamic-form/item/item-checkbox";
-import {MultiselectQuestion} from "../../common/dynamic-form/item/item-multiselect";
+import {MultiselectItem} from "../../common/dynamic-form/item/item-multiselect";
 import {ButtonItem} from "../../common/dynamic-form/item/item-button";
 import {TextareaItem} from "../../common/dynamic-form/item/item-textarea";
 
@@ -20,7 +20,7 @@ export class ItemService {
         key: 'id',
         label: 'Id',
         placeholder: "A string here",
-        help: "The id attribute of the component",
+        helpText: "The id attribute of the component",
         type: 'text'
       }),
       // rating
@@ -28,7 +28,7 @@ export class ItemService {
         key: 'rating',
         label: 'Rating',
         placeholder: "The rating",
-        help: "Number of stars selected",
+        helpText: "Number of stars selected",
         type: 'number'
       }),
       // showHalfStars
@@ -65,7 +65,7 @@ export class ItemService {
         ]
       }),
       // staticColor
-      new MultiselectQuestion({
+      new MultiselectItem({
         key: 'staticColor',
         label: 'Static color of the stars',
         options: [
@@ -268,7 +268,7 @@ export class ItemService {
         ]
       }),
       // multiselect
-      new MultiselectQuestion({
+      new MultiselectItem({
         key: 'staticColor',
         label: 'Static color of the stars',
         options: [
@@ -312,7 +312,7 @@ export class ItemService {
       new SelectItem({
         key: 'controlType',
         label: 'Control Type',
-        help: "This value is used to identify the control type  of the element",
+        helpText: "This value is used to identify the control type  of the element",
         options: [
           {key: 'textbox', value: 'Textbox'},
           {key: 'select', value: 'Select'},
@@ -330,13 +330,13 @@ export class ItemService {
       new SelectItem({
         key: 'type',
         label: 'type',
-        help: "This value is used in the type attribute of the element",
+        helpText: "This value is used in the type attribute of the element",
         type: 'text',
         options: [
           {key: 'text', value: 'text'},
           {key: 'number', value: 'number'},
-          {key: 'select', value: 'Select'},
-          {key: 'checkbox', value: 'Checkbox'},
+          {key: 'select', value: 'select'},
+          {key: 'checkbox', value: 'checkbox'},
           {key: 'radio', value: 'Radio'},
           {key: 'textarea', value: 'Textarea'},
           {key: 'sumbit', value: 'Submit'},
@@ -349,7 +349,7 @@ export class ItemService {
         key: "key",
         label: "Key",
         placeholder: "The element key",
-        //help: "This value is used in the id and name attribute of the element",
+        //helpText: "This value is used in the id and name attribute of the element",
         type: "text"
       }),
       // label
@@ -357,7 +357,7 @@ export class ItemService {
         key: 'label',
         label: 'Label',
         placeholder: "The element label",
-        help: "This value is used in the lable of the element",
+        helpText: "This value is used in the lable of the element",
         type: 'text'
       }),
       // placeholder
@@ -365,7 +365,7 @@ export class ItemService {
         key: 'placeholder',
         label: 'Placeholder',
         placeholder: "The element placeholder",
-        help: "This value is used in the placeholder of the element",
+        helpText: "This value is used in the placeholder of the element",
         type: 'text'
       }),
       // help
@@ -373,7 +373,7 @@ export class ItemService {
         key: 'help',
         label: 'Help',
         placeholder: "The element help",
-        help: "This value is used in the help of the element",
+        helpText: "This value is used in the help of the element",
         type: 'text'
       }),
       //button

@@ -2,9 +2,9 @@ import { ItemBase } from './item-base';
 import { textboxTypes } from "./item-scruct";
 
 export class TextboxItem extends ItemBase<string> {
-  placeholder?:string;
   controlType = 'textbox';
   type: string;
+  placeholder?:string;
 
   constructor(options: {} = {}) {
     super(options);

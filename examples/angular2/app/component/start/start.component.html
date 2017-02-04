@@ -23,7 +23,7 @@
     </star-rating-comp>
     -->
 
-    <pre>{{dynamicItems | json}}</pre>
+    <pre style="height:200px; overflow-y: scroll;">{{dynamicItems | json}}</pre>
     <dynamic-form
     [items]="dynamicItems">
     </dynamic-form>
@@ -36,6 +36,7 @@
     <dynamic-form
       [items]="formItems"
       [model]="formModel"
+      (onSubmitted)="onSubmitted($event)"
       (onPayloadChange)="onPayloadChange($event)">
     </dynamic-form>
   </div>

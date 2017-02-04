@@ -25,8 +25,8 @@ export class DynamicFormComponent implements OnInit {
 
   set payLoad(value: any) {
     this._payLoad = value;
-    let onPayloadChangeEvent: IDynamicFormOnPayLoadChangeEvent = {payLoad: this._payLoad};
-    this.onPayloadChange.emit(onPayloadChangeEvent);
+    //let onPayloadChangeEvent: IDynamicFormOnPayLoadChangeEvent = {payLoad: this._payLoad};
+    //this.onPayloadChange.emit(onPayloadChangeEvent);
   }
 
   @Input() items: ItemBase<any>[] = [];
@@ -35,6 +35,9 @@ export class DynamicFormComponent implements OnInit {
 
   @Output()
   onPayloadChange: EventEmitter<IDynamicFormOnPayLoadChangeEvent> = new EventEmitter<IDynamicFormOnPayLoadChangeEvent>();
+
+  @Output()
+  onSubmitted: EventEmitter<IDynamicFormOnPayLoadChangeEvent> = new EventEmitter<IDynamicFormOnPayLoadChangeEvent>();
 
   private _payLoad: any;
 
@@ -58,25 +61,29 @@ export class DynamicFormComponent implements OnInit {
     //---------------------------------------
 
     if (valueChanged('model', changes)) {
-      this.model = changes['model'].currentValue || {};
-      this.renderForm();
+      //this.model = changes['model'].currentValue || {};
+      //this.renderForm();
     }
 
     if (valueChanged('items', changes)) {
       this.items = changes['items'].currentValue || [];
+      console.log('after apply new items');
       this.renderForm();
     }
 
   }
 
-  onSubmit($event: IDynamicFormOnPayLoadChangeEvent) {
-
-    this.payLoad = this.form.value;
+  onSubmit() {
+    console.log("onSubmit");
+    //this.payLoad = this.form.value;
+    let payLoad:IDynamicFormOnPayLoadChangeEvent = {payLoad:this.form.value};
+    this.onSubmitted.emit(payLoad);
   }
 
   protected renderForm() {
     this.form = this.ics.toFormGroup(this.items, this.model);
-    this.payLoad = this.form.value;
+    console.log('after apply renderForm');
+    //this.payLoad = this.form.value;
   }
 
 }

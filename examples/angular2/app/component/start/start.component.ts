@@ -5,6 +5,7 @@ import {IStarRatingCompBindings} from "angular-star-rating/src//star-rating-stru
 import {IDynamicFormOnPayLoadChangeEvent} from "../../common/dynamic-form/dynamic-form-scruct";
 import {ItemBase} from "../../common/dynamic-form/item/item-base";
 import {ItemControlService} from "../../common/dynamic-form/item/item.service";
+import {TextboxItem} from "../../common/dynamic-form/item/item-textbox";
 
 @Component({
   moduleId: module.id,
@@ -33,8 +34,28 @@ export class StartComponent implements OnInit, OnChanges {
   };
 
   constructor(protected service: ItemService) {
-    this.formItems = service.getGenericElement();
+    let initItem = ItemControlService.createFormItem({
+        "key": "initialItem",
+        "label": "",
+        "required": false,
+        "order": 1,
+        "controlType": "textbox",
+        "placeholder": "",
+        "type": "number"
+      });
 
+    this.dynamicItems.push(initItem);
+    this.dynamicItems.push(ItemControlService.createFormItem({
+      "key": "initial",
+      "label": "",
+      "required": false,
+      "order": 1,
+      "controlType": "textbox",
+      "placeholder": "",
+      "type": "number"
+    }));
+
+    this.formItems = service.getGenericElement();
     this.formModel = this.starRatingConfig;
     this.demoForms = [
       {
@@ -96,6 +117,16 @@ export class StartComponent implements OnInit, OnChanges {
     console.log('onPayloadChange $event', $event['payLoad']);
     let item: ItemBase<any> = ItemControlService.createFormItem($event['payLoad']);
     if(item) {
+      console.log("generated item: ", item);
+      this.dynamicItems.push(item);
+    }
+  }
+
+  onSubmitted($event: {}) {
+    console.log('onSubmitted $event', $event['payLoad']);
+    let item: ItemBase<any> = ItemControlService.createFormItem($event['payLoad']);
+    if(item) {
+      console.log("generated item: ", item);
       this.dynamicItems.push(item);
     }
   }

@@ -1,7 +1,8 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<form (ngSubmit)="onSubmit($event)" [formGroup]="form">
 
   <div *ngFor="let item of items" class="form-row">
-    <df-item [item]="item" [form]="form"></df-item>
+    <df-item *ngIf="item.controlType !== 'button'" [item]="item" [form]="form"></df-item>
+    <df-button *ngIf="item.controlType === 'button'" [item]="item" [form]="form"></df-button>
   </div>
 
 </form>

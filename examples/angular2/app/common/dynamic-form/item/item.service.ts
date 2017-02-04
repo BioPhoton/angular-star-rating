@@ -1,8 +1,12 @@
 import {Injectable}   from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators, ValidatorFn, AsyncValidatorFn} from '@angular/forms';
 
 import {ItemBase} from './item-base';
 import {TextboxItem} from "./item-textbox";
+import {MultiselectItem} from "./item-multiselect";
+import {SelectItem} from "./item-select";
+import {CheckboxItem} from "./item-checkbox";
+import {RadioItem} from "./item-radio";
 
 @Injectable()
 export class ItemControlService {
@@ -15,8 +19,23 @@ export class ItemControlService {
     console.log('controlType: ', controlType);
 
     if(controlType === "textbox") {
-      //@TODO edit object to valid config for type
       item = new TextboxItem(config);
+    }
+
+    if(controlType === "select") {
+      item = new SelectItem(config);
+    }
+
+    if(controlType === "multiselect") {
+      item = new MultiselectItem(config);
+    }
+
+    if(controlType === "checkbox") {
+      item = new CheckboxItem(config);
+    }
+
+    if(controlType === "radio") {
+      item = new RadioItem(config);
     }
 
     return item;
@@ -27,13 +46,29 @@ export class ItemControlService {
   }
 
   toFormGroup(items: ItemBase<any>[], model?: {}) {
+    items = items || [];
+    model = model || {};
+
     let group: any = {};
 
     items
       .map(applyModelValue(model))
       .forEach((item:ItemBase<any>) => {
-      group[item.key] = item.required ? new FormControl(item.value || '', Validators.required)
-        : new FormControl(item.value || '');
+
+        let formState: any;
+        let validator: ValidatorFn | ValidatorFn[];
+        let asyncValidator: AsyncValidatorFn | AsyncValidatorFn[];
+
+        //compost validators;
+        if('validators' in item) {
+          validator = item.validators;
+        }
+
+        if(item.required) {
+          validator = Validators.required;
+        }
+
+        group[item.key] = item.required ? new FormControl(item.value || '', Validators.required) : new FormControl(item.value || '');
     });
     return new FormGroup(group);
 

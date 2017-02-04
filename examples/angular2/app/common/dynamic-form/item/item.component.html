@@ -1,48 +1,54 @@
-<div class="form-group" [formGroup]="form">
-  <label>
+<div [attr.class]="getWrapperClass()" [formGroup]="form">
+  <label [attr.for]="item.key"  *ngIf="isLabelVisible()">
     {{item.label}}
   </label>
 
-  <input *ngIf="item.controlType === 'textbox'"
+  <input *ngIf="isControlTypeVisible('textbox')"
          [formControlName]="item.key"
          [id]="item.key"
          [type]="item.type"
-         [attr.class]="'form-control '"
+         [attr.class]="getControlClass()"
          [attr.aria-describedby]="item.key+'Help'"
          [attr.placeholder]="item.placeholder">
 
-  <div class="form-check" *ngIf="item.controlType === 'radio'">
-    <label class="form-check-label" *ngFor="let option of item.options">
-      <input [type]="item.type"
-             [id]="item.key + ' ' + option.key"
-             name="radiogroup"
-             [attr.class]="item.class"
-             [checked]="idx === 0"
-             [value]="option.key">
-      {{ option.value }}
+  <div *ngIf="isControlTypeVisible('radio')">
+    <div class="form-check" *ngFor="let option of item.options">
+      <label class="form-check-label">
+        <input [type]="item.type"
+               [id]="item.key + '--' + option.key"
+               [attr.name]="item.key"
+               [attr.class]="getControlClass()"
+               [checked]="idx === 0"
+               [value]="option.key">
+        {{ option.value }}
+      </label>
+    </div>
+  </div>
+
+  <div class="form-check" *ngIf="isControlTypeVisible('checkbox')">
+    <label class="form-check-label" [attr.for]="item.key">
+      <input [formControlName]="item.key"
+             [type]="item.type"
+             [id]="item.key"
+             [attr.class]="getControlClass()"
+             [attr.aria-describedby]="item.key+'Help'"
+             [attr.placeholder]="item.placeholder">
+      {{item.label}}
     </label>
   </div>
 
-  <input *ngIf="item.controlType === 'checkbox'"
-         [formControlName]="item.key"
-         [type]="item.type"
-         [id]="item.key"
-         [attr.class]="'form-control '"
-         [attr.aria-describedby]="item.key+'Help'"
-         [attr.placeholder]="item.placeholder">
-
   <select
-    *ngIf="item.controlType === 'select'"
+    *ngIf="isControlTypeVisible('select')"
     [id]="item.key"
     [formControlName]="item.key"
-    [attr.class]="'form-control select '"
+    [attr.class]="getControlClass()"
     [attr.aria-describedby]="item.key+'Help'"
     [attr.placeholder]="item.placeholder">
     <option *ngFor="let opt of item.options" [ngValue]="opt.key">{{opt.value}}</option>
   </select>
 
   <select
-    *ngIf="item.controlType === 'multiselect'"
+    *ngIf="isControlTypeVisible('multiselect')"
     multiple
     [id]="item.key"
     [formControlName]="item.key"
@@ -53,20 +59,14 @@
   </select>
 
   <textarea
-    *ngIf="item.controlType === 'textarea'"
+    *ngIf="isControlTypeVisible('textarea')"
     [id]="item.key"
     [formControlName]="item.key"
-    [attr.class]="'form-control'"
+    [attr.class]="getControlClass()"
     [attr.aria-describedby]="item.key+'Help'"
     [attr.placeholder]="item.placeholder">
   </textarea>
 
-  <button
-    *ngIf="item.controlType === 'button'"
-    [id]="item.key"
-    [type]="item.type"
-    [attr.class]="'btn btn-prinmary'">
-    {{item.label}}
-  </button>
+  <small [attr.id]="item.key+'Help'" class="form-text text-muted">{{item.helpText}}</small>
 
 </div>
