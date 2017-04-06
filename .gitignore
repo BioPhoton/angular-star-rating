@@ -1,28 +1,29 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-/dist
-/tmp
-
-# dependencies
-/node_modules
-/bower_components
-
-# IDEs and editors
-/.idea
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage/*
-/libpeerconnection.log
+# Node
+node_modules/*
 npm-debug.log
-testem.log
-/typings
 
-# e2e
-/e2e/*.js
-/e2e/*.map
+# TypeScript
+*.js
+*.map
+*.d.ts
 
-#System Files
+# JetBrains
+.idea
+.project
+.settings
+.idea/*
+*.iml
+
+# VS Code
+.vscode/*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Mac
 .DS_Store
+**/.DS_Store
+
+# Ngc generated files
+**/*.ngfactory.ts

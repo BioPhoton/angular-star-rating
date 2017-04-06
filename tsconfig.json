@@ -1,14 +1,26 @@
 {
   "compilerOptions": {
-    "declaration":true,
-    "target": "es5",
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "ES6",
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true
-    , "outDir": "./"
+    "allowUnusedLabels": false,
+    "noImplicitReturns": true,
+    "sourceMap": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "exclude": [
-     "./src/**/*.jasmine.ts",
-     "examples",
-     "node_modules"
-  ]
+    "examples",
+    "node_modules",
+    "dist",
+    "**/*.spec.ts"
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true
+  }
 }

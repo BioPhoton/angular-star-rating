@@ -5,32 +5,10 @@ export type starRatingPosition = "left" | "right" | "top" | "bottom";
 export type starRatingStarTypes = "svg" | "icon" | "image";
 export type starRatingStarSpace= "no" | "between" | "around";
 
-export interface IStarRatingCompBindings {
-  //Inputs (< bindings)
-  id?: string;
-  labelText?: string;
-  staticColor?: starRatingColors;
-  labelPosition?: starRatingPosition;
-  speed?: starRatingSpeed;
-  size?: starRatingSizes;
-  starType?: starRatingStarTypes;
-  space?: starRatingStarSpace;
-  readOnly?: boolean;
-  disabled?: boolean;
-  showHalfStars?: boolean;
-  rating?: number;
-  numOfStars?: number;
-  getHalfStarVisible?(rating: number): boolean;
-  getColor?(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors;
-  //Outputs (& bindings)
-  onClick?: ($event: any) =>  IStarRatingOnClickEvent;
-  onUpdate?: ($event: any) => IStarRatingOnRatingChangeEvent;
-}
-
 export interface IStarRatingOnClickEvent {
   rating: number;
 }
 
-export interface IStarRatingOnRatingChangeEvent {
+export interface IStarRatingOnRatingChangeEven {
   rating: number;
 }

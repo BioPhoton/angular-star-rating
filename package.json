@@ -1,77 +1,87 @@
 {
   "name": "angular-star-rating",
-  "version": "2.0.0-beta.2",
-  "license": "MIT",
-  "keywords": [
-    "Rating",
-    "Stars",
-    "Star Rating",
-    "Star-Rating",
-    "Starrating",
-    "Angular",
-    "Angular Component",
-    "Icon",
-    "SVG",
-    "CSS",
-    "Pure CSS",
-    "CSS only",
-    "JavaScript",
-    "Typescript",
-    "Material Star Rating"
-  ],
-  "description": "Angular Star Rating is a >2 Angular component written in typescript, based on css only techniques utilizing scss and css3 features",
-  "author": "Michael Hladky",
+  "description": "Angular Star Rating is a Angular2 component written in typescript.",
+  "version": "2.0.0-beta2",
+  "scripts": {
+    "build": "ngc -p tsconfig.json",
+    "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
+    "test": "npm run tsc && karma start",
+    "prepublish": "npm run tsc",
+    "tsc": "npm run deleteDist && tsc && npm run copyAsstes",
+    "deleteDist":"rimraf dist",
+    "copyAsstes" : "copyfiles assets/**/* dist"
+
+    "coverage": "http-server -c-1 -o -p 9875 ./coverage",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "npm publish"
+  },
+  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BioPhoton/angular-star-rating"
+  },
+  "author": {
+    "name": "Michael Hladky",
+    "email": "michael@hladky.at"
+  },
   "contributors": [
     {
       "name": "Michael Hladky",
       "email": "michael@hladky.at"
     }
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BioPhoton/angular-star-rating.git"
-  },
+  "keywords": [
+    "Rating",
+    "Stars",
+    "Star Rating",
+    "Star-Rating",
+    "Starrating",
+    "Icon",
+    "SVG",
+    "CSS",
+    "Pure CSS",
+    "CSS only",
+    "JavaScript",
+    "Angular",
+    "Angular Component",
+    "Angular2",
+    "Angular2 Component",
+    "Typescript"
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/BioPhoton/angular-star-rating/issues"
   },
-  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
-  "main": "src/star-rating.module.ts",
-  "scripts": {
-    "start": "ng server",
-    "postinstall": "typings install",
-    "lint": "tslint \"src/**/*.ts\"",
-    "format": "clang-format -i -style=file --glob=src/**/*.ts",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
-  },
+  "main": "./dist/index.js",
   "dependencies": {
-    "@angular/common": "2.0.0-rc.1",
-    "@angular/compiler": "2.0.0-rc.1",
-    "@angular/core": "2.0.0-rc.1",
-    "@angular/platform-browser": "2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
-    "@angular/router": "2.0.0-rc.1",
-    "es6-shim": "^0.35.0",
-    "reflect-metadata": "0.1.3",
-    "rxjs": "5.0.0-beta.6",
-    "systemjs": "0.19.26",
-    "zone.js": "^0.6.12",
-    "css-star-rating": "^1.1"
   },
   "devDependencies": {
-    "angular-cli": "0.0.*",
-    "clang-format": "^1.0.35",
-    "codelyzer": "0.0.14",
-    "ember-cli-inject-live-reload": "^1.4.0",
-    "jasmine-core": "^2.4.1",
-    "jasmine-spec-reporter": "^2.4.0",
-    "karma": "^0.13.15",
-    "karma-chrome-launcher": "^0.2.3",
-    "karma-jasmine": "^0.3.8",
-    "protractor": "^3.3.0",
-    "ts-node": "^0.5.5",
-    "tslint": "^3.6.0",
-    "typescript": "^1.8.10",
-    "typings": "^0.8.1"
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@types/jasmine": "2.5.38",
+    "@types/node": "~6.0.60",
+    "codelyzer": "~2.0.0",
+    "core-js": "^2.4.1",
+    "jasmine-core": "~2.5.2",
+    "jasmine-spec-reporter": "~3.2.0",
+    "karma": "~1.4.1",
+    "karma-chrome-launcher": "~2.0.0",
+    "karma-cli": "~1.0.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
+    "protractor": "~5.1.0",
+    "rxjs": "^5.1.0",
+    "ts-node": "~2.0.0",
+    "tslint": "~4.5.0",
+    "typescript": "~2.2.0",
+    "zone.js": "^0.8.4"
+  },
+  "engines": {
+    "node": ">=6.9.0"
   }
 }

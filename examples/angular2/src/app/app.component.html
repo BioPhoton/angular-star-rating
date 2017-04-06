@@ -1,0 +1,28 @@
+<h1>
+  {{title}}
+</h1>
+
+<pre>{{starRatingConfig | json}}</pre>
+<star-rating-comp
+  [id]="starRatingConfig.id"
+  [numOfStars]="starRatingConfig.numOfStars"
+  [size]="starRatingConfig.size"
+  [speed]="starRatingConfig.speed"
+  [labelPosition]="starRatingConfig.labelPosition"
+  [starType]="starRatingConfig.starType"
+  [labelText]="starRatingConfig.labelText"
+  [staticColor]="starRatingConfig.staticColor"
+  [space]="starRatingConfig.space"
+  [disabled]="starRatingConfig.disabled"
+  [readOnly]="starRatingConfig.readOnly"
+  [rating]="starRatingConfig.rating"
+  [showHalfStars]="starRatingConfig.showHalfStars"
+  [getColor]="starRatingConfig.getColor"
+  [getHalfStarVisible]="starRatingConfig.getHalfStarVisible"
+
+  (onClick)="starRatingConfig.onClick($event)"
+  (onRatingChange)="starRatingConfig.onRatingChange($event)"
+></star-rating-comp>
+
+
+
