@@ -3,20 +3,21 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { StarRatingModule } from 'angular-star-rating';
+
+
 import { AppComponent } from './app.component';
-//import {StarRatingModule} from "angular-star-rating/src/star-rating.module";
-//import { StarRatingBindingsFormComponent } from './common/star-rating-bindings-form/star-rating-bindings-form.component';
+
 
 @NgModule({
   declarations: [
-      AppComponent,
-      //StarRatingBindingsFormComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    //StarRatingModule
+    StarRatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
