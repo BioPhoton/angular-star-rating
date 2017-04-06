@@ -27,12 +27,14 @@ export class AppComponent {
     this.starRatingConfig.space = "around";
     this.starRatingConfig.disabled  = false;
     this.starRatingConfig.readOnly = false;
-    this.starRatingConfig.rating = 2;
+    this.starRatingConfig.rating = 2.7;
     this.starRatingConfig.showHalfStars = true;
     this.starRatingConfig.getColor = (rating: number, numOfStars: number, staticColor?: starRatingColors) => {
       return staticColor || "ok";
     };
-    this.starRatingConfig.getHalfStarVisible=true;
+    this.starRatingConfig.getHalfStarVisible=(rating: number, numOfStars: number, staticColor?: starRatingColors) => {
+      return (rating % 1) > 7;
+    };
 
     //Outputs
     this.starRatingConfig.onClick = ($event) => {
