@@ -12,7 +12,6 @@ import {
 import {StarRatingConfig} from "./star-rating-config";
 
 @Component({
-  moduleId: module.id,
   selector: 'star-rating-comp',
   templateUrl: 'star-rating.component.html',
   styleUrls: ['star-rating.css']
