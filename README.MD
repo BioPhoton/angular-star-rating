@@ -39,7 +39,7 @@ It also provides callbacks for all calculation functions used in the component a
 - [x] **numOfStars** - The max number of stars you can rate
 - [x] **size** - The different sizes of the component
 - [x] **spread** - Stars are spreaded over whole width or not
-- [x] **color** - A static color for the stars
+- [x] **staticColor** - A static color for the stars
 - [x] **disabled** - Component is in disabled mode
 - [x] **starType** - Stars can be displayed as svg, character or icon-font like fontawesome, glyphicons or ionicons
 - [x] **labelText** - The value of the label text

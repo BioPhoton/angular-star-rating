@@ -28,6 +28,7 @@ export class AppComponent {
     this.starRatingConfig.disabled  = false;
     this.starRatingConfig.readOnly = false;
     this.starRatingConfig.rating = 2.7;
+    this.starRatingConfig.direction = "rtl";
     this.starRatingConfig.showHalfStars = true;
     this.starRatingConfig.getColor = (rating: number, numOfStars: number, staticColor?: starRatingColors) => {
       return staticColor || "ok";

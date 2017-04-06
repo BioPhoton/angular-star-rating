@@ -4,7 +4,7 @@ import {
   starRatingSpeed,
   starRatingPosition,
   starRatingStarTypes,
-  starRatingColors
+  starRatingColor
 } from "./star-rating-struct";
 
 /**
@@ -45,9 +45,7 @@ export class StarRatingConfig {
 
   svgPathFilled: string = this.svgPath + "#" + this.svgFilledSymbolId;
 
-  getColor:(rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
-  /*
-  getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors {
+  getColor(rating: number, numOfStars: number, staticColor?: starRatingColor): starRatingColor {
     rating = rating || 0;
 
     //if a fix color is set use this one
@@ -59,7 +57,7 @@ export class StarRatingConfig {
     let fractionSize = numOfStars / 3;
 
     //apply color by fraction
-    let color: starRatingColors = 'default';
+    let color: starRatingColor = 'default';
     if (rating > 0) {
       color = 'negative';
     }
@@ -72,7 +70,6 @@ export class StarRatingConfig {
 
     return color;
   }
-*/
   getHalfStarVisible(rating: number): boolean {
     return Math.abs(rating % 1) > 0;
   }

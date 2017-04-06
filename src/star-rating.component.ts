@@ -2,12 +2,12 @@ import {Component, Input, OnChanges, Output, EventEmitter} from "@angular/core";
 import {
     starRatingSizes,
     starRatingSpeed,
-    starRatingColors,
+    starRatingColor,
     starRatingPosition,
     starRatingStarSpace,
     starRatingStarTypes,
     IStarRatingOnClickEvent,
-    IStarRatingOnRatingChangeEven
+    IStarRatingOnRatingChangeEven, starRatingDirection
 } from "./star-rating-struct";
 import {StarRatingConfig} from "./star-rating-config";
 
@@ -86,9 +86,9 @@ export class StarRatingComponent implements OnChanges {
      * @param rating
      * @param numOfStars
      * @param staticColor
-     * @returns {starRatingColors}
+     * @returns {starRatingColor}
      */
-    static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColors): starRatingColors {
+    static _getColor(rating: number, numOfStars: number, staticColor?: starRatingColor): starRatingColor {
         rating = rating || 0;
 
         //if a fix color is set use this one
@@ -100,7 +100,7 @@ export class StarRatingComponent implements OnChanges {
         let fractionSize = numOfStars / 3;
 
         //apply color by fraction
-        let color: starRatingColors = 'default';
+        let color: starRatingColor = 'default';
         if (rating > 0) {
             color = 'negative';
         }
@@ -167,14 +167,14 @@ export class StarRatingComponent implements OnChanges {
     /**
      * staticColor
      */
-    protected _staticColor: starRatingColors;
+    protected _staticColor: starRatingColor;
 
-    get staticColor(): starRatingColors {
+    get staticColor(): starRatingColor {
         return this._staticColor;
     }
 
     @Input()
-    set staticColor(value: starRatingColors) {
+    set staticColor(value: starRatingColor) {
         this._staticColor = value || undefined;
 
         //update color.
@@ -182,6 +182,26 @@ export class StarRatingComponent implements OnChanges {
     }
 
     /////////////////////////////////////////////
+
+    /**
+     * direction
+     */
+    protected _direction: starRatingDirection;
+
+    get direction(): starRatingDirection {
+        return this._direction;
+    }
+
+    @Input()
+    set direction(value: starRatingDirection) {
+        this._direction = value || undefined;
+
+        //update color.
+        this.setColor();
+    }
+
+    /////////////////////////////////////////////
+
 
     /**
      * numOfStars
@@ -363,7 +383,7 @@ export class StarRatingComponent implements OnChanges {
      * getColor
      */
     @Input()
-    getColor: (rating: number, numOfStars: number, staticColor?: starRatingColors) => starRatingColors;
+    getColor: (rating: number, numOfStars: number, staticColor?: starRatingColor) => starRatingColor;
     /////////////////////////////////////////////
 
     /**
@@ -391,7 +411,7 @@ export class StarRatingComponent implements OnChanges {
     pathHalf: string;
     pathFilled: string;
 
-    color: starRatingColors;
+    color: starRatingColor;
     stars: Array<number>;
     ratingAsInteger: number;
     halfStarVisible: boolean;
@@ -530,6 +550,10 @@ export class StarRatingComponent implements OnChanges {
 
         if (valueChanged('staticColor', changes)) {
             this.staticColor = changes['staticColor'].currentValue;
+        }
+
+        if (valueChanged('direction', changes)) {
+            this.direction = changes['direction'].currentValue;
         }
 
         if (valueChanged('size', changes)) {
