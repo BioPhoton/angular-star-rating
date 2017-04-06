@@ -1,5 +1,11 @@
 # Repo
 examples/*
+resources/*
+.yo-rc.json
+.travis.yml
+.gitignore
+tsconfig.json
+tslint.json
 
 # Node
 node_modules/*
