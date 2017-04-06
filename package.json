@@ -1,15 +1,21 @@
 {
   "name": "angular-star-rating",
-  "version": "0.1.0",
+  "description": "Angular Star Rating is a Angular2 component written in typescript.",
+  "version": "2.0.0-beta2",
   "scripts": {
     "build": "ngc -p tsconfig.json",
     "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
-    "test": "tsc && karma start",
+    "test": "npm run tsc && karma start",
     "prepublish": "npm run tsc",
     "tsc": "npm run deleteDist && tsc && npm run copyAsstes",
     "deleteDist":"rimraf dist",
     "copyAsstes" : "copyfiles assets/**/* dist"
+
+    "coverage": "http-server -c-1 -o -p 9875 ./coverage",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "npm publish"
   },
+  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/BioPhoton/angular-star-rating"
@@ -18,15 +24,37 @@
     "name": "Michael Hladky",
     "email": "michael@hladky.at"
   },
+  "contributors": [
+    {
+      "name": "Michael Hladky",
+      "email": "michael@hladky.at"
+    }
+  ],
   "keywords": [
-    "angular"
+    "Rating",
+    "Stars",
+    "Star Rating",
+    "Star-Rating",
+    "Starrating",
+    "Icon",
+    "SVG",
+    "CSS",
+    "Pure CSS",
+    "CSS only",
+    "JavaScript",
+    "Angular",
+    "Angular Component",
+    "Angular2",
+    "Angular2 Component",
+    "Typescript"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/BioPhoton/angular-star-rating/issues"
   },
   "main": "./dist/index.js",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
@@ -38,15 +66,14 @@
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
     "core-js": "^2.4.1",
-    "css-star-rating": "^1.1.1",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
     "protractor": "~5.1.0",
     "rxjs": "^5.1.0",
     "ts-node": "~2.0.0",
@@ -55,6 +82,6 @@
     "zone.js": "^0.8.4"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=6.9.0"
   }
 }
