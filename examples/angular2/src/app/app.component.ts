@@ -32,18 +32,18 @@ export class AppComponent {
     this.starRatingConfig.getColor = (rating: number, numOfStars: number, staticColor?: starRatingColors) => {
       return staticColor || "ok";
     };
-    this.starRatingConfig.getHalfStarVisible=(rating: number, numOfStars: number, staticColor?: starRatingColors) => {
-      return (rating % 1) > 7;
+    this.starRatingConfig.getHalfStarVisible=(rating):boolean => {
+     return Math.abs(rating % 1) > 0.6;
     };
 
     //Outputs
     this.starRatingConfig.onClick = ($event) => {
       console.log('onClick $event: ', $event);
-    }
+    };
 
     this.starRatingConfig.onRatingChange = ($event) => {
       console.log('onRatingUpdated $event: ', $event);
-    }
+    };
   }
 
 
