@@ -20,7 +20,7 @@ It is based on [css-sar-rating](https://github.com/BioPhoton/css-star-rating), a
 ## DEMO
 ![alt tag](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/examples/example-usage.gif)  
 
-##Related Projects
+## Related Projects
 
 | Css | Angular1 (>=1.5)| Angular (>=2) |
 |---  |---	    |--- 	       |
@@ -59,23 +59,15 @@ It also provides callbacks for all calculation functions used in the component a
 | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/ie.png" width="100">	| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/firefox.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/chrome.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/safari.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/opera.png" width="100"> |
 
 
-## Install
+## Installation
 
 **Get Angular Star Rating:**
  - clone & build this repository
  - [download as .zip](https://github.com/BioPhoton/angular-star-rating/releases)
- - via **[npm](https://www.npmjs.org/)**: by running `$ npm install angular-star-rating` from your console
- - via **[bower](https://bower.io/)**: by running `$ bower install angular2-star-rating` from your console
- 
-## Installation
+ - via **[npm](https://www.npmjs.org/)**: by running `$ npm install angular-star-rating --save` from your console
+ - via **[bower](https://bower.io/)**: by running `$ bower install angular2-star-rating --save` from your console
 
-To install this library, run:
-
-```bash
-$ npm install angular-star-rating --save
-```
-
-## Consuming your library
+## Consuming the library
 
 Once you have published your library to npm, you can import your library in any Angular application by running:
 
