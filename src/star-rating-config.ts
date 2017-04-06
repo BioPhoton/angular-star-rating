@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {
-  IStarRatingCompBindings,
   starRatingSizes,
   starRatingSpeed,
   starRatingPosition,
@@ -14,7 +13,7 @@ import {
  * order to provide default values for all the star ratings used in the application.
  */
 @Injectable()
-export class StarRatingConfig implements IStarRatingCompBindings {
+export class StarRatingConfig {
 
   classEmpty: string = "default-star-empty-icon";
 
