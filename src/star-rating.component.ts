@@ -18,22 +18,22 @@ import {StarRatingConfig} from "./star-rating-config";
         <div id="{{id}}"
      class="rating {{rating?'value-'+ratingAsInteger:'value-0'}} {{readOnly?'read-only':''}} {{disabled?'disabled':''}} {{halfStarVisible?'half':''}} {{space?'space-'+space:''}} {{labelVisible?'label-'+labelVisible:''}} {{labelPosition?'label-'+labelPosition:''}} {{color?'color-'+color:''}} {{starType?'star-'+starType:''}} {{speed}} {{size}}"
     >
-                <div *ngIf="text" class="label-value">{{text}}</div>
+                <div *ngIf="labelText" class="label-value">{{labelText}}</div>
                 <div class="star-container">
                     <div class="star"
                     *ngFor="let star of stars"
                     (click)="onStarClicked(star)">
-                        <i class="star-empty {{classEmpty}}"></i>
-                        <i class="star-empty {{classHalf}}"></i>
-                        <i class="star-filled {{classFilled}}"></i>
-                        <svg class="star-empty {{classEmpty}}">
-                          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{pathEmpty}}"></use>
+                        <i *ngIf="!svgVisible()" class="star-empty {{classEmpty}}"></i>
+                        <i *ngIf="!svgVisible()" class="star-empty {{classHalf}}"></i>
+                        <i *ngIf="!svgVisible()" class="star-filled {{classFilled}}"></i>
+                        <svg *ngIf="svgVisible()" class="star-empty default-star-empty-icon">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathEmpty"></use>
                         </svg>
-                        <svg class="star-half {{classHalf}}">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{pathHalf}}"></use>
+                        <svg *ngIf="svgVisible()" class="star-half default-star-half-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathHalf"></use>
                         </svg>
-                        <svg class="star-filled {{classFilled}}">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{pathFilled}}"></use>
+                        <svg *ngIf="svgVisible()" class="star-filled default-star-filled-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathFilled"></use>
                         </svg>
                     </div>
             </div>
@@ -422,6 +422,9 @@ export class StarRatingComponent implements OnChanges {
 
     }
 
+    svgVisible():boolean {
+        return this.starType === "svg";
+    }
 
     setColor(): void {
         //check if custom function is given
@@ -508,7 +511,6 @@ export class StarRatingComponent implements OnChanges {
         }
 
         if (valueChanged('disabled', changes)) {
-            console.log('valueChanged disabled: ', changes['disabled'].currentValue);
             this.disabled = !!changes['disabled'].currentValue;
         }
 
