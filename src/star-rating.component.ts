@@ -16,9 +16,9 @@ import {StarRatingConfig} from "./star-rating-config";
     //templateUrl: 'star-rating.component.html',
     template: `
         <div id="{{id}}"
-     class="rating {{rating?'value-'+ratingAsInteger:'value-0'}} {{readOnly?'read-only':''}} {{disabled?'disabled':''}} {{halfStarVisible?'half':''}} {{space?'space-'+space:''}} {{labelVisible?'label-'+labelVisible:''}} {{labelPosition?'label-'+labelPosition:''}} {{color?'color-'+color:''}} {{starType?'star-'+starType:''}} {{speed}} {{size}}"
+     class="rating {{rating?'value-'+ratingAsInteger:'value-0'}} {{readOnly?'read-only':''}} {{disabled?'disabled':''}} {{halfStarVisible?'half':''}} {{space?'space-'+space:''}} {{labelVisible?'label-'+labelVisible:''}} {{labelPosition?'label-'+labelPosition:''}} {{color?'color-'+color:''}} {{starType?'star-'+starType:''}} {{speed}} {{size}} {{direction?'direction-'+direction:''}}"
     >
-                <div *ngIf="labelText" class="label-value">{{labelText}}</div>
+                <div *ngIf="labelVisible" class="label-value">{{labelText}}</div>
                 <div class="star-container">
                     <div class="star"
                     *ngFor="let star of stars"
@@ -165,6 +165,22 @@ export class StarRatingComponent implements OnChanges {
     /////////////////////////////////////////////
 
     /**
+     * labelVisible
+     */
+    protected _labelVisible: boolean;
+    get labelVisible(): boolean {
+        return this._labelVisible;
+    }
+
+    @Input()
+    set labelVisible(value: boolean) {
+        this._labelVisible = !!value;
+    }
+
+    /////////////////////////////////////////////
+
+
+    /**
      * staticColor
      */
     protected _staticColor: starRatingColor;
@@ -195,9 +211,6 @@ export class StarRatingComponent implements OnChanges {
     @Input()
     set direction(value: starRatingDirection) {
         this._direction = value || undefined;
-
-        //update color.
-        this.setColor();
     }
 
     /////////////////////////////////////////////
