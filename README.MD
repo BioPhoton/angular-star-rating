@@ -68,35 +68,48 @@ It also provides callbacks for all calculation functions used in the component a
  - clone & build this repository
  - [download as .zip](https://github.com/BioPhoton/angular-star-rating/releases)
  - via **[npm](https://www.npmjs.org/)**: by running `$ npm install angular-star-rating --save` from your console
- - via **[bower](https://bower.io/)**: by running `$ bower install angular2-star-rating --save` from your console
-
+ 
 ## Consuming the library
 
-Once you have published your library to npm, you can import your library in any Angular application by running:
+As a precondition we consider you have your ```.angular-cli.json``` setup with an assets folder so that the ```./src/assets``` folder is included in the bundled version. 
+But this is given by default if you use the angular-cli to setup your project.
+
+Now you can import your library in your angular application by running:
 
 ```bash
-$ npm install angular-star-rating
+$ npm install angular-star-rating --save
 ```
 
-and then from your Angular `AppModule`:
+or 
+
+```bash
+$ npm install angular-star-rating@2.0.0-rc.5 --save
+```
+
+for a specific version.
+
+Create an ```assets``` folder under your ```./src``` folder and copy the images from your ```./node_modules/assets/images``` folder into ```./src/assets/images```.
+
+In your ```app.module.ts``` import the ```StarRatingModule``` to your Angular `AppModule`:
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component';  
+  
 
-// Import your library
+// IMPORT YOUR LIBRARY
 import { StarRatingModule } from 'angular-star-rating';
-
+  
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-
-    // Specify your library as an import
+  
+    // SPECIFY YOUR LIBRARY AS AN  IMPORT
     StarRatingModule
   ],
   providers: [],
@@ -105,18 +118,21 @@ import { StarRatingModule } from 'angular-star-rating';
 export class AppModule { }
 ```
 
-Once your library is imported, you can use its components, directives and pipes in your Angular application:
+Once your library is imported, you can use the components in your Angular application:
 
 ```html
 <!-- You can now use your library component in app.component.html -->
 <h1>
   {{title}}
 </h1>
-<star-rating-comp></star-rating-comp>
+  
+<!-- USE COMPONENT HERE-->
+<star-rating-comp [rating]="2.63"></star-rating-comp>
 ```
 
-If you want to ust the svg style be shure to copy the image to your assets/images folder.
-
+If something is not working check if 
+- the component renders the expected html
+- if you use the svg version check if the ```star-rating.icons.svg``` is present in your ```./src/assets/images``` and loaded 
 
 ## Component Properties
 
