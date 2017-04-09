@@ -1,9 +1,20 @@
-import {Component, OnChanges, Output, EventEmitter} from "@angular/core";
+import {Component, OnChanges, EventEmitter, forwardRef} from "@angular/core";
 import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven} from "./star-rating-struct";
 import {StarRatingController} from "./star-rating.controller";
 
+
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+const STARRATING_CONTROL_ACCESSOR = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => StarRatingComponent),
+    multi: true
+};
+
+
 @Component({
     selector: 'star-rating-comp',
+    providers: [STARRATING_CONTROL_ACCESSOR ],
     inputs: [
         'getHalfStarVisible'
         , 'getColor'
@@ -59,6 +70,22 @@ import {StarRatingController} from "./star-rating.controller";
 })
 export class StarRatingComponent extends StarRatingController implements OnChanges {
 
+    //ControlValueAccessor implementation
+    protected onTouch: Function;
+    protected onModelChange: Function;
+
+    writeValue(obj: any): void {
+        this.rating = obj;
+    }
+
+    registerOnChange(fn: any): void {
+        this.onModelChange = fn;
+    }
+
+    registerOnTouched(fn: any): void {
+        this.onTouch = fn;
+    }
+
 
     /**
      * rating
@@ -66,18 +93,20 @@ export class StarRatingComponent extends StarRatingController implements OnChang
     set rating(value: number) {
         super.rating = value;
 
-        //fire onRatingChange event
+        //this.onModelChange(this.rating);
+
+        //this.onTouch();
+
         let $event: IStarRatingOnRatingChangeEven = {rating: this._rating};
         this.onRatingChange.emit($event);
     }
 
     //Output
     ///////////////////////////////////////////////////////////////////////////////////////////
-    @Output()
     onClick: EventEmitter<IStarRatingOnClickEvent> = new EventEmitter<IStarRatingOnClickEvent>();
 
-    @Output()
     onRatingChange: EventEmitter<IStarRatingOnRatingChangeEven> = new EventEmitter<IStarRatingOnRatingChangeEven>();
+
 
     constructor() {
         super();
@@ -93,7 +122,7 @@ export class StarRatingComponent extends StarRatingController implements OnChang
      *
      * @param rating
      */
-    protected onStarClicked(rating: number): void {
+    onStarClicked(rating: number): void {
 
         //fire onClick event
         let $event: IStarRatingOnClickEvent = {rating: rating};
