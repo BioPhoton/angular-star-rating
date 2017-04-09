@@ -7,11 +7,13 @@ import { StarRatingModule } from 'angular-star-rating';
 
 
 import { AppComponent } from './app.component';
+import {FormTestComponent} from "./components/form-test/form-test.component";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormTestComponent
   ],
   imports: [
     BrowserModule,
