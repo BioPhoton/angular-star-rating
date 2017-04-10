@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "backend":"json-server --watch db.json --port 4200",
+    "backend":"json-server --watch db.json --port 4200 --routes routes.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
