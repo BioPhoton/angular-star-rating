@@ -1,12 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
-import { StarRatingModule } from 'angular-star-rating';
-
-
-import { AppComponent } from './app.component';
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
+import {StarRatingModule} from "angular-star-rating";
+import {AppComponent} from "./app.component";
 import {FormTestComponent} from "./components/form-test/form-test.component";
 
 
@@ -19,7 +16,8 @@ import {FormTestComponent} from "./components/form-test/form-test.component";
     BrowserModule,
     FormsModule,
     HttpModule,
-    StarRatingModule
+    StarRatingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,13 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
+  <!--
+  <div formGroupName="test">
+  </div>
+  -->
+    <input type="number" formControlName="ratingInput">
 
-  <input type="number" formControlName="ratingInput">
+    <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'" formControlName="ratingComponent" ></star-rating-comp>
 
-  <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'"></star-rating-comp>
 
 
   <div class="stock-inventory__buttons">
