@@ -78,19 +78,37 @@ export class StarRatingComponent extends StarRatingController implements OnChang
     //ControlValueAccessor implementation
     onTouch: Function;
     onModelChange: Function;
+    private onModelChangeRegistered: boolean = false;
+    private onTouchRegistered: boolean = false;
 
     writeValue(obj: any): void {
-        this.setRating(obj);
+        this.rating = obj;
     }
 
     registerOnChange(fn: any): void {
-        console.log('registerOnChange');
         this.onModelChange = fn;
+        this.onModelChangeRegistered = true;
     }
 
     registerOnTouched(fn: any): void {
         this.onTouch = fn;
+        this.onTouchRegistered = true;
     }
+
+    setRating(value: number): void {
+        let initValue = this.rating;
+
+        super.setRating(value);
+        //if value changed trigger valueAccessor events
+        if (initValue !== this.rating) {
+            if (this.onModelChangeRegistered) {
+                this.onModelChange(this.rating);
+            }
+            if (this.onTouchRegistered) {
+                this.onTouch();
+            }
+        }
+    };
 
     constructor() {
         super();
@@ -117,7 +135,7 @@ export class StarRatingComponent extends StarRatingController implements OnChang
             return;
         }
 
-        this.setRating(rating);
+        this.rating = rating;
 
         let onClickEventObject: IStarRatingOnClickEvent = {
             rating: this.rating
@@ -141,8 +159,6 @@ export class StarRatingComponent extends StarRatingController implements OnChang
 
         //---------------------------------------
 
-        //functions
-
         //boolean
         if (valueChanged('showHalfStars', changes)) {
             this.showHalfStars = changes['showHalfStars'].currentValue;
@@ -162,7 +178,7 @@ export class StarRatingComponent extends StarRatingController implements OnChang
 
         //number
         if (valueChanged('rating', changes)) {
-            this.setRating(changes['rating'].currentValue);
+            this.rating = changes['rating'].currentValue;
         }
 
         if (valueChanged('numOfStars', changes)) {

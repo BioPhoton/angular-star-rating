@@ -259,6 +259,9 @@ export class StarRatingController {
 
     }
 
+    set rating(value:number) {
+        this.setRating(value);
+    }
 
     /**
      * showHalfStars
@@ -327,7 +330,7 @@ export class StarRatingController {
         }
 
         this.numOfStars = config.numOfStars;
-        this.setRating(0);
+        this.rating =0;
 
     }
 
@@ -360,4 +363,22 @@ export class StarRatingController {
             this.halfStarVisible = false;
         }
     }
+
+    getComponentClassNames():string {
+        let classNames:string[] = [];
+
+        classNames.push(this.rating?'value-'+this.ratingAsInteger:'value-0');
+        classNames.push(this.halfStarVisible?'half':'');
+        classNames.push(this.space?'space-'+this.space:'');
+        classNames.push(this.labelPosition?'label-'+this.labelPosition:'');
+        classNames.push(this.color?'color-'+this.color:'');
+        classNames.push(this.starType?'star-'+this.starType:'');
+        classNames.push(this.speed);
+        classNames.push(this.size);
+        classNames.push(this.readOnly?'read-only':'');
+        classNames.push(this.disabled?'disabled':'');
+
+        return classNames.join(' ');
+    }
+
 }
