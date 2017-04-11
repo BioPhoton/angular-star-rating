@@ -1,4 +1,4 @@
-import {Component, OnChanges, EventEmitter, forwardRef} from "@angular/core";
+import {Component, OnChanges, EventEmitter, forwardRef, OnInit} from "@angular/core";
 import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven} from "./star-rating-struct";
 import {StarRatingController} from "./star-rating.controller";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
@@ -38,9 +38,12 @@ const STAR_RATING_CONTROL_ACCESSOR = {
     ],
     //templateUrl: 'star-rating.component.html',
     template: `
-        <div id="{{id}}"
-     class="rating {{rating?'value-'+ratingAsInteger:'value-0'}} {{readOnly?'read-only':''}} {{disabled?'disabled':''}} {{halfStarVisible?'half':''}} {{space?'space-'+space:''}} {{labelVisible?'label-'+labelVisible:''}} {{labelPosition?'label-'+labelPosition:''}} {{color?'color-'+color:''}} {{starType?'star-'+starType:''}} {{speed}} {{size}} {{direction?'direction-'+direction:''}}"
-    >
+        <div    id="{{id}}" 
+                class="rating {{getComponentClassNames()}}" 
+                tabindex="0" 
+                (keydown)="onKeyDown($event)"
+                (blur)="onBlur($event)"
+                (focus)="onFocus($event)">
                 <div *ngIf="labelVisible" class="label-value">{{labelText}}</div>
                 <div class="star-container">
                     <div class="star"
@@ -66,7 +69,28 @@ const STAR_RATING_CONTROL_ACCESSOR = {
    .center-all,.star{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.star{position:relative;width:20px;height:20px}.star i,.star svg{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:absolute;top:0;left:0;width:100%;height:100%;font-style:normal}.star i.star-filled,.star i.star-half,.star svg.star-filled,.star svg.star-half{opacity:0}.star i{top:1px;display:none}.rating.star-icon i,.star.icon i{font-size:25px;line-height:25px}.rating.star-icon i.star-empty:before,.star.icon i.star-empty:before{content:"☆"}.rating.star-icon i.star-filled:before,.rating.star-icon i.star-half:before,.star.icon i.star-filled:before,.star.icon i.star-half:before{content:"★"}.rating.star-custom-icon i,.rating.theme-kununu .star-container .star i,.star.custom-icon i{font-size:18px;line-height:18px}.star.empty i.star-filled,.star.empty i.star-half,.star.empty svg.star-filled,.star.empty svg.star-half{opacity:0}.star.empty i.star-empty,.star.empty svg.star-empty{opacity:1}.rating.value-0.half .star:nth-child(1) i.star-empty,.rating.value-0.half .star:nth-child(1) i.star-filled,.rating.value-0.half .star:nth-child(1) svg.star-empty,.rating.value-0.half .star:nth-child(1) svg.star-filled,.rating.value-1.half .star-container .star:nth-child(2) i.star-empty,.rating.value-1.half .star-container .star:nth-child(2) i.star-filled,.rating.value-1.half .star-container .star:nth-child(2) svg.star-empty,.rating.value-1.half .star-container .star:nth-child(2) svg.star-filled,.rating.value-2.half .star-container .star:nth-child(3) i.star-empty,.rating.value-2.half .star-container .star:nth-child(3) i.star-filled,.rating.value-2.half .star-container .star:nth-child(3) svg.star-empty,.rating.value-2.half .star-container .star:nth-child(3) svg.star-filled,.rating.value-3.half .star-container .star:nth-child(4) i.star-empty,.rating.value-3.half .star-container .star:nth-child(4) i.star-filled,.rating.value-3.half .star-container .star:nth-child(4) svg.star-empty,.rating.value-3.half .star-container .star:nth-child(4) svg.star-filled,.rating.value-4.half .star-container .star:nth-child(5) i.star-empty,.rating.value-4.half .star-container .star:nth-child(5) i.star-filled,.rating.value-4.half .star-container .star:nth-child(5) svg.star-empty,.rating.value-4.half .star-container .star:nth-child(5) svg.star-filled,.rating.value-5.half .star-container .star:nth-child(6) i.star-empty,.rating.value-5.half .star-container .star:nth-child(6) i.star-filled,.rating.value-5.half .star-container .star:nth-child(6) svg.star-empty,.rating.value-5.half .star-container .star:nth-child(6) svg.star-filled,.star.half i.star-empty,.star.half i.star-filled,.star.half svg.star-empty,.star.half svg.star-filled{opacity:0}.rating.value-0.half .star:nth-child(1) i.star-half,.rating.value-0.half .star:nth-child(1) svg.star-half,.rating.value-1.half .star-container .star:nth-child(2) i.star-half,.rating.value-1.half .star-container .star:nth-child(2) svg.star-half,.rating.value-2.half .star-container .star:nth-child(3) i.star-half,.rating.value-2.half .star-container .star:nth-child(3) svg.star-half,.rating.value-3.half .star-container .star:nth-child(4) i.star-half,.rating.value-3.half .star-container .star:nth-child(4) svg.star-half,.rating.value-4.half .star-container .star:nth-child(5) i.star-half,.rating.value-4.half .star-container .star:nth-child(5) svg.star-half,.rating.value-5.half .star-container .star:nth-child(6) i.star-half,.rating.value-5.half .star-container .star:nth-child(6) svg.star-half,.star.half i.star-half,.star.half svg.star-half{opacity:1}.rating.value-1 .star-container .star:nth-child(-n+1) i.star-empty,.rating.value-1 .star-container .star:nth-child(-n+1) i.star-filled,.rating.value-1 .star-container .star:nth-child(-n+1) svg.star-empty,.rating.value-1 .star-container .star:nth-child(-n+1) svg.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) i.star-empty,.rating.value-2 .star-container .star:nth-child(-n+2) i.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) svg.star-empty,.rating.value-2 .star-container .star:nth-child(-n+2) svg.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) i.star-empty,.rating.value-3 .star-container .star:nth-child(-n+3) i.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) svg.star-empty,.rating.value-3 .star-container .star:nth-child(-n+3) svg.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) i.star-empty,.rating.value-4 .star-container .star:nth-child(-n+4) i.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) svg.star-empty,.rating.value-4 .star-container .star:nth-child(-n+4) svg.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) i.star-empty,.rating.value-5 .star-container .star:nth-child(-n+5) i.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) svg.star-empty,.rating.value-5 .star-container .star:nth-child(-n+5) svg.star-filled,.rating.value-6 .star-container .star:nth-child(-n+6) i.star-empty,.rating.value-6 .star-container .star:nth-child(-n+6) i.star-filled,.rating.value-6 .star-container .star:nth-child(-n+6) svg.star-empty,.rating.value-6 .star-container .star:nth-child(-n+6) svg.star-filled,.rating.value-7 .star-container .star:nth-child(-n+7) i.star-empty,.rating.value-7 .star-container .star:nth-child(-n+7) i.star-filled,.rating.value-7 .star-container .star:nth-child(-n+7) svg.star-empty,.rating.value-7 .star-container .star:nth-child(-n+7) svg.star-filled,.rating.value-8 .star-container .star:nth-child(-n+8) i.star-empty,.rating.value-8 .star-container .star:nth-child(-n+8) i.star-filled,.rating.value-8 .star-container .star:nth-child(-n+8) svg.star-empty,.rating.value-8 .star-container .star:nth-child(-n+8) svg.star-filled,.rating.value-9 .star-container .star:nth-child(-n+9) i.star-empty,.rating.value-9 .star-container .star:nth-child(-n+9) i.star-filled,.rating.value-9 .star-container .star:nth-child(-n+9) svg.star-empty,.rating.value-9 .star-container .star:nth-child(-n+9) svg.star-filled,.rating.value-10 .star-container .star:nth-child(-n+10) i.star-empty,.rating.value-10 .star-container .star:nth-child(-n+10) i.star-filled,.rating.value-10 .star-container .star:nth-child(-n+10) svg.star-empty,.rating.value-10 .star-container .star:nth-child(-n+10) svg.star-filled,.rating.value-11 .star-container .star:nth-child(-n+11) i.star-empty,.rating.value-11 .star-container .star:nth-child(-n+11) i.star-filled,.rating.value-11 .star-container .star:nth-child(-n+11) svg.star-empty,.rating.value-11 .star-container .star:nth-child(-n+11) svg.star-filled,.rating.value-12 .star-container .star:nth-child(-n+12) i.star-empty,.rating.value-12 .star-container .star:nth-child(-n+12) i.star-filled,.rating.value-12 .star-container .star:nth-child(-n+12) svg.star-empty,.rating.value-12 .star-container .star:nth-child(-n+12) svg.star-filled,.star.filled i.star-empty,.star.filled i.star-filled,.star.filled svg.star-empty,.star.filled svg.star-filled{opacity:0}.rating.value-1 .star-container .star:nth-child(-n+1) i.star-filled,.rating.value-1 .star-container .star:nth-child(-n+1) svg.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) i.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) svg.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) i.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) svg.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) i.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) svg.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) i.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) svg.star-filled,.rating.value-6 .star-container .star:nth-child(-n+6) i.star-filled,.rating.value-6 .star-container .star:nth-child(-n+6) svg.star-filled,.rating.value-7 .star-container .star:nth-child(-n+7) i.star-filled,.rating.value-7 .star-container .star:nth-child(-n+7) svg.star-filled,.rating.value-8 .star-container .star:nth-child(-n+8) i.star-filled,.rating.value-8 .star-container .star:nth-child(-n+8) svg.star-filled,.rating.value-9 .star-container .star:nth-child(-n+9) i.star-filled,.rating.value-9 .star-container .star:nth-child(-n+9) svg.star-filled,.rating.value-10 .star-container .star:nth-child(-n+10) i.star-filled,.rating.value-10 .star-container .star:nth-child(-n+10) svg.star-filled,.rating.value-11 .star-container .star:nth-child(-n+11) i.star-filled,.rating.value-11 .star-container .star:nth-child(-n+11) svg.star-filled,.rating.value-12 .star-container .star:nth-child(-n+12) i.star-filled,.rating.value-12 .star-container .star:nth-child(-n+12) svg.star-filled,.star.filled i.star-filled,.star.filled svg.star-filled{opacity:1}.star-container .star svg,.star.default svg{fill:#999}.star-container .star i,.star.default i{color:#999}.rating.value-0.half .star svg,.rating.value-1 .star-container .star svg,.rating.value-1.half .star-container .rating.value-0.star:nth-child(2) .star svg,.rating.value-2 .star-container .star svg,.rating.value-2.half .star-container .rating.value-0.star:nth-child(3) .star svg,.rating.value-3.half .star-container .rating.value-0.star:nth-child(4) .star svg,.rating.value-4.half .star-container .rating.value-0.star:nth-child(5) .star svg,.rating.value-5.half .star-container .rating.value-0.star:nth-child(6) .star svg,.star.negative svg{fill:#f03c56}.rating.value-0.half .star i,.rating.value-1 .star-container .star i,.rating.value-1.half .star-container .rating.value-0.star:nth-child(2) .star i,.rating.value-2 .star-container .star i,.rating.value-2.half .star-container .rating.value-0.star:nth-child(3) .star i,.rating.value-3.half .star-container .rating.value-0.star:nth-child(4) .star i,.rating.value-4.half .star-container .rating.value-0.star:nth-child(5) .star i,.rating.value-5.half .star-container .rating.value-0.star:nth-child(6) .star i,.star.negative i{color:#f03c56}.rating.value-3 .star-container .star svg,.star.middle svg{fill:#ffc058}.rating.value-3 .star-container .star i,.star.middle i{color:#ffc058}.rating.value-4 .star-container .star svg,.rating.value-5 .star-container .star svg,.rating.value-6 .star-container .star svg,.rating.value-7 .star-container .star svg,.rating.value-8 .star-container .star svg,.rating.value-9 .star-container .star svg,.rating.value-10 .star-container .star svg,.rating.value-11 .star-container .star svg,.rating.value-12 .star-container .star svg,.star.positive svg{fill:#7ed321}.rating.value-4 .star-container .star i,.rating.value-5 .star-container .star i,.rating.value-6 .star-container .star i,.rating.value-7 .star-container .star i,.rating.value-8 .star-container .star i,.rating.value-9 .star-container .star i,.rating.value-10 .star-container .star i,.rating.value-11 .star-container .star i,.rating.value-12 .star-container .star i,.star.positive i{color:#7ed321}.rating.star-svg i,.star.svg i{display:none}.rating.star-svg svg,.star.svg svg{display:-webkit-box;display:-ms-flexbox;display:flex}.rating.star-custom-icon svg,.rating.star-icon svg,.rating.theme-kununu .star-container .star svg,.star.custom-icon svg,.star.icon svg{display:none}.rating.star-custom-icon i,.rating.star-icon i,.rating.theme-kununu .star-container .star i,.star.custom-icon i,.star.icon i{display:-webkit-box;display:-ms-flexbox;display:flex}.rating.small .star,.star.small{width:10px;height:9,5px}.rating.small .star i,.star.small i{font-size:11px;line-height:10px}.rating.medium .star,.star.medium{width:20px;height:20px}.rating.medium .star i,.star.medium i{font-size:25px;line-height:25px}.rating.large .star,.star.large{width:35px;height:33.3px}.rating.large .star i,.star.large i{font-size:36px;line-height:35px}.rating.disabled .star-container .star,.star.disabled{opacity:.5}.rating.direction-rtl .star-container .star i.star-half,.rating.direction-rtl .star-container .star svg.star-half,.star-container.direction-rtl .star i.star-half,.star-container.direction-rtl .star svg.star-half,.star.direction-rtl i.star-half,.star.direction-rtl svg.star-half{-webkit-transform:scaleX(-1);transform:scaleX(-1)}.star-container.direction-ltr .star i.star-half,.star-container.direction-ltr .star svg.star-half,.star.direction-ltr i.star-half,.star.direction-ltr svg.star-half{-webkit-transform:scale(1);transform:scale(1)}.label-value{font-size:18px;line-height:18px}.label-value.small,.rating.small .label-value{font-size:9.5px;line-height:9.5px}.label-value.medium,.rating.medium .label-value{font-size:18px;line-height:25px}.label-value.large,.rating.large .label-value{font-size:28px;line-height:35px}.label-value.disabled,.rating.disabled .label-value{opacity:.5}.star-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-left:5px;margin-right:5px;-webkit-transition:all .3s ease;transition:all .3s ease}.star-container+.star{margin-left:5px}.star-container .star,.star-container .star i,.star-container .star svg{-webkit-transition:all .3s ease;transition:all .3s ease}.star-container svg{z-index:2}.star-container i{z-index:1}.rating.direction-rtl .star-container,.star-container.direction-rtl{direction:rtl}.star-container.direction-ltr{direction:ltr}.rating.space-no .star-container,.star-container.space-no{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.rating.space-between .star-container,.star-container.space-between{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.rating.space-around .star-container,.star-container.space-around{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto;-ms-flex-pack:distribute;justify-content:space-around}.rating{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-bottom:5px}.rating.label-hidden .label-value{display:none}.rating.label-visible{display:-webkit-box;display:-ms-flexbox;display:flex}.rating.label-top{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.rating.label-top .label-value+.star-container{margin-left:0;margin-right:0;margin-top:5px}.rating.label-left .label-value{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto}.rating.label-left .label-value+.star-container{margin-left:5px;margin-right:0}.rating.label-right{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.rating.label-right .label-value+.star-container{margin-left:0;margin-right:5px}.rating.label-bottom{-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.rating.label-bottom .label-value+.star-container{margin-left:0;margin-right:0;margin-bottom:5px}.rating.direction-rtl{direction:rtl}.rating.direction-ltr{direction:ltr}.rating.color-default .star-container .star svg{fill:#999}.rating.color-default .star-container .star i{color:#999}.rating.color-ok .star-container .star svg{fill:#ffc058}.rating.color-ok .star-container .star i{color:#ffc058}.rating.color-positive .star-container .star svg{fill:#7ed321}.rating.color-positive .star-container .star i{color:#7ed321}.rating.color-negative .star-container .star svg{fill:#f03c56}.rating.color-negative .star-container .star i{color:#f03c56}.rating.immediately .star-container{-webkit-transition:all none;transition:all none}.rating.immediately .star-container .star,.rating.immediately .star-container .star i,.rating.immediately .star-container .star svg{-webkit-transition:none;transition:none}.rating.noticeable .star-container,.rating.noticeable .star-container .star,.rating.noticeable .star-container .star i,.rating.noticeable .star-container .star svg{-webkit-transition:all .3s ease;transition:all .3s ease}.rating.slow .star-container,.rating.slow .star-container .star,.rating.slow .star-container .star i,.rating.slow .star-container .star svg{-webkit-transition:all .8s ease;transition:all .8s ease}.rating.theme-kununu{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;width:78px}.rating.theme-kununu .label-value,.rating.theme-kununu .star-container{width:100%}.rating.theme-kununu .label-value{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;border-radius:6px 6px 0 0;height:50px;border:1px solid #e9ecec;border-bottom:0;font-size:18px;font-weight:700;color:#2f3940;letter-spacing:-1px;background-color:#f8f8f8}.rating.theme-kununu .star-container{border-radius:0 0 6px 6px;padding:2px 0 4px;margin-left:0;margin-right:0;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background-color:#99c613;border:1px solid #99c613;border-bottom:0}.rating.theme-kununu .star-container .star{height:11px;width:11px}.rating.theme-kununu .star-container .star i{font-size:11px;color:#fff;text-align:center}.rating.theme-google-places .label-value{color:#e7711b;font-family:arial,sans-serif;font-size:13px;line-height:15px}.rating.theme-google-places .star-container{width:65px;margin-left:2px}.rating.theme-google-places .star-container .star i{font-size:17px;color:#e7711b!important}.rating.theme-google-places .star-container .star i.star-empty{opacity:1!important;color:#e1e1e1!important}.rating.theme-google-places .star-container .star i.star-empty:before{content:"★"}.rating.theme-google-places .star-container .star i.star-half{width:7px;overflow:hidden}.rating.theme-google-places .star-container .star i.star-filled:before,.rating.theme-google-places .star-container .star i.star-half:before{content:"★"}.rating.theme-rolling-stars .star-container .star{-webkit-transition:-webkit-transform 1s;transition:-webkit-transform 1s;transition:transform 1s;transition:transform 1s,-webkit-transform 1s;-webkit-transform:rotate(0deg);transform:rotate(0deg)}.rating.theme-rolling-stars.value-0.half .star:nth-child(1),.rating.theme-rolling-stars.value-1 .star-container .star:nth-child(-n+1),.rating.theme-rolling-stars.value-1.half .star-container .star:nth-child(2),.rating.theme-rolling-stars.value-2 .star-container .star:nth-child(-n+2),.rating.theme-rolling-stars.value-2.half .star-container .star:nth-child(3),.rating.theme-rolling-stars.value-3 .star-container .star:nth-child(-n+3),.rating.theme-rolling-stars.value-3.half .star-container .star:nth-child(4),.rating.theme-rolling-stars.value-4 .star-container .star:nth-child(-n+4),.rating.theme-rolling-stars.value-4.half .star-container .star:nth-child(5),.rating.theme-rolling-stars.value-5 .star-container .star:nth-child(-n+5),.rating.theme-rolling-stars.value-5.half .star-container .star:nth-child(6),.rating.theme-rolling-stars.value-6 .star-container .star:nth-child(-n+6),.rating.value-0.half .rating.theme-rolling-stars.value-0.star:nth-child(1) .star:nth-child(1),.rating.value-0.half .rating.theme-rolling-stars.value-1.star:nth-child(1) .star-container .star:nth-child(2),.rating.value-0.half .rating.theme-rolling-stars.value-2.star:nth-child(1) .star-container .star:nth-child(3),.rating.value-0.half .rating.theme-rolling-stars.value-3.star:nth-child(1) .star-container .star:nth-child(4),.rating.value-0.half .rating.theme-rolling-stars.value-4.star:nth-child(1) .star-container .star:nth-child(5),.rating.value-0.half .rating.theme-rolling-stars.value-5.star:nth-child(1) .star-container .star:nth-child(6),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(2) .star:nth-child(1),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(2) .star-container .star:nth-child(2),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(2) .star-container .star:nth-child(3),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(2) .star-container .star:nth-child(4),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(2) .star-container .star:nth-child(5),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(2) .star-container .star:nth-child(6),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(3) .star:nth-child(1),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(3) .star-container .star:nth-child(2),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(3) .star-container .star:nth-child(3),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(3) .star-container .star:nth-child(4),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(3) .star-container .star:nth-child(5),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(3) .star-container .star:nth-child(6),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(4) .star:nth-child(1),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(4) .star-container .star:nth-child(2),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(4) .star-container .star:nth-child(3),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(4) .star-container .star:nth-child(4),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(4) .star-container .star:nth-child(5),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(4) .star-container .star:nth-child(6),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(5) .star:nth-child(1),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(5) .star-container .star:nth-child(2),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(5) .star-container .star:nth-child(3),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(5) .star-container .star:nth-child(4),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(5) .star-container .star:nth-child(5),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(5) .star-container .star:nth-child(6),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(6) .star:nth-child(1),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(6) .star-container .star:nth-child(2),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(6) .star-container .star:nth-child(3),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(6) .star-container .star:nth-child(4),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(6) .star-container .star:nth-child(5),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(6) .star-container .star:nth-child(6){-webkit-transition:-webkit-transform 1s;transition:-webkit-transform 1s;transition:transform 1s;transition:transform 1s,-webkit-transform 1s;-webkit-transform:rotate(1turn);transform:rotate(1turn)}
   `],
 })
-export class StarRatingComponent extends StarRatingController implements OnChanges, ControlValueAccessor {
+export class StarRatingComponent extends StarRatingController implements OnChanges, OnInit, ControlValueAccessor {
+
+    onTouch: Function;
+    onModelChange: Function;
+    private onModelChangeRegistered: boolean = false;
+    private onTouchRegistered: boolean = false;
+
+    saveOnTouch() {
+        if (this.onTouchRegistered) {
+            this.onTouch();
+        }
+    }
+
+    saveOnModelChange() {
+        console.log('saveOnModelChange');
+        if (this.onModelChangeRegistered) {
+            this.onModelChange();
+        }
+    }
+
+
+    private initialized: boolean = false;
 
     //Output
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -75,11 +99,67 @@ export class StarRatingComponent extends StarRatingController implements OnChang
 
     onRatingChange: EventEmitter<IStarRatingOnRatingChangeEven> = new EventEmitter<IStarRatingOnRatingChangeEven>();
 
-    //ControlValueAccessor implementation
-    onTouch: Function;
-    onModelChange: Function;
-    private onModelChangeRegistered: boolean = false;
-    private onTouchRegistered: boolean = false;
+    /**ACCESSEBILITY **/
+
+    //Keyboard events
+    onKeyDown(event: KeyboardEvent) {
+
+        const handlers: any = {
+            //Decrement
+            Minus: () => this.rating--,
+            ArrowDown: () => this.rating--,
+            ArrowLeft: () => this.rating--,
+
+            //Increment
+            Plus: () => this.rating++,
+            ArrowRight: () => this.rating++,
+            ArrowUp: () => this.rating++,
+
+            //Reset
+            Backspace: () => this.rating = 0,
+            Delete: () => this.rating = 0,
+            Digit0: () => this.rating = 0
+        };
+
+        const isDigit = (eventCode: string): boolean => {
+            return eventCode.indexOf('Digit') === 0;
+        };
+
+        const handleDigits = (eventCode: string): void => {
+            let dStr = "Digit";
+            let digit: number = parseInt(eventCode.substr(dStr.length, eventCode.length-1));
+            console.log('handleDigits: ',digit, eventCode.substr(dStr.length, eventCode.length-1), eventCode);
+            this.rating = digit;
+        };
+
+        if (handlers[event['code']] || isDigit(event['code'])) {
+            if (isDigit(event['code'])) {
+                handleDigits(event['code']);
+            } else {
+                handlers[event['code']]();
+            }
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        this.saveOnTouch();
+    }
+
+    //Focus events
+    onBlur(event: FocusEvent) {
+        this.focus = false;
+        event.preventDefault();
+        event.stopPropagation();
+        this.saveOnTouch();
+    }
+
+    onFocus(event: FocusEvent) {
+        this.focus = true;
+        event.preventDefault();
+        event.stopPropagation();
+        this.saveOnTouch();
+    }
+
+    /**Form Control - ControlValueAccessor implementation**/
 
     writeValue(obj: any): void {
         this.rating = obj;
@@ -95,25 +175,30 @@ export class StarRatingComponent extends StarRatingController implements OnChang
         this.onTouchRegistered = true;
     }
 
-    setRating(value: number): void {
-        let initValue = this.rating;
-
-        super.setRating(value);
-        //if value changed trigger valueAccessor events
-        if (initValue !== this.rating) {
-            if (this.onModelChangeRegistered) {
-                this.onModelChange(this.rating);
-            }
-            if (this.onTouchRegistered) {
-                this.onTouch();
-            }
-        }
-    };
-
     constructor() {
         super();
 
     }
+
+    //Overrides
+    setRating(value: number): void {
+        let initValue = this.rating;
+        super.setRating(value);
+
+        //fire events only if initialized
+        if (this.initialized) {
+
+            //if value changed trigger valueAccessor events
+            if (initValue !== this.rating) {
+                let $event: IStarRatingOnRatingChangeEven = {rating: this.rating};
+                this.onRatingChange.emit($event);
+
+                this.saveOnModelChange();
+            }
+
+        }
+
+    };
 
 
     /**
@@ -144,6 +229,10 @@ export class StarRatingComponent extends StarRatingController implements OnChang
 
     }
 
+    /**
+     * ngOnChanges
+     * @param changes
+     */
     ngOnChanges(changes: any): void {
 
         let valueChanged = function (key: string, changes: any): boolean {
@@ -214,6 +303,10 @@ export class StarRatingComponent extends StarRatingController implements OnChang
             this.starType = changes['starType'].currentValue;
         }
 
+    }
+
+    ngOnInit(): void {
+        this.initialized = true;
     }
 
 }

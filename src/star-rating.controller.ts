@@ -34,6 +34,20 @@ export class StarRatingController {
     /////////////////////////////////////////////
 
     /**
+     * focus
+     */
+    protected _focus: boolean;
+    get focus(): boolean {
+        return this._focus;
+    }
+
+    set focus(value: boolean) {
+        this._focus = !!value;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
      * labelText
      */
     protected _labelText: string;
