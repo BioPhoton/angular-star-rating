@@ -1,5 +1,6 @@
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {StarRatingController} from "../../../../../../src/star-rating.controller";
 
 const COUNTER_CONTROL_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
@@ -35,7 +36,7 @@ const COUNTER_CONTROL_ACCESSOR = {
     </div>
   `
 })
-export class StockCounterComponent implements ControlValueAccessor {
+export class StockCounterComponent extends StarRatingController implements ControlValueAccessor {
 
   private onTouch: Function;
   private onModelChange: Function;
@@ -72,4 +73,9 @@ export class StockCounterComponent implements ControlValueAccessor {
     }
     this.onTouch();
   }
+
+  constructor() {
+    super();
+  }
+
 }

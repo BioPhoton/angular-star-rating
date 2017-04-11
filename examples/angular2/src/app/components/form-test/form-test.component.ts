@@ -3,6 +3,7 @@ import {FormBuilder} from "@angular/forms";
 
 @Component({
     selector: 'app-form-test',
+
     templateUrl: 'form-test.component.html',
     styleUrls: ['form-test.component.css']
 })

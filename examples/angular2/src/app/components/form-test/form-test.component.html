@@ -3,10 +3,16 @@
   <!--
   <div formGroupName="test">
   </div>
-  -->
-    <input type="number" formControlName="ratingInput">
+   <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'" formControlName="ratingComponent" ></star-rating-comp>
 
-    <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'" formControlName="ratingComponent" ></star-rating-comp>
+  -->
+  <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'" ></star-rating-comp>
+
+  <input type="number" formControlName="ratingInput">
+
+  <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'" formControlName="ratingInput" ></star-rating-comp>
+
+  <stock-counter formControlName="ratingInput"></stock-counter>
 
 
 
