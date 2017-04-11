@@ -68,12 +68,19 @@ const STAR_RATING_CONTROL_ACCESSOR = {
 })
 export class StarRatingComponent extends StarRatingController implements OnChanges, ControlValueAccessor {
 
+    //Output
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    onClick: EventEmitter<IStarRatingOnClickEvent> = new EventEmitter<IStarRatingOnClickEvent>();
+
+    onRatingChange: EventEmitter<IStarRatingOnRatingChangeEven> = new EventEmitter<IStarRatingOnRatingChangeEven>();
+
     //ControlValueAccessor implementation
     onTouch: Function;
     onModelChange: Function;
 
     writeValue(obj: any): void {
-        this.rating = obj;
+        this.setRating(obj);
     }
 
     registerOnChange(fn: any): void {
@@ -85,32 +92,11 @@ export class StarRatingComponent extends StarRatingController implements OnChang
         this.onTouch = fn;
     }
 
-
-    /**
-     * rating
-     */
-    set rating(value: number) {
-        super.rating = value;
-
-        this.onModelChange(this.rating);
-        this.onTouch();
-
-        let $event: IStarRatingOnRatingChangeEven = {rating: this._rating};
-        this.onRatingChange.emit($event);
-    }
-
-    //Output
-    ///////////////////////////////////////////////////////////////////////////////////////////
-    onClick: EventEmitter<IStarRatingOnClickEvent> = new EventEmitter<IStarRatingOnClickEvent>();
-
-    onRatingChange: EventEmitter<IStarRatingOnRatingChangeEven> = new EventEmitter<IStarRatingOnRatingChangeEven>();
-
-
     constructor() {
         super();
-        console.log('StarRatingComponent constructor');
 
     }
+
 
     /**
      * onStarClicked
@@ -131,7 +117,7 @@ export class StarRatingComponent extends StarRatingController implements OnChang
             return;
         }
 
-        this.rating = rating;
+        this.setRating(rating);
 
         let onClickEventObject: IStarRatingOnClickEvent = {
             rating: this.rating
@@ -176,7 +162,7 @@ export class StarRatingComponent extends StarRatingController implements OnChang
 
         //number
         if (valueChanged('rating', changes)) {
-            this.rating = changes['rating'].currentValue;
+            this.setRating(changes['rating'].currentValue);
         }
 
         if (valueChanged('numOfStars', changes)) {

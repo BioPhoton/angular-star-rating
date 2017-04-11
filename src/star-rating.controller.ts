@@ -230,7 +230,12 @@ export class StarRatingController {
         return this._rating;
     }
 
-    set rating(value: number) {
+    /**
+     * setRating
+     * I use a setter function instead of a set method to enable overrides for this function.
+     * @param value
+     */
+    setRating(value: number) {
         //validate and apply newRating
         let newRating: number = 0;
         if (value >= 0
@@ -322,7 +327,7 @@ export class StarRatingController {
         }
 
         this.numOfStars = config.numOfStars;
-        this.rating = 0;
+        this.setRating(0);
 
     }
 
