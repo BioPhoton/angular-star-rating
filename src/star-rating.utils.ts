@@ -4,7 +4,7 @@ export class StarRatingUtils {
     ///////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * _getStarsArray
+     * getStarsArray
      *
      * returns an array of increasing numbers starting at 1
      *
@@ -20,7 +20,7 @@ export class StarRatingUtils {
     }
 
     /**
-     * _getHalfStarVisible
+     * getHalfStarVisible
      *
      * Returns true if there should be a half star visible, and false if not.
      *
@@ -32,7 +32,7 @@ export class StarRatingUtils {
     }
 
     /**
-     * _getColor
+     * getColor
      *
      * The default function for color calculation
      * based on the current rating and the the number of stars possible.
@@ -68,5 +68,15 @@ export class StarRatingUtils {
 
         return color;
     }
+
+    /**
+     * isDigitKeyEventCode
+     * detects digit key event sodes
+     * @param eventCode
+     * @returns {boolean}
+     */
+    static isDigitKeyEventCode = (eventCode: string): boolean => {
+        return eventCode.indexOf('Digit') === 0;
+    };
 
 }

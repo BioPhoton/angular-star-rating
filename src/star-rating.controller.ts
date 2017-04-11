@@ -391,6 +391,7 @@ export class StarRatingController {
         classNames.push(this.size);
         classNames.push(this.readOnly?'read-only':'');
         classNames.push(this.disabled?'disabled':'');
+        classNames.push(this.direction?'direction-'+this.direction:'');
 
         return classNames.join(' ');
     }
