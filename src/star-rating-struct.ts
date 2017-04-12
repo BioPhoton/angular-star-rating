@@ -13,3 +13,7 @@ export interface IStarRatingOnClickEvent {
 export interface IStarRatingOnRatingChangeEven {
   rating: number;
 }
+
+export interface IStarRatingOnHoverEvent {
+  hoverRating : number;
+}

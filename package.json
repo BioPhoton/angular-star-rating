@@ -53,7 +53,9 @@
     "url": "https://github.com/BioPhoton/angular-star-rating/issues"
   },
   "main": "./dist/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "css-star-rating": "^1.1.3"
+  },
   "devDependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
