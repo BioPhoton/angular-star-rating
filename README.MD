@@ -431,13 +431,9 @@ Params: $event
 
 ## Shields and other draft
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular-star-rating)   
-
 [![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
-
 [![NPM](https://nodei.co/npm/angular-star-rating.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/angular-star-rating)  
 [![NPM](https://nodei.co/npm-dl/angular-star-rating.png?height=3&months=9)](https://npmjs.org/angular-star-rating)  
-
-
 [![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)    
 
 
