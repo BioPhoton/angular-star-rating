@@ -16,8 +16,12 @@ export class FormTestComponent implements OnInit {
         //})
     });
 
-    constructor(private fb: FormBuilder) {
+    rating=0;
 
+    constructor(private fb: FormBuilder) {
+        setTimeout(() => {
+            this.rating = 2.7;
+        }, 5000);
     }
 
     ngOnInit() {

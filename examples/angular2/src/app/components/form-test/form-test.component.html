@@ -1,26 +1,12 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-  <!--
-  <div formGroupName="test">
-  </div>
-   <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'" formControlName="ratingComponent" ></star-rating-comp>
-
-  -->
-  <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'" ></star-rating-comp>
-
-  <input type="number" formControlName="ratingInput">
-
-  <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'" formControlName="ratingInput" ></star-rating-comp>
-
-  <stock-counter formControlName="ratingInput"></stock-counter>
-
-
+  <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'"  [rating]="rating" formControlName="ratingInput" ></star-rating-comp>
 
   <div class="stock-inventory__buttons">
     <button
             type="submit"
             [disabled]="form.invalid">
-      Order stock
+      Submit
     </button>
   </div>
   <pre>{{ form.value | json }}</pre>
