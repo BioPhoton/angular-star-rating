@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {StarRatingConfig} from "angular-star-rating/dist/src/star-rating-config";
-import {starRatingColor} from "angular-star-rating/dist/src/star-rating-struct";
+import {starRatingColor} from "angular-star-rating/dist";
 
 @Component({
   selector: 'app-root',

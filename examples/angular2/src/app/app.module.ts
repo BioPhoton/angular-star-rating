@@ -2,7 +2,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
-import {StarRatingModule} from "angular-star-rating/dist/index.js";
+import {StarRatingModule} from "angular-star-rating";
 import {AppComponent} from "./app.component";
 import {FormTestComponent} from "./components/form-test/form-test.component";
 import {MyFormComponent} from "./components/my-form-component-minimal/form-test.component";
