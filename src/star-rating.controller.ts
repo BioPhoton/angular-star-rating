@@ -13,7 +13,7 @@ import {StarRatingConfig} from "./star-rating-config";
 import {StarRatingUtils} from "./star-rating.utils";
 
 export class StarRatingController {
-    
+
     protected config:any;
 
     //Inputs
@@ -233,6 +233,21 @@ export class StarRatingController {
         this._disabled = !!value;
     }
 
+
+    /////////////////////////////////////////////
+
+
+    private _step:number;
+
+    get step(): number {
+        return this._step;
+    }
+
+    set step(value: number) {
+        this._step = (value > 0?value:1);
+    }
+
+
     /////////////////////////////////////////////
 
     /**
@@ -345,6 +360,7 @@ export class StarRatingController {
 
         this.numOfStars = config.numOfStars;
         this.rating =0;
+        this.step=1;
 
     }
 
@@ -394,6 +410,22 @@ export class StarRatingController {
         classNames.push(this.direction?'direction-'+this.direction:'');
 
         return classNames.join(' ');
+    }
+
+    increment() {
+        //increment to net higher step
+        let absDiff = Math.abs(this.rating%this.step);
+        this.rating = this.rating + (absDiff>0?absDiff:this.step);
+    }
+
+    decrement() {
+        //decrement to next lower step
+        let absDiff = Math.abs(this.rating%this.step);
+        this.rating = this.rating - (absDiff>0?absDiff:this.step);
+    }
+
+    reset() {
+        this.rating = 0;
     }
 
 }
