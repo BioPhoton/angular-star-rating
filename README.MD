@@ -1,66 +1,39 @@
 # Angular Star Rating ⭐⭐⭐⭐⭐
-#### ⭐ Angular Component written in typescript, based on css only techniques. ⭐
+#### ⭐ Angular Star Rating is a >2 Angular made with ❤, based on css only techniques. ⭐
 
 ![License](https://img.shields.io/npm/l/angular-star-rating.svg)
-![Bower Version](https://img.shields.io/bower/v/angular-star-rating.svg)
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)    
-[![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular-star-rating)   
 
 [![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 
-[![NPM](https://nodei.co/npm/angular-star-rating.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/angular-star-rating)  
-[![NPM](https://nodei.co/npm-dl/angular-star-rating.png?height=3&months=9)](https://npmjs.org/angular-star-rating)  
+Angular Star Rating is a >2 Angular made with ❤.  
 
-
-[![Package Quality](http://npm.packagequality.com/badge/angular-star-rating.png)](http://packagequality.com/#?package=angular-star-rating)    
-
-Angular Star Rating is a >2 Angular component written in typescript.   
-It is based on [css-sar-rating](https://github.com/BioPhoton/css-star-rating), a fully featured and customizable css only star rating component written in scss.  
+It is based on best practice UX/UI methods, accessibility in mind and an eye for details. 
+In love with reactive forms the easy to control over the keybord it is a perfect fit for all angular projects with ⭐'s.  
+   
+To keep it as flexible as possible a major part of the logic is based on [css only techniques](https://github.com/BioPhoton/css-star-rating). The component simple applies the state depending css modifiers.
 
 ![Angular-Star-Rating](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/examples/example-usage.gif)
+
+
+## Features
+Fully featured this component is provided with:
+- [x] easy **configurable** and reasonable defaults
+- [x] all **12 css modifiers** of the awesome [css only star rating](https://github.com/BioPhoton/css-star-rating) library
+- [x] it integrates well with **reactive forms** and all it's states
+- [x] focus and blur events are handled for a **smooth keyboard navigation**
+- [x] it'a **keyboard control** is even better than with native input elements :-)
+- [x] importable as a **angular ngModule** it is a plug and play to use
+
 
 ## DEMO
 - [x] [Example-App](https://github.com/BioPhoton/angular-star-rating/tree/master/examples/angular2)  
 
 ## Related Projects
-
-| Css | Angular1 (>=1.5)| Angular (>=2) |
-|---  |---	    |--- 	       |
-| <img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/dev/resources/family/css3.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/dev/resources/family/angular1.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular1-star-rating/dev/resources/family/angular.png" width="80"> |
-| [Css Star Rating](https://github.com/BioPhoton/css-star-rating) | [Angular1 Star Rating](https://github.com/BioPhoton/angular1-star-rating) | [Angular Star Rating](https://github.com/BioPhoton/angular-star-rating) |
-
-## Features
-This module implements all Features from [CSS-STAR-RATING](https://github.com/BioPhoton/css-star-rating).
-It also provides callbacks for all calculation functions used in the component as well as all possible event emitters.
-
-- [x] **id** - The html id attribute of the star rating
-- [x] **rating** -  The actual Star rating
-- [x] **showHalfStars** - To display half stars or not
-- [x] **numOfStars** - The max number of stars you can rate
-- [x] **size** - The different sizes of the component
-- [x] **space** - The space between the stars
-- [x] **staticColor** - A static color for the stars
-- [x] **disabled** - Component is in disabled mode
-- [x] **starType** - Stars can be displayed as svg, character or icon-font like fontawesome, glyphicons or ionicons
-- [x] **labelText** - The value of the label text
-- [x] **labelPosition** - The position of the label text
-- [x] **labelVisible** - The visibility of the label text
-- [x] **speed** - The duration of the animation
-- [x] **direction** - The direction of the component i.e. right to left
-- [x] **readOnly** - Click event is disabled
-- [x] **getColor** - Custom function to calculate the color for a rating
-- [x] **getHalfStarVisible** - Custom function to calculate value for displaying half stars or not
-- [x] **onClick** - Hook for Click action
-- [x] **onRatingChange** - Hook for onRatingChange event
-
-## Browser support
-
-
-| IE | Firefox | Chrome | Safari | Opera |
-|--- |---	   |--- 	|---	 |---|
-| >11  	|  >50 	|   >55	|  >10 	|   >41	|
-| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/ie.png" width="100">	| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/firefox.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/chrome.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/safari.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/opera.png" width="100"> |
-
+| Css | Angular 1 |  Angular | Ionic 1 |
+|---  |---	    |--- 	  |---      |
+| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/css3.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/angular1.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/angular.png" width="80"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/ionic1.png" width="80"> |
+| [Css Star Rating](https://github.com/BioPhoton/css-star-rating) | [Angular1 Star Rating](https://github.com/BioPhoton/angular1-star-rating) | [Angular Star Rating](https://github.com/BioPhoton/angular-star-rating) |[Ionic1 Star Rating](https://github.com/BioPhoton/ionic1-star-rating) |
 
 ## Installation
 
@@ -127,211 +100,33 @@ Once your library is imported, you can use the components in your Angular applic
 </h1>
   
 <!-- USE COMPONENT HERE-->
-<star-rating-comp [rating]="2.63"></star-rating-comp>
+<star-rating-comp [startype]="'svg'" [rating]="2.63"></star-rating-comp>
 ```
 
 If something is not working check if 
 - the component renders the expected html
 - if you use the svg version check if the ```star-rating.icons.svg``` is present in your ```./src/assets/images``` and loaded 
 
-## Component Properties
+### Implement the output handlers
 
-### Inputs
-
-**id**: string (Optional)  
-The html id attribute of the star rating   
-Default: undefined
-
+## Use it with reactive forms
+As easy as it could be just apply the ```formControlName``` attribute.
 ```html
-<star-rating-comp [id]="'my-id'"></star-rating-comp>
+<form formGroup="form">
+
+<star-rating-comp  [startype]="'svg'" [rating]="2.63" formControlName="myControlName"></star-rating-comp>
+
+</form>
 ```
 
-**rating**: number (Optional)  
-The actual star rating value  
-Default: no  
+## Browser support
 
-```html
-<star-rating-comp [rating]="3"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-value.PNG" width="290">
 
-**showHalfStars**: boolean (Optional)
-To show half stars or not  
-Options: true, false  
-Default: false
+| IE | Firefox | Chrome | Safari | Opera |
+|--- |---	   |--- 	|---	 |---|
+| >11  	|  >50 	|   >55	|  >10 	|   >41	|
+| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/ie.png" width="100">	| <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/firefox.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/chrome.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/safari.png" width="100">  | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/opera.png" width="100"> |
 
-```html
-<star-rating-comp [showHalfStars]="true"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-show_half_stars-false.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-show_half_stars-true.PNG" width="290">  
-
-**numOfStars**: number (Optional)  
-The possible number of stars to choose from  
-Default: 5
-
-```html
-<star-rating-comp [numOfStars]="6"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-num_of_stars.PNG" width="290">
-
-**labelText**: string (Optional)  
-The text next to the stars.  
-Default: undefined  
-
-```html
-<star-rating-comp [labelText]="'My text!'"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label_text.PNG" width="290">
-
-**labelPosition**: starRatingPosition (Optional)  
-The position of the label  
-Options: top, right, bottom, left  
-Default: left  
-
-```html
-<star-rating-comp [labelPosition]="'top'"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-top.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-bottom.PNG" width="290">  
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-right.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-left.PNG" width="290">
-
-**labelVisible**: string (Optional)  
-The visibility of the label text.  
-Default: true  
-
-```html
-<star-rating-comp [labelVisible]="false"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-visible_false.PNG" width="290">
-
-**space**: starRatingStarSpace (Optional)  
-If the start use the whole space or not. 
-Options: no, between, around
-Default: no  
-
-```html
-<star-rating-comp [space]="'around'"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-spread-false.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-spread-true.PNG" width="290">
-
-**size**: starRatingSizes (Optional)  
-The height and width of the stars.    
-Options: small, medium, large  
-Default: middle  
-
-```html
-<star-rating-comp [size]="'small'"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-size-small.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-size-medium.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-size-large.PNG" width="290">
-
-**staticColor**: starRatingColor (Optional)  
-Possible color names for the stars.  
-Options: default, negative, middle, positive  
-Default: undefined  
-
-```html
-<star-rating-comp [staticColor]="'positive'"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-color-default.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-color-positive.PNG" width="290">  
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-color-middle.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-color-negative.PNG" width="290">
-
-**disabled**: boolean (Optional)  
-The click callback is disabled, colors are transparent   
-Default: false  
-
-```html
-<star-rating-comp [disabled]="true"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-disabled-false.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-disabled-true.PNG" width="290">
-  
-**direction**: string (Optional)  
-The direction of the stars and label.   
-Options: rtl, ltr  
-Default: rtl  
-
-```html
-<star-rating-comp [direction]="'ltr'"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-direction-rtl.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-direction-ltr.PNG" width="290">
-  
-**readOnly**: boolean (Optional)  
-The click callback is disabled  
-Default: false  
-
-```html
-<star-rating-comp [readOnly]="true"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-disabled-false.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-disabled-false.PNG" width="290">
-
-**speed**: starRatingSpeed (Optional)  
-The duration of the animation in ms.   
-Options: immediately, noticeable, slow  
-Default: noticeable  
-
-```html
-<star-rating-comp [speed]="'slow'"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-animation_speed-immediately.gif" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-animation_speed-noticeable.gif" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-animation_speed-slow.gif" width="290">
-
-**starType**: starRatingStarTypes (Optional)  
-The type of start resource to use.     
-Options: svg, icon
-Default: svg  
-
-```html
-<star-rating-comp [starType]="'icon'"></star-rating-comp>
-```
-
-**getColor**: Function (Optional)  
-Calculation of the color by rating.  
-Params: rating, number,numOfStars and staticColor  
-Return: color name  
-
-```html
-<star-rating-comp [getColor]="ctrl.getColor(rating, numOfStars, staticColor)"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-get_color-function.PNG" width="290">
-
-**getHalfStarVisible**: Function (Optional)  
-Calculation for adding the "half" class or not, depending on the rating value.  
-Params: rating  
-Return: boolean 
-
-```html
-<star-rating-comp [getHalfStarClass]="ctrl.getHalfStarClass(rating)" rating="3.2"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-get_half_star_visible-default.PNG" width="290">
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-get_half_star_visible-custom.PNG" width="290">
-
-### Outputs
-
-**onClick**: Function (Optional)  
-Callback function for star click event 
-Params: $event
-```html
-<star-rating-comp (onClick)="ctrl.onClick($event)"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-on_click-counter.PNG" width="290">
-
-**onRatingChange**: Function (Optional)  
-Callback function for rating change event 
-Params: $event
-```html
-<star-rating-comp (onRatingChange)="ctrl.onRatingChange($event)"></star-rating-comp>
-```
-<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-on_update-2waybinding.PNG" width="290">
 
 ## License
 
