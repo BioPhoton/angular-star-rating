@@ -16,7 +16,7 @@ export class AppComponent {
     this.starRatingConfig = {};
 
     this.starRatingConfig.id = 1221;
-    this.starRatingConfig.rating = 2.72368;
+    this.starRatingConfig.rating = 2.22368;
     this.starRatingConfig.showHalfStars = true;
     this.starRatingConfig.numOfStars = 7;
     this.starRatingConfig.size = "large";

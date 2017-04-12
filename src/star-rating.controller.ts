@@ -447,9 +447,9 @@ export class StarRatingController {
     }
 
     increment() {
-        //increment to net higher step
+        //increment to next higher step
         let absDiff = Math.abs(this.rating%this.step);
-        this.rating = this.rating + (absDiff>0?absDiff:this.step);
+        this.rating = this.rating + (absDiff>0?this.step - absDiff:this.step);
     }
 
     decrement() {
