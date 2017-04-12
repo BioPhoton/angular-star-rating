@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'"  [rating]="rating" formControlName="ratingInput" ></star-rating-comp>
+
+  <div class="stock-inventory__buttons">
+    <button
+            type="submit"
+            [disabled]="form.invalid">
+      Submit
+    </button>
+  </div>
+  <pre>{{ form.value | json }}</pre>
+</form>

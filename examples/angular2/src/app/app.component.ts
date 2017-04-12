@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {StarRatingConfig} from "../../../../src/star-rating-config";
-import {starRatingColor} from "../../../../src/star-rating-struct";
+import {StarRatingConfig} from "angular-star-rating/dist/src/star-rating-config";
+import {starRatingColor} from "angular-star-rating/dist/src/star-rating-struct";
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ export class AppComponent {
     this.starRatingConfig = {};
 
     this.starRatingConfig.id = 1221;
-    this.starRatingConfig.rating = 2.7;
+    this.starRatingConfig.rating = 2.72368;
     this.starRatingConfig.showHalfStars = true;
     this.starRatingConfig.numOfStars = 7;
     this.starRatingConfig.size = "large";
@@ -30,12 +30,13 @@ export class AppComponent {
     this.starRatingConfig.labelVisible = true;
     this.starRatingConfig.speed = "slow";
     this.starRatingConfig.direction = "rtl";
+    this.starRatingConfig.step = 0.5;
     this.starRatingConfig.readOnly = false;
     this.starRatingConfig.getColor = (rating: number, numOfStars: number, staticColor?: starRatingColor) => {
       return staticColor || "ok";
     };
     this.starRatingConfig.getHalfStarVisible=(rating):boolean => {
-     return Math.abs(rating % 1) > 0.6;
+     return Math.abs(rating % 1) > 0;
     };
 
     //Outputs
