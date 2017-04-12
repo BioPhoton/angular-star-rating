@@ -28,6 +28,7 @@ export class AppComponent {
     this.starRatingConfig.labelText = "Label text here";
     this.starRatingConfig.labelVisible = true;
     this.starRatingConfig.speed = "slow";
+    this.starRatingConfig.hoverEnabled = true;
     this.starRatingConfig.direction = "rtl";
     this.starRatingConfig.step = 0.5;
     this.starRatingConfig.readOnly = false;
