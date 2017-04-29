@@ -439,11 +439,19 @@ Params: $event
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-on_update-2waybinding.PNG" width="290">
 
+**hoverEnabled**: boolean (Optional)  
+An or disable hover interaction. 
+Default: false
+Potions: true, false
+```html
+<star-rating-comp [hoverEnabled]="true"></star-rating-comp>
+```
+
 **onHoverRatingChange**: Function (Optional)  
 Callback function for hoverRating change event 
 Params: $event
 ```html
-<star-rating-comp (onHoverRatingChange)="ctrl.onHoverRatingChange($event)"></star-rating-comp>
+<star-rating-comp [hoverEnabled]="true" (onHoverRatingChange)="ctrl.onHoverRatingChange($event)"></star-rating-comp>
 ```
 
 ## Shields and other draft
