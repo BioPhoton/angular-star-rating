@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven} from "angular-star-rating/dist/src/star-rating-struct";
-import {IStarRatingOnHoverEvent} from "../../../../../../src/star-rating-struct";
+import {IStarRatingIOnHoverRatingChangeEvent} from "../../../../../../src/star-rating-struct";
 
 @Component({
     selector: 'my-events-component',
@@ -20,7 +20,7 @@ import {IStarRatingOnHoverEvent} from "../../../../../../src/star-rating-struct"
 export class MyEventsComponent {
 
     onClickResult:IStarRatingOnClickEvent;
-    onHoverRatingChangeResult:IStarRatingOnHoverEvent;
+    onHoverRatingChangeResult:IStarRatingIOnHoverRatingChangeEvent;
     onRatingChangeResult:IStarRatingOnRatingChangeEven;
 
     onClick = ($event:IStarRatingOnClickEvent) => {
@@ -33,7 +33,7 @@ export class MyEventsComponent {
         this.onRatingChangeResult = $event;
     };
 
-    onHoverRatingChange = ($event:IStarRatingOnHoverEvent) => {
+    onHoverRatingChange = ($event:IStarRatingIOnHoverRatingChangeEvent) => {
         console.log('onHoverRatingChange $event: ', $event);
         this.onHoverRatingChangeResult = $event;
     };

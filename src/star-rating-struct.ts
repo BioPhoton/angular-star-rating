@@ -14,6 +14,6 @@ export interface IStarRatingOnRatingChangeEven {
   rating: number;
 }
 
-export interface IStarRatingOnHoverEvent {
+export interface IStarRatingIOnHoverRatingChangeEvent {
   hoverRating : number;
 }

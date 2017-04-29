@@ -1,5 +1,5 @@
 import {Component, OnChanges, EventEmitter, forwardRef, OnInit} from "@angular/core";
-import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven, IStarRatingOnHoverEvent} from "./star-rating-struct";
+import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven, IStarRatingIOnHoverRatingChangeEvent} from "./star-rating-struct";
 import {StarRatingController} from "./star-rating.controller";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
@@ -96,9 +96,9 @@ export class StarRatingComponent extends StarRatingController implements OnChang
         }
     }
 
-    onHoverRatingChange: EventEmitter<IStarRatingOnHoverEvent> = new EventEmitter<IStarRatingOnHoverEvent>();
+    onHoverRatingChange: EventEmitter<IStarRatingIOnHoverRatingChangeEvent> = new EventEmitter<IStarRatingIOnHoverRatingChangeEvent>();
 
-    saveOnHover($event:IStarRatingOnHoverEvent) {
+    saveOnHover($event:IStarRatingIOnHoverRatingChangeEvent) {
         if(this.onHoverRatingChange) {
             this.onHoverRatingChange.emit($event);
         }
@@ -188,7 +188,7 @@ export class StarRatingComponent extends StarRatingController implements OnChang
         this.hoverRating = rating?parseInt(rating.toString()):0;
 
         //fire onHoverRatingChange event
-        let $event:IStarRatingOnHoverEvent = { hoverRating: this.hoverRating};
+        let $event:IStarRatingIOnHoverRatingChangeEvent = { hoverRating: this.hoverRating};
         this.saveOnHover($event);
 
 
