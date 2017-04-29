@@ -432,7 +432,10 @@ export class StarRatingController {
         classNames.push(this.rating?'value-'+this.ratingAsInteger:'value-0');
         classNames.push(this.halfStarVisible?'half':'');
         classNames.push(this.hoverEnabled?'hover':'');
-        classNames.push(this.hoverEnabled? (this.hoverRating?'hover-'+this.hoverRating:'hover-0') :'');
+
+        let hoverRating = (this.hoverRating?'hover-'+this.hoverRating:'hover-0');
+        classNames.push(this.hoverEnabled? hoverRating :'');
+
         classNames.push(this.space?'space-'+this.space:'');
         classNames.push(this.labelPosition?'label-'+this.labelPosition:'');
         classNames.push(this.color?'color-'+this.color:'');
