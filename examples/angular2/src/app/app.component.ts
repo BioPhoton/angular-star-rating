@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {starRatingColor} from "angular-star-rating/dist";
 
 @Component({
   selector: 'app-root',
@@ -32,7 +31,7 @@ export class AppComponent {
     this.starRatingConfig.direction = "rtl";
     this.starRatingConfig.step = 0.5;
     this.starRatingConfig.readOnly = false;
-    this.starRatingConfig.getColor = (rating: number, numOfStars: number, staticColor?: starRatingColor) => {
+    this.starRatingConfig.getColor = (rating: number, numOfStars: number, staticColor?: any) => {
       return staticColor || "ok";
     };
     this.starRatingConfig.getHalfStarVisible=(rating):boolean => {
