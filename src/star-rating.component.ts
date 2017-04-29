@@ -37,8 +37,9 @@ const STAR_RATING_CONTROL_ACCESSOR = {
         , 'id'
     ],
     outputs: [
-        'onClick'
+          'onClick'
         , 'onRatingChange'
+        , 'onHoverRatingChange'
     ],
     //templateUrl: 'star-rating.component.html',
     template: `
@@ -95,11 +96,11 @@ export class StarRatingComponent extends StarRatingController implements OnChang
         }
     }
 
-    onHover: EventEmitter<IStarRatingOnHoverEvent> = new EventEmitter<IStarRatingOnHoverEvent>();
+    onHoverRatingChange: EventEmitter<IStarRatingOnHoverEvent> = new EventEmitter<IStarRatingOnHoverEvent>();
 
     saveOnHover($event:IStarRatingOnHoverEvent) {
-        if(this.onHover) {
-            this.onHover.emit($event);
+        if(this.onHoverRatingChange) {
+            this.onHoverRatingChange.emit($event);
         }
     }
 
@@ -185,11 +186,11 @@ export class StarRatingComponent extends StarRatingController implements OnChang
         }
 
         this.hoverRating = rating?parseInt(rating.toString()):0;
-        //fire onHover event
-        if(typeof this.onHover === 'function') {
-            let $event:IStarRatingOnHoverEvent = { hoverRating: this.hoverRating};
-            this.saveOnHover($event);
-        }
+
+        //fire onHoverRatingChange event
+        let $event:IStarRatingOnHoverEvent = { hoverRating: this.hoverRating};
+        this.saveOnHover($event);
+
 
     }
 

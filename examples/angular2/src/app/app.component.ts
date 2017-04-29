@@ -46,6 +46,12 @@ export class AppComponent {
     this.starRatingConfig.onRatingChange = ($event) => {
       console.log('onRatingUpdated $event: ', $event);
     };
+
+    this.starRatingConfig.onHoverRatingChange = ($event) => {
+      console.log('onHoverRatingChange $event: ', $event);
+    };
+
+
   }
 
 

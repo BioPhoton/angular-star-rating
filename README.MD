@@ -331,7 +331,7 @@ Default: false
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-disabled-true.PNG" width="290">
 
 
-#### Cotrol modifier
+#### Control modifier
 
 **rating**: number (Optional)  
 The actual star rating value  
@@ -405,7 +405,7 @@ Params: rating
 Return: boolean 
 
 ```html
-<star-rating-comp [getHalfStarClass]="ctrl.getHalfStarClass(rating)" rating="3.2"></star-rating-comp>
+<star-rating-comp [getHalfStarClass]="ctrl.getHalfStarClass(rating)" [rating]="3.2"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-get_half_star_visible-default.PNG" width="290">
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-get_half_star_visible-custom.PNG" width="290">

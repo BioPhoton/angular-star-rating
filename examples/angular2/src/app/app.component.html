@@ -23,6 +23,7 @@
   [readOnly]="starRatingConfig.readOnly"
   [getColor]="starRatingConfig.getColor"
   [getHalfStarVisible]="starRatingConfig.getHalfStarVisible"
+  (onHoverRatingChange)="starRatingConfig.onHoverRatingChange($event)"
   (onClick)="starRatingConfig.onClick($event)"
   (onRatingChange)="starRatingConfig.onRatingChange($event)"
 ></star-rating-comp>
