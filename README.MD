@@ -1,12 +1,12 @@
 # Angular Star Rating ⭐⭐⭐⭐⭐
-#### ⭐ Angular Star Rating is a >2 Angular component made with ❤, based on css only techniques. ⭐
+#### ⭐ Angular Star Rating is a Angular 2+ component made with ❤, based on css only techniques. ⭐
 
 ![License](https://img.shields.io/npm/l/angular-star-rating.svg)
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)    
 
 [![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 
-Angular Star Rating is a >2 Angular component made with ❤.  
+Angular Star Rating is a Angular 2+ component made with ❤.  
 
 It is based on best practice UX/UI methods, accessibility in mind and an eye for details. 
 In love with reactive forms the component is easy to control over the keybord.  
@@ -32,6 +32,7 @@ Fully featured this component is provided with:
 - [x] it integrates well with **reactive forms** and all it's states
 - [x] focus and blur events are handled for a **smooth keyboard navigation**
 - [x] it's **keyboard control** is even better than a native input once :-)
+- [x] mouse enter and leave events are used to generate a nice **on hover interaction**
 - [x] importable as a **angular ngModule** it is a plug and play to use
 
 ## Related Projects
@@ -119,15 +120,19 @@ If something is not working check if
 
 ```typescript
 import {Component} from "@angular/core";
-import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven} from "angular-star-rating/src/star-rating-struct";
+import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven, IStarRatingIOnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
 
 @Component({
-    selector: 'my-event-component',
+    selector: 'my-events-component',
     template: `    
+        
             <star-rating-comp   [starType]="'svg'" 
+                                [hoverEnabled]="true"
                                 (onClick)="onClick($event)" 
-                                (onRatingChange)="onRatingChange($event)">                             
+                                (onRatingChange)="onRatingChange($event)"
+                                (onHoverRatingChange)="onHoverRatingChange($event)">                             
             </star-rating-comp>
+            <p>onHoverRatingChangeResult: {{onHoverRatingChangeResult | json}}</p>
             <p>onClickResult: {{onClickResult | json}}</p>
             <p>onRatingChangeResult: {{onRatingChangeResult | json}}</p>
     `
@@ -135,6 +140,7 @@ import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven} from "angular-st
 export class MyEventsComponent {
 
     onClickResult:IStarRatingOnClickEvent;
+    onHoverRatingChangeResult:IStarRatingIOnHoverRatingChangeEvent;
     onRatingChangeResult:IStarRatingOnRatingChangeEven;
 
     onClick = ($event:IStarRatingOnClickEvent) => {
@@ -145,6 +151,11 @@ export class MyEventsComponent {
     onRatingChange = ($event:IStarRatingOnRatingChangeEven) => {
         console.log('onRatingUpdated $event: ', $event);
         this.onRatingChangeResult = $event;
+    };
+
+    onHoverRatingChange = ($event:IStarRatingIOnHoverRatingChangeEvent) => {
+        console.log('onHoverRatingChange $event: ', $event);
+        this.onHoverRatingChangeResult = $event;
     };
 
 }
@@ -388,7 +399,6 @@ Default: undefined
 <star-rating-comp [id]="'my-id'"></star-rating-comp>
 ```
 
-
 **getColor**: Function (Optional)  
 Calculation of the color by rating.  
 Params: rating, number,numOfStars and staticColor  
@@ -428,6 +438,13 @@ Params: $event
 <star-rating-comp (onRatingChange)="ctrl.onRatingChange($event)"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-on_update-2waybinding.PNG" width="290">
+
+**onHoverRatingChange**: Function (Optional)  
+Callback function for hoverRating change event 
+Params: $event
+```html
+<star-rating-comp (onHoverRatingChange)="ctrl.onHoverRatingChange($event)"></star-rating-comp>
+```
 
 ## Shields and other draft
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/BioPhoton/angular-star-rating)   
