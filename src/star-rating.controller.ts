@@ -6,8 +6,7 @@ import {
     starRatingPosition,
     starRatingStarSpace,
     starRatingStarTypes,
-    IStarRatingOnClickEvent,
-    IStarRatingOnRatingChangeEven, starRatingDirection
+    starRatingDirection
 } from "./star-rating-struct";
 import {StarRatingConfig} from "./star-rating-config";
 import {StarRatingUtils} from "./star-rating.utils";

@@ -1,4 +1,4 @@
-import {Component, OnChanges, EventEmitter, forwardRef, OnInit} from "@angular/core";
+import {Component, OnChanges, EventEmitter, forwardRef} from "@angular/core";
 import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven, IStarRatingIOnHoverRatingChangeEvent} from "./star-rating-struct";
 import {StarRatingController} from "./star-rating.controller";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
