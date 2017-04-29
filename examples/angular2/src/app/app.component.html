@@ -13,6 +13,7 @@
   [space]="starRatingConfig.space"
   [staticColor]="starRatingConfig.staticColor"
   [disabled]="starRatingConfig.disabled"
+  [hoverEnabled]="starRatingConfig.hoverEnabled"
   [starType]="starRatingConfig.starType"
   [labelText]="starRatingConfig.labelText"
   [labelPosition]="starRatingConfig.labelPosition"
@@ -22,6 +23,7 @@
   [readOnly]="starRatingConfig.readOnly"
   [getColor]="starRatingConfig.getColor"
   [getHalfStarVisible]="starRatingConfig.getHalfStarVisible"
+  (onHoverRatingChange)="starRatingConfig.onHoverRatingChange($event)"
   (onClick)="starRatingConfig.onClick($event)"
   (onRatingChange)="starRatingConfig.onRatingChange($event)"
 ></star-rating-comp>

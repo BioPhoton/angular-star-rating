@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {StarRatingConfig} from "angular-star-rating/dist/src/star-rating-config";
-import {starRatingColor} from "angular-star-rating/dist/src/star-rating-struct";
 
 @Component({
   selector: 'app-root',
@@ -17,7 +15,7 @@ export class AppComponent {
     this.starRatingConfig = {};
 
     this.starRatingConfig.id = 1221;
-    this.starRatingConfig.rating = 2.72368;
+    this.starRatingConfig.rating = 2.22368;
     this.starRatingConfig.showHalfStars = true;
     this.starRatingConfig.numOfStars = 7;
     this.starRatingConfig.size = "large";
@@ -29,10 +27,11 @@ export class AppComponent {
     this.starRatingConfig.labelText = "Label text here";
     this.starRatingConfig.labelVisible = true;
     this.starRatingConfig.speed = "slow";
+    this.starRatingConfig.hoverEnabled = true;
     this.starRatingConfig.direction = "rtl";
     this.starRatingConfig.step = 0.5;
     this.starRatingConfig.readOnly = false;
-    this.starRatingConfig.getColor = (rating: number, numOfStars: number, staticColor?: starRatingColor) => {
+    this.starRatingConfig.getColor = (rating: number, numOfStars: number, staticColor?: any) => {
       return staticColor || "ok";
     };
     this.starRatingConfig.getHalfStarVisible=(rating):boolean => {
@@ -47,6 +46,12 @@ export class AppComponent {
     this.starRatingConfig.onRatingChange = ($event) => {
       console.log('onRatingUpdated $event: ', $event);
     };
+
+    this.starRatingConfig.onHoverRatingChange = ($event) => {
+      console.log('onHoverRatingChange $event: ', $event);
+    };
+
+
   }
 
 

@@ -48,15 +48,15 @@ export class StarRatingConfig {
   getColor(rating: number, numOfStars: number, staticColor?: starRatingColor): starRatingColor {
     rating = rating || 0;
 
-    //if a fix color is set use this one
+    // if a fix color is set use this one
     if (staticColor) {
       return staticColor;
     }
 
-    //calculate size of smallest fraction
-    let fractionSize = numOfStars / 3;
+    // calculate size of smallest fraction
+    const fractionSize = numOfStars / 3;
 
-    //apply color by fraction
+    // apply color by fraction
     let color: starRatingColor = 'default';
     if (rating > 0) {
       color = 'negative';

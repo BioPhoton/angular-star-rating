@@ -6,8 +6,7 @@ import {
     starRatingPosition,
     starRatingStarSpace,
     starRatingStarTypes,
-    IStarRatingOnClickEvent,
-    IStarRatingOnRatingChangeEven, starRatingDirection
+    starRatingDirection
 } from "./star-rating-struct";
 import {StarRatingConfig} from "./star-rating-config";
 import {StarRatingUtils} from "./star-rating.utils";
@@ -89,6 +88,19 @@ export class StarRatingController {
 
     /////////////////////////////////////////////
 
+    /**
+     * hoverEnabled
+     */
+    protected _hoverEnabled: boolean;
+    get hoverEnabled(): boolean {
+        return this._hoverEnabled;
+    }
+
+    set hoverEnabled(value: boolean) {
+        this._hoverEnabled = (value !== undefined) ? !!value : false;
+    }
+
+    /////////////////////////////////////////////
 
     /**
      * staticColor
@@ -141,6 +153,21 @@ export class StarRatingController {
 
         //update color
         this.setColor();
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * hoverRating
+     */
+    protected _hoverRating: number;
+
+    get hoverRating(): number {
+        return this._hoverRating;
+    }
+
+    set hoverRating(value: number) {
+        this._hoverRating = (value > 0) ? value : 0;
     }
 
     /////////////////////////////////////////////
@@ -368,6 +395,10 @@ export class StarRatingController {
         return this.starType === "svg";
     }
 
+    interactionPossible():boolean {
+        return  !this.readOnly && !this.disabled;
+    }
+
     setColor(): void {
         //check if custom function is given
         if (typeof this.getColor === "function") {
@@ -399,6 +430,11 @@ export class StarRatingController {
 
         classNames.push(this.rating?'value-'+this.ratingAsInteger:'value-0');
         classNames.push(this.halfStarVisible?'half':'');
+        classNames.push(this.hoverEnabled?'hover':'');
+
+        let hoverRating = (this.hoverRating?'hover-'+this.hoverRating:'hover-0');
+        classNames.push(this.hoverEnabled? hoverRating :'');
+
         classNames.push(this.space?'space-'+this.space:'');
         classNames.push(this.labelPosition?'label-'+this.labelPosition:'');
         classNames.push(this.color?'color-'+this.color:'');
@@ -413,9 +449,9 @@ export class StarRatingController {
     }
 
     increment() {
-        //increment to net higher step
+        //increment to next higher step
         let absDiff = Math.abs(this.rating%this.step);
-        this.rating = this.rating + (absDiff>0?absDiff:this.step);
+        this.rating = this.rating + (absDiff>0?this.step - absDiff:this.step);
     }
 
     decrement() {
