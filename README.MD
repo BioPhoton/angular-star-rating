@@ -1,15 +1,16 @@
 # Angular Star Rating ⭐⭐⭐⭐⭐
-#### ⭐ Angular Star Rating is a >2 Angular made with ❤, based on css only techniques. ⭐
+#### ⭐ Angular Star Rating is a >2 Angular component made with ❤, based on css only techniques. ⭐
 
 ![License](https://img.shields.io/npm/l/angular-star-rating.svg)
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)    
 
 [![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 
-Angular Star Rating is a >2 Angular made with ❤.  
+Angular Star Rating is a >2 Angular component made with ❤.  
 
 It is based on best practice UX/UI methods, accessibility in mind and an eye for details. 
-In love with reactive forms the easy to control over the keybord it is a perfect fit for all angular projects with ⭐'s.  
+In love with reactive forms the component is easy to control over the keybord.  
+It is a perfect fit for all angular projects with ⭐'s.  
    
 To keep it as flexible as possible a major part of the logic is based on [css only techniques](https://github.com/BioPhoton/css-star-rating). The component simple applies the state depending css modifiers.
 
@@ -258,7 +259,7 @@ Default: svg
 
 **staticColor**: starRatingColor (Optional)  
 Possible color names for the stars.  
-Options: default, negative, middle, positive  
+Options: default, negative, ok, positive  
 Default: undefined  
 
 ```html
@@ -272,7 +273,7 @@ Default: undefined
 **size**: starRatingSizes (Optional)  
 The height and width of the stars.    
 Options: small, medium, large  
-Default: middle  
+Default: medium  
 
 ```html
 <star-rating-comp [size]="'small'"></star-rating-comp>
