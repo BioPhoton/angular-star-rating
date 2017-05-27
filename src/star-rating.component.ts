@@ -179,7 +179,7 @@ export class StarRatingComponent extends StarRatingController implements OnChang
     }
 
     //Hover events
-    onStarHover(rating: number): void {
+    onStarHover(rating?: number): void {
 
         if (!this.interactionPossible() || !this.hoverEnabled) {
             return;
