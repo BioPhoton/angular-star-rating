@@ -109,7 +109,7 @@ Once your library is imported, you can use the components in your Angular applic
 </h1>
   
 <!-- USE COMPONENT HERE-->
-<star-rating-comp [startype]="'svg'" [rating]="2.63"></star-rating-comp>
+<star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>
 ```
 
 If something is not working check if 
