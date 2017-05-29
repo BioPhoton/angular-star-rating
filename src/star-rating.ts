@@ -11,7 +11,7 @@ import {
 import {StarRatingConfig} from "./star-rating-config";
 import {StarRatingUtils} from "./star-rating.utils";
 
-export class StarRatingController {
+export class StarRating {
 
     protected config:any;
 
