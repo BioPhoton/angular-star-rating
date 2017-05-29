@@ -49,7 +49,7 @@ const STAR_RATING_CONTROL_ACCESSOR = {
                 (keydown)="onKeyDown($event)"
                 (blur)="onBlur($event)"
                 (focus)="onFocus($event)"
-                (mouseleave)="onStarHover()">
+                (mouseleave)="onStarHover(0)">
                 <div *ngIf="labelVisible" class="label-value">{{labelText}}</div>
                 <div class="star-container">
                     <div class="star"
