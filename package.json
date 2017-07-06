@@ -10,7 +10,7 @@
     "tsc": "npm run deleteDist && tsc && npm run copyAssets",
     "deleteDist": "rimraf dist",
     "copyAssets": "copyfiles assets/**/* dist",
-    "updateExample": "npm run tsc && copyfiles dist/**/* examples/angular2/node_modules/angular-star-rating",
+    "updateExample": "npm run tsc && copyfiles dist/**/* examples/angular2/node_modules/angular-star-rating && copyfiles src/**/* examples/angular2/node_modules/angular-star-rating",
     "coverage": "http-server -c-1 -o -p 9875 ./coverage",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "release": "npm publish"
