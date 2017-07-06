@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
-import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven} from "angular-star-rating/dist/src/star-rating-struct";
-import {IStarRatingIOnHoverRatingChangeEvent} from "../../../../../../src/star-rating-struct";
+import {IStarRatingIOnHoverRatingChangeEvent, IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven} from "angular-star-rating/dist/src/star-rating-struct";
 
 @Component({
     selector: 'my-events-component',
