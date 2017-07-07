@@ -8,16 +8,10 @@ cache:
      - ./node_modules
 
 install:
-  - npm i
+  - npm install
 
 before_script:
-  - npm install -g @angular/cli
-
 
 script:
   - npm test
   - npm run build
-  - npm run update-example
-  - cd examples/angular4
-  - ng build -prod
-  - cd ../..
