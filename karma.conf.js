@@ -34,7 +34,7 @@ module.exports = function (config) {
         base: 'PhantomJS'
       }
     },
-    singleRun: false
+    singleRun: true
   };
 
   if (process.env.GITLAB) {
