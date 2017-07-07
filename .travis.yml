@@ -8,7 +8,7 @@ cache:
      - ./node_modules
 
 install:
-  - npm i -g
+  - npm i -g trash
   - npm i
 
 before_script:
