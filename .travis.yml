@@ -16,3 +16,7 @@ before_script:
 script:
   - npm test
   - npm run build
+  - npm run update-example
+  - cd example/angular4
+  - ng build -prod
+  - cd ../..
