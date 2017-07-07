@@ -1,7 +1,7 @@
 {
   "name": "angular-star-rating",
   "description": "Angular Star Rating is a Angular2 component written in typescript.",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
   "repository": {
     "type": "git",
