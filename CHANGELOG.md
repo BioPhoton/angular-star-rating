@@ -1,4 +1,14 @@
 <a name="0.0.0"></a>
+# [0.0.0](https://github.com/BioPhoton/angular-star-rating/compare/v3.0.0...v0.0.0) (2017-07-07)
+
+
+### Bug Fixes
+
+* **module export:** implemented a forRoot method ([c5acad7](https://github.com/BioPhoton/angular-star-rating/commit/c5acad7))
+
+
+
+<a name="0.0.0"></a>
 # [0.0.0](https://github.com/BioPhoton/angular-star-rating/compare/3.0.0...v0.0.0) (2017-07-07)
 
 
