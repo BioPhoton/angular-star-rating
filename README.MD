@@ -35,6 +35,7 @@ Fully featured this component is provided with:
 - [x] it's **keyboard control** is even better than a native input once :-)
 - [x] mouse enter and leave events are used to generate a nice **on hover interaction**
 - [x] importable as a **angular ngModule** it is a plug and play to use
+- [x] and is tested for **AOT**
 
 ## Related Projects
 | Css | Angular 1 |  Angular | Ionic 1 |
