@@ -72,7 +72,7 @@ $ npm install angular-star-rating@2.0.0-rc.5 --save
 
 for a specific version.
 
-Create an ```assets``` folder under your ```./src``` folder and copy the images from your ```./node_modules/assets/images``` folder into ```./src/assets/images```.
+Create an ```assets``` folder under your ```./src``` folder and copy the images from your ```./node_modules/angular-star-rating/assets/images``` folder into ```./src/assets/images```.
 
 In your ```app.module.ts``` import the ```StarRatingModule``` to your Angular `AppModule`:
 
