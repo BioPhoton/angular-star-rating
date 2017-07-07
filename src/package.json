@@ -1,0 +1,51 @@
+{
+  "name": "angular-star-rating",
+  "description": "Angular Star Rating is a Angular2 component written in typescript.",
+  "version": "3.0.0",
+  "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BioPhoton/angular-star-rating"
+  },
+  "author": {
+    "name": "Michael Hladky",
+    "email": "michael@hladky.at"
+  },
+  "contributors": [
+    {
+      "name": "Michael Hladky",
+      "email": "michael@hladky.at"
+    }
+  ],
+  "keywords": [
+    "Rating",
+    "Stars",
+    "Star Rating",
+    "Star-Rating",
+    "star-rating",
+    "Starrating",
+    "Icon",
+    "SVG",
+    "CSS",
+    "Pure CSS",
+    "CSS only",
+    "JavaScript",
+    "Angular",
+    "Angular Component",
+    "Angular2",
+    "Angular2 Component",
+    "Typescript"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BioPhoton/angular-star-rating/issues"
+  },
+  "module": "angular-star-rating.js",
+  "typings": "angular-star-rating.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "@angular/forms": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
