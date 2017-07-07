@@ -2,7 +2,8 @@
 #### ⭐ Angular Star Rating is a Angular 2+ component made with ❤, based on css only techniques. ⭐
 
 ![License](https://img.shields.io/npm/l/angular-star-rating.svg)
-[![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)    
+[![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)
+[![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=master)](https://travis-ci.org/BioPhoton/angular-star-rating)
 
 [![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
 
@@ -92,7 +93,7 @@ import { StarRatingModule } from 'angular-star-rating';
     BrowserModule,
   
     // SPECIFY YOUR LIBRARY AS AN  IMPORT
-    StarRatingModule
+    StarRatingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
