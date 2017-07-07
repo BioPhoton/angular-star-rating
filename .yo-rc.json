@@ -1,7 +1,7 @@
 {
   "generator-angular2-library": {
     "promptValues": {
-      "gitRepositoryUrl": "https://github.com/BioPhoton/angular-star-rating"
+      "gitRepositoryUrl": "https://github.com/username/repo"
     }
   }
 }

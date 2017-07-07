@@ -1,16 +1,7 @@
-# Repo
-examples/*
-resources/*
-.yo-rc.json
-.travis.yml
-.gitignore
-tsconfig.json
-tslint.json
-
 # Node
 node_modules/*
 npm-debug.log
-
+docs/*
 # DO NOT IGNORE TYPESCRIPT FILES FOR NPM
 # TypeScript
 # *.js
@@ -34,3 +25,10 @@ Desktop.ini
 # Mac
 .DS_Store
 **/.DS_Store
+
+# Ngc generated files
+**/*.ngfactory.ts
+
+# Library files
+src/*
+build/*
