@@ -232,7 +232,11 @@ function deleteFolders(folders) {
 /* CUSTOM TASKS ==================================================*/
 var flatten = require('gulp-flatten');
 
-gulp.task('copy-dist-to-example',function (done) {
+gulp.task('delete-lib-in-example',function (done) {
+  return del('./dist/**/*');
+});
+
+gulp.task('copy-dist-to-example',['delete-lib-in-example'],function (done) {
   return gulp.src('./dist/**/*')
     .pipe(flatten())
     .pipe(gulp.dest('./examples/angular4/node_modules/angular-star-rating'), done);

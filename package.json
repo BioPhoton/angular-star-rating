@@ -12,7 +12,7 @@
     "docs:build": "compodoc -p tsconfig.json -n angular-star-rating -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
-    "update-example": "trash examples/angular4/node_modules/angular-star-rating && gulp copy-dist-to-example",
+    "update-example": "gulp copy-dist-to-example",
     "changelog": "conventional-changelog --pkg ./src/package.json --config ./changelog/changelog.config.js -p angular -i CHANGELOG.md -s -r 0",
     "recommended-bump": "conventional-recommended-bump -p angular",
     "github-release": "conventional-github-releaser -p angular -r 0",
