@@ -1,4 +1,3 @@
-import {Injectable} from '@angular/core';
 import {
   starRatingSizes,
   starRatingSpeed,
@@ -12,7 +11,6 @@ import {
  * You can inject this service, typically in your root component, and customize the values of its properties in
  * order to provide default values for all the star ratings used in the application.
  */
-@Injectable()
 export class StarRatingConfig {
 
   classEmpty: string = "default-star-empty-icon";
@@ -70,6 +68,7 @@ export class StarRatingConfig {
 
     return color;
   }
+
   getHalfStarVisible(rating: number): boolean {
     return Math.abs(rating % 1) > 0;
   }

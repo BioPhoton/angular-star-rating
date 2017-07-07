@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { StarRatingComponent } from './star-rating.component';
 import { StarRatingConfig } from './star-rating-config';
 
-export{ StarRatingComponent } from './star-rating.component';
-export { StarRatingConfig } from './star-rating-config'
+export * from './star-rating.component';
+export * from './star-rating-config';
+export * from './star-rating-struct';
 
 const EXPORTS = [StarRatingComponent];
 

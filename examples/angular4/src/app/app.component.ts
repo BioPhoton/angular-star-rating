@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {StarRatingConfig} from 'angular-star-rating'
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent {
   starRatingConfig;
 
   constructor() {
+    console.log('StarRatingConfig: ', new StarRatingConfig());
 
     this.starRatingConfig = {};
 

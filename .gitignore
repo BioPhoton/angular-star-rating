@@ -3,9 +3,9 @@ node_modules/*
 npm-debug.log
 
 # TypeScript
-*.js
-*.map
-*.d.ts
+src/*.js
+src/*.map
+src/*.d.ts
 
 # JetBrains
 .idea
@@ -27,3 +27,13 @@ Desktop.ini
 
 # Ngc generated files
 **/*.ngfactory.ts
+
+# Build files
+dist/*
+
+# Karma transform
+init-test-bed.spec.js
+src/**/*.js
+
+# coverage
+coverage

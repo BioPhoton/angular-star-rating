@@ -3,6 +3,7 @@
 </h1>
 
 <pre>{{starRatingConfig | json}}</pre>
+
 <star-rating-comp
   [id]="starRatingConfig.id"
   [rating]="starRatingConfig.rating"
@@ -28,10 +29,11 @@
   (onRatingChange)="starRatingConfig.onRatingChange($event)"
 ></star-rating-comp>
 
+
 <app-form-test></app-form-test>
 <my-events-component></my-events-component>
 <my-form-component></my-form-component>
 <my-config-component></my-config-component>
 
-
+<!-- -->
 
