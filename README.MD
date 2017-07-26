@@ -10,7 +10,7 @@
 Angular Star Rating is a Angular 2+ component made with ❤.  
 
 It is based on best practice UX/UI methods, accessibility in mind and an eye for details. 
-In love with reactive forms the component is easy to control over the keybord.  
+In love with reactive forms, the component is easy to control over the keyboard.  
 It is a perfect fit for all angular projects with ⭐'s.  
    
 To keep it as flexible as possible a major part of the logic is based on [css only techniques](https://github.com/BioPhoton/css-star-rating). The component simple applies the state depending css modifiers.
