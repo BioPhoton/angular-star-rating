@@ -31,7 +31,7 @@ const STAR_RATING_CONTROL_ACCESSOR = {
         , 'numOfStars'
         , 'direction'
         , 'staticColor'
-        , 'labelVisible'
+        //, 'labelVisible'
         , 'labelPosition'
         , 'labelText'
         , 'id'
