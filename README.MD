@@ -74,6 +74,9 @@ for a specific version.
 
 Create an ```assets``` folder under your ```./src``` folder and copy the images from your ```./node_modules/angular-star-rating/assets/images``` folder into ```./src/assets/images```.
 
+Also import the ```star.rating.scss``` file i.e. import it in your ```styles.scss``` file with ```@import "~angular-star-rating/assets/scss/star-rating";
+```
+
 In your ```app.module.ts``` import the ```StarRatingModule``` to your Angular `AppModule`:
 
 ```typescript
@@ -122,7 +125,7 @@ If something is not working check if
 
 ```typescript
 import {Component} from "@angular/core";
-import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven, IStarRatingIOnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
+import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/src/star-rating-struct";
 
 @Component({
     selector: 'my-events-component',
@@ -141,21 +144,21 @@ import {IStarRatingOnClickEvent, IStarRatingOnRatingChangeEven, IStarRatingIOnHo
 })
 export class MyEventsComponent {
 
-    onClickResult:IStarRatingOnClickEvent;
-    onHoverRatingChangeResult:IStarRatingIOnHoverRatingChangeEvent;
-    onRatingChangeResult:IStarRatingOnRatingChangeEven;
+    onClickResult:OnClickEvent;
+    onHoverRatingChangeResult:OnHoverRatingChangeEvent;
+    onRatingChangeResult:OnRatingChangeEven;
 
-    onClick = ($event:IStarRatingOnClickEvent) => {
+    onClick = ($event:OnClickEvent) => {
         console.log('onClick $event: ', $event);
         this.onClickResult = $event;
     };
 
-    onRatingChange = ($event:IStarRatingOnRatingChangeEven) => {
+    onRatingChange = ($event:OnRatingChangeEven) => {
         console.log('onRatingUpdated $event: ', $event);
         this.onRatingChangeResult = $event;
     };
 
-    onHoverRatingChange = ($event:IStarRatingIOnHoverRatingChangeEvent) => {
+    onHoverRatingChange = ($event:OnHoverRatingChangeEvent) => {
         console.log('onHoverRatingChange $event: ', $event);
         this.onHoverRatingChangeResult = $event;
     };
@@ -227,7 +230,8 @@ export class MyFormComponent {
   - getHalfStarVisible
     
 #### Label Modifier
-**labelVisible**: string (Optional)  
+<!--
+**labelVisible**: string (Optional)
 The visibility of the label text.  
 Default: true  
 
@@ -235,7 +239,7 @@ Default: true
 <star-rating-comp [labelVisible]="false"></star-rating-comp>
 ```
 <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-visible_false.PNG" width="290">
-
+-->
 **labelText**: string (Optional)  
 The text next to the stars.  
 Default: undefined  

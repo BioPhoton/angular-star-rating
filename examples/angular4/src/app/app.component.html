@@ -1,39 +1,50 @@
-<h1>
-  {{title}}
-</h1>
+<div id="main-container" class="container-fluid">
+  <nav id="main-menu" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Dashboard</a>
+    <button class="navbar-toggler d-lg-none"
+            type="button"
+      data-toggle="collapse"
+      data-target="#mainNavbar"
+      aria-controls="mainNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="toggleNav()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<pre>{{starRatingConfig | json}}</pre>
-
-<star-rating-comp
-  [id]="starRatingConfig.id"
-  [rating]="starRatingConfig.rating"
-  [step]="starRatingConfig.step"
-  [showHalfStars]="starRatingConfig.showHalfStars"
-  [numOfStars]="starRatingConfig.numOfStars"
-  [size]="starRatingConfig.size"
-  [space]="starRatingConfig.space"
-  [staticColor]="starRatingConfig.staticColor"
-  [disabled]="starRatingConfig.disabled"
-  [hoverEnabled]="starRatingConfig.hoverEnabled"
-  [starType]="starRatingConfig.starType"
-  [labelText]="starRatingConfig.labelText"
-  [labelPosition]="starRatingConfig.labelPosition"
-  [labelVisible]="starRatingConfig.labelVisible"
-  [speed]="starRatingConfig.speed"
-  [direction]="starRatingConfig.direction"
-  [readOnly]="starRatingConfig.readOnly"
-  [getColor]="starRatingConfig.getColor"
-  [getHalfStarVisible]="starRatingConfig.getHalfStarVisible"
-  (onHoverRatingChange)="starRatingConfig.onHoverRatingChange($event)"
-  (onClick)="starRatingConfig.onClick($event)"
-  (onRatingChange)="starRatingConfig.onRatingChange($event)"
-></star-rating-comp>
-
-
-<app-form-test></app-form-test>
-<my-events-component></my-events-component>
-<my-form-component></my-form-component>
-<my-config-component></my-config-component>
-
-<!-- -->
-
+    <div class=" navbar-collapse" id="mainNavbar"
+          [ngClass]="{collapse:navBarCollapsed}">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['form']"
+            (click)="toggleNav(true)">Minimal From Setup</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['events']"
+            (click)="toggleNav(true)">Event Bindings</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['kitchensink']"
+            (click)="toggleNav(true)">Kitchensink</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['config']"
+            (click)="toggleNav(true)">Config</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"
+            (click)="toggleNav(true)">All Bindings</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="main-content" class="row">
+    <aside id="sidebar" class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+      <nav id="side-nav">
+      </nav>
+    </aside>
+    <main id="main-" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

@@ -1,11 +1,11 @@
-<div    id="{{id}}"
+<div id="{{id}}"
   class="rating {{getComponentClassNames()}}"
   tabindex="0"
   (keydown)="onKeyDown($event)"
   (blur)="onBlur($event)"
   (focus)="onFocus($event)"
   (mouseleave)="onStarHover(0)">
-    <div *ngIf="labelVisible" class="label-value">{{labelText}}</div>
+    <div *ngIf="labelText" class="label-value">{{labelText}}</div>
     <div class="star-container">
         <div class="star"
           (mouseenter)="onStarHover(star)"

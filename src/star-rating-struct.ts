@@ -6,14 +6,14 @@ export type starRatingStarTypes = 'svg' | 'icon' | 'image';
 export type starRatingStarSpace= 'no' | 'between' | 'around';
 export type starRatingDirection= 'rtl' | 'ltr';
 
-export interface IStarRatingOnClickEvent {
+export interface OnClickEvent {
   rating: number;
 }
 
-export interface IStarRatingOnRatingChangeEven {
+export interface OnRatingChangeEven {
   rating: number;
 }
 
-export interface IStarRatingIOnHoverRatingChangeEvent {
+export interface OnHoverRatingChangeEvent {
   hoverRating : number;
 }

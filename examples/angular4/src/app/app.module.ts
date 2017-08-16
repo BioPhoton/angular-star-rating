@@ -8,10 +8,9 @@ import {FormTestComponent} from "./components/form-test/form-test.component";
 import {MyFormComponent} from "./components/my-form-component-minimal/form-test.component";
 import {MyEventsComponent} from "./components/my-events/my-events.component";
 import {MyConfigComponent} from "app/components/my-config/my-config.component";
-
-
-
-
+import { BindingsConfigFormComponent } from './components/bindings-config-form/bindings-config-form.component';
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule} from './app.routing.module';
 
 @NgModule({
     declarations: [
@@ -19,13 +18,15 @@ import {MyConfigComponent} from "app/components/my-config/my-config.component";
         FormTestComponent,
         MyFormComponent,
         MyEventsComponent,
-        MyConfigComponent
+        MyConfigComponent,
+        BindingsConfigFormComponent,
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         StarRatingModule.forRoot(),
+        AppRoutingModule,
         ReactiveFormsModule,
     ],
     providers: [
