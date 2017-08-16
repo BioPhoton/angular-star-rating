@@ -208,7 +208,7 @@ export class MyFormComponent {
 ### Modifier list
    
 - Label modifier
-  - Label visible
+  <!-- - Label visible -->
   - Label text
   - Label position
 - Style modifier
