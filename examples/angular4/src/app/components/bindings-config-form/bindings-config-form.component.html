@@ -1,0 +1,235 @@
+
+<div class="container" [formGroup]="bindingsForm">
+<div class="row">
+  <div class="col">
+    Ö
+    <star-rating-comp
+      [id]="bindingsForm.get('id').value"
+      [rating]="bindingsForm.get('rating').value"
+      [step]="bindingsForm.get('step').value"
+      [showHalfStars]="bindingsForm.get('showHalfStars').value"
+      [numOfStars]="bindingsForm.get('numOfStars').value"
+      [size]="bindingsForm.get('size').value"
+      [space]="bindingsForm.get('space').value"
+      [staticColor]="bindingsForm.get('staticColor').value"
+      [disabled]="bindingsForm.get('disabled').value"
+      [hoverEnabled]="bindingsForm.get('hoverEnabled').value"
+      [starType]="bindingsForm.get('starType').value"
+      [labelText]="bindingsForm.get('labelText').value"
+      [labelPosition]="bindingsForm.get('labelPosition').value"
+      [labelVisible]="bindingsForm.get('labelVisible').value"
+      [speed]="bindingsForm.get('speed').value"
+      [direction]="bindingsForm.get('direction').value"
+      [readOnly]="bindingsForm.get('readOnly').value"
+      [getColor]="bindingsForm.get('getColor').value"
+      [getHalfStarVisible]="bindingsForm.get('getHalfStarVisible').value"
+      (onHoverRatingChange)="onHoverRatingChange($event)"
+      (onClick)="onClick($event)"
+      (onRatingChange)="onRatingChange($event)"
+    ></star-rating-comp>
+
+  </div>
+</div>
+  <div class="row">
+    <div class="col-4" >
+      <fieldset class="form-group">
+        <legend>Layout</legend>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"
+              formControlName="labelVisible">
+            Label Hidden
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="col-4 col-form-label">Label Position</label>
+          <div class="col-8">
+            <select class="form-control" formControlName="labelPosition">
+              <option value="">position</option>
+              <option value="{{value}}"
+                ng-repeat="(key, value) in labelPositionOptions">
+                {{value}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-6 col-form-label">starOptions:
+            {{starType}}</label>
+          <div class="col-6">
+            <select class="form-control" formControlName="starType">
+              <option value="">starType</option>
+              <option value="{{value}}"
+                ng-repeat="(key, value) in starOptions">{{value}}
+              </option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label class="col-4 col-form-label">Space</label>
+          <div class="col-8">
+            <select class="form-control" formControlName="space">
+              <option value="">space</option>
+              <option value="{{value}}"
+                ng-repeat="(key, value) in spaceOptions">{{value}}
+              </option>
+            </select>
+          </div>
+
+        </div>
+
+      </fieldset>
+
+    </div>
+
+    <div class="col-4">
+      <fieldset class="form-group row">
+        <legend>Dimensions
+        </legend>
+        <div class="form-group">
+          <label class="col-6 col-form-label">NumOfStars</label>
+          <div class="col-6">
+            <input type="number" class="form-control" placeholder="NumOfStars"
+              formControlName="numOfStars">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-6 col-form-label">Size: {{size}}</label>
+          <div class="col-6">
+            <select class="form-control" formControlName="size">
+              <option value="">size</option>
+              <option value="{{value}}"
+                ng-repeat="(key, value) in sizeOptions">{{value}}
+              </option>
+            </select>
+          </div>
+
+        </div>
+
+      </fieldset>
+
+    </div>
+    <div class="col-4">
+      <fieldset class="form-group">
+
+        <legend>Styling
+        </legend>
+
+        <div class="form-group">
+          <label class="col-4 col-form-label">Color</label>
+          <div class="col-8">
+            <select class="form-control" formControlName="staticColor">
+              <option value="">color</option>
+              <option value="{{value}}"
+                ng-repeat="(key, value) in colorOptions">{{value}}
+              </option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"
+              ng-change="updateGetColorBinding()"
+              formControlName="useCustomCetColor">
+            use custom getColor function
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"
+              formControlName="disabled">
+            Disabled
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label class="col-4 col-form-label">Speed: {{speed}}</label>
+          <div class="col-8">
+            <select class="form-control" formControlName="speed">
+              <option value="">speed</option>
+              <option value="{{value}}"
+                ng-repeat="(key, value) in speedOptions">{{value}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+      </fieldset>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <fieldset class="form-group">
+        <legend>Other
+        </legend>
+
+        <div class="form-group">
+          <label class="col-6 col-form-label">Id</label>
+          <div class="col-6">
+            <input type="text" class="form-control" placeholder="Id"
+              formControlName="id">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-6 col-form-label">Rating</label>
+          <div class="col-6">
+            <input type="number" class="form-control" placeholder="rating"
+              step="0.5" formControlName="rating">
+          </div>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"
+              formControlName="showHalfStars">
+            showHalfStars
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"
+              formControlName="showHoverStars">
+            showHoverStars
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"
+              formControlName="useCustomGetHalfStarVisible">
+            use custom getHalfStarVisible function
+          </label>
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"
+              formControlName="readOnly">
+            ReadOnly
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label class="col-6 col-form-label">Text</label>
+          <div class="col-6">
+            <input type="text" class="form-control" placeholder=":Label text"
+              formControlName="labelText">
+          </div>
+        </div>
+
+      </fieldset>
+    </div>
+  </div>
+
+</div>
+

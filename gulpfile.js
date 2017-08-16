@@ -216,7 +216,8 @@ gulp.task('watch', function () {
 gulp.task('clean', ['clean:dist', 'clean:tmp', 'clean:build']);
 
 gulp.task('build', ['clean', 'compile'], function(done) {
-  return done();
+  return gulp.src('./src/assets/**/*')
+    .pipe(gulp.dest('./dist/assets'), done)
 });
 
 gulp.task('build:watch', ['build', 'watch']);
