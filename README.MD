@@ -74,8 +74,7 @@ for a specific version.
 
 Create an ```assets``` folder under your ```./src``` folder and copy the images from your ```./node_modules/angular-star-rating/assets/images``` folder into ```./src/assets/images```.
 
-Also import the ```star.rating.scss``` file i.e. import it in your ```styles.scss``` file with ```@import "~angular-star-rating/assets/scss/star-rating";
-```
+Also import the ```star.rating.scss``` file i.e. import it in your ```styles.scss``` file with ```@import "~angular-star-rating/assets/scss/star-rating";```
 
 In your ```app.module.ts``` import the ```StarRatingModule``` to your Angular `AppModule`:
 
@@ -104,7 +103,6 @@ import { StarRatingModule } from 'angular-star-rating';
 })
 export class AppModule { }
 ```
-
 Once your library is imported, you can use the components in your Angular application:
 
 ```html
