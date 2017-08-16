@@ -9,7 +9,7 @@
     "build": "gulp build",
     "build:watch": "gulp",
     "docs": "npm run docs:build",
-    "docs:build": "compodoc -p tsconfig.json -n angular-star-rating -d docs --hideGenerator",
+    "docs:build": "compodoc -p ./src/tsconfig.api-doc.json -n angular-star-rating -d docs/api-doc/ --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "update-example": "npm run build && npm run update-angular-example",

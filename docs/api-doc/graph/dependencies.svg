@@ -22,61 +22,61 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_StarRatingModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="93,-70 93,-268 403,-268 403,-70 93,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="125,-70 125,-268 371,-268 371,-70 125,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_StarRatingModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="237,-78 237,-130 395,-130 395,-78 237,-78"/>
+<polygon fill="none" stroke="#000000" points="269,-78 269,-130 363,-130 363,-78 269,-78"/>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_StarRatingModule_imports</title>
-<polygon fill="none" stroke="#000000" points="101,-78 101,-130 229,-130 229,-78 101,-78"/>
+<polygon fill="none" stroke="#000000" points="133,-78 133,-130 261,-130 261,-78 133,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_StarRatingModule_exports</title>
-<polygon fill="none" stroke="#000000" points="168,-208 168,-260 328,-260 328,-208 168,-208"/>
+<polygon fill="none" stroke="#000000" points="201,-208 201,-260 299,-260 299,-208 201,-208"/>
 </g>
-<!-- StarRatingComponent -->
+<!-- EXPORTS -->
 <g id="node1" class="node">
-<title>StarRatingComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="386.7134,-122 245.2866,-122 245.2866,-86 386.7134,-86 386.7134,-122"/>
-<text text-anchor="middle" x="316" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">StarRatingComponent</text>
+<title>EXPORTS</title>
+<polygon fill="#ffffb3" stroke="#000000" points="355.2205,-122 276.7795,-122 276.7795,-86 355.2205,-86 355.2205,-122"/>
+<text text-anchor="middle" x="316" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">EXPORTS</text>
 </g>
 <!-- StarRatingModule -->
 <g id="node2" class="node">
 <title>StarRatingModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="307.9314,-187 304.9314,-191 283.9314,-191 280.9314,-187 188.0686,-187 188.0686,-151 307.9314,-151 307.9314,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">StarRatingModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="309.9314,-187 306.9314,-191 285.9314,-191 282.9314,-187 190.0686,-187 190.0686,-151 309.9314,-151 309.9314,-187"/>
+<text text-anchor="middle" x="250" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">StarRatingModule</text>
 </g>
-<!-- StarRatingComponent&#45;&gt;StarRatingModule -->
+<!-- EXPORTS&#45;&gt;StarRatingModule -->
 <g id="edge1" class="edge">
-<title>StarRatingComponent&#45;&gt;StarRatingModule</title>
-<path fill="none" stroke="#000000" d="M276.5544,-122.1061C276.5544,-122.1061 276.5544,-140.991 276.5544,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="273.0544,-140.9909 276.5544,-150.991 280.0544,-140.991 273.0544,-140.9909"/>
+<title>EXPORTS&#45;&gt;StarRatingModule</title>
+<path fill="none" stroke="#000000" d="M293.3026,-122.1061C293.3026,-122.1061 293.3026,-140.991 293.3026,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="289.8027,-140.9909 293.3026,-150.991 296.8027,-140.991 289.8027,-140.9909"/>
 </g>
-<!-- StarRatingComponent  -->
+<!-- EXPORTS  -->
 <g id="node4" class="node">
-<title>StarRatingComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="320.2135,-252 175.7865,-252 175.7865,-216 320.2135,-216 320.2135,-252"/>
-<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">StarRatingComponent </text>
+<title>EXPORTS </title>
+<polygon fill="#fb8072" stroke="#000000" points="290.7207,-252 209.2793,-252 209.2793,-216 290.7207,-216 290.7207,-252"/>
+<text text-anchor="middle" x="250" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">EXPORTS </text>
 </g>
-<!-- StarRatingModule&#45;&gt;StarRatingComponent  -->
+<!-- StarRatingModule&#45;&gt;EXPORTS  -->
 <g id="edge3" class="edge">
-<title>StarRatingModule&#45;&gt;StarRatingComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
+<title>StarRatingModule&#45;&gt;EXPORTS </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M250,-187.1061C250,-187.1061 250,-205.991 250,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="246.5001,-205.9909 250,-215.991 253.5001,-205.991 246.5001,-205.9909"/>
 </g>
 <!-- CommonModule -->
 <g id="node3" class="node">
 <title>CommonModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="220.6681,-122 217.6681,-126 196.6681,-126 193.6681,-122 109.3319,-122 109.3319,-86 220.6681,-86 220.6681,-122"/>
-<text text-anchor="middle" x="165" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CommonModule</text>
+<polygon fill="#8dd3c7" stroke="#000000" points="252.6681,-122 249.6681,-126 228.6681,-126 225.6681,-122 141.3319,-122 141.3319,-86 252.6681,-86 252.6681,-122"/>
+<text text-anchor="middle" x="197" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CommonModule</text>
 </g>
 <!-- CommonModule&#45;&gt;StarRatingModule -->
 <g id="edge2" class="edge">
 <title>CommonModule&#45;&gt;StarRatingModule</title>
-<path fill="none" stroke="#000000" d="M204.5593,-122.1061C204.5593,-122.1061 204.5593,-140.991 204.5593,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="201.0593,-140.9909 204.5593,-150.991 208.0593,-140.991 201.0593,-140.9909"/>
+<path fill="none" stroke="#000000" d="M221.5593,-122.1061C221.5593,-122.1061 221.5593,-140.991 221.5593,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="218.0593,-140.9909 221.5593,-150.991 225.0593,-140.991 218.0593,-140.9909"/>
 </g>
 </g>
 </svg>
