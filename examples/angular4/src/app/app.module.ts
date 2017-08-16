@@ -9,10 +9,8 @@ import {MyFormComponent} from "./components/my-form-component-minimal/form-test.
 import {MyEventsComponent} from "./components/my-events/my-events.component";
 import {MyConfigComponent} from "app/components/my-config/my-config.component";
 import { BindingsConfigFormComponent } from './components/bindings-config-form/bindings-config-form.component';
-
-
-
-
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule} from './app.routing.module';
 
 @NgModule({
     declarations: [
@@ -28,6 +26,7 @@ import { BindingsConfigFormComponent } from './components/bindings-config-form/b
         FormsModule,
         HttpModule,
         StarRatingModule.forRoot(),
+        AppRoutingModule,
         ReactiveFormsModule,
     ],
     providers: [

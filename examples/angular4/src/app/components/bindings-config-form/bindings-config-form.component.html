@@ -2,7 +2,7 @@
 <div class="container" [formGroup]="bindingsForm">
 <div class="row">
   <div class="col">
-    Ö
+
     <star-rating-comp
       [id]="bindingsForm.get('id').value"
       [rating]="bindingsForm.get('rating').value"
@@ -44,24 +44,25 @@
         <div class="form-check">
           <label class="col-4 col-form-label">Label Position</label>
           <div class="col-8">
-            <select class="form-control" formControlName="labelPosition">
-              <option value="">position</option>
-              <option value="{{value}}"
-                ng-repeat="(key, value) in labelPositionOptions">
-                {{value}}
-              </option>
+            <select class="form-control"
+              formControlName="labelPosition">
+              <option [ngValue]="">none</option>
+              <ng-template ngFor let-opt [ngForOf]="labelPositionOptions">
+                <option [value]="opt">{{opt}}</option>
+              </ng-template>
             </select>
           </div>
         </div>
         <div class="form-group">
           <label class="col-6 col-form-label">starOptions:
-            {{starType}}</label>
+            {{bindingsForm.get('starType').value}}</label>
           <div class="col-6">
-            <select class="form-control" formControlName="starType">
-              <option value="">starType</option>
-              <option value="{{value}}"
-                ng-repeat="(key, value) in starOptions">{{value}}
-              </option>
+            <select class="form-control"
+              formControlName="starType">
+              <option [ngValue]="">none</option>
+              <ng-template ngFor let-opt [ngForOf]="starOptions">
+                <option [value]="opt">{{opt}}</option>
+              </ng-template>
             </select>
           </div>
 
@@ -70,11 +71,12 @@
         <div class="form-group">
           <label class="col-4 col-form-label">Space</label>
           <div class="col-8">
-            <select class="form-control" formControlName="space">
-              <option value="">space</option>
-              <option value="{{value}}"
-                ng-repeat="(key, value) in spaceOptions">{{value}}
-              </option>
+            <select class="form-control"
+              formControlName="space">
+              <option [ngValue]="">none</option>
+              <ng-template ngFor let-opt [ngForOf]="spaceOptions">
+                <option [value]="opt">{{opt}}</option>
+              </ng-template>
             </select>
           </div>
 
@@ -96,13 +98,13 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-6 col-form-label">Size: {{size}}</label>
+          <label class="col-6 col-form-label">Size: {{bindingsForm.get('size').value}}</label>
           <div class="col-6">
             <select class="form-control" formControlName="size">
-              <option value="">size</option>
-              <option value="{{value}}"
-                ng-repeat="(key, value) in sizeOptions">{{value}}
-              </option>
+              <option [ngValue]="">none</option>
+              <ng-template ngFor let-opt [ngForOf]="sizeOptions">
+                <option [value]="opt">{{opt}}</option>
+              </ng-template>
             </select>
           </div>
 
@@ -118,13 +120,13 @@
         </legend>
 
         <div class="form-group">
-          <label class="col-4 col-form-label">Color</label>
+          <label class="col-4 col-form-label">Color: {{bindingsForm.get('staticColor').value}}</label>
           <div class="col-8">
             <select class="form-control" formControlName="staticColor">
-              <option value="">color</option>
-              <option value="{{value}}"
-                ng-repeat="(key, value) in colorOptions">{{value}}
-              </option>
+              <option [ngValue]="">none</option>
+              <ng-template ngFor let-opt [ngForOf]="colorOptions">
+                <option [value]="opt">{{opt}}</option>
+              </ng-template>
             </select>
           </div>
 
@@ -133,7 +135,6 @@
         <div class="form-check">
           <label class="form-check-label">
             <input type="checkbox" class="form-check-input"
-              ng-change="updateGetColorBinding()"
               formControlName="useCustomCetColor">
             use custom getColor function
           </label>
@@ -148,13 +149,13 @@
         </div>
 
         <div class="form-group">
-          <label class="col-4 col-form-label">Speed: {{speed}}</label>
+          <label class="col-4 col-form-label">Speed: {{bindingsForm.get('speed').value}}</label>
           <div class="col-8">
             <select class="form-control" formControlName="speed">
-              <option value="">speed</option>
-              <option value="{{value}}"
-                ng-repeat="(key, value) in speedOptions">{{value}}
-              </option>
+              <option [ngValue]="">none</option>
+              <ng-template ngFor let-opt [ngForOf]="speedOptions">
+                <option [value]="opt">{{opt}}</option>
+              </ng-template>
             </select>
           </div>
         </div>
