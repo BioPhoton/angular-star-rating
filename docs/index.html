@@ -1,0 +1,582 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-star-rating</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	    <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">angular-star-rating</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./">angular-star-rating</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="./"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a  href="./overview.html" 
+                                        
+                                         href="./overview.html" 
+                                        
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <span class="fa fa-archive"></span>
+                            <span>Modules</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            ></span>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="modules/AppModule.html" >AppModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="modules/AppRoutingModule.html" >AppRoutingModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="modules/StarRatingModule.html" >StarRatingModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="modules/StarRatingModule.html" >StarRatingModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/BindingsConfigFormComponent.html" >BindingsConfigFormComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/FormTestComponent.html" >FormTestComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/MyConfigComponent.html" >MyConfigComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/MyEventsComponent.html" >MyEventsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/MyFormComponent.html" >MyFormComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="components/StarRatingComponent.html" >StarRatingComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-classes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="classes/StarRating.html" >StarRating</a>
+                                </li>
+                                <li class="link">
+                                    <a href="classes/StarRatingConfig.html" >StarRatingConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="classes/StarRatingUtils.html" >StarRatingUtils</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="interfaces/OnClickEvent.html" >OnClickEvent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/OnHoverRatingChangeEvent.html" >OnHoverRatingChangeEvent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="interfaces/OnRatingChangeEven.html" >OnRatingChangeEven</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./">angular-star-rating</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="./"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a  href="./overview.html" 
+                                               
+                                                href="./overview.html" 
+                                               
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <span class="fa fa-archive"></span>
+                                   <span>Modules</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   ></span>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="modules/AppModule.html" >AppModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="modules/AppRoutingModule.html" >AppRoutingModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="modules/StarRatingModule.html" >StarRatingModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="modules/StarRatingModule.html" >StarRatingModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/BindingsConfigFormComponent.html" >BindingsConfigFormComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/FormTestComponent.html" >FormTestComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/MyConfigComponent.html" >MyConfigComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/MyEventsComponent.html" >MyEventsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/MyFormComponent.html" >MyFormComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="components/StarRatingComponent.html" >StarRatingComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#classes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="classes/StarRating.html" >StarRating</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="classes/StarRatingConfig.html" >StarRatingConfig</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="classes/StarRatingUtils.html" >StarRatingUtils</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="interfaces/OnClickEvent.html" >OnClickEvent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/OnHoverRatingChangeEvent.html" >OnHoverRatingChangeEvent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="interfaces/OnRatingChangeEven.html" >OnRatingChangeEven</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content readme">
+                   <div class="content-data">
+<h1 id="angular-star-rating-">Angular Star Rating ⭐⭐⭐⭐⭐</h1>
+<h4 id="-angular-star-rating-is-a-angular-2-component-made-with-based-on-css-only-techniques-">⭐ Angular Star Rating is a Angular 2+ component made with ❤, based on css only techniques. ⭐</h4>
+<p><img src="https://img.shields.io/npm/l/angular-star-rating.svg" alt="License" class="img-responsive"><br><a href="https://www.npmjs.com/package/angular-star-rating"><img src="https://img.shields.io/npm/v/angular-star-rating.svg" alt="NPM Version" class="img-responsive"></a><br><a href="https://travis-ci.org/BioPhoton/angular-star-rating"><img src="https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=master" alt="Build Status" class="img-responsive"></a></p>
+<p><a href="https://www.npmjs.com/package/angular-star-rating"><img src="https://img.shields.io/npm/dt/angular-star-rating.svg" alt="NPM" class="img-responsive"></a>  </p>
+<p>Angular Star Rating is a Angular 2+ component made with ❤.  </p>
+<p>It is based on best practice UX/UI methods, accessibility in mind and an eye for details.<br>In love with reactive forms, the component is easy to control over the keyboard.<br>It is a perfect fit for all angular projects with ⭐&#39;s.  </p>
+<p>To keep it as flexible as possible a major part of the logic is based on <a href="https://github.com/BioPhoton/css-star-rating">css only techniques</a>. The component simple applies the state depending css modifiers.</p>
+<p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/examples/example-usage.gif" alt="Angular-Star-Rating" class="img-responsive"></p>
+<h2 id="browser-support">Browser support</h2>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>IE</th>
+<th>Firefox</th>
+<th>Chrome</th>
+<th>Safari</th>
+<th>Opera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;11</td>
+<td>&gt;50</td>
+<td>&gt;55</td>
+<td>&gt;10</td>
+<td>&gt;41</td>
+</tr>
+<tr>
+<td><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/ie.png" width="100"></td>
+<td><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/firefox.png" width="100"></td>
+<td><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/chrome.png" width="100"></td>
+<td><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/safari.png" width="100"></td>
+<td><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/browser/opera.png" width="100"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="features">Features</h2>
+<p>Fully featured this component is provided with:</p>
+<ul>
+<li>[x] easy <strong>configurable</strong> and reasonable defaults</li>
+<li>[x] all <strong>12 css modifiers</strong> of the awesome <a href="https://github.com/BioPhoton/css-star-rating">css only star rating</a> library</li>
+<li>[x] it integrates well with <strong>reactive forms</strong> and all it&#39;s states</li>
+<li>[x] focus and blur events are handled for a <strong>smooth keyboard navigation</strong></li>
+<li>[x] it&#39;s <strong>keyboard control</strong> is even better than a native input once :-)</li>
+<li>[x] mouse enter and leave events are used to generate a nice <strong>on hover interaction</strong></li>
+<li>[x] importable as a <strong>angular ngModule</strong> it is a plug and play to use</li>
+<li>[x] and is tested for <strong>AOT</strong></li>
+</ul>
+<h2 id="related-projects">Related Projects</h2>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Css</th>
+<th>Angular 1</th>
+<th>Angular</th>
+<th>Ionic 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/css3.png" width="100"></td>
+<td><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/angular1.png" width="100"></td>
+<td><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/angular.png" width="80"></td>
+<td><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/ionic1.png" width="80"></td>
+</tr>
+<tr>
+<td><a href="https://github.com/BioPhoton/css-star-rating">Css Star Rating</a></td>
+<td><a href="https://github.com/BioPhoton/angular1-star-rating">Angular1 Star Rating</a></td>
+<td><a href="https://github.com/BioPhoton/angular-star-rating">Angular Star Rating</a></td>
+<td><a href="https://github.com/BioPhoton/ionic1-star-rating">Ionic1 Star Rating</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="demo">DEMO</h2>
+<ul>
+<li>[x] <a href="https://github.com/BioPhoton/angular-star-rating/tree/master/examples/angular4">Example-App</a>  </li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p><strong>Get Angular Star Rating:</strong></p>
+<ul>
+<li>clone &amp; build this repository</li>
+<li><a href="https://github.com/BioPhoton/angular-star-rating/releases">download as .zip</a></li>
+<li>via <strong><a href="https://www.npmjs.org/">npm</a></strong>: by running <code>$ npm install angular-star-rating --save</code> from your console</li>
+</ul>
+<h2 id="consuming-the-library">Consuming the library</h2>
+<p>As a precondition we consider you have your <code>.angular-cli.json</code> setup with an assets folder so that the <code>./src/assets</code> folder is included in the bundled version.<br>But this is given by default if you use the angular-cli to setup your project.</p>
+<p>Now you can import your library in your angular application by running:</p>
+<pre><code class="hljs bash">$ npm install angular-star-rating --save</code></pre><p>or </p>
+<pre><code class="hljs bash">$ npm install angular-star-rating@2.0.0-rc.5 --save</code></pre><p>for a specific version.</p>
+<p>Create an <code>assets</code> folder under your <code>./src</code> folder and copy the images from your <code>./node_modules/angular-star-rating/assets/images</code> folder into <code>./src/assets/images</code>.</p>
+<p>Also import the <code>star.rating.scss</code> file i.e. import it in your <code>styles.scss</code> file with <code>@import &quot;~angular-star-rating/assets/scss/star-rating&quot;;</code></p>
+<p>In your <code>app.module.ts</code> import the <code>StarRatingModule</code> to your Angular <code>AppModule</code>:</p>
+<pre><code class="hljs typescript"><span class="hljs-keyword">import</span> { BrowserModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/platform-browser'</span>;<br><span class="hljs-keyword">import</span> { NgModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;<br><br><span class="hljs-keyword">import</span> { AppComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">'./app.component'</span>;  <br><br><br><span class="hljs-comment">// IMPORT YOUR LIBRARY</span><br><span class="hljs-keyword">import</span> { StarRatingModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'angular-star-rating'</span>;<br><br><span class="hljs-meta">@NgModule</span>({<br>  declarations: [<br>    AppComponent<br>  ],<br>  imports: [<br>    BrowserModule,<br><br>    <span class="hljs-comment">// SPECIFY YOUR LIBRARY AS AN  IMPORT</span><br>    StarRatingModule.forRoot()<br>  ],<br>  providers: [],<br>  bootstrap: [AppComponent]<br>})<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> AppModule { }</code></pre><p>Once your library is imported, you can use the components in your Angular application:</p>
+<pre><code class="hljs html"><span class="hljs-comment">&lt;!-- You can now use your library component in app.component.html --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><br>  {{title}}<br><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- USE COMPONENT HERE--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">starType</span>]=<span class="hljs-string">"'svg'"</span> [<span class="hljs-attr">rating</span>]=<span class="hljs-string">"2.63"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p>If something is not working check if </p>
+<ul>
+<li>the component renders the expected html</li>
+<li>if you use the svg version check if the <code>star-rating.icons.svg</code> is present in your <code>./src/assets/images</code> and loaded </li>
+</ul>
+<h2 id="implement-the-output-handler">Implement the output handler</h2>
+<pre><code class="hljs typescript"><span class="hljs-keyword">import</span> {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/core"</span>;<br><span class="hljs-keyword">import</span> {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} <span class="hljs-keyword">from</span> <span class="hljs-string">"angular-star-rating/src/star-rating-struct"</span>;<br><br><span class="hljs-meta">@Component</span>({<br>    selector: <span class="hljs-string">'my-events-component'</span>,<br>    template: <span class="hljs-string">`    <br><br>            &lt;star-rating-comp   [starType]="'svg'" <br>                                [hoverEnabled]="true"<br>                                (onClick)="onClick($event)" <br>                                (onRatingChange)="onRatingChange($event)"<br>                                (onHoverRatingChange)="onHoverRatingChange($event)"&gt;                             <br>            &lt;/star-rating-comp&gt;<br>            &lt;p&gt;onHoverRatingChangeResult: {{onHoverRatingChangeResult | json}}&lt;/p&gt;<br>            &lt;p&gt;onClickResult: {{onClickResult | json}}&lt;/p&gt;<br>            &lt;p&gt;onRatingChangeResult: {{onRatingChangeResult | json}}&lt;/p&gt;<br>    `</span><br>})<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyEventsComponent {<br><br>    onClickResult:OnClickEvent;<br>    onHoverRatingChangeResult:OnHoverRatingChangeEvent;<br>    onRatingChangeResult:OnRatingChangeEven;<br><br>    onClick = <span class="hljs-function">(<span class="hljs-params">$event:OnClickEvent</span>) =&gt;</span> {<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'onClick $event: '</span>, $event);<br>        <span class="hljs-keyword">this</span>.onClickResult = $event;<br>    };<br><br>    onRatingChange = <span class="hljs-function">(<span class="hljs-params">$event:OnRatingChangeEven</span>) =&gt;</span> {<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'onRatingUpdated $event: '</span>, $event);<br>        <span class="hljs-keyword">this</span>.onRatingChangeResult = $event;<br>    };<br><br>    onHoverRatingChange = <span class="hljs-function">(<span class="hljs-params">$event:OnHoverRatingChangeEvent</span>) =&gt;</span> {<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'onHoverRatingChange $event: '</span>, $event);<br>        <span class="hljs-keyword">this</span>.onHoverRatingChangeResult = $event;<br>    };<br><br>}</code></pre><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- app.component.html--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">my-event-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-event-component</span>&gt;</span></code></pre><h2 id="use-it-with-reactive-forms">Use it with reactive forms</h2>
+<p>As easy as it could be. Just apply the <code>formControlName</code> attribute to the star rating component.</p>
+<pre><code class="hljs typescript"><span class="hljs-comment">//my.component.ts</span><br><span class="hljs-keyword">import</span> {Component} <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/core"</span>;<br><span class="hljs-keyword">import</span> {FormGroup, FormControl} <span class="hljs-keyword">from</span> <span class="hljs-string">"@angular/forms"</span>;<br><br><span class="hljs-meta">@Component</span>({<br>    selector: <span class="hljs-string">'my-form-component'</span>,<br>    template: <span class="hljs-string">`    <br>        &lt;form [formGroup]="form"&gt;<br>            &lt;star-rating-comp [starType]="'svg'" formControlName="myRatingControl" &gt;&lt;/star-rating-comp&gt;<br>            &lt;pre&gt;{{ form.value | json }}&lt;/pre&gt;<br>        &lt;/form&gt;<br>    `</span><br>})<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyFormComponent {<br><br>    form = <span class="hljs-keyword">new</span> FormGroup({<br>        myRatingControl: <span class="hljs-keyword">new</span> FormControl(<span class="hljs-string">''</span>)<br>    });<br><br>}</code></pre><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- app.component.html--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">my-form-component</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-form-component</span>&gt;</span></code></pre><h2 id="component-bindings">Component Bindings</h2>
+<h3 id="modifier-list">Modifier list</h3>
+<ul>
+<li>Label modifier<!-- - Label visible -->
+<ul>
+<li>Label text</li>
+<li>Label position</li>
+</ul>
+</li>
+<li>Style modifier<ul>
+<li>Star type</li>
+<li>Color</li>
+<li>Size</li>
+<li>Space</li>
+<li>Speed</li>
+<li>Direction</li>
+<li>Disabled</li>
+</ul>
+</li>
+<li>Control modifier<ul>
+<li>Rating</li>
+<li>Step</li>
+<li>Number of stars</li>
+<li>Show half stars</li>
+<li>Read only</li>
+<li>Id</li>
+<li>getColor</li>
+<li>getHalfStarVisible</li>
+</ul>
+</li>
+</ul>
+<h4 id="label-modifier">Label Modifier</h4>
+<!--
+**labelVisible**: string (Optional)
+The visibility of the label text.  
+Default: true  
+
+```html
+<star-rating-comp [labelVisible]="false"></star-rating-comp>
+```
+<img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-visible_false.PNG" width="290">
+-->
+<p><strong>labelText</strong>: string (Optional)<br>The text next to the stars.<br>Default: undefined  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">labelText</span>]=<span class="hljs-string">"'My text!'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label_text.PNG" width="290"></p>
+<p><strong>labelPosition</strong>: starRatingPosition (Optional)<br>The position of the label<br>Options: top, right, bottom, left<br>Default: left  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">labelPosition</span>]=<span class="hljs-string">"'top'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-top.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-bottom.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-right.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-label-left.PNG" width="290"></p>
+<h4 id="style-modifier">Style Modifier</h4>
+<p><strong>starType</strong>: starRatingStarTypes (Optional)<br>The type of start resource to use.<br>Options: svg, icon<br>Default: svg  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">starType</span>]=<span class="hljs-string">"'icon'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><strong>staticColor</strong>: starRatingColor (Optional)<br>Possible color names for the stars.<br>Options: default, negative, ok, positive<br>Default: undefined  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">staticColor</span>]=<span class="hljs-string">"'positive'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-color-default.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-color-positive.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-color-middle.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-color-negative.PNG" width="290"></p>
+<p><strong>size</strong>: starRatingSizes (Optional)<br>The height and width of the stars.<br>Options: small, medium, large<br>Default: medium  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">size</span>]=<span class="hljs-string">"'small'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-size-small.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-size-medium.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-size-large.PNG" width="290"></p>
+<p><strong>space</strong>: starRatingStarSpace (Optional)<br>If the start use the whole space or not.<br>Options: no, between, around<br>Default: no  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">space</span>]=<span class="hljs-string">"'around'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-spread-false.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-spread-true.PNG" width="290"></p>
+<p><strong>speed</strong>: starRatingSpeed (Optional)<br>The duration of the animation in ms.<br>Options: immediately, noticeable, slow<br>Default: noticeable  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">speed</span>]=<span class="hljs-string">"'slow'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-animation_speed-immediately.gif" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-animation_speed-noticeable.gif" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-animation_speed-slow.gif" width="290"></p>
+<p><strong>direction</strong>: string (Optional)<br>The direction of the stars and label.<br>Options: rtl, ltr<br>Default: rtl  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">direction</span>]=<span class="hljs-string">"'ltr'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-direction-rtl.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-direction-ltr.PNG" width="290"></p>
+<p><strong>disabled</strong>: boolean (Optional)<br>The click callback is disabled, colors are transparent<br>Default: false  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">disabled</span>]=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-disabled-false.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-disabled-true.PNG" width="290"></p>
+<h4 id="control-modifier">Control modifier</h4>
+<p><strong>rating</strong>: number (Optional)<br>The actual star rating value<br>Default: no  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">rating</span>]=<span class="hljs-string">"3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-value.PNG" width="290"></p>
+<p><strong>step</strong>: number (Optional)<br>The step interval of the control<br>Default: 1  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">step</span>]=<span class="hljs-string">"0.5"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><strong>numOfStars</strong>: number (Optional)<br>The possible number of stars to choose from<br>Default: 5</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">numOfStars</span>]=<span class="hljs-string">"6"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-num_of_stars.PNG" width="290"></p>
+<p><strong>showHalfStars</strong>: boolean (Optional)<br>To show half stars or not<br>Options: true, false<br>Default: false</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">showHalfStars</span>]=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-show_half_stars-false.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-show_half_stars-true.PNG" width="290">  </p>
+<p><strong>readOnly</strong>: boolean (Optional)<br>The click callback is disabled<br>Default: false  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">readOnly</span>]=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-disabled-false.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-disabled-false.PNG" width="290"></p>
+<p><strong>id</strong>: string (Optional)<br>The html id attribute of the star rating<br>Default: undefined</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">id</span>]=<span class="hljs-string">"'my-id'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><strong>getColor</strong>: Function (Optional)<br>Calculation of the color by rating.<br>Params: rating, number,numOfStars and staticColor<br>Return: color name  </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">getColor</span>]=<span class="hljs-string">"ctrl.getColor(rating, numOfStars, staticColor)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-get_color-function.PNG" width="290"></p>
+<p><strong>getHalfStarVisible</strong>: Function (Optional)<br>Calculation for adding the &quot;half&quot; class or not, depending on the rating value.<br>Params: rating<br>Return: boolean </p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">getHalfStarClass</span>]=<span class="hljs-string">"ctrl.getHalfStarClass(rating)"</span> [<span class="hljs-attr">rating</span>]=<span class="hljs-string">"3.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-get_half_star_visible-default.PNG" width="290"><br><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-get_half_star_visible-custom.PNG" width="290"></p>
+<h3 id="outputs">Outputs</h3>
+<p><strong>onClick</strong>: Function (Optional)<br>Callback function for star click event<br>Params: $event</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> (<span class="hljs-attr">onClick</span>)=<span class="hljs-string">"ctrl.onClick($event)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-on_click-counter.PNG" width="290"></p>
+<p><strong>onRatingChange</strong>: Function (Optional)<br>Callback function for rating change event<br>Params: $event</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> (<span class="hljs-attr">onRatingChange</span>)=<span class="hljs-string">"ctrl.onRatingChange($event)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/properties/prop-on_update-2waybinding.PNG" width="290"></p>
+<p><strong>hoverEnabled</strong>: boolean (Optional)<br>An or disable hover interaction.<br>Default: false<br>Potions: true, false</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">hoverEnabled</span>]=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><p><strong>onHoverRatingChange</strong>: Function (Optional)<br>Callback function for hoverRating change event<br>Params: $event</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">star-rating-comp</span> [<span class="hljs-attr">hoverEnabled</span>]=<span class="hljs-string">"true"</span> (<span class="hljs-attr">onHoverRatingChange</span>)=<span class="hljs-string">"ctrl.onHoverRatingChange($event)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">star-rating-comp</span>&gt;</span></code></pre><h2 id="shields-and-other-draft">Shields and other draft</h2>
+<p><a href="https://github.com/BioPhoton/angular-star-rating"><img src="https://img.shields.io/badge/release-standard%20version-brightgreen.svg" alt="Standard Version" class="img-responsive"></a><br><a href="https://www.npmjs.com/package/angular-star-rating"><img src="https://img.shields.io/npm/dt/angular-star-rating.svg" alt="NPM" class="img-responsive"></a><br><a href="https://npmjs.org/angular-star-rating"><img src="https://nodei.co/npm/angular-star-rating.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM" class="img-responsive"></a><br><a href="https://npmjs.org/angular-star-rating"><img src="https://nodei.co/npm-dl/angular-star-rating.png?height=3&amp;months=9" alt="NPM" class="img-responsive"></a><br><a href="http://packagequality.com/#?package=angular-star-rating"><img src="http://npm.packagequality.com/badge/angular-star-rating.png" alt="Package Quality" class="img-responsive"></a>    </p>
+<h2 id="license">License</h2>
+<p>MIT © <a href="mailto:michael@hladky.at">Michael Hladky</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
+
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/highlight.pack.js"></script>
+       <script src="./js/libs/highlightjs-line-numbers.min.js"></script>
+       <script src="./js/search/search_index.js"></script>
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
+       </script>
+
+    </body>
+</html>

@@ -1,0 +1,2031 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-star-rating</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-star-rating</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../">angular-star-rating</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <span class="fa fa-archive"></span>
+                            <span>Modules</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            ></span>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/AppModule.html" >AppModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/StarRatingModule.html" >StarRatingModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/StarRatingModule.html" >StarRatingModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-components-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/BindingsConfigFormComponent.html" >BindingsConfigFormComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/FormTestComponent.html" >FormTestComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/MyConfigComponent.html" >MyConfigComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/MyEventsComponent.html" >MyEventsComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/MyFormComponent.html" >MyFormComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/StarRatingComponent.html" >StarRatingComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-classes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/StarRating.html"  class="active" >StarRating</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/StarRatingConfig.html" >StarRatingConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../classes/StarRatingUtils.html" >StarRatingUtils</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/OnClickEvent.html" >OnClickEvent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/OnHoverRatingChangeEvent.html" >OnHoverRatingChangeEvent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../interfaces/OnRatingChangeEven.html" >OnRatingChangeEven</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../">angular-star-rating</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <span class="fa fa-archive"></span>
+                                   <span>Modules</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   ></span>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/AppModule.html" >AppModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/StarRatingModule.html" >StarRatingModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/StarRatingModule.html" >StarRatingModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#components-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/BindingsConfigFormComponent.html" >BindingsConfigFormComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/FormTestComponent.html" >FormTestComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/MyConfigComponent.html" >MyConfigComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/MyEventsComponent.html" >MyEventsComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/MyFormComponent.html" >MyFormComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/StarRatingComponent.html" >StarRatingComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#classes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/StarRating.html"  class="active" >StarRating</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/StarRatingConfig.html" >StarRatingConfig</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../classes/StarRatingUtils.html" >StarRatingUtils</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../routes.html" ><span class="fa fa-code-fork"></span>Routes</a>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/OnClickEvent.html" >OnClickEvent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/OnHoverRatingChangeEvent.html" >OnHoverRatingChangeEvent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../interfaces/OnRatingChangeEven.html" >OnRatingChangeEven</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>StarRating</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+    </li>
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/star-rating.ts</code>
+        </p>
+
+
+            <section>
+                <h3 id="constructor">Constructor</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>constructor()</code>
+                                </td>
+                            </tr>
+            
+                        </tbody>
+                    </table>
+            </section>
+
+            <section>
+                <h3 id="methods">Methods</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> setRating</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>setRating(value: number)</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>setRating<br>I use a setter function instead of a set method to enable overrides for this function.</p>
+            </div>
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <ul class="jsdoc-params">
+                                                        <li>
+                                                            <div>
+                                                                <b>value</b>
+                                                            </div>
+                                                            <div>
+                                                                
+                                                            </div>
+                                                        </li>
+                                                </ul>
+                                        </div>
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
+            
+                                        </div>
+                                            <div class="io-description">
+                                                
+                                            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> svgVisible</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>svgVisible()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>boolean</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> interactionPossible</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>interactionPossible()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>boolean</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> setColor</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>setColor()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> setHalfStarVisible</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>setHalfStarVisible()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> getComponentClassNames</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>getComponentClassNames()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>string</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> increment</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>increment()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> decrement</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>decrement()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> reset</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>reset()</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+
+
+            <section>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _direction</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_direction:     <code>starRatingDirection</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>direction</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _disabled</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_disabled:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>disabled</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _focus</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_focus:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>focus</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _hoverEnabled</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_hoverEnabled:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>hoverEnabled</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _hoverRating</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_hoverRating:     <code>number</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>hoverRating</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _id</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_id:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>id property to identify the DOM element</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _labelPosition</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_labelPosition:     <code>starRatingPosition</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>labelPosition</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _labelText</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_labelText:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>labelText</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _labelVisible</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_labelVisible:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>labelVisible</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _numOfStars</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_numOfStars:     <code>number</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>numOfStars</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _rating</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_rating:     <code>number</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>rating</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _readOnly</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_readOnly:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>readOnly</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _showHalfStars</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_showHalfStars:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>showHalfStars</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _size</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_size:     <code>starRatingSizes</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>size</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _space</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_space:     <code>starRatingStarSpace</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>space</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _speed</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_speed:     <code>starRatingSpeed</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>speed</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _starType</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_starType:     <code>starRatingStarTypes</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>starType</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> _staticColor</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_staticColor:     <code>starRatingColor</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>staticColor</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Private</span> _step</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>_step:     <code>number</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> classEmpty</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>classEmpty:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> classFilled</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>classFilled:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> classHalf</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>classHalf:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> color</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>color:     <code>starRatingColor</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Protected</span> config</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-lock"></span><code>config:     <code>any</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> direction</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>direction:     <code>starRatingDirection</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> disabled</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>disabled:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> focus</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>focus:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> getColor</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>getColor:     <code>(rating: number, numOfStars: number, staticColor?: starRatingColor) &#x3D;&gt; starRatingColor</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>getColor</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> getHalfStarVisible</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>getHalfStarVisible:     <code>(rating: number) &#x3D;&gt; boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>getHalfStarVisible</p>
+            </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> halfStarVisible</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>halfStarVisible:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> hoverEnabled</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>hoverEnabled:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> hoverRating</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>hoverRating:     <code>number</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> id</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>id:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> labelPosition</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>labelPosition:     <code>starRatingPosition</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> labelText</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>labelText:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> labelVisible</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>labelVisible:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> numOfStars</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>numOfStars:     <code>number</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> pathEmpty</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>pathEmpty:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> pathFilled</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>pathFilled:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> pathHalf</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>pathHalf:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> rating</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>rating:     <code>number</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> ratingAsInteger</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>ratingAsInteger:     <code>number</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> readOnly</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>readOnly:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> showHalfStars</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>showHalfStars:     <code>boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> size</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>size:     <code>starRatingSizes</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> space</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>space:     <code>starRatingStarSpace</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> speed</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>speed:     <code>starRatingSpeed</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> stars</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>stars:     <code>number[]</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> starType</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>starType:     <code>starRatingStarTypes</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> staticColor</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>staticColor:     <code>starRatingColor</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> step</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>step:     <code>number</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre><code class="hljs javascript">import {Component, Input, OnChanges, Output, EventEmitter} from &quot;@angular/core&quot;;
+import {
+    starRatingSizes,
+    starRatingSpeed,
+    starRatingColor,
+    starRatingPosition,
+    starRatingStarSpace,
+    starRatingStarTypes,
+    starRatingDirection
+} from &quot;./star-rating-struct&quot;;
+import {StarRatingConfig} from &quot;./star-rating-config&quot;;
+import {StarRatingUtils} from &quot;./star-rating.utils&quot;;
+
+export class StarRating {
+
+    protected config:any;
+
+    //Inputs
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * id property to identify the DOM element
+     */
+    protected _id: string;
+    get id(): string {
+        return this._id;
+    }
+
+    set id(value: string) {
+        this._id &#x3D; value || &#x27;&#x27;;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * focus
+     */
+    protected _focus: boolean;
+    get focus(): boolean {
+        return this._focus;
+    }
+
+    set focus(value: boolean) {
+        this._focus &#x3D; !!value;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * labelText
+     */
+    protected _labelText: string;
+    get labelText(): string {
+        return this._labelText;
+    }
+
+    set labelText(value: string) {
+        this._labelText &#x3D; value;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * labelPosition
+     */
+    protected _labelPosition: starRatingPosition;
+    get labelPosition(): starRatingPosition {
+        return this._labelPosition;
+    }
+
+    set labelPosition(value: starRatingPosition) {
+        this._labelPosition &#x3D; value || this.config.labelPosition;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * labelVisible
+     */
+    protected _labelVisible: boolean;
+    get labelVisible(): boolean {
+        return this._labelVisible;
+    }
+
+    set labelVisible(value: boolean) {
+        this._labelVisible &#x3D; !!value;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * hoverEnabled
+     */
+    protected _hoverEnabled: boolean;
+    get hoverEnabled(): boolean {
+        return this._hoverEnabled;
+    }
+
+    set hoverEnabled(value: boolean) {
+        this._hoverEnabled &#x3D; (value !&#x3D;&#x3D; undefined) ? !!value : false;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * staticColor
+     */
+    protected _staticColor: starRatingColor;
+
+    get staticColor(): starRatingColor {
+        return this._staticColor;
+    }
+
+    set staticColor(value: starRatingColor) {
+        this._staticColor &#x3D; value || undefined;
+
+        //update color.
+        this.setColor();
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * direction
+     */
+    protected _direction: starRatingDirection;
+
+    get direction(): starRatingDirection {
+        return this._direction;
+    }
+
+    set direction(value: starRatingDirection) {
+        this._direction &#x3D; value || undefined;
+    }
+
+    /////////////////////////////////////////////
+
+
+    /**
+     * numOfStars
+     */
+    protected _numOfStars: number;
+
+    get numOfStars(): number {
+        return this._numOfStars;
+    }
+
+    set numOfStars(value: number) {
+        this._numOfStars &#x3D; (value &gt; 0) ? value : this.config.numOfStars;
+
+        //update stars array
+        this.stars &#x3D; StarRatingUtils.getStarsArray(this.numOfStars);
+
+        //update color
+        this.setColor();
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * hoverRating
+     */
+    protected _hoverRating: number;
+
+    get hoverRating(): number {
+        return this._hoverRating;
+    }
+
+    set hoverRating(value: number) {
+        this._hoverRating &#x3D; (value &gt; 0) ? value : 0;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * speed
+     */
+    protected _speed: starRatingSpeed;
+
+    get speed(): starRatingSpeed {
+        return this._speed;
+    }
+
+    set speed(value: starRatingSpeed) {
+        this._speed &#x3D; value || this.config.speed;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * size
+     */
+    protected _size: starRatingSizes;
+
+    get size(): starRatingSizes {
+        return this._size;
+    }
+
+    set size(value: starRatingSizes) {
+        this._size &#x3D; value || this.config.size;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * starType
+     */
+    protected _starType: starRatingStarTypes;
+
+    get starType(): starRatingStarTypes {
+        return this._starType;
+    }
+
+    set starType(value: starRatingStarTypes) {
+        this._starType &#x3D; value || this.config.starType;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * space
+     */
+    protected _space: starRatingStarSpace;
+
+    get space(): starRatingStarSpace {
+        return this._space;
+    }
+
+    set space(value: starRatingStarSpace) {
+        this._space &#x3D; value;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * readOnly
+     */
+    protected _readOnly: boolean;
+
+    get readOnly(): boolean {
+        return this._readOnly;
+    }
+
+    set readOnly(value: boolean) {
+        this._readOnly &#x3D; !!value;
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * disabled
+     */
+    protected _disabled: boolean;
+
+    get disabled(): boolean {
+        return this._disabled;
+    }
+
+    set disabled(value: boolean) {
+        this._disabled &#x3D; !!value;
+    }
+
+
+    /////////////////////////////////////////////
+
+
+    private _step:number;
+
+    get step(): number {
+        return this._step;
+    }
+
+    set step(value: number) {
+        this._step &#x3D; (value &gt; 0?value:1);
+    }
+
+
+    /////////////////////////////////////////////
+
+    /**
+     * rating
+     */
+    protected _rating: number;
+
+    get rating(): number {
+        return this._rating;
+    }
+
+    /**
+     * setRating
+     * I use a setter function instead of a set method to enable overrides for this function.
+     * @param value
+     */
+    setRating(value: number) {
+        //validate and apply newRating
+        let newRating: number &#x3D; 0;
+        if (value &gt;&#x3D; 0
+            &amp;&amp; value &lt;&#x3D; this.numOfStars) {
+            newRating &#x3D; value;
+        }
+        //limit max value to max number of stars
+        if (value &gt; this.numOfStars) {
+            newRating &#x3D; this.numOfStars;
+        }
+        this._rating &#x3D; newRating;
+
+        //update ratingAsInteger. rating parsed to int for the value-[n] modifier
+        this.ratingAsInteger &#x3D; parseInt(this._rating.toString());
+
+        //update halfStarsVisible
+        this.setHalfStarVisible();
+
+        //update calculated Color
+        this.setColor();
+
+    }
+
+    set rating(value:number) {
+        this.setRating(value);
+    }
+
+    /**
+     * showHalfStars
+     */
+    protected _showHalfStars: boolean;
+
+    get showHalfStars(): boolean {
+        return this._showHalfStars;
+    }
+
+    set showHalfStars(value: boolean) {
+        this._showHalfStars &#x3D; !!value;
+
+        //update halfStarVisible
+        this.setHalfStarVisible();
+    }
+
+    /////////////////////////////////////////////
+
+    /**
+     * getColor
+     */
+    getColor: (rating: number, numOfStars: number, staticColor?: starRatingColor) &#x3D;&gt; starRatingColor;
+    /////////////////////////////////////////////
+
+    /**
+     * getHalfStarVisible
+     */
+    getHalfStarVisible: (rating: number) &#x3D;&gt; boolean;
+    /////////////////////////////////////////////
+
+    //CTRL ONLY
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    classEmpty: string;
+    classHalf: string;
+    classFilled: string;
+
+    pathEmpty: string;
+    pathHalf: string;
+    pathFilled: string;
+
+    color: starRatingColor;
+    stars: Array&lt;number&gt;;
+    ratingAsInteger: number;
+    halfStarVisible: boolean;
+
+    constructor() {
+
+        let config &#x3D; new StarRatingConfig();
+
+        //set default ctrl props
+        this.classEmpty &#x3D; config.classEmpty;
+        this.classHalf &#x3D; config.classHalf;
+        this.classFilled &#x3D; config.classFilled;
+        this.pathEmpty &#x3D; config.svgPathEmpty;
+        this.pathHalf &#x3D; config.svgPathHalf;
+        this.pathFilled &#x3D; config.svgPathFilled;
+
+        //set default Component Inputs
+        if (&#x27;getColor&#x27; in config &amp;&amp; typeof config.getColor &#x3D;&#x3D;&#x3D; &quot;function&quot;) {
+            this.getColor &#x3D; config.getColor;
+        }
+
+        if (&#x27;getHalfStarVisible&#x27; in config &amp;&amp; typeof config.getHalfStarVisible &#x3D;&#x3D;&#x3D; &quot;function&quot;) {
+            this.getHalfStarVisible &#x3D; config.getHalfStarVisible;
+        }
+
+        this.numOfStars &#x3D; config.numOfStars;
+        this.rating &#x3D;0;
+        this.step&#x3D;1;
+
+    }
+
+    svgVisible():boolean {
+        return this.starType &#x3D;&#x3D;&#x3D; &quot;svg&quot;;
+    }
+
+    interactionPossible():boolean {
+        return  !this.readOnly &amp;&amp; !this.disabled;
+    }
+
+    setColor(): void {
+        //check if custom function is given
+        if (typeof this.getColor &#x3D;&#x3D;&#x3D; &quot;function&quot;) {
+            this.color &#x3D; this.getColor(this.rating, this.numOfStars, this.staticColor);
+        }
+        else {
+            this.color &#x3D; StarRatingUtils.getColor(this.rating, this.numOfStars, this.staticColor);
+        }
+    }
+
+    setHalfStarVisible(): void {
+        //update halfStarVisible
+        if (this.showHalfStars) {
+            //check if custom function is given
+            if (typeof this.getHalfStarVisible &#x3D;&#x3D;&#x3D; &quot;function&quot;) {
+                this.halfStarVisible &#x3D; this.getHalfStarVisible(this.rating);
+            } else {
+                this.halfStarVisible &#x3D; StarRatingUtils.getHalfStarVisible(this.rating);
+            }
+
+        }
+        else {
+            this.halfStarVisible &#x3D; false;
+        }
+    }
+
+    getComponentClassNames():string {
+        let classNames:string[] &#x3D; [];
+
+        classNames.push(this.rating?&#x27;value-&#x27;+this.ratingAsInteger:&#x27;value-0&#x27;);
+        classNames.push(this.halfStarVisible?&#x27;half&#x27;:&#x27;&#x27;);
+        classNames.push(this.hoverEnabled?&#x27;hover&#x27;:&#x27;&#x27;);
+
+        let hoverRating &#x3D; (this.hoverRating?&#x27;hover-&#x27;+this.hoverRating:&#x27;hover-0&#x27;);
+        classNames.push(this.hoverEnabled? hoverRating :&#x27;&#x27;);
+
+        classNames.push(this.space?&#x27;space-&#x27;+this.space:&#x27;&#x27;);
+        classNames.push(this.labelPosition?&#x27;label-&#x27;+this.labelPosition:&#x27;&#x27;);
+        classNames.push(this.color?&#x27;color-&#x27;+this.color:&#x27;&#x27;);
+        classNames.push(this.starType?&#x27;star-&#x27;+this.starType:&#x27;&#x27;);
+        classNames.push(this.speed);
+        classNames.push(this.size);
+        classNames.push(this.readOnly?&#x27;read-only&#x27;:&#x27;&#x27;);
+        classNames.push(this.disabled?&#x27;disabled&#x27;:&#x27;&#x27;);
+        classNames.push(this.direction?&#x27;direction-&#x27;+this.direction:&#x27;&#x27;);
+
+        return classNames.join(&#x27; &#x27;);
+    }
+
+    increment() {
+        //increment to next higher step
+        let absDiff &#x3D; Math.abs(this.rating%this.step);
+        this.rating &#x3D; this.rating + (absDiff&gt;0?this.step - absDiff:this.step);
+    }
+
+    decrement() {
+        //decrement to next lower step
+        let absDiff &#x3D; Math.abs(this.rating%this.step);
+        this.rating &#x3D; this.rating - (absDiff&gt;0?absDiff:this.step);
+    }
+
+    reset() {
+        this.rating &#x3D; 0;
+    }
+
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/highlight.pack.js"></script>
+       <script src="../js/libs/highlightjs-line-numbers.min.js"></script>
+       <script src="../js/search/search_index.js"></script>
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
+       </script>
+
+    </body>
+</html>
