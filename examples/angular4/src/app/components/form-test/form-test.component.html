@@ -14,7 +14,7 @@
   [starType]="starRatingConfig.starType"
   [labelText]="starRatingConfig.labelText"
   [labelPosition]="starRatingConfig.labelPosition"
-  [labelVisible]="starRatingConfig.labelVisible"
+
   [speed]="starRatingConfig.speed"
   [direction]="starRatingConfig.direction"
   [readOnly]="starRatingConfig.readOnly"
@@ -27,7 +27,7 @@
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-  <star-rating-comp [starType]="'svg'" [labelVisible]="true" [labelText]="'Form Test Component'"  [rating]="rating" formControlName="ratingInput" ></star-rating-comp>
+  <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'"  [rating]="rating" formControlName="ratingInput" ></star-rating-comp>
 
   <div class="stock-inventory__buttons">
     <button

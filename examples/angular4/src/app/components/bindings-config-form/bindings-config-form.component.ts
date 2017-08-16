@@ -54,7 +54,7 @@ export class BindingsConfigFormComponent implements OnInit, OnDestroy{
       numOfStars: [5],
       rating: [3.5],
       labelText: ['My Text'],
-      labelVisible: [false],
+      // labelVisible: [false],
       labelPosition: ['top'],
       staticColor: [],
       speed: ['slow'],
