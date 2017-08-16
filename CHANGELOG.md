@@ -1,4 +1,15 @@
 <a name="0.0.0"></a>
+# [0.0.0](https://github.com/BioPhoton/angular-star-rating/compare/2.5.10...0.0.0) (2017-08-16)
+
+
+### Bug Fixes
+
+* **feature rollback:** removed input binding ([23806b0](https://github.com/BioPhoton/angular-star-rating/commit/23806b0))
+* **features rollback:** label visible property binding ([b3459ff](https://github.com/BioPhoton/angular-star-rating/commit/b3459ff))
+
+
+
+<a name="0.0.0"></a>
 # [0.0.0](https://github.com/BioPhoton/angular-star-rating/compare/3.0.2...v0.0.0) (2017-07-07)
 
 
