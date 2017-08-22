@@ -1,4 +1,9 @@
 <a name="0.0.0"></a>
+# [0.0.0](https://github.com/BioPhoton/angular-star-rating/compare/3.0.5...0.0.0) (2017-08-22)
+
+
+
+<a name="0.0.0"></a>
 # [0.0.0](https://github.com/BioPhoton/angular-star-rating/compare/3.0.4...0.0.0) (2017-08-22)
 
 
