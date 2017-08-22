@@ -1,4 +1,14 @@
 <a name="0.0.0"></a>
+# [0.0.0](https://github.com/BioPhoton/angular-star-rating/compare/3.0.6...0.0.0) (2017-08-22)
+
+
+### Bug Fixes
+
+* **dependencies:** add css-star-rating to dependencies ([591054b](https://github.com/BioPhoton/angular-star-rating/commit/591054b))
+
+
+
+<a name="0.0.0"></a>
 # [0.0.0](https://github.com/BioPhoton/angular-star-rating/compare/3.0.5...0.0.0) (2017-08-22)
 
 
