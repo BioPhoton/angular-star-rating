@@ -47,13 +47,13 @@ Fully featured this component is provided with:
 - [x] [Example-App](https://github.com/BioPhoton/angular-star-rating/tree/master/examples/angular4)  
 
 ## [Documentation](https://github.com/BioPhoton/angular-star-rating/wiki)
-- [[Installing|Installing]]
-- [[Customizing Styles|Customizing-Styles]]
-- [[Property bindings|Property bindings]]
-  - [[Implement property bindings|Implement property bindings]]
-- [[Event bindings|Event bindings]]
-  - [[Implement event bindings|Implement event bindings]]
-- [[Use it with reactive forms|Use it with reactive forms]]
+- [Installing)[https://github.com/BioPhoton/angular-star-rating/wiki/Installing]
+- [Customizing Styles](https://github.com/BioPhoton/angular-star-rating/wiki/Customizing-Styles)
+- [Property bindings](https://github.com/BioPhoton/angular-star-rating/wiki/Property-bindings)
+  - [Implement property bindings](https://github.com/BioPhoton/angular-star-rating/wiki/Implement-property-bindings)
+- [Event bindings](https://github.com/BioPhoton/angular-star-rating/wiki/Event-bindings)
+  - [Implement event bindings](https://github.com/BioPhoton/angular-star-rating/wiki/Implement-event-bindings)
+- [Use it with reactive forms](https://github.com/BioPhoton/angular-star-rating/wiki/Use-it-with-reactive-forms)
 
 ## License
 
