@@ -1,8 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.scss */
+
+/* Override colors by using scss variables
+$color-negative-rating: #0f0 !default;
+$color-ok-rating: #f00 !default;
+$color-positive-rating: #00f !default;
+$color-default-rating: #ff0 !default;
+*/
+
+/* Import star-rating styles */
 @import "~angular-star-rating/assets/scss/star-rating";
 
-@import "~bootstrap/scss/bootstrap";
+/* Override Colors by using style rules
+.rating.color-negative .star-container .star {
+  svg {
+    fill: #0f0;
+  }
+  i {
+    color: #0f0;
+  }
+}
 
+.rating.color-ok .star-container .star {
+  svg {
+    fill: #f00;
+  }
+  i {
+    color: #f00;
+  }
+}
+
+.rating.color-positive .star-container .star {
+  svg {
+    fill: #00f;
+  }
+  i {
+    color: #00f;
+  }
+}
+
+.rating.color-default .star-container .star {
+  svg {
+    fill: #ff0;
+  }
+  i {
+    color: #ff0;
+  }
+}
+*/
+
+// @import "~css-star-rating/src/scss/variables";
+
+
+@import "~bootstrap/scss/bootstrap";
 
 #main-container, html, body {
   height:100%;

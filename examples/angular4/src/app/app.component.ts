@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {StarRatingConfig} from 'angular-star-rating'
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,6 @@ export class AppComponent {
   navBarCollapsed = true;
   constructor() {
   }
-
 
   toggleNav(closeOnly?:boolean) {
     if(closeOnly) {
