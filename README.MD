@@ -47,7 +47,7 @@ Fully featured this component is provided with:
 - [x] [Example-App](https://github.com/BioPhoton/angular-star-rating/tree/master/examples/angular4)  
 
 ## [Documentation](https://github.com/BioPhoton/angular-star-rating/wiki)
-- [Installing)[https://github.com/BioPhoton/angular-star-rating/wiki/Installing]
+- [Installing](https://github.com/BioPhoton/angular-star-rating/wiki/Installing)
 - [Customizing Styles](https://github.com/BioPhoton/angular-star-rating/wiki/Customizing-Styles)
 - [Property bindings](https://github.com/BioPhoton/angular-star-rating/wiki/Property-bindings)
   - [Implement property bindings](https://github.com/BioPhoton/angular-star-rating/wiki/Implement-property-bindings)
