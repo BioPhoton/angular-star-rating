@@ -10,7 +10,7 @@ export interface OnClickEvent {
   rating: number;
 }
 
-export interface OnRatingChangeEven {
+export interface OnRatingChangeEvent {
   rating: number;
 }
 

@@ -1,5 +1,5 @@
 import {Component, OnChanges, EventEmitter, forwardRef} from "@angular/core";
-import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "./star-rating-struct";
+import {OnClickEvent, OnRatingChangeEvent, OnHoverRatingChangeEvent} from "./star-rating-struct";
 import {StarRating} from "./star-rating";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
@@ -57,9 +57,9 @@ export class StarRatingComponent extends StarRating implements OnChanges, Contro
         }
     }
 
-    onRatingChange: EventEmitter<OnRatingChangeEven> = new EventEmitter<OnRatingChangeEven>();
+    onRatingChange: EventEmitter<OnRatingChangeEvent> = new EventEmitter<OnRatingChangeEvent>();
 
-    saveOnRatingChange($event:OnRatingChangeEven) {
+    saveOnRatingChange($event:OnRatingChangeEvent) {
         if(this.onRatingChange) {
             this.onRatingChange.emit($event);
         }
@@ -190,7 +190,7 @@ export class StarRatingComponent extends StarRating implements OnChanges, Contro
 
             //if value changed trigger valueAccessor events and outputs
             if (initValue !== this.rating) {
-                let $event: OnRatingChangeEven = {rating: this.rating};
+                let $event: OnRatingChangeEvent = {rating: this.rating};
                 this.saveOnRatingChange($event);
 
                 this.saveOnModelChange(this.rating);
