@@ -75,9 +75,24 @@ export class StarRatingConfigService {
     return Math.abs(rating % 1) > 0;
   }
 
-    setStars(value: number): void {
-        this.numOfStars = value;
-    }
+  setStars(value: number): void {
+    this.numOfStars = value;
+  }
 
+  setClassEmpty(emptyClass: string): void {
+    this.classEmpty = emptyClass;
+  }
+
+  setClassHalf(halfClass: string): void {
+    this.classHalf = halfClass;
+  }
+
+  setSpeed(speed: starRatingSpeed): void {
+    this.speed = speed;
+  }
+
+  setAssetsPath(assetsPath: string): void {
+    this.assetsPath = assetsPath;
+  }
 
 }
