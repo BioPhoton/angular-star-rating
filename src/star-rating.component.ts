@@ -4,6 +4,7 @@ import {StarRating} from "./star-rating";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 import {StarRatingUtils} from "./star-rating.utils";
+import { StarRatingConfigService } from "./star-rating-config";
 
 const STAR_RATING_CONTROL_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
@@ -179,8 +180,8 @@ export class StarRatingComponent extends StarRating implements OnChanges, Contro
         this.onTouchRegistered = true;
     }
 
-    constructor() {
-        super();
+    constructor(public config: StarRatingConfigService) {
+        super(config);
     }
 
     //Overrides

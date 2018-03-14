@@ -5,13 +5,15 @@ import {
   starRatingStarTypes,
   starRatingColor
 } from "./star-rating-struct";
+import { Injectable } from "@angular/core";
 
 /**
  * Configuration service for the StarRating component.
  * You can inject this service, typically in your root component, and customize the values of its properties in
  * order to provide default values for all the star ratings used in the application.
  */
-export class StarRatingConfig {
+@Injectable()
+export class StarRatingConfigService {
 
   classEmpty: string = "default-star-empty-icon";
 
@@ -72,6 +74,10 @@ export class StarRatingConfig {
   getHalfStarVisible(rating: number): boolean {
     return Math.abs(rating % 1) > 0;
   }
+
+    setStars(value: number): void {
+        this.numOfStars = value;
+    }
 
 
 }

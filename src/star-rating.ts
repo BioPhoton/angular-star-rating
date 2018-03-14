@@ -1,4 +1,3 @@
-import {Component, Input, OnChanges, Output, EventEmitter} from "@angular/core";
 import {
     starRatingSizes,
     starRatingSpeed,
@@ -8,12 +7,10 @@ import {
     starRatingStarTypes,
     starRatingDirection
 } from "./star-rating-struct";
-import {StarRatingConfig} from "./star-rating-config";
+import {StarRatingConfigService} from "./star-rating-config";
 import {StarRatingUtils} from "./star-rating.utils";
 
 export class StarRating {
-
-    protected config:any;
 
     //Inputs
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -364,9 +361,7 @@ export class StarRating {
     ratingAsInteger: number;
     halfStarVisible: boolean;
 
-    constructor() {
-
-        let config = new StarRatingConfig();
+    constructor(public config: StarRatingConfigService) {
 
         //set default ctrl props
         this.classEmpty = config.classEmpty;
