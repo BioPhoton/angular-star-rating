@@ -1,5 +1,5 @@
-<a name="4.0.0.0-beta"></a>
-# [4.0.0.0-beta](https://github.com/BioPhoton/angular-star-rating/compare/3.0.8...v) (2018-03-24)
+<a name="4.0.0-beta.0"></a>
+# [4.0.0-beta](https://github.com/BioPhoton/angular-star-rating/compare/3.0.8...v) (2018-03-24)
 
 
 ### Bug Fixes
@@ -11,10 +11,6 @@
 
 * **move packaging to ngPackagr <3:** Switch the release and bundle process to ngPackagr ([9b4929e](https://github.com/BioPhoton/angular-star-rating/commit/9b4929e)), closes [#76](https://github.com/BioPhoton/angular-star-rating/issues/76)
 * **setup automated release:** setup scripts implemented for [#78](https://github.com/BioPhoton/angular-star-rating/issues/78) ([49d9fec](https://github.com/BioPhoton/angular-star-rating/commit/49d9fec))
-
-
-
-
 
 <a name="3.0.8"></a>
 ## [3.0.8](https://github.com/BioPhoton/angular-star-rating/compare/3.0.7...3.0.8) (2017-08-23)
@@ -198,6 +194,3 @@
 * **ngModule:** include third party css into project ([facbeab](https://github.com/BioPhoton/angular-star-rating/commit/facbeab))
 * **started example project:** initialized ng2 project over cli [#1](https://github.com/BioPhoton/angular-star-rating/issues/1) ([37dfa9a](https://github.com/BioPhoton/angular-star-rating/commit/37dfa9a))
 * **version bump:** bumped version to 2..0.0-beta.0 ([883ea1d](https://github.com/BioPhoton/angular-star-rating/commit/883ea1d))
-
-
-
