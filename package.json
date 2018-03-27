@@ -29,7 +29,7 @@
     "changelog": "conventional-changelog --pkg ./libs/angular-star-rating/package.json --config ./changelog/changelog.config.js -p angular -i CHANGELOG.md -s -r 0",
     "recommended-bump": "conventional-recommended-bump -p angular",
     "github-release": "conventional-github-releaser -p angular -r 0",
-    "release": "npm publish dist"
+    "release:lib": "npm publish ./@packaged/angular-star-rating"
   },
   "private": true,
   "dependencies": {
