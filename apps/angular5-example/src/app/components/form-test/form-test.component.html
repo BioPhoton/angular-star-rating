@@ -1,0 +1,39 @@
+<pre>{{starRatingConfig | json}}</pre>
+
+<star-rating-comp
+  [id]="starRatingConfig.id"
+  [rating]="starRatingConfig.rating"
+  [step]="starRatingConfig.step"
+  [showHalfStars]="starRatingConfig.showHalfStars"
+  [numOfStars]="starRatingConfig.numOfStars"
+  [size]="starRatingConfig.size"
+  [space]="starRatingConfig.space"
+  [staticColor]="starRatingConfig.staticColor"
+  [disabled]="starRatingConfig.disabled"
+  [hoverEnabled]="starRatingConfig.hoverEnabled"
+  [starType]="starRatingConfig.starType"
+  [labelText]="starRatingConfig.labelText"
+  [labelPosition]="starRatingConfig.labelPosition"
+  [speed]="starRatingConfig.speed"
+  [direction]="starRatingConfig.direction"
+  [readOnly]="starRatingConfig.readOnly"
+  [getColor]="starRatingConfig.getColor"
+  [getHalfStarVisible]="starRatingConfig.getHalfStarVisible"
+  (onHoverRatingChange)="starRatingConfig.onHoverRatingChange($event)"
+  (onClick)="starRatingConfig.onClick($event)"
+  (onRatingChange)="starRatingConfig.onRatingChange($event)"
+></star-rating-comp>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <star-rating-comp [starType]="'svg'" [labelText]="'Form Test Component'"  [rating]="rating" formControlName="ratingInput" ></star-rating-comp>
+
+  <div class="stock-inventory__buttons">
+    <button
+            type="submit"
+            [disabled]="form.invalid">
+      Submit
+    </button>
+  </div>
+  <pre>{{ form.value | json }}</pre>
+</form>

@@ -1,12 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {StarRatingConfig} from 'angular-star-rating'
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
-  constructor() {}
+export class AppComponent {
+  navBarCollapsed = true;
+  constructor() {
+  }
 
-  ngOnInit() {}
+
+  toggleNav(closeOnly?:boolean) {
+    if(closeOnly) {
+      this.navBarCollapsed = true;
+    } else {
+      this.navBarCollapsed = !this.navBarCollapsed;
+    }
+  }
+
 }

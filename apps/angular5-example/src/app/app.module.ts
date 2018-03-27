@@ -1,12 +1,54 @@
-import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { NxModule } from '@nrwl/nx';
-import {StarRatingModule} from '@angular-star-rating-workspace/angular-star-rating'
+import {NgModule} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {StarRatingModule} from 'angular-star-rating';
+import {AppComponent} from './app.component';
+import {FormTestComponent} from './components/form-test/form-test.component';
+import {MyFormComponent} from './components/my-form-component-minimal/form-test.component';
+import {MyEventsComponent} from './components/my-events/my-events.component';
+import {RouterModule} from '@angular/router';
+import {BindingsConfigFormComponent} from './components/bindings-config-form/bindings-config-form.component';
 
 @NgModule({
-  imports: [BrowserModule, NxModule.forRoot(), StarRatingModule.forRoot()],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    FormTestComponent,
+    MyFormComponent,
+    MyEventsComponent,
+    BindingsConfigFormComponent
+  ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    StarRatingModule.forRoot(),
+    RouterModule.forRoot(
+      [
+        {
+          path:'',
+          redirectTo: 'form',
+          pathMatch: 'full'
+        },
+        {
+          path:'kitchensink',
+          component: BindingsConfigFormComponent
+        },
+        {
+          path:'events',
+          component: MyEventsComponent
+        },
+        {
+          path:'form',
+          component: MyFormComponent
+        },
+        {
+          path:'**',
+          redirectTo: 'form'
+        }
+      ]
+    )
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}
