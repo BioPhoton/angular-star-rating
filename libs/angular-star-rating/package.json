@@ -50,7 +50,7 @@
     "zone.js": "^0.8.4",
     "css-star-rating": "^2.4.1"
   },
-"ngPackage": {
+  "ngPackage": {
     "lib": {
       "entryFile": "index.ts"
     },

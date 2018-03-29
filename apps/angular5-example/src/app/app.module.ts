@@ -45,6 +45,10 @@ const DECLARATIONS = [
           component: FormControlStarRatingComponent
         },
         {
+          path: 'custom-lazy-config',
+          loadChildren: 'app/lazy-module/lazy-module.module#LazyModuleModule'
+        },
+        {
           path:'kitchensink',
           component: KitchensinkComponent
         },
