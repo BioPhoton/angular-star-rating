@@ -16,7 +16,7 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@angular-star-rating-workspace/*": [
+      "@angular-star-rating-lib/*": [
         "libs/*"
       ]
     }

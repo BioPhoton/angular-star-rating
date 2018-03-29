@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@angular-star-rating-workspace/*": [
+      "@angular-star-rating-lib/*": [
         "@packaged/*"
       ]
     }

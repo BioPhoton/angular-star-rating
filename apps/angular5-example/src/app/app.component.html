@@ -16,24 +16,28 @@
           [ngClass]="{collapse:navBarCollapsed}">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['form']"
-            (click)="toggleNav(true)">Minimal From Setup</a>
+          <a class="nav-link" [routerLink]="['property-bindings']"
+            (click)="toggleNav(true)">Property Bindings</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['events']"
+          <a class="nav-link" [routerLink]="['event-bindings']"
             (click)="toggleNav(true)">Event Bindings</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['form-control']"
+            (click)="toggleNav(true)">From Control</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['kitchensink']"
             (click)="toggleNav(true)">Kitchensink</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['config']"
-            (click)="toggleNav(true)">Config</a>
+          <a class="nav-link" [routerLink]="['static-config-override']"
+            (click)="toggleNav(true)">Custom Config</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link"
-            (click)="toggleNav(true)">All Bindings</a>
+          <a class="nav-link" [routerLink]="['lazy-config-override']"
+            (click)="toggleNav(true)">Custom Lazy Config</a>
         </li>
       </ul>
     </div>
@@ -48,3 +52,13 @@
     </main>
   </div>
 </div>
+
+<h2>Nx</h2>
+
+An open source toolkit for enterprise Angular applications.
+
+Nx is designed to help you create and build enterprise grade Angular applications. It provides an opinionated approach to application project structure and patterns.
+
+<h2>Quick Start & Documentation</h2>
+
+<a href="https://nrwl.io/nx">Watch a 5-minute video on how to get started with Nx.</a>

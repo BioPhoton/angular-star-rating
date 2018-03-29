@@ -1,26 +1,30 @@
 import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
-import {StarRatingModule} from 'angular-star-rating';
+import {StarRatingModule} from '@angular-star-rating-lib/angular-star-rating';
 import {AppComponent} from './app.component';
-import {FormTestComponent} from './components/form-test/form-test.component';
-import {MyFormComponent} from './components/my-form-component-minimal/form-test.component';
-import {MyEventsComponent} from './components/my-events/my-events.component';
 import {RouterModule} from '@angular/router';
-import {BindingsConfigFormComponent} from './components/bindings-config-form/bindings-config-form.component';
+import {NxModule} from '@nrwl/nx';
+import {KitchensinkComponent} from './components/kitchensink/kitchensink.component';
+import {EventBindingsComponent} from './components/event-bindings/event-bindings.component';
+import {PropertyBindingsComponent} from './components/property-bindings/property-bindings.component';
+import {FormControlStarRatingComponent} from './components/form-control-star-rating/form-control-star-rating.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {StaticModuleModule} from './static-module/static-module.module';
 
+const DECLARATIONS = [
+  AppComponent,
+  PropertyBindingsComponent,
+  EventBindingsComponent,
+  FormControlStarRatingComponent,
+  KitchensinkComponent
+];
 @NgModule({
-  declarations: [
-    AppComponent,
-    FormTestComponent,
-    MyFormComponent,
-    MyEventsComponent,
-    BindingsConfigFormComponent
-  ],
   imports: [
     BrowserModule,
+    NxModule.forRoot(),
     ReactiveFormsModule,
     StarRatingModule.forRoot(),
+    StaticModuleModule,
     RouterModule.forRoot(
       [
         {
@@ -29,26 +33,32 @@ import {BindingsConfigFormComponent} from './components/bindings-config-form/bin
           pathMatch: 'full'
         },
         {
+          path:'property-bindings',
+          component: PropertyBindingsComponent
+        },
+        {
+          path:'event-bindings',
+          component: EventBindingsComponent
+        },
+        {
+          path:'form-control',
+          component: FormControlStarRatingComponent
+        },
+        {
           path:'kitchensink',
-          component: BindingsConfigFormComponent
-        },
-        {
-          path:'events',
-          component: MyEventsComponent
-        },
-        {
-          path:'form',
-          component: MyFormComponent
+          component: KitchensinkComponent
         },
         {
           path:'**',
-          redirectTo: 'form'
+          redirectTo: 'kitchensink'
         }
       ]
     )
   ],
+  declarations: [
+    DECLARATIONS
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

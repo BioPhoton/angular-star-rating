@@ -1,26 +1,25 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {
-  HoverRatingChangeEvent,
   ClickEvent,
+  HoverRatingChangeEvent,
   RatingChangeEvent
 } from 'angular-star-rating';
-import {
-  starRatingColor,
+
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil'
+import {starRatingColor,
   starRatingLabelPosition,
   starRatingSizes,
   starRatingSpeed,
   starRatingStarSpace,
-  starRatingStarTypes
-} from 'angular-star-rating/src/interfaces/star-rating-config.interface';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil'
+  starRatingStarTypes} from '@angular-star-rating-lib/angular-star-rating/src/interfaces/star-rating-config.interface';
 
 @Component({
-  selector: 'bindings-config-form',
-  templateUrl: './bindings-config-form.component.html'
+  selector: 'kitchensink',
+  templateUrl: './kitchensink.component.html'
 })
-export class BindingsConfigFormComponent implements OnInit, OnDestroy{
+export class KitchensinkComponent implements OnInit, OnDestroy{
 
   private onDestroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -55,6 +54,7 @@ export class BindingsConfigFormComponent implements OnInit, OnDestroy{
       numOfStars: [5],
       rating: [3.5],
       labelText: ['My Text'],
+      labelVisible: [false],
       labelPosition: ['top'],
       staticColor: [],
       speed: ['slow'],
@@ -86,7 +86,7 @@ export class BindingsConfigFormComponent implements OnInit, OnDestroy{
   }
 
   onHoverRatingChange($event: HoverRatingChangeEvent): void {
-    console.log('single OnHoverRatingChangeEven rating: ', $event.hoverRating);
+    console.log('single OnHoverRatingChangeEvent rating: ', $event.hoverRating);
     // this.bindingsForm.get('hoverRating').setValue($event.hoverRating);
   }
 
@@ -122,7 +122,7 @@ export class BindingsConfigFormComponent implements OnInit, OnDestroy{
 
   _getColor(rating: number | string, numOfStars: number, staticColor: string): string {
     console.log('getColor rating: ', rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
-    const colors = ['default', 'negative', 'ok', 'positive'];
+    let colors = ['default', 'negative', 'ok', 'positive'];
     return colors[Math.floor(Math.random() * colors.length)];
   }
 

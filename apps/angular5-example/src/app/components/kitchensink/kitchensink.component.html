@@ -17,7 +17,6 @@
       [starType]="bindingsForm.get('starType').value"
       [labelText]="bindingsForm.get('labelText').value"
       [labelPosition]="bindingsForm.get('labelPosition').value"
-
       [speed]="bindingsForm.get('speed').value"
       [direction]="bindingsForm.get('direction').value"
       [readOnly]="bindingsForm.get('readOnly').value"
@@ -34,6 +33,13 @@
     <div class="col-4" >
       <fieldset class="form-group">
         <legend>Layout</legend>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input"
+              formControlName="labelVisible">
+            Label Hidden
+          </label>
+        </div>
         <div class="form-check">
           <label class="col-4 col-form-label">Label Position</label>
           <div class="col-8">

@@ -3,24 +3,22 @@ import {
   ClickEvent,
   HoverRatingChangeEvent,
   RatingChangeEvent
-} from 'angular-star-rating';
+} from '@angular-star-rating-lib/angular-star-rating';
 
 @Component({
-    selector: 'my-events-component',
-    template: `    
-        
-            <star-rating-comp   [starType]="'svg'" 
-                                [hoverEnabled]="true"
-                                (onClick)="onClick($event)" 
-                                (onRatingChange)="onRatingChange($event)"
-                                (onHoverRatingChange)="onHoverRatingChange($event)">                             
+    selector: 'events-binings',
+    template: `<star-rating-comp
+                  [hoverEnabled]="true"
+                  (onClick)="onClick($event)" 
+                  (onRatingChange)="onRatingChange($event)"
+                  (onHoverRatingChange)="onHoverRatingChange($event)">                             
             </star-rating-comp>
             <p>onHoverRatingChangeResult: {{onHoverRatingChangeResult | json}}</p>
             <p>onClickResult: {{onClickResult | json}}</p>
             <p>onRatingChangeResult: {{onRatingChangeResult | json}}</p>
     `
 })
-export class MyEventsComponent {
+export class EventBindingsComponent {
 
     onClickResult:ClickEvent;
     onHoverRatingChangeResult:HoverRatingChangeEvent;

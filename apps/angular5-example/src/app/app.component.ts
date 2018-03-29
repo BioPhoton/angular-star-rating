@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {StarRatingConfig} from 'angular-star-rating'
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
