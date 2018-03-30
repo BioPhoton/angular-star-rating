@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import {StarRatingModule, StarRatingConfigService} from '@angular-star-rating-lib/angular-star-rating';
 import { CommonModule } from '@angular/common';
-
-import { CustomConfigComponent } from './custom-config/custom-config.component';
-import { CustomLocalConfigComponent } from './custom-local-config/custom-local-config.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { StarRatingModule } from '@angular-star-rating-lib/angular-star-rating';
+import { CustomConfigComponent } from './custom-config.component';
+import { CustomLocalConfigComponent } from './custom-local-config.component';
+import { CustomConfigService } from './custom-config.service';
 
 @NgModule({
   imports: [
@@ -17,6 +17,11 @@ import { StarRatingModule } from '@angular-star-rating-lib/angular-star-rating';
       }
     ])
   ],
-  declarations: [CustomConfigComponent, CustomLocalConfigComponent]
+  declarations: [CustomConfigComponent, CustomLocalConfigComponent],
+  providers: [
+    {
+      provide: StarRatingConfigService, useClass: CustomConfigService
+    }
+  ]
 })
 export class StaticModuleModule {}

@@ -106,11 +106,11 @@ export class StarRating {
    */
   protected _staticColor: starRatingColor;
   get staticColor(): starRatingColor {
-    return this._staticColor;
+    return this._staticColor || this.config.staticColor || undefined;
   }
 
   set staticColor(value: starRatingColor) {
-    this._staticColor = value || this.config.staticColor || undefined;
+    this._staticColor = value;
 
     //update color.
     this.setColor();

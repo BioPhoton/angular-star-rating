@@ -23,8 +23,8 @@ const DECLARATIONS = [
     BrowserModule,
     NxModule.forRoot(),
     ReactiveFormsModule,
-    StarRatingModule.forRoot(),
     StaticModuleModule,
+    StarRatingModule.forRoot(),
     RouterModule.forRoot([
       {
         path: '',
