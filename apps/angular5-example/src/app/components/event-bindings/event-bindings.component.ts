@@ -9,9 +9,9 @@ import {
   selector: 'events-binings',
   template: `<star-rating-comp
                   [hoverEnabled]="true"
-                  (onClick)="onClick($event)" 
-                  (onRatingChange)="onRatingChange($event)"
-                  (onHoverRatingChange)="onHoverRatingChange($event)">                             
+                  (starClickChange)="onClick($event)" 
+                  (ratingChange)="onRatingChange($event)"
+                  (hoverRatingChange)="onHoverRatingChange($event)">                             
             </star-rating-comp>
             <p>onHoverRatingChangeResult: {{onHoverRatingChangeResult | json}}</p>
             <p>onClickResult: {{onClickResult | json}}</p>
