@@ -9,6 +9,7 @@
     "build": "ng build",
     "build:lib": "ng-packagr -p libs/angular-star-rating/package.json",
     "build:packaged": "ng build --app=angular5-example-packaged",
+    "build:github-page": "ng build --prod --output-path docs --base-href /angular-star-rating/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

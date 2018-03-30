@@ -13,8 +13,6 @@ import {
   starRatingStarTypes
 } from '@angular-star-rating-lib/angular-star-rating/src/interfaces/star-rating-config.interface';
 
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/takeUntil';
 
 @Component({
@@ -33,7 +31,7 @@ import 'rxjs/add/operator/takeUntil';
       [hoverEnabled]="true"
       [starType]="'svg'"
       [labelText]="'rate me'"
-      [labelPosition]="right"
+      [labelPosition]="'right'"
       [speed]="'slow'"
       [direction]="'ltr'"
       [readOnly]="false"

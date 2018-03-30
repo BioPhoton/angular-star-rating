@@ -42,7 +42,6 @@ var StarRatingUtils = /** @class */ (function () {
     StarRatingUtils.isDigitKeyEventCode = function (eventCode) {
         return eventCode.indexOf('Digit') === 0;
     };
-
     return StarRatingUtils;
 }());
 var StarRating = /** @class */ (function () {
@@ -54,10 +53,12 @@ var StarRating = /** @class */ (function () {
         this.pathEmpty = this.config.svgPathEmpty;
         this.pathHalf = this.config.svgPathHalf;
         this.pathFilled = this.config.svgPathFilled;
-        if ('getColor' in this.config && typeof this.config.getColor === "function") {
+        if ('getColor' in this.config &&
+            typeof this.config.getColor === 'function') {
             this.getColor = this.config.getColor;
         }
-        if ('getHalfStarVisible' in this.config && typeof this.config.getHalfStarVisible === "function") {
+        if ('getHalfStarVisible' in this.config &&
+            typeof this.config.getHalfStarVisible === 'function') {
             this.getHalfStarVisible = this.config.getHalfStarVisible;
         }
         this.numOfStars = this.config.numOfStars;
@@ -119,17 +120,17 @@ var StarRating = /** @class */ (function () {
             return this._hoverEnabled;
         },
         set: function (value) {
-            this._hoverEnabled = (value !== undefined) ? !!value : false;
+            this._hoverEnabled = value !== undefined ? !!value : false;
         },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(StarRating.prototype, "staticColor", {
         get: function () {
-            return this._staticColor;
+            return this._staticColor || this.config.staticColor || undefined;
         },
         set: function (value) {
-            this._staticColor = value || this.config.staticColor || undefined;
+            this._staticColor = value;
             this.setColor();
         },
         enumerable: true,
@@ -150,7 +151,7 @@ var StarRating = /** @class */ (function () {
             return this._numOfStars;
         },
         set: function (value) {
-            this._numOfStars = (value > 0) ? value : this.config.numOfStars;
+            this._numOfStars = value > 0 ? value : this.config.numOfStars;
             this.stars = StarRatingUtils.getStarsArray(this.numOfStars);
             this.setColor();
         },
@@ -162,7 +163,7 @@ var StarRating = /** @class */ (function () {
             return this._hoverRating;
         },
         set: function (value) {
-            this._hoverRating = (value > 0) ? value : 0;
+            this._hoverRating = value > 0 ? value : 0;
         },
         enumerable: true,
         configurable: true
@@ -232,7 +233,7 @@ var StarRating = /** @class */ (function () {
             return this._step;
         },
         set: function (value) {
-            this._step = (value > 0 ? value : 1);
+            this._step = value > 0 ? value : 1;
         },
         enumerable: true,
         configurable: true
@@ -249,8 +250,7 @@ var StarRating = /** @class */ (function () {
     });
     StarRating.prototype.setRating = function (value) {
         var newRating = 0;
-        if (value >= 0
-            && value <= this.numOfStars) {
+        if (value >= 0 && value <= this.numOfStars) {
             newRating = value;
         }
         if (value > this.numOfStars) {
@@ -273,13 +273,13 @@ var StarRating = /** @class */ (function () {
         configurable: true
     });
     StarRating.prototype.svgVisible = function () {
-        return this.starType === "svg";
+        return this.starType === 'svg';
     };
     StarRating.prototype.interactionPossible = function () {
         return !this.readOnly && !this.disabled;
     };
     StarRating.prototype.setColor = function () {
-        if (typeof this.getColor === "function") {
+        if (typeof this.getColor === 'function') {
             this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
         }
         else {
@@ -288,7 +288,7 @@ var StarRating = /** @class */ (function () {
     };
     StarRating.prototype.setHalfStarVisible = function () {
         if (this.showHalfStars) {
-            if (typeof this.getHalfStarVisible === "function") {
+            if (typeof this.getHalfStarVisible === 'function') {
                 this.halfStarVisible = this.getHalfStarVisible(this.rating);
             }
             else {
@@ -304,7 +304,9 @@ var StarRating = /** @class */ (function () {
         classNames.push(this.rating ? 'value-' + this.ratingAsInteger : 'value-0');
         classNames.push(this.halfStarVisible ? 'half' : '');
         classNames.push(this.hoverEnabled ? 'hover' : '');
-        var hoverRating = (this.hoverRating ? 'hover-' + this.hoverRating : 'hover-0');
+        var hoverRating = this.hoverRating
+            ? 'hover-' + this.hoverRating
+            : 'hover-0';
         classNames.push(this.hoverEnabled ? hoverRating : '');
         classNames.push(this.space ? 'space-' + this.space : '');
         classNames.push(this.labelPosition ? 'label-' + this.labelPosition : '');
@@ -332,22 +334,22 @@ var StarRating = /** @class */ (function () {
 }());
 var StarRatingConfigService = /** @class */ (function () {
     function StarRatingConfigService() {
-        this._classEmpty = "default-star-empty-icon";
-        this._classHalf = "default-star-half-icon";
-        this._classFilled = "default-star-filled-icon";
+        this._classEmpty = 'default-star-empty-icon';
+        this._classHalf = 'default-star-half-icon';
+        this._classFilled = 'default-star-filled-icon';
         this._numOfStars = 5;
-        this._size = "medium";
-        this._labelPosition = "left";
-        this._speed = "noticeable";
-        this._starType = "svg";
-        this._assetsPath = "assets/images/";
-        this._svgPath = this.assetsPath + "star-rating.icons.svg";
-        this._svgEmptySymbolId = "star-empty";
-        this._svgHalfSymbolId = "star-half";
-        this._svgFilledSymbolId = "star-filled";
-        this._svgPathEmpty = this.svgPath + "#" + this.svgEmptySymbolId;
-        this._svgPathHalf = this.svgPath + "#" + this.svgHalfSymbolId;
-        this._svgPathFilled = this.svgPath + "#" + this.svgFilledSymbolId;
+        this._size = 'medium';
+        this._labelPosition = 'left';
+        this._speed = 'noticeable';
+        this._starType = 'svg';
+        this._assetsPath = 'assets/images/';
+        this._svgPath = this.assetsPath + 'star-rating.icons.svg';
+        this._svgEmptySymbolId = 'star-empty';
+        this._svgHalfSymbolId = 'star-half';
+        this._svgFilledSymbolId = 'star-filled';
+        this._svgPathEmpty = this.svgPath + '#' + this.svgEmptySymbolId;
+        this._svgPathHalf = this.svgPath + '#' + this.svgHalfSymbolId;
+        this._svgPathFilled = this.svgPath + '#' + this.svgFilledSymbolId;
     }
     Object.defineProperty(StarRatingConfigService.prototype, "classEmpty", {
         get: function () {
@@ -600,11 +602,12 @@ var StarRatingComponent = /** @class */ (function (_super) {
             Digit0: function () { return _this.reset(); }
         };
         var handleDigits = function (eventCode) {
-            var dStr = "Digit";
+            var dStr = 'Digit';
             var digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1));
             _this.rating = digit;
         };
-        if (handlers[event['code']] || StarRatingUtils.isDigitKeyEventCode(event['code'])) {
+        if (handlers[event['code']] ||
+            StarRatingUtils.isDigitKeyEventCode(event['code'])) {
             if (StarRatingUtils.isDigitKeyEventCode(event['code'])) {
                 handleDigits(event['code']);
             }
@@ -656,7 +659,6 @@ var StarRatingComponent = /** @class */ (function (_super) {
             this.saveOnModelChange(this.rating);
         }
     };
-
     StarRatingComponent.prototype.onStarClicked = function (rating) {
         if (!this.interactionPossible()) {
             return;
@@ -693,13 +695,9 @@ StarRatingComponent.decorators = [
                     'labelText',
                     'id'
                 ],
-                outputs: [
-                    'clickEmitter',
-                    'ratingChangeEmitter',
-                    'hoverRatingChangeEmitter'
-                ],
+                outputs: ['clickEmitter', 'ratingChangeEmitter', 'hoverRatingChangeEmitter'],
                 styles: [],
-                template: "<div id=\"{{id}}\"\n  class=\"rating {{getComponentClassNames()}}\"\n  tabindex=\"0\"\n  (keydown)=\"onKeyDown($event)\"\n  (blur)=\"onBlur($event)\"\n  (focus)=\"onFocus($event)\"\n  (mouseleave)=\"onStarHover(0)\">\n   asfasfdasf <div *ngIf=\"labelText\" class=\"label-value\">{{labelText}}</div>\n    <div class=\"star-container\">\n        <div class=\"star\"\n          (mouseenter)=\"onStarHover(star)\"\n          *ngFor=\"let star of stars\"\n          (click)=\"onStarClicked(star)\">\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classEmpty}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classHalf}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-filled {{classFilled}}\"></i>\n            <svg *ngIf=\"svgVisible()\" class=\"star-empty default-star-empty-icon\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathEmpty\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-half default-star-half-icon\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathHalf\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-filled default-star-filled-icon\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathFilled\"></use>\n            </svg>\n        </div>\n    </div>\n</div>"
+                template: "<div id=\"{{id}}\"\n  class=\"rating {{getComponentClassNames()}}\"\n  tabindex=\"0\"\n  (keydown)=\"onKeyDown($event)\"\n  (blur)=\"onBlur($event)\"\n  (focus)=\"onFocus($event)\"\n  (mouseleave)=\"onStarHover(0)\">\n    <div *ngIf=\"labelText\" class=\"label-value\">{{labelText}}</div>\n    <div class=\"star-container\">\n        <div class=\"star\"\n          (mouseenter)=\"onStarHover(star)\"\n          *ngFor=\"let star of stars\"\n          (click)=\"onStarClicked(star)\">\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classEmpty}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classHalf}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-filled {{classFilled}}\"></i>\n            <svg *ngIf=\"svgVisible()\" class=\"star-empty default-star-empty-icon\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathEmpty\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-half default-star-half-icon\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathHalf\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-filled default-star-filled-icon\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathFilled\"></use>\n            </svg>\n        </div>\n    </div>\n</div>"
             },] },
 ];
 StarRatingComponent.ctorParameters = function () { return [
@@ -713,9 +711,7 @@ var StarRatingModule = /** @class */ (function () {
     StarRatingModule.forRoot = function () {
         return {
             ngModule: StarRatingModule,
-            providers: [
-                StarRatingConfigService
-            ]
+            providers: [StarRatingConfigService]
         };
     };
     StarRatingModule.forChild = function () {

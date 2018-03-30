@@ -66,7 +66,6 @@ class StarRatingUtils {
     static isDigitKeyEventCode(eventCode) {
         return eventCode.indexOf('Digit') === 0;
     }
-    ;
 }
 
 /**
@@ -150,20 +149,20 @@ class StarRating {
      * @return {?}
      */
     set hoverEnabled(value) {
-        this._hoverEnabled = (value !== undefined) ? !!value : false;
+        this._hoverEnabled = value !== undefined ? !!value : false;
     }
     /**
      * @return {?}
      */
     get staticColor() {
-        return this._staticColor;
+        return this._staticColor || this.config.staticColor || undefined;
     }
     /**
      * @param {?} value
      * @return {?}
      */
     set staticColor(value) {
-        this._staticColor = value || this.config.staticColor || undefined;
+        this._staticColor = value;
         //update color.
         this.setColor();
     }
@@ -191,7 +190,7 @@ class StarRating {
      * @return {?}
      */
     set numOfStars(value) {
-        this._numOfStars = (value > 0) ? value : this.config.numOfStars;
+        this._numOfStars = value > 0 ? value : this.config.numOfStars;
         //update stars array
         this.stars = StarRatingUtils.getStarsArray(this.numOfStars);
         //update color
@@ -208,7 +207,7 @@ class StarRating {
      * @return {?}
      */
     set hoverRating(value) {
-        this._hoverRating = (value > 0) ? value : 0;
+        this._hoverRating = value > 0 ? value : 0;
     }
     /**
      * @return {?}
@@ -299,7 +298,7 @@ class StarRating {
      * @return {?}
      */
     set step(value) {
-        this._step = (value > 0 ? value : 1);
+        this._step = value > 0 ? value : 1;
     }
     /**
      * @return {?}
@@ -316,8 +315,7 @@ class StarRating {
     setRating(value) {
         //validate and apply newRating
         let /** @type {?} */ newRating = 0;
-        if (value >= 0
-            && value <= this.numOfStars) {
+        if (value >= 0 && value <= this.numOfStars) {
             newRating = value;
         }
         //limit max value to max number of stars
@@ -367,10 +365,12 @@ class StarRating {
         this.pathHalf = this.config.svgPathHalf;
         this.pathFilled = this.config.svgPathFilled;
         //set default Component Inputs
-        if ('getColor' in this.config && typeof this.config.getColor === "function") {
+        if ('getColor' in this.config &&
+            typeof this.config.getColor === 'function') {
             this.getColor = this.config.getColor;
         }
-        if ('getHalfStarVisible' in this.config && typeof this.config.getHalfStarVisible === "function") {
+        if ('getHalfStarVisible' in this.config &&
+            typeof this.config.getHalfStarVisible === 'function') {
             this.getHalfStarVisible = this.config.getHalfStarVisible;
         }
         this.numOfStars = this.config.numOfStars;
@@ -381,7 +381,7 @@ class StarRating {
      * @return {?}
      */
     svgVisible() {
-        return this.starType === "svg";
+        return this.starType === 'svg';
     }
     /**
      * @return {?}
@@ -394,7 +394,7 @@ class StarRating {
      */
     setColor() {
         //check if custom function is given
-        if (typeof this.getColor === "function") {
+        if (typeof this.getColor === 'function') {
             this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
         }
         else {
@@ -408,7 +408,7 @@ class StarRating {
         //update halfStarVisible
         if (this.showHalfStars) {
             //check if custom function is given
-            if (typeof this.getHalfStarVisible === "function") {
+            if (typeof this.getHalfStarVisible === 'function') {
                 this.halfStarVisible = this.getHalfStarVisible(this.rating);
             }
             else {
@@ -427,7 +427,9 @@ class StarRating {
         classNames.push(this.rating ? 'value-' + this.ratingAsInteger : 'value-0');
         classNames.push(this.halfStarVisible ? 'half' : '');
         classNames.push(this.hoverEnabled ? 'hover' : '');
-        let /** @type {?} */ hoverRating = (this.hoverRating ? 'hover-' + this.hoverRating : 'hover-0');
+        let /** @type {?} */ hoverRating = this.hoverRating
+            ? 'hover-' + this.hoverRating
+            : 'hover-0';
         classNames.push(this.hoverEnabled ? hoverRating : '');
         classNames.push(this.space ? 'space-' + this.space : '');
         classNames.push(this.labelPosition ? 'label-' + this.labelPosition : '');
@@ -475,22 +477,22 @@ class StarRating {
  */
 class StarRatingConfigService {
     constructor() {
-        this._classEmpty = "default-star-empty-icon";
-        this._classHalf = "default-star-half-icon";
-        this._classFilled = "default-star-filled-icon";
+        this._classEmpty = 'default-star-empty-icon';
+        this._classHalf = 'default-star-half-icon';
+        this._classFilled = 'default-star-filled-icon';
         this._numOfStars = 5;
-        this._size = "medium";
-        this._labelPosition = "left";
-        this._speed = "noticeable";
-        this._starType = "svg";
-        this._assetsPath = "assets/images/";
-        this._svgPath = this.assetsPath + "star-rating.icons.svg";
-        this._svgEmptySymbolId = "star-empty";
-        this._svgHalfSymbolId = "star-half";
-        this._svgFilledSymbolId = "star-filled";
-        this._svgPathEmpty = this.svgPath + "#" + this.svgEmptySymbolId;
-        this._svgPathHalf = this.svgPath + "#" + this.svgHalfSymbolId;
-        this._svgPathFilled = this.svgPath + "#" + this.svgFilledSymbolId;
+        this._size = 'medium';
+        this._labelPosition = 'left';
+        this._speed = 'noticeable';
+        this._starType = 'svg';
+        this._assetsPath = 'assets/images/';
+        this._svgPath = this.assetsPath + 'star-rating.icons.svg';
+        this._svgEmptySymbolId = 'star-empty';
+        this._svgHalfSymbolId = 'star-half';
+        this._svgFilledSymbolId = 'star-filled';
+        this._svgPathEmpty = this.svgPath + '#' + this.svgEmptySymbolId;
+        this._svgPathHalf = this.svgPath + '#' + this.svgHalfSymbolId;
+        this._svgPathFilled = this.svgPath + '#' + this.svgFilledSymbolId;
     }
     /**
      * @return {?}
@@ -839,11 +841,12 @@ class StarRatingComponent extends StarRating {
             Digit0: () => this.reset()
         };
         const /** @type {?} */ handleDigits = (eventCode) => {
-            let /** @type {?} */ dStr = "Digit";
+            let /** @type {?} */ dStr = 'Digit';
             let /** @type {?} */ digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1));
             this.rating = digit;
         };
-        if (handlers[event['code']] || StarRatingUtils.isDigitKeyEventCode(event['code'])) {
+        if (handlers[event['code']] ||
+            StarRatingUtils.isDigitKeyEventCode(event['code'])) {
             if (StarRatingUtils.isDigitKeyEventCode(event['code'])) {
                 handleDigits(event['code']);
             }
@@ -926,7 +929,6 @@ class StarRatingComponent extends StarRating {
             this.saveOnModelChange(this.rating);
         }
     }
-    ;
     /**
      * onStarClicked
      *
@@ -969,18 +971,12 @@ StarRatingComponent.decorators = [
                     'speed',
                     'numOfStars',
                     'direction',
-                    'staticColor'
-                    //, 'labelVisible'
-                    ,
+                    'staticColor',
                     'labelPosition',
                     'labelText',
                     'id'
                 ],
-                outputs: [
-                    'clickEmitter',
-                    'ratingChangeEmitter',
-                    'hoverRatingChangeEmitter'
-                ],
+                outputs: ['clickEmitter', 'ratingChangeEmitter', 'hoverRatingChangeEmitter'],
                 styles: [],
                 template: `<div id="{{id}}"
   class="rating {{getComponentClassNames()}}"
@@ -1030,9 +1026,7 @@ class StarRatingModule {
     static forRoot() {
         return {
             ngModule: StarRatingModule,
-            providers: [
-                StarRatingConfigService
-            ]
+            providers: [StarRatingConfigService]
         };
     }
     /**
