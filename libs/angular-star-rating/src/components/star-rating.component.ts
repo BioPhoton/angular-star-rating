@@ -37,7 +37,7 @@ const STAR_RATING_CONTROL_ACCESSOR = {
     'labelText',
     'id'
   ],
-  outputs: ['clickEmitter', 'ratingChangeEmitter', 'hoverRatingChangeEmitter'],
+  outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
   styleUrls: [],
   templateUrl: 'star-rating.component.html'
 })
@@ -46,38 +46,34 @@ export class StarRatingComponent extends StarRating
   //Outputs
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-  clickEmitter: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
+  starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
 
-  saveOnClick($event: ClickEvent) {
-    if (this.clickEmitter) {
-      this.clickEmitter.emit($event);
-    }
-  }
+  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
 
-  ratingChangeEmitter: EventEmitter<RatingChangeEvent> = new EventEmitter<
-    RatingChangeEvent
-  >();
-
-  saveOnRatingChange($event: RatingChangeEvent) {
-    if (this.ratingChangeEmitter) {
-      this.ratingChangeEmitter.emit($event);
-    }
-  }
-
-  hoverRatingChangeEmitter: EventEmitter<
-    HoverRatingChangeEvent
-  > = new EventEmitter<HoverRatingChangeEvent>();
-
-  saveOnHover($event: HoverRatingChangeEvent) {
-    if (this.hoverRatingChangeEmitter) {
-      this.hoverRatingChangeEmitter.emit($event);
-    }
-  }
+  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
 
   onTouch: Function;
   onModelChange: Function;
-  private onModelChangeRegistered: boolean = false;
-  private onTouchRegistered: boolean = false;
+  private onModelChangeRegistered = false;
+  private onTouchRegistered = false;
+
+  saveOnClick($event: ClickEvent) {
+    if (this.starClickChange) {
+      this.starClickChange.emit($event);
+    }
+  }
+
+  saveOnRatingChange($event: RatingChangeEvent) {
+    if (this.ratingChange) {
+      this.ratingChange.emit($event);
+    }
+  }
+
+  saveOnHover($event: HoverRatingChangeEvent) {
+    if (this.hoverRatingChange) {
+      this.hoverRatingChange.emit($event);
+    }
+  }
 
   saveOnTouch() {
     if (this.onTouchRegistered) {
