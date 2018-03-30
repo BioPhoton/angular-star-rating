@@ -1,5 +1,8 @@
+<a name="4.0.0-beta.1"></a>
+# 4.0.0-beta.1 (2018-03-30)
+
 <a name="4.0.0-beta.0"></a>
-# [4.0.0-beta](https://github.com/BioPhoton/angular-star-rating/compare/3.0.8...v) (2018-03-24)
+# [4.0.0-beta.0](https://github.com/BioPhoton/angular-star-rating/compare/3.0.8...v) (2018-03-24)
 
 
 ### Bug Fixes
