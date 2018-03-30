@@ -7,10 +7,7 @@ import { Component, OnInit } from '@angular/core';
   <star-rating-comp></star-rating-comp>`
 })
 export class CustomLocalConfigComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

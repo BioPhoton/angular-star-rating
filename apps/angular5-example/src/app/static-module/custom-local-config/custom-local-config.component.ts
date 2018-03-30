@@ -5,10 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './custom-local-config.component.html'
 })
 export class CustomLocalConfigComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

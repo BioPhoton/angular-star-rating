@@ -1,19 +1,21 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   ClickEvent,
   HoverRatingChangeEvent,
-  RatingChangeEvent,
+  RatingChangeEvent
 } from '@angular-star-rating-lib/angular-star-rating';
-import {starRatingColor,
+import {
+  starRatingColor,
   starRatingLabelPosition,
   starRatingSizes,
   starRatingSpeed,
   starRatingStarSpace,
-  starRatingStarTypes} from '@angular-star-rating-lib/angular-star-rating/src/interfaces/star-rating-config.interface';
+  starRatingStarTypes
+} from '@angular-star-rating-lib/angular-star-rating/src/interfaces/star-rating-config.interface';
 
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil'
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil';
 
 @Component({
   selector: 'property-bindings',
@@ -38,6 +40,4 @@ import 'rxjs/add/operator/takeUntil'
     ></star-rating-comp>
   `
 })
-export class PropertyBindingsComponent {
-
-}
+export class PropertyBindingsComponent {}

@@ -5,14 +5,11 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <h1>Custom static configuration</h1>
   <star-rating-comp></star-rating-comp>
-    <custom-local-config></custom-local-config>
+  <custom-local-config></custom-local-config>
   `
 })
 export class CustomConfigComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

@@ -1,41 +1,54 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   ClickEvent,
   HoverRatingChangeEvent,
   RatingChangeEvent
-} from 'angular-star-rating';
+} from '@angular-star-rating-lib/angular-star-rating';
 
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil'
-import {starRatingColor,
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/takeUntil';
+import {
+  starRatingColor,
   starRatingLabelPosition,
   starRatingSizes,
   starRatingSpeed,
   starRatingStarSpace,
-  starRatingStarTypes} from '@angular-star-rating-lib/angular-star-rating/src/interfaces/star-rating-config.interface';
+  starRatingStarTypes
+} from '@angular-star-rating-lib/angular-star-rating/src/interfaces/star-rating-config.interface';
 
 @Component({
   selector: 'kitchensink',
   templateUrl: './kitchensink.component.html'
 })
-export class KitchensinkComponent implements OnInit, OnDestroy{
-
+export class KitchensinkComponent implements OnInit, OnDestroy {
   private onDestroy$: Subject<boolean> = new Subject<boolean>();
 
   //option sets
-  colorOptions: Array<starRatingColor | string> = ['default', 'negative', 'ok', 'positive'];
-  labelPositionOptions: Array<starRatingLabelPosition | string> = ['top', 'right', 'left', 'bottom'];
+  colorOptions: Array<starRatingColor | string> = [
+    'default',
+    'negative',
+    'ok',
+    'positive'
+  ];
+  labelPositionOptions: Array<starRatingLabelPosition | string> = [
+    'top',
+    'right',
+    'left',
+    'bottom'
+  ];
   starOptions: Array<starRatingStarTypes> = ['svg', 'icon', 'image'];
   speedOptions: Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
   sizeOptions: Array<starRatingSizes> = ['small', 'medium', 'large'];
-  spaceOptions: Array<starRatingStarSpace | string> = ['around', 'between', 'no'];
+  spaceOptions: Array<starRatingStarSpace | string> = [
+    'around',
+    'between',
+    'no'
+  ];
 
   bindingsForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.setupForm();
@@ -72,7 +85,7 @@ export class KitchensinkComponent implements OnInit, OnDestroy{
       getColor: [],
       useCustomCetColor: [false],
       getHalfStarVisible: [],
-      useCustomGetHalfStarVisible: [false],
+      useCustomGetHalfStarVisible: [false]
     });
   }
 
@@ -98,37 +111,45 @@ export class KitchensinkComponent implements OnInit, OnDestroy{
   updateGetColorBinding() {
     if (this.bindingsForm.get('useCustomCetColor').value) {
       this.bindingsForm.get('getColor').setValue(this._getColor);
-    }
-    else {
+    } else {
       this.bindingsForm.get('getColor').setValue(undefined);
     }
   }
 
   updateGetHalfStarVisibleBinding() {
-    this.bindingsForm.get('useCustomGetHalfStarVisible')
-      .valueChanges
-      .takeUntil(this.onDestroy$)
-      .subscribe(
-        (v) => {
-          if (v) {
-            this.bindingsForm.get('getHalfStarVisible').setValue(this._getHalfStarVisible);
-          }
-          else {
-            this.bindingsForm.get('getHalfStarVisible').setValue(() => {});
-          }
+    this.bindingsForm
+      .get('useCustomGetHalfStarVisible')
+      .valueChanges.takeUntil(this.onDestroy$)
+      .subscribe(v => {
+        if (v) {
+          this.bindingsForm
+            .get('getHalfStarVisible')
+            .setValue(this._getHalfStarVisible);
+        } else {
+          this.bindingsForm.get('getHalfStarVisible').setValue(() => {});
         }
-      )
+      });
   }
 
-  _getColor(rating: number | string, numOfStars: number, staticColor: string): string {
-    console.log('getColor rating: ', rating, 'numOfStars: ', numOfStars, 'fixColor: ', staticColor);
+  _getColor(
+    rating: number | string,
+    numOfStars: number,
+    staticColor: string
+  ): string {
+    console.log(
+      'getColor rating: ',
+      rating,
+      'numOfStars: ',
+      numOfStars,
+      'fixColor: ',
+      staticColor
+    );
     let colors = ['default', 'negative', 'ok', 'positive'];
     return colors[Math.floor(Math.random() * colors.length)];
   }
 
   _getHalfStarVisible(rating: number): boolean {
     console.log('getHalfStarVisible rating: ', rating, rating % 1);
-    return (rating < 3);
+    return rating < 3;
   }
-
 }

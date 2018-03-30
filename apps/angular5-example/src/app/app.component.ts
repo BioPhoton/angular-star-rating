@@ -6,16 +6,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   navBarCollapsed = true;
-  constructor() {
-  }
+  constructor() {}
 
-
-  toggleNav(closeOnly?:boolean) {
-    if(closeOnly) {
+  toggleNav(closeOnly?: boolean) {
+    if (closeOnly) {
       this.navBarCollapsed = true;
     } else {
       this.navBarCollapsed = !this.navBarCollapsed;
     }
   }
-
 }

@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import { Component } from '@angular/core';
 import {
   ClickEvent,
   HoverRatingChangeEvent,
@@ -6,8 +6,8 @@ import {
 } from '@angular-star-rating-lib/angular-star-rating';
 
 @Component({
-    selector: 'events-binings',
-    template: `<star-rating-comp
+  selector: 'events-binings',
+  template: `<star-rating-comp
                   [hoverEnabled]="true"
                   (onClick)="onClick($event)" 
                   (onRatingChange)="onRatingChange($event)"
@@ -19,24 +19,22 @@ import {
     `
 })
 export class EventBindingsComponent {
+  onClickResult: ClickEvent;
+  onHoverRatingChangeResult: HoverRatingChangeEvent;
+  onRatingChangeResult: RatingChangeEvent;
 
-    onClickResult:ClickEvent;
-    onHoverRatingChangeResult:HoverRatingChangeEvent;
-    onRatingChangeResult:RatingChangeEvent;
+  onClick = ($event: ClickEvent) => {
+    console.log('onClick $event: ', $event);
+    this.onClickResult = $event;
+  };
 
-    onClick = ($event:ClickEvent) => {
-        console.log('onClick $event: ', $event);
-        this.onClickResult = $event;
-    };
+  onRatingChange = ($event: RatingChangeEvent) => {
+    console.log('onRatingUpdated $event: ', $event);
+    this.onRatingChangeResult = $event;
+  };
 
-    onRatingChange = ($event:RatingChangeEvent) => {
-        console.log('onRatingUpdated $event: ', $event);
-        this.onRatingChangeResult = $event;
-    };
-
-    onHoverRatingChange = ($event:HoverRatingChangeEvent) => {
-        console.log('onHoverRatingChange $event: ', $event);
-        this.onHoverRatingChangeResult = $event;
-    };
-
+  onHoverRatingChange = ($event: HoverRatingChangeEvent) => {
+    console.log('onHoverRatingChange $event: ', $event);
+    this.onHoverRatingChangeResult = $event;
+  };
 }

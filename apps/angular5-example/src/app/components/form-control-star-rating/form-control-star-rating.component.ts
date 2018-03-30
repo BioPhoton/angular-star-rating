@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form-test',
@@ -21,7 +21,6 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
   `
 })
 export class FormControlStarRatingComponent {
-
   form = new FormGroup({
     ratingInput: new FormControl('')
   });
@@ -37,5 +36,4 @@ export class FormControlStarRatingComponent {
   onSubmit() {
     console.log('Submitted value:', this.form.value);
   }
-
 }
