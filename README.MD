@@ -5,14 +5,14 @@
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)
 [![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=master)](https://travis-ci.org/BioPhoton/angular-star-rating)
 
-[![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)  
+[![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)
 
-Angular Star Rating is a Angular 2+ component made with ❤.  
+Angular Star Rating is a Angular 2+ component made with ❤.
 
-It is based on best practice UX/UI methods, accessibility in mind and an eye for details. 
-In love with reactive forms, the component is easy to control over the keyboard.  
-It is a perfect fit for all angular projects with ⭐'s.  
-   
+It is based on best practice UX/UI methods, accessibility in mind and an eye for details.
+In love with reactive forms, the component is easy to control over the keyboard.
+It is a perfect fit for all angular projects with ⭐'s.
+
 To keep it as flexible as possible a major part of the logic is based on [css only techniques](https://github.com/BioPhoton/css-star-rating). The component simple applies the state depending css modifiers.
 
 ![Angular-Star-Rating](https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/examples/example-usage.gif)
@@ -44,7 +44,8 @@ Fully featured this component is provided with:
 | [Css Star Rating](https://github.com/BioPhoton/css-star-rating) | [Angular1 Star Rating](https://github.com/BioPhoton/angular1-star-rating) | [Angular Star Rating](https://github.com/BioPhoton/angular-star-rating) |[Ionic1 Star Rating](https://github.com/BioPhoton/ionic1-star-rating) |
 
 ## DEMO
-- [x] [Example-App](https://github.com/BioPhoton/angular-star-rating/tree/master/examples/angular4)  
+- [x] [Live Demo](https://biophoton.github.io/angular-star-rating/kitchensink)
+- [x] [Example-App](https://github.com/BioPhoton/angular-star-rating/tree/master/examples/angular4)
 
 ## [Documentation](https://github.com/BioPhoton/angular-star-rating/wiki)
 - [Installing](https://github.com/BioPhoton/angular-star-rating/wiki/Installing)
@@ -59,11 +60,3 @@ Fully featured this component is provided with:
 ## License
 
 MIT © [Michael Hladky](mailto:michael@hladky.at)
-
-# Custom configuration
-
-## Globally
-
-## FeatureModules
-
-## Locally
