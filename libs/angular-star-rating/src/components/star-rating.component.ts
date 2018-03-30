@@ -1,11 +1,11 @@
-import {Component, EventEmitter, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {ClickEvent} from '../interfaces/click-event.interface';
-import {HoverRatingChangeEvent} from '../interfaces/hover-rating-change-event.interface';
-import {RatingChangeEvent} from '../interfaces/rating-change-event.interface';
-import {StarRating} from '../services/star-rating';
-import {StarRatingConfigService} from '../services/star-rating-config.service';
-import {StarRatingUtils} from '../services/star-rating.utils';
+import { Component, EventEmitter, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ClickEvent } from '../interfaces/click-event.interface';
+import { HoverRatingChangeEvent } from '../interfaces/hover-rating-change-event.interface';
+import { RatingChangeEvent } from '../interfaces/rating-change-event.interface';
+import { StarRating } from '../services/star-rating';
+import { StarRatingConfigService } from '../services/star-rating-config.service';
+import { StarRatingUtils } from '../services/star-rating.utils';
 
 const STAR_RATING_CONTROL_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
@@ -17,36 +17,32 @@ const STAR_RATING_CONTROL_ACCESSOR = {
   selector: 'star-rating-comp',
   providers: [STAR_RATING_CONTROL_ACCESSOR],
   inputs: [
-    'getHalfStarVisible'
-    , 'getColor'
-    , 'showHalfStars'
-    , 'hoverEnabled'
-    , 'rating'
-    , 'step'
-    , 'disabled'
-    , 'readOnly'
-    , 'space'
-    , 'starType'
-    , 'size'
-    , 'speed'
-    , 'numOfStars'
-    , 'direction'
-    , 'staticColor'
+    'getHalfStarVisible',
+    'getColor',
+    'showHalfStars',
+    'hoverEnabled',
+    'rating',
+    'step',
+    'disabled',
+    'readOnly',
+    'space',
+    'starType',
+    'size',
+    'speed',
+    'numOfStars',
+    'direction',
+    'staticColor',
     //, 'labelVisible'
-    , 'labelPosition'
-    , 'labelText'
-    , 'id'
+    'labelPosition',
+    'labelText',
+    'id'
   ],
-  outputs: [
-    'clickEmitter'
-    , 'ratingChangeEmitter'
-    , 'hoverRatingChangeEmitter'
-  ],
+  outputs: ['clickEmitter', 'ratingChangeEmitter', 'hoverRatingChangeEmitter'],
   styleUrls: [],
   templateUrl: 'star-rating.component.html'
 })
-export class StarRatingComponent extends StarRating implements ControlValueAccessor {
-
+export class StarRatingComponent extends StarRating
+  implements ControlValueAccessor {
   //Outputs
   ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -58,7 +54,9 @@ export class StarRatingComponent extends StarRating implements ControlValueAcces
     }
   }
 
-  ratingChangeEmitter: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
+  ratingChangeEmitter: EventEmitter<RatingChangeEvent> = new EventEmitter<
+    RatingChangeEvent
+  >();
 
   saveOnRatingChange($event: RatingChangeEvent) {
     if (this.ratingChangeEmitter) {
@@ -66,7 +64,9 @@ export class StarRatingComponent extends StarRating implements ControlValueAcces
     }
   }
 
-  hoverRatingChangeEmitter: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
+  hoverRatingChangeEmitter: EventEmitter<
+    HoverRatingChangeEvent
+  > = new EventEmitter<HoverRatingChangeEvent>();
 
   saveOnHover($event: HoverRatingChangeEvent) {
     if (this.hoverRatingChangeEmitter) {
@@ -95,7 +95,6 @@ export class StarRatingComponent extends StarRating implements ControlValueAcces
 
   //Keyboard events
   onKeyDown(event: KeyboardEvent) {
-
     if (!this.interactionPossible()) {
       return;
     }
@@ -118,12 +117,17 @@ export class StarRatingComponent extends StarRating implements ControlValueAcces
     };
 
     const handleDigits = (eventCode: string): void => {
-      let dStr = "Digit";
-      let digit: number = parseInt(eventCode.substr(dStr.length, eventCode.length - 1));
+      let dStr = 'Digit';
+      let digit: number = parseInt(
+        eventCode.substr(dStr.length, eventCode.length - 1)
+      );
       this.rating = digit;
     };
 
-    if (handlers[event['code']] || StarRatingUtils.isDigitKeyEventCode(event['code'])) {
+    if (
+      handlers[event['code']] ||
+      StarRatingUtils.isDigitKeyEventCode(event['code'])
+    ) {
       if (StarRatingUtils.isDigitKeyEventCode(event['code'])) {
         handleDigits(event['code']);
       } else {
@@ -153,7 +157,6 @@ export class StarRatingComponent extends StarRating implements ControlValueAcces
 
   //Hover events
   onStarHover(rating?: number): void {
-
     if (!this.interactionPossible() || !this.hoverEnabled) {
       return;
     }
@@ -161,10 +164,8 @@ export class StarRatingComponent extends StarRating implements ControlValueAcces
     this.hoverRating = rating ? parseInt(rating.toString()) : 0;
 
     //fire onHoverRatingChange event
-    let $event: HoverRatingChangeEvent = {hoverRating: this.hoverRating};
+    let $event: HoverRatingChangeEvent = { hoverRating: this.hoverRating };
     this.saveOnHover($event);
-
-
   }
 
   /**Form Control - ControlValueAccessor implementation**/
@@ -194,13 +195,12 @@ export class StarRatingComponent extends StarRating implements ControlValueAcces
 
     //if value changed trigger valueAccessor events and outputs
     if (initValue !== this.rating) {
-      let $event: RatingChangeEvent = {rating: this.rating};
+      let $event: RatingChangeEvent = { rating: this.rating };
       this.saveOnRatingChange($event);
 
       this.saveOnModelChange(this.rating);
     }
-
-  };
+  }
 
   /**
    * onStarClicked
@@ -213,7 +213,6 @@ export class StarRatingComponent extends StarRating implements ControlValueAcces
    * @param rating
    */
   onStarClicked(rating: number): void {
-
     //fire onClick event
     if (!this.interactionPossible()) {
       return;
@@ -225,7 +224,5 @@ export class StarRatingComponent extends StarRating implements ControlValueAcces
       rating: this.rating
     };
     this.saveOnClick(onClickEventObject);
-
   }
-
 }

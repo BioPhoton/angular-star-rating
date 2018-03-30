@@ -8,11 +8,10 @@ import {
   starRatingStarSpace,
   starRatingStarTypes
 } from '../interfaces/star-rating-config.interface';
-import {StarRatingConfigService} from './star-rating-config.service';
-import {StarRatingUtils} from './star-rating.utils';
+import { StarRatingConfigService } from './star-rating-config.service';
+import { StarRatingUtils } from './star-rating.utils';
 
 export class StarRating {
-
   protected config: StarRatingConfig;
 
   //Inputs
@@ -97,7 +96,7 @@ export class StarRating {
   }
 
   set hoverEnabled(value: boolean) {
-    this._hoverEnabled = (value !== undefined) ? !!value : false;
+    this._hoverEnabled = value !== undefined ? !!value : false;
   }
 
   /////////////////////////////////////////////
@@ -111,7 +110,7 @@ export class StarRating {
   }
 
   set staticColor(value: starRatingColor) {
-    this._staticColor = value  || this.config.staticColor || undefined;
+    this._staticColor = value || this.config.staticColor || undefined;
 
     //update color.
     this.setColor();
@@ -133,7 +132,6 @@ export class StarRating {
 
   /////////////////////////////////////////////
 
-
   /**
    * numOfStars
    */
@@ -143,7 +141,7 @@ export class StarRating {
   }
 
   set numOfStars(value: number) {
-    this._numOfStars = (value > 0) ? value : this.config.numOfStars;
+    this._numOfStars = value > 0 ? value : this.config.numOfStars;
 
     //update stars array
     this.stars = StarRatingUtils.getStarsArray(this.numOfStars);
@@ -163,7 +161,7 @@ export class StarRating {
   }
 
   set hoverRating(value: number) {
-    this._hoverRating = (value > 0) ? value : 0;
+    this._hoverRating = value > 0 ? value : 0;
   }
 
   /////////////////////////////////////////////
@@ -201,7 +199,7 @@ export class StarRating {
    */
   protected _starType: starRatingStarTypes;
   get starType(): starRatingStarTypes {
-     return this._starType || this.config.starType;
+    return this._starType || this.config.starType;
   }
 
   set starType(value: starRatingStarTypes) {
@@ -258,7 +256,7 @@ export class StarRating {
   }
 
   set step(value: number) {
-    this._step = (value > 0 ? value : 1);
+    this._step = value > 0 ? value : 1;
   }
 
   /////////////////////////////////////////////
@@ -279,8 +277,7 @@ export class StarRating {
   setRating(value: number) {
     //validate and apply newRating
     let newRating: number = 0;
-    if (value >= 0
-      && value <= this.numOfStars) {
+    if (value >= 0 && value <= this.numOfStars) {
       newRating = value;
     }
 
@@ -298,7 +295,6 @@ export class StarRating {
 
     //update calculated Color
     this.setColor();
-
   }
 
   set rating(value: number) {
@@ -325,7 +321,11 @@ export class StarRating {
   /**
    * getColor
    */
-  getColor: (rating: number, numOfStars: number, staticColor?: starRatingColor) => starRatingColor;
+  getColor: (
+    rating: number,
+    numOfStars: number,
+    staticColor?: starRatingColor
+  ) => starRatingColor;
   /////////////////////////////////////////////
 
   /**
@@ -350,7 +350,6 @@ export class StarRating {
   halfStarVisible: boolean;
 
   constructor(config: StarRatingConfigService) {
-
     this.config = config;
 
     //set default ctrl props
@@ -362,22 +361,27 @@ export class StarRating {
     this.pathFilled = this.config.svgPathFilled;
 
     //set default Component Inputs
-    if ('getColor' in this.config && typeof this.config.getColor === "function") {
+    if (
+      'getColor' in this.config &&
+      typeof this.config.getColor === 'function'
+    ) {
       this.getColor = this.config.getColor;
     }
 
-    if ('getHalfStarVisible' in this.config && typeof this.config.getHalfStarVisible === "function") {
+    if (
+      'getHalfStarVisible' in this.config &&
+      typeof this.config.getHalfStarVisible === 'function'
+    ) {
       this.getHalfStarVisible = this.config.getHalfStarVisible;
     }
 
     this.numOfStars = this.config.numOfStars;
     this.rating = 0;
     this.step = 1;
-
   }
 
   svgVisible(): boolean {
-    return this.starType === "svg";
+    return this.starType === 'svg';
   }
 
   interactionPossible(): boolean {
@@ -386,11 +390,18 @@ export class StarRating {
 
   setColor(): void {
     //check if custom function is given
-    if (typeof this.getColor === "function") {
-      this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
-    }
-    else {
-      this.color = StarRatingUtils.getColor(this.rating, this.numOfStars, this.staticColor);
+    if (typeof this.getColor === 'function') {
+      this.color = this.getColor(
+        this.rating,
+        this.numOfStars,
+        this.staticColor
+      );
+    } else {
+      this.color = StarRatingUtils.getColor(
+        this.rating,
+        this.numOfStars,
+        this.staticColor
+      );
     }
   }
 
@@ -398,14 +409,12 @@ export class StarRating {
     //update halfStarVisible
     if (this.showHalfStars) {
       //check if custom function is given
-      if (typeof this.getHalfStarVisible === "function") {
+      if (typeof this.getHalfStarVisible === 'function') {
         this.halfStarVisible = this.getHalfStarVisible(this.rating);
       } else {
         this.halfStarVisible = StarRatingUtils.getHalfStarVisible(this.rating);
       }
-
-    }
-    else {
+    } else {
       this.halfStarVisible = false;
     }
   }
@@ -417,7 +426,9 @@ export class StarRating {
     classNames.push(this.halfStarVisible ? 'half' : '');
     classNames.push(this.hoverEnabled ? 'hover' : '');
 
-    let hoverRating = (this.hoverRating ? 'hover-' + this.hoverRating : 'hover-0');
+    let hoverRating = this.hoverRating
+      ? 'hover-' + this.hoverRating
+      : 'hover-0';
     classNames.push(this.hoverEnabled ? hoverRating : '');
 
     classNames.push(this.space ? 'space-' + this.space : '');
@@ -448,5 +459,4 @@ export class StarRating {
   reset() {
     this.rating = 0;
   }
-
 }

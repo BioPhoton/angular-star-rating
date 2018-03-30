@@ -1,3 +1,3 @@
 export interface HoverRatingChangeEvent {
-  hoverRating : number;
+  hoverRating: number;
 }

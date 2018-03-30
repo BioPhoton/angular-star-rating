@@ -9,12 +9,13 @@ describe('StarRatingComponent', () => {
   let component: StarRatingComponent;
   let fixture: ComponentFixture<StarRatingComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StarRatingComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [StarRatingComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StarRatingComponent);

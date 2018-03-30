@@ -1,10 +1,14 @@
-import {starRatingColor} from '../interfaces/star-rating-config.interface';
-export const getColor = function (rating: number, numOfStars: number, staticColor?: starRatingColor): starRatingColor {
+import { starRatingColor } from '../interfaces/star-rating-config.interface';
+export const getColor = function(
+  rating: number,
+  numOfStars: number,
+  staticColor?: starRatingColor
+): starRatingColor {
   rating = rating || 0;
 
   // if a fix color is set use this one
   if (staticColor) {
-    return staticColor
+    return staticColor;
   }
 
   // calculate size of smallest fraction
@@ -13,38 +17,38 @@ export const getColor = function (rating: number, numOfStars: number, staticColo
   // apply color by fraction
   let color: starRatingColor = 'default';
   if (rating > 0) {
-    color = 'negative'
+    color = 'negative';
   }
   if (rating > fractionSize) {
-    color = 'ok'
+    color = 'ok';
   }
   if (rating > fractionSize * 2) {
-    color = 'positive'
+    color = 'positive';
   }
 
-  return color
+  return color;
 };
-export const getHalfStarVisible = function (rating: number): boolean {
-  return Math.abs(rating % 1) > 0
+export const getHalfStarVisible = function(rating: number): boolean {
+  return Math.abs(rating % 1) > 0;
 };
 
 export const defaultConfig = {
-  classEmpty: "default-star-empty-icon",
-  classHalf: "default-star-half-icon",
-  classFilled: "default-star-filled-icon",
+  classEmpty: 'default-star-empty-icon',
+  classHalf: 'default-star-half-icon',
+  classFilled: 'default-star-filled-icon',
   numOfStars: 5,
-  size: "medium",
-  speed: "noticeable",
-  labelPosition: "left",
-  starType: "svg",
-  assetsPath: "assets/images/",
-  svgPath: this.assetsPath + "star-rating.icons.svg",
-  svgEmptySymbolId: "star-empty",
-  svgHalfSymbolId: "star-half",
-  svgFilledSymbolId: "star-filled",
-  svgPathEmpty: this.svgPath + "#" + this.svgEmptySymbolId,
-  svgPathHalf: this.svgPath + "#" + this.svgHalfSymbolId,
-  svgPathFilled: this.svgPath + "#" + this.svgFilledSymbolId,
+  size: 'medium',
+  speed: 'noticeable',
+  labelPosition: 'left',
+  starType: 'svg',
+  assetsPath: 'assets/images/',
+  svgPath: this.assetsPath + 'star-rating.icons.svg',
+  svgEmptySymbolId: 'star-empty',
+  svgHalfSymbolId: 'star-half',
+  svgFilledSymbolId: 'star-filled',
+  svgPathEmpty: this.svgPath + '#' + this.svgEmptySymbolId,
+  svgPathHalf: this.svgPath + '#' + this.svgHalfSymbolId,
+  svgPathFilled: this.svgPath + '#' + this.svgFilledSymbolId,
   getColor: getColor,
-  getHalfStarVisible:getHalfStarVisible
+  getHalfStarVisible: getHalfStarVisible
 };
