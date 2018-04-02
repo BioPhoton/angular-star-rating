@@ -32,7 +32,7 @@ function build () {
 // =============================================================================
 
 async function packaging () {
-  await ngPackagr.ngPackage({project: path.join(config.libPath, 'ng-package.json')})
+  await ngPackagr.ngPackage({project: path.join(config.libPath, 'package.json')})
     .then((res) => {
       console.info('done packaging'.green)
     })

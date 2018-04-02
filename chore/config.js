@@ -6,7 +6,7 @@ const path = require('path')
 const util = require('util')
 
 const config = {}
-config.libPath = path.join(__base, 'src', 'libs', 'angular-signature-pad')
+config.libPath = path.join(__base, 'libs', 'angular-star-rating')
 config.debugMode = true
 config.validPreset = 'angular'
 config.ci = {}
