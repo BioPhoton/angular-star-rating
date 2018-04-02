@@ -1,47 +1,3 @@
-# Preconditions
-
-node modules to install globally:
-- conventional-recommended-bump
-- conventional-changelog
-- conventional-github-releaser
-- conventional-commits-detector
-
-`npm i -g color conventional-recommended-bump conventional-changelog conventional-github-releaser conventional-commits-detector`
-
-# Travis CI - automated integration of travis into the build process
-
-Travis is a continuous integration platform that provides free usage for open source projects.
-Travis CI supports your development process by automatically building and testing code changes,
-it provides feedback on the success of the change.
-It can also automate other parts of your development process i.e. managing deployments.
-
-This script checks the actual status of your travis project.
-If you initialize travis over the cli it automatically checks the connected git repo and enables it in the platform.
-
-In this article we will see how to setup a basic travis integration with angular 5.
-We will start from scratch by creating a repository on github and initialize a new angular project.
-Mostly of our work is done over the travis/angular/git cli's, so it should be pretty easy to follow.
-
-**Preconditions:**
-
-- github account
-If you don't have already create an account on github.com/user
-After the confirmation of you account you should be ready to go.
-
-- git bash
-You need a git cli running on your machine. If you are on a Windows OS you can use [git bash](https://git-for-windows.github.io/).
-
-- travis-cli
-Install travis-cli on your OS.
-Find the travis-cli project on GitHub under [travis-ci](https://github.com/travis-ci/travis.rb).
-
-- angular cli
-To install the angular cli follow the steps on the [angular-cli](https://github.com/angular/angular-cli) repository.
-
-Ok, now we have installed all needed cli's and created the required accounts we can start straight away.
-We will divide this article into two sections, 
-First we will creation an repository and connecting it to travice and second we will implement a little helper script that checks our travis state. 
-
 ## Step1 - Create a repository and connect it to travis
 
 Open `github.com` in your browser. 
@@ -54,12 +10,15 @@ Next let's initialize the projects angular and npm setup:
 
 Follow the instructions:
 
-Yes, No, Yes...
+Yes, No, Yes... Detailed answers here.
 
 `cd .\travis-ci-integration\`
 Test it! `npm start` => should `ng serve` the repo
 
 Show commits =>  `git log`
+
+![Git log initial commit](https://raw.githubusercontent.com/BioPhoton/travis-ci-integration/master/resources/git-log_initial-commit.PNG)
+
 
 **Connect to github**
 Open up your browser again and visit github.com.
@@ -104,14 +63,13 @@ Now we should be ready to test it.
 First lets open travis.ci in our browser and switch to the repositories section.
 We should see our project in the list of repositories already enabled.
 
-PIC HERE!!!
+![Travis project enabled](https://raw.githubusercontent.com/BioPhoton/travis-ci-integration/master/resources/travis-ci_project-enabled.PNG)
 
 Ok. Let's see if we did everything right. 
 To our setup type `travis status` in the console.
 
 You should get following message:
 `no build yet for BioPhoton/travis-ci-integration`
-
 
 **Configure the .travis.yml file**
 
@@ -164,15 +122,26 @@ If We now run `git status` again we see that the file is now marked with green a
 
 To commit it just type `git commit -m "setup travis.yml"` and if everything is fine push it by running `git push` in the console.
 
-## Step 2 - Create script and implement check
+Yay!! We successfully configured travis. Let's see how our job runs. To do so head over to your browser an open `https://travis-ci.org/` under your repositories your should see the running job of our repository.
 
-Now everything works we can setup a script that checks the build status of our repo.
-In case of invalid status it should exits.
+![Git push initial commit](https://raw.githubusercontent.com/BioPhoton/travis-ci-integration/master/resources/git-push_initial.PNG)
 
-1. Create config file
-2. Create travis-check.js file.
-3. Implement check
-4. Use check
-i.e. publish on npm only if travis status in `passing`
+When its done it should turn green like below.
 
-Finished!
+![Travis job passed](https://raw.githubusercontent.com/BioPhoton/travis-ci-integration/master/resources/travis-ci_running-job.PNG)
+
+
+Now after every new push we should trigger our job at travis again.
+To test it just make some changes and `git push` them.
+
+Now we can also test if the `travis-cli` works. Let's check the status of our repository on travis by running `travis status`.
+We should see `build #1 passed` in our console.
+ 
+So far so good.
+
+Sets sum up what we did:
+- setup an angular project
+- connected it with a github repository
+- initialized travis and configured it in the `.travis.yml` file
+- we start a job on every push
+- and are able to check the travis status over a cli command

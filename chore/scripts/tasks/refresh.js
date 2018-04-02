@@ -9,8 +9,11 @@ const utils = require(path.join(__base, 'chore', 'scripts', 'utils'))
 
 module.exports = refresh
 
-function refresh () {
-  // utils.deleteFile(path.join(__base, 'node_modules'))
+function refresh (hard) {
+  if(hard === true) {
+    utils.deleteFile(path.join(__base, 'node_modules'))
+  }
+  
   return Promise.resolve()
     // pulls the latest version and rebases
     .then(() => {
