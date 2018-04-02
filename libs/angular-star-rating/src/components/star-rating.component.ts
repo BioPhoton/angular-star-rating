@@ -48,9 +48,13 @@ export class StarRatingComponent extends StarRating
 
   starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
 
-  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
+  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<
+    RatingChangeEvent
+  >();
 
-  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
+  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<
+    HoverRatingChangeEvent
+  >();
 
   onTouch: Function;
   onModelChange: Function;
