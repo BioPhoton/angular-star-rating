@@ -19,7 +19,8 @@ import {
 
 @Component({
   selector: 'kitchensink',
-  templateUrl: './kitchensink.component.html'
+  templateUrl: './kitchensink.component.html',
+  styles: [``]
 })
 export class KitchensinkComponent implements OnInit, OnDestroy {
   private onDestroy$: Subject<boolean> = new Subject<boolean>();
