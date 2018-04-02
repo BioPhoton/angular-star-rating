@@ -72,8 +72,8 @@
           </div>
 
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="starType"
               [starType]="bindingsForm.get('starType').value">
             </star-rating-comp>
           </div>
@@ -94,8 +94,8 @@
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Space"
               [space]="bindingsForm.get('space').value">
             </star-rating-comp>
           </div>
@@ -115,8 +115,8 @@
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Number Of Stars"
               [numOfStars]="bindingsForm.get('numOfStars').value">
             </star-rating-comp>
           </div>
@@ -135,8 +135,8 @@
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Size"
               [size]="bindingsForm.get('size').value">
             </star-rating-comp>
           </div>
@@ -161,8 +161,8 @@
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Static Color"
               [staticColor]="bindingsForm.get('staticColor').value">
             </star-rating-comp>
           </div>
@@ -170,17 +170,20 @@
 
         <div class="row">
           <div class="col">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input"
-                  formControlName="useCustomGetColor">
-                use custom getColor function
-              </label>
+            <div class="form-group">
+              <label>getColor</label>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input"
+                    formControlName="useCustomGetColor">
+                  use custom getColor function
+                </label>
+              </div>
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Custom Get Color"
               [getColor]="bindingsForm.get('useCustomGetColor').value ? _getColor : false">
             </star-rating-comp>
           </div>
@@ -188,17 +191,20 @@
 
         <div class="row">
           <div class="col">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input"
-                  formControlName="disabled">
-                Disabled
-              </label>
+            <div class="form-group">
+              <label>Disabled</label>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input"
+                    formControlName="disabled">
+                  disabled star rating
+                </label>
+              </div>
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Static Color"
               [disabled]="bindingsForm.get('disabled').value">
             </star-rating-comp>
           </div>
@@ -218,8 +224,8 @@
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Speed"
               [speed]="bindingsForm.get('speed').value">
             </star-rating-comp>
           </div>
@@ -237,8 +243,8 @@
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="id"
               [id]="bindingsForm.get('id').value">
             </star-rating-comp>
           </div>
@@ -253,8 +259,8 @@
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Rating"
               [rating]="bindingsForm.get('rating').value">
             </star-rating-comp>
           </div>
@@ -262,17 +268,20 @@
 
         <div class="row">
           <div class="col">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input"
-                  formControlName="showHalfStars">
-                showHalfStars
-              </label>
+            <div class="form-group">
+              <label>ShowHalfStars</label>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input"
+                    formControlName="showHalfStars">
+                  showHalfStars
+                </label>
+              </div>
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Show Half Stars"
               [rating]="3.5"
               [showHalfStars]="bindingsForm.get('showHalfStars').value">
             </star-rating-comp>
@@ -281,17 +290,20 @@
 
         <div class="row">
           <div class="col">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input"
-                  formControlName="showHoverStars">
-                showHoverStars
-              </label>
+            <div class="form-group">
+              <label>hoverEnabled</label>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input"
+                    formControlName="showHoverStars">
+                  showHoverStars
+                </label>
+              </div>
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Show Hover Stars"
               [hoverEnabled]="bindingsForm.get('showHoverStars').value">
             </star-rating-comp>
           </div>
@@ -299,17 +311,20 @@
 
         <div class="row">
           <div class="col">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input"
-                  formControlName="useCustomGetHalfStarVisible">
-                use custom getHalfStarVisible function
-              </label>
+            <div class="form-group">
+              <label>Get Half Star Visible</label>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input"
+                    formControlName="useCustomGetHalfStarVisible">
+                  use custom getHalfStarVisible function
+                </label>
+              </div>
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Custom Get Half Star Visible"
               [rating]="3.2"
               [showHalfStars]="true"
               [getHalfStarVisible]="bindingsForm.get('useCustomGetHalfStarVisible').value ? _getHalfStarVisible : false">
@@ -319,17 +334,20 @@
 
         <div class="row">
           <div class="col">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input"
-                  formControlName="readOnly">
-                ReadOnly
-              </label>
+            <div class="form-group">
+              <label>Read Only</label>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input"
+                    formControlName="readOnly">
+                  ReadOnly
+                </label>
+              </div>
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
-              labelText="Read Only"
               [readOnly]="bindingsForm.get('readOnly').value">
             </star-rating-comp>
           </div>
@@ -339,12 +357,13 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <label>Text</label>
+              <label>Label Text</label>
               <input type="text" class="form-control" placeholder=":Label text"
                 formControlName="labelText">
             </div>
           </div>
           <div class="col">
+            <label>&nbsp;</label>
             <star-rating-comp
               [labelText]="bindingsForm.get('labelText').value">
             </star-rating-comp>
