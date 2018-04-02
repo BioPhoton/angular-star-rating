@@ -1,4 +1,7 @@
-import {StarRatingModule, StarRatingConfigService} from '@angular-star-rating-lib/angular-star-rating';
+import {
+  StarRatingModule,
+  StarRatingConfigService
+} from '@angular-star-rating-lib/angular-star-rating';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -20,7 +23,8 @@ import { CustomConfigService } from './custom-config.service';
   declarations: [CustomConfigComponent, CustomLocalConfigComponent],
   providers: [
     {
-      provide: StarRatingConfigService, useClass: CustomConfigService
+      provide: StarRatingConfigService,
+      useClass: CustomConfigService
     }
   ]
 })
