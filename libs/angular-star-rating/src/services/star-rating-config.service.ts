@@ -216,5 +216,4 @@ export class StarRatingConfigService implements StarRatingConfig {
   getHalfStarVisible(rating: number): boolean {
     return Math.abs(rating % 1) > 0;
   }
-
 }
