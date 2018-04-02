@@ -58,6 +58,18 @@ Fully featured this component is provided with:
 - [Use it with reactive forms](https://github.com/BioPhoton/angular-star-rating/wiki/Use-it-with-reactive-forms)
 - [Custom configuration](https://github.com/BioPhoton/angular-star-rating/wiki/Custom-configuration)
 
+## Versioning
+This project will be maintained under the Semantic Versioning guidelines.
+
+Given a version number <MAJOR>.<MINOR>.<PATCH>-<PRE-RELEASE>, increment the:
+
+- MAJOR version when you make incompatible API changes,
+- MINOR version when you add functionality in a backwards-compatible manner, and
+- PATCH version when you make backwards-compatible bug fixes.
+- PRE-RELEASE and build metadata as extensions to the MAJOR.MINOR.PATCH format (1.0.0-beta.0).
+
+Find information on SemVer under [semver.org](http://semver.org).
+
 ## License
 
 MIT © [Michael Hladky](mailto:michael@hladky.at)
