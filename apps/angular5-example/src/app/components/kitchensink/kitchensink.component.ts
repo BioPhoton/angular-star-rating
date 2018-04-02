@@ -83,7 +83,7 @@ export class KitchensinkComponent implements OnInit, OnDestroy {
       hoverEnabled: [true],
       //component input functions (> bindings)
       getColor: [],
-      useCustomCetColor: [false],
+      useCustomGetColor: [false],
       getHalfStarVisible: [],
       useCustomGetHalfStarVisible: [false]
     });
@@ -109,7 +109,7 @@ export class KitchensinkComponent implements OnInit, OnDestroy {
   }
 
   updateGetColorBinding() {
-    if (this.bindingsForm.get('useCustomCetColor').value) {
+    if (this.bindingsForm.get('useCustomGetColor').value) {
       this.bindingsForm.get('getColor').setValue(this._getColor);
     } else {
       this.bindingsForm.get('getColor').setValue(undefined);

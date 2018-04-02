@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {CustomLocalConfigService} from './custom-local-config.service';
-import {StarRatingConfigService} from '@angular-star-rating-lib/angular-star-rating';
+import { CustomLocalConfigService } from './custom-local-config.service';
+import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-rating';
 
 @Component({
   selector: 'custom-local-config',
@@ -9,7 +9,8 @@ import {StarRatingConfigService} from '@angular-star-rating-lib/angular-star-rat
   <star-rating-comp></star-rating-comp>`,
   providers: [
     {
-      provide: StarRatingConfigService, useClass: CustomLocalConfigService
+      provide: StarRatingConfigService,
+      useClass: CustomLocalConfigService
     }
   ]
 })
