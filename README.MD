@@ -63,7 +63,7 @@ Fully featured this component is provided with:
 ## Versioning
 This project will be maintained under the Semantic Versioning guidelines.
 
-Given a version number <MAJOR>.<MINOR>.<PATCH>-<PRE-RELEASE>, increment the:
+Given a version number `MAJOR`.`MINOR`.`PATCH`-`PRE-RELEASE`, increment the:
 
 - MAJOR version when you make incompatible API changes,
 - MINOR version when you add functionality in a backwards-compatible manner, and
