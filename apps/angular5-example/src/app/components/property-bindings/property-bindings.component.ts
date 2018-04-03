@@ -11,7 +11,7 @@ import {
   starRatingStarSpace,
   starRatingStarTypes
 } from '@angular-star-rating-lib/angular-star-rating/src/interfaces/star-rating-config.interface';
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 import 'rxjs/add/operator/takeUntil';
 
@@ -45,5 +45,4 @@ import 'rxjs/add/operator/takeUntil';
     </div>
   `
 })
-export class PropertyBindingsComponent {
-}
+export class PropertyBindingsComponent {}

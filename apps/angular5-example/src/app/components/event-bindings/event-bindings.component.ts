@@ -3,7 +3,7 @@ import {
   HoverRatingChangeEvent,
   RatingChangeEvent
 } from '@angular-star-rating-lib/angular-star-rating';
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'events-binings',
