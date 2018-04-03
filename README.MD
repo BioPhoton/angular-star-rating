@@ -4,7 +4,8 @@
 ![License](https://img.shields.io/npm/l/angular-star-rating.svg)
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)
 [![Build Status](https://travis-ci.org/BioPhoton/angular-star-rating.svg?branch=master)](https://travis-ci.org/BioPhoton/angular-star-rating)
-
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Package Quality](http://npm.packagequality.com/shield/angular-star-rating.svg)](http://packagequality.com/#?package=angular-star-rating)
 [![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)
 
 Angular Star Rating is a Angular 2+ component made with ❤.
