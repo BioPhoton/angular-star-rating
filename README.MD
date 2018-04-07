@@ -41,7 +41,7 @@ Fully featured this component is provided with:
 
 ## Related Projects
 | Css | Angular 1 |  Angular | Ionic 1 |
-|---  |---	    |--- 	  |---      |
+|---  |---	      |--- 	     |---      |
 | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/css3.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/angular1.png" width="100"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/angular.png" width="80"> | <img src="https://raw.githubusercontent.com/BioPhoton/angular-star-rating/master/resources/family/ionic1.png" width="80"> |
 | [Css Star Rating](https://github.com/BioPhoton/css-star-rating) | [Angular1 Star Rating](https://github.com/BioPhoton/angular1-star-rating) | [Angular Star Rating](https://github.com/BioPhoton/angular-star-rating) |[Ionic1 Star Rating](https://github.com/BioPhoton/ionic1-star-rating) |
 
