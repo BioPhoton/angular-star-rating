@@ -1,12 +1,12 @@
 # Continuous integration with angular
+
 #### Implement continuous integration into your angular5 projects with travis and the command line
 
 Not only large scale business apps but also libraries and small websites are under constant development. 
 I know a few app that I delivered and never touche the code again. 
-Nearly every project was setup with some kind of continouse integration. 
+Nearly every project was setup with some kind of continuous integration. 
 
 The idea of this blog series is to show you some cool tricks, plugins, tools and lessons learned from my investigations in continouse integration and delivery.
-
 
 Travis is a continuous integration platform that provides free usage for open source projects.
 Travis CI supports your development process by automatically building and testing code changes,
@@ -36,6 +36,17 @@ Find the travis-cli project on GitHub under [travis-ci](https://github.com/travi
 - angular cli
 To install the angular cli follow the steps on the [angular-cli](https://github.com/angular/angular-cli) repository.
 
-Ok, ow we have installed all needed cli's and created the required accounts we can start straight away.
+# Preconditions
+
+node modules to install globally:
+- conventional-recommended-bump
+- conventional-changelog
+- conventional-changelog-cli
+- conventional-github-releaser
+- conventional-commits-detector
+
+`npm i -g color conventional-recommended-bump conventional-changelog conventional-changelog-cli conventional-github-releaser conventional-commits-detector`
+
+Ok, now we have installed all needed cli's and created the required accounts we can start straight away.
 We will divide this article into two sections, 
-First we will creation an repository and connecting it to travice and second we will implement a little helper script that checks our travis state. 
+First we will creation an repository and connecting it to travis and second we will implement a little helper script that checks our actual travis state. 

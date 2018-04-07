@@ -16,7 +16,7 @@ module.exports = changelog
 function changelog () {
 // create changelog
 
-// backup the src/package.json file
+// # Backup the libs/.../package.json file
 // we copy it to have the initial state saved.
 // we bump the version update the changelog
 // after doing this we use the real package.json and do another version bump
@@ -30,7 +30,8 @@ function changelog () {
     })
     // ensures that a bump type was detected
     .then(() => utils.getBump())
-    .then((bump) => {
+    .then(
+      (bump) => {
       detectedBump = bump
       console.info('detectedBump'.gray, detectedBump)
       return (detectedBump) ? Promise.resolve(detectedBump) : Promise.reject(detectedBump)
