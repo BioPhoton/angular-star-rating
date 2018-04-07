@@ -70,7 +70,7 @@ const DECLARATIONS = [
     ),
     StaticModuleModule
   ],
-  declarations: [DECLARATIONS, CustomStyleComponent, CustomStarsComponent],
+  declarations: [DECLARATIONS],
   providers: [],
   bootstrap: [AppComponent]
 })

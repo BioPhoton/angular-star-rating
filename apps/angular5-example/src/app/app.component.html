@@ -1,6 +1,8 @@
 <div id="main-container" class="container-fluid">
   <nav id="main-menu" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">StarRating</a>
+    <a class="navbar-brand" href="https://github.com/BioPhoton/angular-star-rating">
+      Angular Star Rating<!--<i class="fas fa-github"></i>-->
+    </a>
     <button class="navbar-toggler d-lg-none"
             type="button"
       data-toggle="collapse"
@@ -17,7 +19,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['property-bindings']"
-            (click)="toggleNav(true)">Property Bindings <i class="fas fa-user"></i></a>
+            (click)="toggleNav(true)">Property Bindings</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['event-bindings']"
@@ -27,6 +29,7 @@
           <a class="nav-link" [routerLink]="['form-control']"
             (click)="toggleNav(true)">From Control</a>
         </li>
+        <!--
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['custom-style']"
             (click)="toggleNav(true)">Custom Style</a>
@@ -35,6 +38,7 @@
           <a class="nav-link" [routerLink]="['custom-stars']"
             (click)="toggleNav(true)">Custom Stars</a>
         </li>
+        -->
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['static-config-override']"
             (click)="toggleNav(true)">Custom Config</a>
