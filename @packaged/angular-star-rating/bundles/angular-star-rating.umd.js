@@ -88,6 +88,27 @@ var StarRating = /** @class */ (function () {
         this.rating = 0;
         this.step = 1;
     }
+    Object.defineProperty(StarRating.prototype, "rating", {
+        get: function () {
+            return this._rating;
+        },
+        set: function (value) {
+            this.setRating(value);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(StarRating.prototype, "showHalfStars", {
+        get: function () {
+            return this._showHalfStars;
+        },
+        set: function (value) {
+            this._showHalfStars = !!value;
+            this.setHalfStarVisible();
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(StarRating.prototype, "id", {
         get: function () {
             return this._id;
@@ -261,16 +282,6 @@ var StarRating = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(StarRating.prototype, "rating", {
-        get: function () {
-            return this._rating;
-        },
-        set: function (value) {
-            this.setRating(value);
-        },
-        enumerable: true,
-        configurable: true
-    });
     StarRating.prototype.setRating = function (value) {
         var newRating = 0;
         if (value >= 0 && value <= this.numOfStars) {
@@ -280,21 +291,10 @@ var StarRating = /** @class */ (function () {
             newRating = this.numOfStars;
         }
         this._rating = newRating;
-        this.ratingAsInteger = parseInt(this._rating.toString());
+        this.ratingAsInteger = parseInt(this._rating.toString(), 10);
         this.setHalfStarVisible();
         this.setColor();
     };
-    Object.defineProperty(StarRating.prototype, "showHalfStars", {
-        get: function () {
-            return this._showHalfStars;
-        },
-        set: function (value) {
-            this._showHalfStars = !!value;
-            this.setHalfStarVisible();
-        },
-        enumerable: true,
-        configurable: true
-    });
     StarRating.prototype.svgVisible = function () {
         return this.starType === 'svg';
     };
@@ -576,26 +576,26 @@ var StarRatingComponent = /** @class */ (function (_super) {
     __extends(StarRatingComponent, _super);
     function StarRatingComponent(config) {
         var _this = _super.call(this, config) || this;
-        _this.clickEmitter = new core.EventEmitter();
-        _this.ratingChangeEmitter = new core.EventEmitter();
-        _this.hoverRatingChangeEmitter = new core.EventEmitter();
+        _this.starClickChange = new core.EventEmitter();
+        _this.ratingChange = new core.EventEmitter();
+        _this.hoverRatingChange = new core.EventEmitter();
         _this.onModelChangeRegistered = false;
         _this.onTouchRegistered = false;
         return _this;
     }
     StarRatingComponent.prototype.saveOnClick = function ($event) {
-        if (this.clickEmitter) {
-            this.clickEmitter.emit($event);
+        if (this.starClickChange) {
+            this.starClickChange.emit($event);
         }
     };
     StarRatingComponent.prototype.saveOnRatingChange = function ($event) {
-        if (this.ratingChangeEmitter) {
-            this.ratingChangeEmitter.emit($event);
+        if (this.ratingChange) {
+            this.ratingChange.emit($event);
         }
     };
     StarRatingComponent.prototype.saveOnHover = function ($event) {
-        if (this.hoverRatingChangeEmitter) {
-            this.hoverRatingChangeEmitter.emit($event);
+        if (this.hoverRatingChange) {
+            this.hoverRatingChange.emit($event);
         }
     };
     StarRatingComponent.prototype.saveOnTouch = function () {
@@ -718,9 +718,9 @@ StarRatingComponent.decorators = [
                     'labelText',
                     'id'
                 ],
-                outputs: ['clickEmitter', 'ratingChangeEmitter', 'hoverRatingChangeEmitter'],
+                outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
                 styles: [],
-                template: "<div id=\"{{id}}\"\n  class=\"rating {{getComponentClassNames()}}\"\n  tabindex=\"0\"\n  (keydown)=\"onKeyDown($event)\"\n  (blur)=\"onBlur($event)\"\n  (focus)=\"onFocus($event)\"\n  (mouseleave)=\"onStarHover(0)\">\n    <div *ngIf=\"labelText\" class=\"label-value\">{{labelText}}</div>\n    <div class=\"star-container\">\n        <div class=\"star\"\n          (mouseenter)=\"onStarHover(star)\"\n          *ngFor=\"let star of stars\"\n          (click)=\"onStarClicked(star)\">\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classEmpty}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classHalf}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-filled {{classFilled}}\"></i>\n            <svg *ngIf=\"svgVisible()\" class=\"star-empty default-star-empty-icon\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathEmpty\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-half default-star-half-icon\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathHalf\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-filled default-star-filled-icon\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathFilled\"></use>\n            </svg>\n        </div>\n    </div>\n</div>"
+                template: "<div id=\"{{id}}\"\n  class=\"rating {{getComponentClassNames()}}\"\n  tabindex=\"0\"\n  (keydown)=\"onKeyDown($event)\"\n  (blur)=\"onBlur($event)\"\n  (focus)=\"onFocus($event)\"\n  (mouseleave)=\"onStarHover(0)\">\n    <div *ngIf=\"labelText\" class=\"label-value\">{{labelText}}</div>\n    <div class=\"star-container\">\n        <div class=\"star\"\n          (mouseenter)=\"onStarHover(star)\"\n          *ngFor=\"let star of stars\"\n          (click)=\"onStarClicked(star)\">\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classEmpty}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-half {{classHalf}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-filled {{classFilled}}\"></i>\n            <svg *ngIf=\"svgVisible()\" class=\"star-empty\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathEmpty\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-half\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathHalf\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-filled\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathFilled\"></use>\n            </svg>\n        </div>\n    </div>\n</div>\n"
             },] },
 ];
 StarRatingComponent.ctorParameters = function () { return [
@@ -734,7 +734,9 @@ var StarRatingModule = /** @class */ (function () {
     StarRatingModule.forRoot = function () {
         return {
             ngModule: StarRatingModule,
-            providers: [StarRatingConfigService]
+            providers: [
+                StarRatingConfigService
+            ]
         };
     };
     StarRatingModule.forChild = function () {

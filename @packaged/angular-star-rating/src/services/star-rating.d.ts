@@ -2,6 +2,30 @@ import { StarRatingConfig, starRatingColor, starRatingDirection, starRatingLabel
 import { StarRatingConfigService } from './star-rating-config.service';
 export declare class StarRating {
     protected config: StarRatingConfig;
+    classEmpty: string;
+    classHalf: string;
+    classFilled: string;
+    pathEmpty: string;
+    pathHalf: string;
+    pathFilled: string;
+    color: starRatingColor;
+    stars: Array<number>;
+    ratingAsInteger: number;
+    halfStarVisible: boolean;
+    rating: number;
+    /**
+     * showHalfStars
+     */
+    protected _showHalfStars: boolean;
+    showHalfStars: boolean;
+    /**
+     * getColor
+     */
+    getColor: (rating: number, numOfStars: number, staticColor?: starRatingColor) => starRatingColor;
+    /**
+     * getHalfStarVisible
+     */
+    getHalfStarVisible: (rating: number) => boolean;
     /**
      * id property to identify the DOM element
      */
@@ -88,36 +112,12 @@ export declare class StarRating {
      * rating
      */
     protected _rating: number;
-    rating: number;
     /**
      * setRating
      * I use a setter function instead of a set method to enable overrides for this function.
      * @param value
      */
     setRating(value: number): void;
-    /**
-     * showHalfStars
-     */
-    protected _showHalfStars: boolean;
-    showHalfStars: boolean;
-    /**
-     * getColor
-     */
-    getColor: (rating: number, numOfStars: number, staticColor?: starRatingColor) => starRatingColor;
-    /**
-     * getHalfStarVisible
-     */
-    getHalfStarVisible: (rating: number) => boolean;
-    classEmpty: string;
-    classHalf: string;
-    classFilled: string;
-    pathEmpty: string;
-    pathHalf: string;
-    pathFilled: string;
-    color: starRatingColor;
-    stars: Array<number>;
-    ratingAsInteger: number;
-    halfStarVisible: boolean;
     constructor(config: StarRatingConfigService);
     svgVisible(): boolean;
     interactionPossible(): boolean;

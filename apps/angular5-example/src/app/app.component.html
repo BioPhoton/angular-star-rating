@@ -17,7 +17,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['property-bindings']"
-            (click)="toggleNav(true)">Property Bindings</a>
+            (click)="toggleNav(true)">Property Bindings <i class="fas fa-user"></i></a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['event-bindings']"
@@ -28,8 +28,12 @@
             (click)="toggleNav(true)">From Control</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" [routerLink]="['kitchensink']"
-            (click)="toggleNav(true)">Kitchensink</a>
+          <a class="nav-link" [routerLink]="['custom-style']"
+            (click)="toggleNav(true)">Custom Style</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['custom-stars']"
+            (click)="toggleNav(true)">Custom Stars</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['static-config-override']"

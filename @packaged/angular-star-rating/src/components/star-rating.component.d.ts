@@ -6,16 +6,16 @@ import { RatingChangeEvent } from '../interfaces/rating-change-event.interface';
 import { StarRating } from '../services/star-rating';
 import { StarRatingConfigService } from '../services/star-rating-config.service';
 export declare class StarRatingComponent extends StarRating implements ControlValueAccessor {
-    clickEmitter: EventEmitter<ClickEvent>;
-    saveOnClick($event: ClickEvent): void;
-    ratingChangeEmitter: EventEmitter<RatingChangeEvent>;
-    saveOnRatingChange($event: RatingChangeEvent): void;
-    hoverRatingChangeEmitter: EventEmitter<HoverRatingChangeEvent>;
-    saveOnHover($event: HoverRatingChangeEvent): void;
+    starClickChange: EventEmitter<ClickEvent>;
+    ratingChange: EventEmitter<RatingChangeEvent>;
+    hoverRatingChange: EventEmitter<HoverRatingChangeEvent>;
     onTouch: Function;
     onModelChange: Function;
     private onModelChangeRegistered;
     private onTouchRegistered;
+    saveOnClick($event: ClickEvent): void;
+    saveOnRatingChange($event: RatingChangeEvent): void;
+    saveOnHover($event: HoverRatingChangeEvent): void;
     saveOnTouch(): void;
     saveOnModelChange(value: number): void;
     /**ACCESSIBILITY **/
