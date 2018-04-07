@@ -1,0 +1,50 @@
+
+<div class="row">
+  <div class="col" [formGroup]="form">
+    <div class="form-group">
+      <label>Rating</label>
+      <input type="number" class="form-control" placeholder="rating"
+        step="0.5" formControlName="rating">
+    </div>
+    <!--
+    <div class="form-group">
+      <label>Empty Star</label>
+      <select class="form-control" formControlName="empty">
+        <option [ngValue]="">none</option>
+        <ng-template ngFor let-opt [ngForOf]="icons">
+          <option [value]="opt">{{opt}}</option>
+        </ng-template>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Half Star</label>
+      <select class="form-control" formControlName="half">
+        <option [ngValue]="">none</option>
+        <ng-template ngFor let-opt [ngForOf]="icons">
+          <option [value]="opt">{{opt}}</option>
+        </ng-template>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Filled Star</label>
+      <select class="form-control" formControlName="filled">
+        <option [ngValue]="">none</option>
+        <ng-template ngFor let-opt [ngForOf]="icons">
+          <option [value]="opt">{{opt}}</option>
+        </ng-template>
+      </select>
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group">
+      <label>&nbsp;</label>
+      <star-rating-comp
+        [hoverEnabled]="true"
+        [showHalfStars]="true"
+        [rating]="form.get('rating').value">
+      </star-rating-comp>
+    </div>
+    -->
+  </div>
+</div>
+
