@@ -1,3 +1,16 @@
+<a name="4.0.0-beta.2"></a>
+# 4.0.0-beta.2 (2018-04-07)
+
+### Bug Fixes
+
+* **dependencies:** fixed deerDependencies for css-star-rating ([695cfce](https://github.com/BioPhoton/angular-star-rating/commit/695cfce))
+* **dependencies:** updated dependencies ([5d93197](https://github.com/BioPhoton/angular-star-rating/commit/5d93197))
+* **examples:** setup editable demo on stackbliz.com closes [#42](https://github.com/BioPhoton/angular-star-rating/issues/42) ([4701f57](https://github.com/BioPhoton/angular-star-rating/commit/4701f57))
+* **npm script:** auto copy assets into packaged version. ([e7b7edf](https://github.com/BioPhoton/angular-star-rating/commit/e7b7edf)), closes [#81](https://github.com/BioPhoton/angular-star-rating/issues/81)
+* **renamed event bindings:** renamed event bindings ([445f9cd](https://github.com/BioPhoton/angular-star-rating/commit/445f9cd))
+
+
+
 <a name="4.0.0-beta.1"></a>
 # 4.0.0-beta.1 (2018-03-30)
 
