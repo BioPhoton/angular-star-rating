@@ -31,7 +31,7 @@
   <div class="row">
     <div class="col">
       <fieldset>
-        <legend>Layout</legend>
+        <legend id="layout">Layout</legend>
 
         <div class="row">
           <div class="col">
@@ -124,8 +124,8 @@
 
       </fieldset>
 
-      <fieldset class="form-group row">
-        <legend>Dimensions</legend>
+      <fieldset>
+        <legend id="dimensions">Dimensions</legend>
 
         <div class="row">
           <div class="col">
@@ -167,7 +167,7 @@
 
       <fieldset>
 
-        <legend>Styling</legend>
+        <legend id="styling">Styling</legend>
 
         <div class="row">
           <div class="col">
@@ -254,7 +254,7 @@
       </fieldset>
 
       <fieldset>
-        <legend>Other</legend>
+        <legend id="other">Other</legend>
         <div class="row">
           <div class="col">
             <div class="form-group">
@@ -282,6 +282,7 @@
           <div class="col">
             <label>&nbsp;</label>
             <star-rating-comp
+              [showHalfStars]="true"
               [rating]="bindingsForm.get('rating').value">
             </star-rating-comp>
           </div>
