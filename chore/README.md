@@ -1,3 +1,12 @@
+# Process
+1. bump version
+2. rebuild package with new version
+2. npm run changelog
+3. commit changelog.md with msg: docs(CHANGELOG): [VERSION_NUMBER]
+4. commit package.json with msg: chore(release): [VERSION_NUMBER]
+5. git tag [VERSION_NUMBER]
+6. git push --follow-tags
+
 # Preconditions
 
 node modules to install globally:

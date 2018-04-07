@@ -7,10 +7,10 @@
     "start": "ng serve",
     "start:packaged": "ng serve --app=angular5-example-packaged",
     "build": "ng build",
-    "build:lib": "ng-packagr -p libs/angular-star-rating/package.json && npm run copy:assets",
+    "build:lib": "ng-packagr -p libs/angular-star-rating/package.json && npm run copy:lib-assets",
     "build:packaged": "ng build --app=angular5-example-packaged",
     "build:github-page": "ng build --prod --output-path docs --base-href /angular-star-rating/",
-    "copy:assets": "copyfiles -u 3 ./libs/angular-star-rating/src/assets/**/* ./@packaged/angular-star-rating",
+    "copy:lib-assets": "copyfiles -u 3 ./libs/angular-star-rating/src/assets/**/* ./@packaged/angular-star-rating",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -28,9 +28,9 @@
     "docs:build": "compodoc -p ./src/tsconfig.api-doc.json -n angular-star-rating -d docs/api-doc/ --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
-    "changelog": "conventional-changelog --pkg ./libs/angular-star-rating/package.json --config ./changelog/changelog.config.js -p angular -i CHANGELOG.md -s -r 0",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "recommended-bump": "conventional-recommended-bump -p angular",
-    "github-release": "conventional-github-releaser -p angular -r 0",
+    "github-release": "conventional-github-releaser -p angular",
     "release:lib": "npm publish ./@packaged/angular-star-rating"
   },
   "private": true,
@@ -58,6 +58,7 @@
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
+    "copyfiles":"2.0.0",
     "@angular/cli": "1.7.1",
     "@angular/compiler-cli": "5.2.6",
     "@angular/language-service": "5.2.6",
