@@ -74,6 +74,28 @@ class StarRatingUtils {
  */
 class StarRating {
     /**
+     * @param {?} value
+     * @return {?}
+     */
+    set rating(value) {
+        this.setRating(value);
+    }
+    /**
+     * @return {?}
+     */
+    get showHalfStars() {
+        return this._showHalfStars;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set showHalfStars(value) {
+        this._showHalfStars = !!value;
+        //update halfStarVisible
+        this.setHalfStarVisible();
+    }
+    /**
      * @return {?}
      */
     get id() {
@@ -324,33 +346,11 @@ class StarRating {
         }
         this._rating = newRating;
         //update ratingAsInteger. rating parsed to int for the value-[n] modifier
-        this.ratingAsInteger = parseInt(this._rating.toString());
+        this.ratingAsInteger = parseInt(this._rating.toString(), 10);
         //update halfStarsVisible
         this.setHalfStarVisible();
         //update calculated Color
         this.setColor();
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    set rating(value) {
-        this.setRating(value);
-    }
-    /**
-     * @return {?}
-     */
-    get showHalfStars() {
-        return this._showHalfStars;
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    set showHalfStars(value) {
-        this._showHalfStars = !!value;
-        //update halfStarVisible
-        this.setHalfStarVisible();
     }
     /**
      * @param {?} config
@@ -423,11 +423,11 @@ class StarRating {
      * @return {?}
      */
     getComponentClassNames() {
-        let /** @type {?} */ classNames = [];
+        const /** @type {?} */ classNames = [];
         classNames.push(this.rating ? 'value-' + this.ratingAsInteger : 'value-0');
         classNames.push(this.halfStarVisible ? 'half' : '');
         classNames.push(this.hoverEnabled ? 'hover' : '');
-        let /** @type {?} */ hoverRating = this.hoverRating
+        const /** @type {?} */ hoverRating = this.hoverRating
             ? 'hover-' + this.hoverRating
             : 'hover-0';
         classNames.push(this.hoverEnabled ? hoverRating : '');
@@ -447,7 +447,7 @@ class StarRating {
      */
     increment() {
         //increment to next higher step
-        let /** @type {?} */ absDiff = Math.abs(this.rating % this.step);
+        const /** @type {?} */ absDiff = Math.abs(this.rating % this.step);
         this.rating = this.rating + (absDiff > 0 ? this.step - absDiff : this.step);
     }
     /**
@@ -455,7 +455,7 @@ class StarRating {
      */
     decrement() {
         //decrement to next lower step
-        let /** @type {?} */ absDiff = Math.abs(this.rating % this.step);
+        const /** @type {?} */ absDiff = Math.abs(this.rating % this.step);
         this.rating = this.rating - (absDiff > 0 ? absDiff : this.step);
     }
     /**
@@ -767,9 +767,9 @@ class StarRatingComponent extends StarRating {
     constructor(config) {
         super(config);
         //Outputs
-        this.clickEmitter = new EventEmitter();
-        this.ratingChangeEmitter = new EventEmitter();
-        this.hoverRatingChangeEmitter = new EventEmitter();
+        this.starClickChange = new EventEmitter();
+        this.ratingChange = new EventEmitter();
+        this.hoverRatingChange = new EventEmitter();
         this.onModelChangeRegistered = false;
         this.onTouchRegistered = false;
     }
@@ -778,8 +778,8 @@ class StarRatingComponent extends StarRating {
      * @return {?}
      */
     saveOnClick($event) {
-        if (this.clickEmitter) {
-            this.clickEmitter.emit($event);
+        if (this.starClickChange) {
+            this.starClickChange.emit($event);
         }
     }
     /**
@@ -787,8 +787,8 @@ class StarRatingComponent extends StarRating {
      * @return {?}
      */
     saveOnRatingChange($event) {
-        if (this.ratingChangeEmitter) {
-            this.ratingChangeEmitter.emit($event);
+        if (this.ratingChange) {
+            this.ratingChange.emit($event);
         }
     }
     /**
@@ -796,8 +796,8 @@ class StarRatingComponent extends StarRating {
      * @return {?}
      */
     saveOnHover($event) {
-        if (this.hoverRatingChangeEmitter) {
-            this.hoverRatingChangeEmitter.emit($event);
+        if (this.hoverRatingChange) {
+            this.hoverRatingChange.emit($event);
         }
     }
     /**
@@ -976,7 +976,7 @@ StarRatingComponent.decorators = [
                     'labelText',
                     'id'
                 ],
-                outputs: ['clickEmitter', 'ratingChangeEmitter', 'hoverRatingChangeEmitter'],
+                outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
                 styles: [],
                 template: `<div id="{{id}}"
   class="rating {{getComponentClassNames()}}"
@@ -992,20 +992,21 @@ StarRatingComponent.decorators = [
           *ngFor="let star of stars"
           (click)="onStarClicked(star)">
             <i *ngIf="!svgVisible()" class="star-empty {{classEmpty}}"></i>
-            <i *ngIf="!svgVisible()" class="star-empty {{classHalf}}"></i>
+            <i *ngIf="!svgVisible()" class="star-half {{classHalf}}"></i>
             <i *ngIf="!svgVisible()" class="star-filled {{classFilled}}"></i>
-            <svg *ngIf="svgVisible()" class="star-empty default-star-empty-icon">
+            <svg *ngIf="svgVisible()" class="star-empty">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathEmpty"></use>
             </svg>
-            <svg *ngIf="svgVisible()" class="star-half default-star-half-icon">
+            <svg *ngIf="svgVisible()" class="star-half">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathHalf"></use>
             </svg>
-            <svg *ngIf="svgVisible()" class="star-filled default-star-filled-icon">
+            <svg *ngIf="svgVisible()" class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathFilled"></use>
             </svg>
         </div>
     </div>
-</div>`
+</div>
+`
             },] },
 ];
 /** @nocollapse */
@@ -1026,7 +1027,9 @@ class StarRatingModule {
     static forRoot() {
         return {
             ngModule: StarRatingModule,
-            providers: [StarRatingConfigService]
+            providers: [
+                StarRatingConfigService
+            ]
         };
     }
     /**

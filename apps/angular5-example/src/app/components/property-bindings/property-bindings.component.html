@@ -1,7 +1,7 @@
 <div class="container" [formGroup]="bindingsForm">
   <div class="row">
     <div class="col">
-      <h1>Kitchen Sink</h1>
+      <h1>Property Bindings</h1>
       <star-rating-comp
         [id]="bindingsForm.get('id').value"
         [rating]="bindingsForm.get('rating').value"
@@ -51,6 +51,27 @@
             <star-rating-comp
               labelText="Label Position"
               [labelPosition]="bindingsForm.get('labelPosition').value">
+            </star-rating-comp>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label>
+                Direction: {{bindingsForm.get('direction').value}}
+              </label>
+              <select class="form-control" formControlName="direction">
+                <option [ngValue]="">none</option>
+                <option [value]="'ltr'">ltr</option>
+                <option [value]="'rtl'">rtl</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <star-rating-comp
+              labelText="Rating: "
+              [direction]="bindingsForm.get('direction').value">
             </star-rating-comp>
           </div>
         </div>
@@ -325,7 +346,7 @@
           <div class="col">
             <label>&nbsp;</label>
             <star-rating-comp
-              [rating]="3.2"
+              [rating]="2.2"
               [showHalfStars]="true"
               [getHalfStarVisible]="bindingsForm.get('useCustomGetHalfStarVisible').value ? _getHalfStarVisible : false">
             </star-rating-comp>

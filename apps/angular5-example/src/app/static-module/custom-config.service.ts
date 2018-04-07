@@ -5,7 +5,7 @@ import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-r
 export class CustomConfigService extends StarRatingConfigService {
   constructor() {
     super();
-    this.numOfStars = 3;
+    this.numOfStars = 9;
     this.staticColor = 'positive';
   }
 }

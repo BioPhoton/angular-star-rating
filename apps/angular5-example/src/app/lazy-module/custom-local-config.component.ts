@@ -6,7 +6,10 @@ import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-r
   selector: 'custom-local-config',
   template: `
   <h2>Custom local config in lazy module</h2>
-  <star-rating-comp></star-rating-comp>`,
+  <star-rating-comp></star-rating-comp>
+  Change config over service method <br/>
+  <button class="btn btn-sm btn-outline-info" (click)="changeSize()">changeSize</button>
+  `,
   providers: [
     {
       provide: StarRatingConfigService,
@@ -14,8 +17,15 @@ import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-r
     }
   ]
 })
-export class CustomLocalConfigComponent implements OnInit {
-  constructor() {}
+export class CustomLocalConfigComponent {
+  constructor(private sRCS: StarRatingConfigService) {}
 
-  ngOnInit() {}
+  changeSize() {
+    console.log('changeSize');
+    if (this.sRCS.size === 'large') {
+      this.sRCS.size = 'small';
+    } else {
+      this.sRCS.size = 'large';
+    }
+  }
 }

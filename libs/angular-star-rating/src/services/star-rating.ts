@@ -14,6 +14,59 @@ import { StarRatingUtils } from './star-rating.utils';
 export class StarRating {
   protected config: StarRatingConfig;
 
+  //CTRL ONLY
+  ///////////////////////////////////////////////////////////////////////////////////////////
+  classEmpty: string;
+  classHalf: string;
+  classFilled: string;
+
+  pathEmpty: string;
+  pathHalf: string;
+  pathFilled: string;
+
+  color: starRatingColor;
+  stars: Array<number>;
+  ratingAsInteger: number;
+  halfStarVisible: boolean;
+
+  /////////////////////////////////////////////
+
+
+  set rating(value: number) {
+    this.setRating(value);
+  }
+
+  /**
+   * showHalfStars
+   */
+  protected _showHalfStars: boolean;
+  get showHalfStars(): boolean {
+    return this._showHalfStars;
+  }
+
+  set showHalfStars(value: boolean) {
+    this._showHalfStars = !!value;
+
+    //update halfStarVisible
+    this.setHalfStarVisible();
+  }
+
+  /**
+   * getColor
+   */
+  getColor: (
+    rating: number,
+    numOfStars: number,
+    staticColor?: starRatingColor
+  ) => starRatingColor;
+  /////////////////////////////////////////////
+
+  /**
+   * getHalfStarVisible
+   */
+  getHalfStarVisible: (rating: number) => boolean;
+  /////////////////////////////////////////////
+
   //Inputs
   ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -276,7 +329,7 @@ export class StarRating {
    */
   setRating(value: number) {
     //validate and apply newRating
-    let newRating: number = 0;
+    let newRating = 0;
     if (value >= 0 && value <= this.numOfStars) {
       newRating = value;
     }
@@ -288,7 +341,7 @@ export class StarRating {
     this._rating = newRating;
 
     //update ratingAsInteger. rating parsed to int for the value-[n] modifier
-    this.ratingAsInteger = parseInt(this._rating.toString());
+    this.ratingAsInteger = parseInt(this._rating.toString(), 10);
 
     //update halfStarsVisible
     this.setHalfStarVisible();
@@ -296,58 +349,6 @@ export class StarRating {
     //update calculated Color
     this.setColor();
   }
-
-  set rating(value: number) {
-    this.setRating(value);
-  }
-
-  /**
-   * showHalfStars
-   */
-  protected _showHalfStars: boolean;
-  get showHalfStars(): boolean {
-    return this._showHalfStars;
-  }
-
-  set showHalfStars(value: boolean) {
-    this._showHalfStars = !!value;
-
-    //update halfStarVisible
-    this.setHalfStarVisible();
-  }
-
-  /////////////////////////////////////////////
-
-  /**
-   * getColor
-   */
-  getColor: (
-    rating: number,
-    numOfStars: number,
-    staticColor?: starRatingColor
-  ) => starRatingColor;
-  /////////////////////////////////////////////
-
-  /**
-   * getHalfStarVisible
-   */
-  getHalfStarVisible: (rating: number) => boolean;
-  /////////////////////////////////////////////
-
-  //CTRL ONLY
-  ///////////////////////////////////////////////////////////////////////////////////////////
-  classEmpty: string;
-  classHalf: string;
-  classFilled: string;
-
-  pathEmpty: string;
-  pathHalf: string;
-  pathFilled: string;
-
-  color: starRatingColor;
-  stars: Array<number>;
-  ratingAsInteger: number;
-  halfStarVisible: boolean;
 
   constructor(config: StarRatingConfigService) {
     this.config = config;
@@ -420,13 +421,13 @@ export class StarRating {
   }
 
   getComponentClassNames(): string {
-    let classNames: string[] = [];
+    const classNames: string[] = [];
 
     classNames.push(this.rating ? 'value-' + this.ratingAsInteger : 'value-0');
     classNames.push(this.halfStarVisible ? 'half' : '');
     classNames.push(this.hoverEnabled ? 'hover' : '');
 
-    let hoverRating = this.hoverRating
+    const hoverRating = this.hoverRating
       ? 'hover-' + this.hoverRating
       : 'hover-0';
     classNames.push(this.hoverEnabled ? hoverRating : '');
@@ -446,13 +447,13 @@ export class StarRating {
 
   increment() {
     //increment to next higher step
-    let absDiff = Math.abs(this.rating % this.step);
+    const absDiff = Math.abs(this.rating % this.step);
     this.rating = this.rating + (absDiff > 0 ? this.step - absDiff : this.step);
   }
 
   decrement() {
     //decrement to next lower step
-    let absDiff = Math.abs(this.rating % this.step);
+    const absDiff = Math.abs(this.rating % this.step);
     this.rating = this.rating - (absDiff > 0 ? absDiff : this.step);
   }
 

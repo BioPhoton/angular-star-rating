@@ -12,15 +12,15 @@
           *ngFor="let star of stars"
           (click)="onStarClicked(star)">
             <i *ngIf="!svgVisible()" class="star-empty {{classEmpty}}"></i>
-            <i *ngIf="!svgVisible()" class="star-empty {{classHalf}}"></i>
+            <i *ngIf="!svgVisible()" class="star-half {{classHalf}}"></i>
             <i *ngIf="!svgVisible()" class="star-filled {{classFilled}}"></i>
-            <svg *ngIf="svgVisible()" class="star-empty default-star-empty-icon">
+            <svg *ngIf="svgVisible()" class="star-empty">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathEmpty"></use>
             </svg>
-            <svg *ngIf="svgVisible()" class="star-half default-star-half-icon">
+            <svg *ngIf="svgVisible()" class="star-half">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathHalf"></use>
             </svg>
-            <svg *ngIf="svgVisible()" class="star-filled default-star-filled-icon">
+            <svg *ngIf="svgVisible()" class="star-filled">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathFilled"></use>
             </svg>
         </div>

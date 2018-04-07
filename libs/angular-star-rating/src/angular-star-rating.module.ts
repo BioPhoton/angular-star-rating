@@ -15,7 +15,9 @@ export class StarRatingModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: StarRatingModule,
-      providers: [StarRatingConfigService]
+      providers: [
+        StarRatingConfigService
+      ]
     };
   }
 
