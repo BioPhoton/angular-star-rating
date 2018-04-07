@@ -47,7 +47,7 @@ Fully featured this component is provided with:
 
 ## DEMO
 - [x] [Stackblitz Demo](https://stackblitz.com/edit/angular-star-rating-demo?file=app%2Fapp.component.html)
-- [x] [Live Demo](https://biophoton.github.io/angular-star-rating/#/kitchensink)
+- [x] [Live Demo](https://biophoton.github.io/angular-star-rating)
 - [x] [Example-App Sources](https://github.com/BioPhoton/angular-star-rating/tree/master/examples/angular4)
 
 ## [Documentation](https://github.com/BioPhoton/angular-star-rating/wiki)
