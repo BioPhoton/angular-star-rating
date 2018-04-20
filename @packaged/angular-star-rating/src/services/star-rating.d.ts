@@ -121,7 +121,7 @@ export declare class StarRating {
     constructor(config: StarRatingConfigService);
     svgVisible(): boolean;
     interactionPossible(): boolean;
-    setColor(): void;
+    setColor(useHoverValue?: boolean): void;
     setHalfStarVisible(): void;
     getComponentClassNames(): string;
     increment(): void;
