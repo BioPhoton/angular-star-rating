@@ -17,7 +17,8 @@ function ciCheck() {
     if (result.stdout === config.ci.validState) {
       return Promise.resolve(result)
     } else {
-      return Promise.reject(result)
+      const errorMsg = 'Travis status should be ' + config.ci.validState + ' ' + result.stdout + ' given';
+      return Promise.reject(errorMsg);
     }
   })
 }
