@@ -5,7 +5,8 @@
 
 * **automated release chain:** fixed paths and versions ([bcc3057](https://github.com/BioPhoton/angular-star-rating/commit/bcc3057)), closes [#78](https://github.com/BioPhoton/angular-star-rating/issues/78)
 * **automated release chain:** wip ([2ed9b61](https://github.com/BioPhoton/angular-star-rating/commit/2ed9b61))
-* **control component:** implement separate component for reactive form control ([4df3b9f](https://github.com/BioPhoton/angular-star-rating/commit/4df3b9f)), closes [#87](https://github.com/BioPhoton/angular-star-rating/issues/87)
+* **control component:** implement separate component for reactive form control with selector `star-rating-control` ([4df3b9f](https://github.com/BioPhoton/angular-star-rating/commit/4df3b9f)), closes [#87](https://github.com/BioPhoton/angular-star-rating/issues/87)
+* **renamed components:** changed component selector `star-rating-comp` to `star-rating` ([4df3b9f](https://github.com/BioPhoton/angular-star-rating/commit/4df3b9f)), closes [#87](https://github.com/BioPhoton/angular-star-rating/issues/87)
 
 <a name="4.0.0-beta.2"></a>
 # 4.0.0-beta.2 (2018-04-07)
