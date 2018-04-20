@@ -1,10 +1,9 @@
 'use strict'
 
 const path = require('path')
-const util = require('util')
-console.log('util', util)
-const exec = util.promisify(require('child_process').exec)
+const {promisify} = require('util');
 
+const exec = promisify(require('child_process').exec);
 const config = require(path.join('..', '..', 'config'))
 
 module.exports = ciCheck
@@ -13,7 +12,7 @@ module.exports = ciCheck
 // --no-interactive disables the interactive mode
 // source: https://github.com/travis-ci/travis.rb/blob/master/README.md
 function ciCheck() {
- return exec('travis status --no-interactive', {cwd: path.join(config.libPath, 'dist')})
+ return exec('travis status --no-interactive', {cwd: config.libPath})
   .then((result) => {
     if (result.stdout === config.ci.validState) {
       return Promise.resolve(result)

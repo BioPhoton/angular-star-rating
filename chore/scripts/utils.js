@@ -16,11 +16,11 @@ utils.copyFilePromise = copyFilePromise
 utils.copyMultiFilePromise = copyMultiFilePromise
 utils.backupPackageJson = backupPackageJson
 utils.restorePackageJson = restorePackageJson
-utils.getPreset = getCommitConvantion
+utils.getPreset = getCommitConvention
 utils.getBump = getBump
 utils.getPackageVersion = getPackageVersion
 
-module.exports = utils
+module.exports = utils;
 
 function deleteFile (source) {
   console.info('start deleting ', source)
@@ -33,6 +33,7 @@ function deleteFile (source) {
     })
 
 }
+
 function copyFile (source, target, cb) {
 
   cb = cb || function () {
@@ -110,7 +111,7 @@ function restorePackageJson () {
     //.then(() => utils.deleteFile(source2))
 }
 
-function getCommitConvantion () {
+function getCommitConvention () {
   // Detect what commit message convention your repository is using
   // source: https://github.com/conventional-changelog/conventional-commits-detector/blob/master/README.md
   return exec('conventional-commits-detector', {cwd: __base})
@@ -138,6 +139,6 @@ function getBump () {
 }
 
 function getPackageVersion () {
-  const packageJson = require(path.join(config.libPath, 'package.json'))
+  const packageJson = require(path.join(config.packagedFolder, 'package.json'))
   return Promise.resolve(packageJson.version)
 }

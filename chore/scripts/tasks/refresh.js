@@ -1,8 +1,9 @@
 'use strict'
 
 const path = require('path')
-const util = require('util')
-const exec = util.promisify(require('child_process').exec)
+const {promisify} = require('util');
+
+const exec = promisify(require('child_process').exec);
 
 const config = require(path.join('..', '..', 'config'))
 const utils = require(path.join(__base, 'chore', 'scripts', 'utils'))
@@ -13,7 +14,7 @@ function refresh (hard) {
   if(hard === true) {
     utils.deleteFile(path.join(__base, 'node_modules'))
   }
-  
+
   return Promise.resolve()
     // pulls the latest version and rebases
     .then(() => {
