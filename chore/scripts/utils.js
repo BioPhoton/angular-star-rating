@@ -1,26 +1,26 @@
 'use strict'
 
 const colors = require('colors')
-const fs = require('fs');
-const path = require('path');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+const fs = require('fs')
+const path = require('path')
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
 
-const config = require('../config');
-const utils = {};
+const config = require('../config')
+const utils = {}
 
-utils.exec = exec;
-utils.deleteFile = deleteFile;
-utils.copyFile = copyFile;
-utils.copyFilePromise = copyFilePromise;
-utils.copyMultiFilePromise = copyMultiFilePromise;
-utils.backupPackageJson = backupPackageJson;
-utils.restorePackageJson = restorePackageJson;
-utils.getPreset = getCommitConvention;
-utils.getBump = getBump;
-utils.getPackageVersion = getPackageVersion;
+utils.exec = exec
+utils.deleteFile = deleteFile
+utils.copyFile = copyFile
+utils.copyFilePromise = copyFilePromise
+utils.copyMultiFilePromise = copyMultiFilePromise
+utils.backupPackageJson = backupPackageJson
+utils.restorePackageJson = restorePackageJson
+utils.getPreset = getCommitConvention
+utils.getBump = getBump
+utils.getPackageVersion = getPackageVersion
 
-module.exports = utils;
+module.exports = utils
 
 function deleteFile (source) {
   console.info('start deleting ', source)
@@ -126,18 +126,22 @@ function getCommitConvention () {
     })
 }
 
-function getBump (preset) {
-  // Detect the recommended bump type by the conventional-commit standard
-  // source: https://github.com/conventional-changelog-archived-repos/conventional-recommended-bump/blob/master/README.md
-  return exec('conventional-recommended-bump -p ' + preset, {cwd: __base})
-    .then((bumpRes) => {
+function getBump () {
+  return utils.getPreset()
+    .then(function (preset) {
+      // Detect the recommended bump type by the conventional-commit standard
+      // source: https://github.com/conventional-changelog-archived-repos/conventional-recommended-bump/blob/master/README.md
+      return exec('conventional-recommended-bump -p ' + preset, {cwd: __base})
+        .then((bumpRes) => {
 
-      if (!bumpRes.stdout || bumpRes.stderr) {
-        return Promise.reject(bumpRes.stderr || false)
-      } else {
-        const bump = bumpRes.stdout.split('\n')[0]
-        return Promise.resolve(bump)
-      }
+          if (!bumpRes.stdout || bumpRes.stderr) {
+            return Promise.reject(bumpRes.stderr || false)
+          } else {
+            const bump = bumpRes.stdout.split('\n')[0]
+            return Promise.resolve(bump)
+          }
+        })
+        .catch(console.log)
     })
 }
 
