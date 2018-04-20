@@ -28,9 +28,10 @@
     "docs:build": "compodoc -p ./src/tsconfig.api-doc.json -n angular-star-rating -d docs/api-doc/ --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
-    "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
+    "changelog": "node ./chore/scripts/tasks/changelog",
     "recommended-bump": "conventional-recommended-bump -p angular",
-    "github-release": "conventional-github-releaser -p angular",
+    "release": "node ./chore/scripts/release",
+    "github-release": "node ./chore/scripts/tasks/release-github",
     "release:lib": "npm publish ./@packaged/angular-star-rating"
   },
   "private": true,

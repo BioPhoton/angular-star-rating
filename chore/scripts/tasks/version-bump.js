@@ -24,7 +24,7 @@ function versionBump () {
     // npm version [detectedBump] bumps the version specified in detectedBump
     // and write the new data back to package.json
     .then(() => exec('npm --no-git-tag-version version ' + detectedBump, {cwd: config.libPath}))
-    .then(() => exec('git add .\\package.json', {cwd: config.libPath}))
+    .then(() => exec('git add .\\package.json', {cwd: config.packagedFolder}))
     .then(() => utils.getPackageVersion())
     .then((version) => {
       detectedVersion = version

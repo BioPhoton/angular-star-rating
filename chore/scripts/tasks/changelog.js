@@ -60,7 +60,7 @@ function changelog () {
       console.log('new version ', detectedVersion);
     })
     // copy package.json into dist because we want to have the new version in the dist folder also
-    .then(() => utils.copyFile(path.join(config.libPath, 'package.json'), path.join(config.libPath, 'dist', 'package.json')))
+    .then(() => utils.copyFile(path.join(config.libPath, 'package.json'), path.join(config.libPath, 'package.json')))
     // Replace the already bumped package.json with the _package.json initial copy
     .then(() => {
       return utils.restorePackageJson().then(() => {

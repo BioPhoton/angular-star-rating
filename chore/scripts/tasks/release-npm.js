@@ -18,7 +18,8 @@ function releaseNpm () {
   console.info('start npm release'.gray)
   return utils.getPreset()
     .then((preset) => {
-      return exec('npm publish', {cwd: path.join(config.libPath, 'dist')})
+
+      return exec('npm publish', {cwd: config.packagedFolder})
         .then(() => {
           console.info('published on npm'.green)
         })
