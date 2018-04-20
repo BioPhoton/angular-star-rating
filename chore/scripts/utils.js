@@ -1,24 +1,24 @@
 'use strict'
 
-const colors = require('colors');
-const fs = require('fs')
-const path = require('path')
-const util = require('util')
-const exec = util.promisify(require('child_process').exec)
+const colors = require('colors')
+const fs = require('fs');
+const path = require('path');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
-const config = require('../config')
-const utils = {}
+const config = require('../config');
+const utils = {};
 
-utils.exec = exec
-utils.deleteFile = deleteFile
-utils.copyFile = copyFile
-utils.copyFilePromise = copyFilePromise
-utils.copyMultiFilePromise = copyMultiFilePromise
-utils.backupPackageJson = backupPackageJson
-utils.restorePackageJson = restorePackageJson
-utils.getPreset = getCommitConvention
-utils.getBump = getBump
-utils.getPackageVersion = getPackageVersion
+utils.exec = exec;
+utils.deleteFile = deleteFile;
+utils.copyFile = copyFile;
+utils.copyFilePromise = copyFilePromise;
+utils.copyMultiFilePromise = copyMultiFilePromise;
+utils.backupPackageJson = backupPackageJson;
+utils.restorePackageJson = restorePackageJson;
+utils.getPreset = getCommitConvention;
+utils.getBump = getBump;
+utils.getPackageVersion = getPackageVersion;
 
 module.exports = utils;
 
@@ -31,7 +31,6 @@ function deleteFile (source) {
     .catch((err) => {
       console.error('remove files error: ', err)
     })
-
 }
 
 function copyFile (source, target, cb) {
@@ -42,26 +41,29 @@ function copyFile (source, target, cb) {
   return new Promise((resolve, reject) => {
     console.info('copyFile', source, target)
 
-    let ensureDirectoryExistence = function (filePath) {
-      let dirname = path.dirname(filePath)
+    const ensureDirectoryExistence = function (filePath) {
+      const dirname = path.dirname(filePath)
       if (fs.existsSync(dirname)) {
         return true
       }
       ensureDirectoryExistence(dirname)
       fs.mkdirSync(dirname)
     }
-    ensureDirectoryExistence(target)
 
-    let rd = fs.createReadStream(source)
+    const rd = fs.createReadStream(source)
     rd.on('error', function (err) {
       reject(err)
     })
-    let wr = fs.createWriteStream(target)
+
+    ensureDirectoryExistence(target)
+
+    const wr = fs.createWriteStream(target)
+
     wr.on('error', function (err) {
       reject(err)
     })
     wr.on('close', function (ex) {
-      resolve()
+      resolve(true)
     })
     rd.pipe(wr)
 
@@ -95,7 +97,6 @@ function backupPackageJson () {
   const source2 = path.join(config.libPath, 'package-lock.json')
   const target2 = path.join(config.libPath, '_package-lock.json')
   return copyFile(source1, target1)
-          //.then(() => copyFile(source2, target2))
 }
 
 function restorePackageJson () {
@@ -107,8 +108,8 @@ function restorePackageJson () {
 
   return copyFile(source1, target1)
     .then(() => utils.deleteFile(source1))
-    //.then(() => copyFile(source2, target2))
-    //.then(() => utils.deleteFile(source2))
+  //.then(() => copyFile(source2, target2))
+  //.then(() => utils.deleteFile(source2))
 }
 
 function getCommitConvention () {
@@ -125,17 +126,19 @@ function getCommitConvention () {
     })
 }
 
-function getBump () {
+function getBump (preset) {
   // Detect the recommended bump type by the conventional-commit standard
   // source: https://github.com/conventional-changelog-archived-repos/conventional-recommended-bump/blob/master/README.md
-  return exec('conventional-recommended-bump -p angular', {cwd: __base}).then((bumpRes) => {
-    if (!bumpRes.stdout || bumpRes.stderr) {
-      return Promise.reject(bumpRes.stderr || false)
-    } else {
-      const bump = bumpRes.stdout.split('\n')[0]
-      return Promise.resolve(bump)
-    }
-  })
+  return exec('conventional-recommended-bump -p ' + preset, {cwd: __base})
+    .then((bumpRes) => {
+
+      if (!bumpRes.stdout || bumpRes.stderr) {
+        return Promise.reject(bumpRes.stderr || false)
+      } else {
+        const bump = bumpRes.stdout.split('\n')[0]
+        return Promise.resolve(bump)
+      }
+    })
 }
 
 function getPackageVersion () {

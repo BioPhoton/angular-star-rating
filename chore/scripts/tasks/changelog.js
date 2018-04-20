@@ -25,7 +25,7 @@ function changelog () {
   // ensures that the right convention was detected
     .then(() => utils.getPreset())
     .then((preset) => {
-      detectedPreset = preset
+      detectedPreset = preset;
       return (detectedPreset === config.validPreset) ? Promise.resolve(detectedPreset) : Promise.reject(detectedPreset)
     })
     // ensures that a bump type was detected

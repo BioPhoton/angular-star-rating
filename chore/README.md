@@ -10,12 +10,14 @@
 # Preconditions
 
 node modules to install globally:
+- color
 - conventional-recommended-bump
+- conventional-changelog-angular
 - conventional-changelog
 - conventional-github-releaser
 - conventional-commits-detector
 
-`npm i -g color conventional-recommended-bump conventional-changelog conventional-github-releaser conventional-commits-detector`
+`npm i -g color conventional-changelog-angular conventional-recommended-bump conventional-changelog conventional-github-releaser conventional-commits-detector`
 
 # Travis CI - automated integration of travis into the build process
 
