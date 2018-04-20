@@ -1,8 +1,8 @@
-
+<br/>
 <div class="row">
   <div class="col" [formGroup]="form">
     <div class="form-group">
-      <label>Rating</label>
+      <label>Rating Value:</label>
       <input type="number" class="form-control" placeholder="rating"
         step="0.5" formControlName="rating">
     </div>
@@ -34,17 +34,17 @@
         </ng-template>
       </select>
     </div>
-  </div>
+  </div> -->
   <div class="col">
     <div class="form-group">
       <label>&nbsp;</label>
-      <star-rating-comp
+      <star-rating
         [hoverEnabled]="true"
         [showHalfStars]="true"
         [rating]="form.get('rating').value">
-      </star-rating-comp>
+      </star-rating>
     </div>
-    -->
+
   </div>
 </div>
 

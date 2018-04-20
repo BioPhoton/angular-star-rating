@@ -21,6 +21,10 @@ import {CustomIconsConfigService} from './custom-star-config.service';
 })
 export class CustomStarsComponent {
 
+  defaultEmpty = 'fa-align-center';
+  defaultHalf = 'fa-align-justify';
+  defaultFilled = 'fa-align-left';
+
   form: FormGroup;
 
   icons: string[] = [
@@ -56,7 +60,7 @@ export class CustomStarsComponent {
 
   constructor(fb: FormBuilder, sRCS:  StarRatingConfigService) {
     this.form = fb.group({
-      rating: [1.5],
+      rating: [3.5],
       empty:[],
       half:[],
       filled:[]
@@ -65,9 +69,9 @@ export class CustomStarsComponent {
     this.form.valueChanges
       .subscribe(
         (formValue) => {
-          sRCS.classEmpty = formValue.half;
-          sRCS.classHalf = formValue.half;
-          sRCS.classFilled = formValue.half;
+          sRCS.classEmpty = formValue.half || this.defaultEmpty;
+          sRCS.classHalf = formValue.half || this.defaultHalf;
+          sRCS.classFilled = formValue.half || this.defaultFilled;
         }
       )
   }
