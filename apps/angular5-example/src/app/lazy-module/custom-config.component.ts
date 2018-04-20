@@ -4,7 +4,7 @@ import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-r
   selector: 'custom-config',
   template: `
   <h1>Custom static configuration in lazy module</h1>
-  <star-rating-comp></star-rating-comp>
+  <star-rating></star-rating>
   Change config over service method <br/>
   <button class="btn btn-sm btn-outline-info" (click)="changeSize()">changeSize</button>
   <custom-local-config></custom-local-config>

@@ -4,7 +4,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
   selector: 'app-custom-style',
   template: `
     Custom Style
-    <star-rating-comp></star-rating-comp>`,
+    <star-rating></star-rating>`,
   styleUrls: ['./custom-style.component.scss'],
   //encapsulation: ViewEncapsulation.None
 })

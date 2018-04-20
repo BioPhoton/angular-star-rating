@@ -544,11 +544,6 @@ var StarRatingConfigService = /** @class */ (function () {
     };
     return StarRatingConfigService;
 }());
-var STAR_RATING_CONTROL_ACCESSOR = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(function () { return StarRatingComponent; }),
-    multi: true
-};
 var StarRatingComponent = /** @class */ (function (_super) {
     __extends(StarRatingComponent, _super);
     function StarRatingComponent(config) {
@@ -556,8 +551,6 @@ var StarRatingComponent = /** @class */ (function (_super) {
         _this.starClickChange = new EventEmitter();
         _this.ratingChange = new EventEmitter();
         _this.hoverRatingChange = new EventEmitter();
-        _this.onModelChangeRegistered = false;
-        _this.onTouchRegistered = false;
         return _this;
     }
     StarRatingComponent.prototype.saveOnClick = function ($event) {
@@ -573,16 +566,6 @@ var StarRatingComponent = /** @class */ (function (_super) {
     StarRatingComponent.prototype.saveOnHover = function ($event) {
         if (this.hoverRatingChange) {
             this.hoverRatingChange.emit($event);
-        }
-    };
-    StarRatingComponent.prototype.saveOnTouch = function () {
-        if (this.onTouchRegistered) {
-            this.onTouch();
-        }
-    };
-    StarRatingComponent.prototype.saveOnModelChange = function (value) {
-        if (this.onModelChangeRegistered) {
-            this.onModelChange(value);
         }
     };
     StarRatingComponent.prototype.onKeyDown = function (event) {
@@ -603,7 +586,7 @@ var StarRatingComponent = /** @class */ (function (_super) {
         };
         var handleDigits = function (eventCode) {
             var dStr = 'Digit';
-            var digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1));
+            var digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1), 10);
             _this.rating = digit;
         };
         if (handlers[event['code']] ||
@@ -617,38 +600,14 @@ var StarRatingComponent = /** @class */ (function (_super) {
             event.preventDefault();
             event.stopPropagation();
         }
-        this.saveOnTouch();
-    };
-    StarRatingComponent.prototype.onBlur = function (event) {
-        this.focus = false;
-        event.preventDefault();
-        event.stopPropagation();
-        this.saveOnTouch();
-    };
-    StarRatingComponent.prototype.onFocus = function (event) {
-        this.focus = true;
-        event.preventDefault();
-        event.stopPropagation();
-        this.saveOnTouch();
     };
     StarRatingComponent.prototype.onStarHover = function (rating) {
         if (!this.interactionPossible() || !this.hoverEnabled) {
             return;
         }
-        this.hoverRating = rating ? parseInt(rating.toString()) : 0;
+        this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
         var $event = { hoverRating: this.hoverRating };
         this.saveOnHover($event);
-    };
-    StarRatingComponent.prototype.writeValue = function (obj) {
-        this.rating = obj;
-    };
-    StarRatingComponent.prototype.registerOnChange = function (fn) {
-        this.onModelChange = fn;
-        this.onModelChangeRegistered = true;
-    };
-    StarRatingComponent.prototype.registerOnTouched = function (fn) {
-        this.onTouch = fn;
-        this.onTouchRegistered = true;
     };
     StarRatingComponent.prototype.setRating = function (value) {
         var initValue = this.rating;
@@ -656,7 +615,6 @@ var StarRatingComponent = /** @class */ (function (_super) {
         if (initValue !== this.rating) {
             var $event = { rating: this.rating };
             this.saveOnRatingChange($event);
-            this.saveOnModelChange(this.rating);
         }
     };
     StarRatingComponent.prototype.onStarClicked = function (rating) {
@@ -673,7 +631,165 @@ var StarRatingComponent = /** @class */ (function (_super) {
 }(StarRating));
 StarRatingComponent.decorators = [
     { type: Component, args: [{
-                selector: 'star-rating-comp',
+                selector: 'star-rating',
+                inputs: [
+                    'getHalfStarVisible',
+                    'getColor',
+                    'showHalfStars',
+                    'hoverEnabled',
+                    'rating',
+                    'step',
+                    'disabled',
+                    'readOnly',
+                    'space',
+                    'starType',
+                    'size',
+                    'speed',
+                    'numOfStars',
+                    'direction',
+                    'staticColor',
+                    'labelPosition',
+                    'labelText',
+                    'id'
+                ],
+                outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
+                styles: [],
+                template: "<div id=\"{{id}}\"\n  class=\"rating {{getComponentClassNames()}}\"\n  tabindex=\"0\"\n  (keydown)=\"onKeyDown($event)\"\n  (mouseleave)=\"onStarHover(0)\">\n    <div *ngIf=\"labelText\" class=\"label-value\">{{labelText}}</div>\n    <div class=\"star-container\">\n        <div class=\"star\"\n          (mouseenter)=\"onStarHover(star)\"\n          *ngFor=\"let star of stars\"\n          (click)=\"onStarClicked(star)\">\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classEmpty}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-half {{classHalf}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-filled {{classFilled}}\"></i>\n            <svg *ngIf=\"svgVisible()\" class=\"star-empty\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathEmpty\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-half\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathHalf\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-filled\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathFilled\"></use>\n            </svg>\n        </div>\n    </div>\n</div>\n"
+            },] },
+];
+StarRatingComponent.ctorParameters = function () { return [
+    { type: StarRatingConfigService, },
+]; };
+var STAR_RATING_CONTROL_ACCESSOR = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(function () { return StarRatingControlComponent; }),
+    multi: true
+};
+var StarRatingControlComponent = /** @class */ (function (_super) {
+    __extends(StarRatingControlComponent, _super);
+    function StarRatingControlComponent(config) {
+        var _this = _super.call(this, config) || this;
+        _this.starClickChange = new EventEmitter();
+        _this.ratingChange = new EventEmitter();
+        _this.hoverRatingChange = new EventEmitter();
+        _this.onModelChangeRegistered = false;
+        _this.onTouchRegistered = false;
+        return _this;
+    }
+    StarRatingControlComponent.prototype.saveOnClick = function ($event) {
+        if (this.starClickChange) {
+            this.starClickChange.emit($event);
+        }
+    };
+    StarRatingControlComponent.prototype.saveOnRatingChange = function ($event) {
+        if (this.ratingChange) {
+            this.ratingChange.emit($event);
+        }
+    };
+    StarRatingControlComponent.prototype.saveOnHover = function ($event) {
+        if (this.hoverRatingChange) {
+            this.hoverRatingChange.emit($event);
+        }
+    };
+    StarRatingControlComponent.prototype.saveOnTouch = function () {
+        if (this.onTouchRegistered) {
+            this.onTouch();
+        }
+    };
+    StarRatingControlComponent.prototype.saveOnModelChange = function (value) {
+        if (this.onModelChangeRegistered) {
+            this.onModelChange(value);
+        }
+    };
+    StarRatingControlComponent.prototype.onKeyDown = function (event) {
+        var _this = this;
+        if (!this.interactionPossible()) {
+            return;
+        }
+        var handlers = {
+            Minus: function () { return _this.decrement(); },
+            ArrowDown: function () { return _this.decrement(); },
+            ArrowLeft: function () { return _this.decrement(); },
+            Plus: function () { return _this.increment(); },
+            ArrowRight: function () { return _this.increment(); },
+            ArrowUp: function () { return _this.increment(); },
+            Backspace: function () { return _this.reset(); },
+            Delete: function () { return _this.reset(); },
+            Digit0: function () { return _this.reset(); }
+        };
+        var handleDigits = function (eventCode) {
+            var dStr = 'Digit';
+            var digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1), 10);
+            _this.rating = digit;
+        };
+        if (handlers[event['code']] ||
+            StarRatingUtils.isDigitKeyEventCode(event['code'])) {
+            if (StarRatingUtils.isDigitKeyEventCode(event['code'])) {
+                handleDigits(event['code']);
+            }
+            else {
+                handlers[event['code']]();
+            }
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        this.saveOnTouch();
+    };
+    StarRatingControlComponent.prototype.onBlur = function (event) {
+        this.focus = false;
+        event.preventDefault();
+        event.stopPropagation();
+        this.saveOnTouch();
+    };
+    StarRatingControlComponent.prototype.onFocus = function (event) {
+        this.focus = true;
+        event.preventDefault();
+        event.stopPropagation();
+        this.saveOnTouch();
+    };
+    StarRatingControlComponent.prototype.onStarHover = function (rating) {
+        if (!this.interactionPossible() || !this.hoverEnabled) {
+            return;
+        }
+        this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
+        var $event = { hoverRating: this.hoverRating };
+        this.saveOnHover($event);
+    };
+    StarRatingControlComponent.prototype.writeValue = function (obj) {
+        this.rating = obj;
+    };
+    StarRatingControlComponent.prototype.registerOnChange = function (fn) {
+        this.onModelChange = fn;
+        this.onModelChangeRegistered = true;
+    };
+    StarRatingControlComponent.prototype.registerOnTouched = function (fn) {
+        this.onTouch = fn;
+        this.onTouchRegistered = true;
+    };
+    StarRatingControlComponent.prototype.setRating = function (value) {
+        var initValue = this.rating;
+        _super.prototype.setRating.call(this, value);
+        if (initValue !== this.rating) {
+            var $event = { rating: this.rating };
+            this.saveOnRatingChange($event);
+            this.saveOnModelChange(this.rating);
+        }
+    };
+    StarRatingControlComponent.prototype.onStarClicked = function (rating) {
+        if (!this.interactionPossible()) {
+            return;
+        }
+        this.rating = rating;
+        var onClickEventObject = {
+            rating: this.rating
+        };
+        this.saveOnClick(onClickEventObject);
+    };
+    return StarRatingControlComponent;
+}(StarRating));
+StarRatingControlComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'star-rating-control',
                 providers: [STAR_RATING_CONTROL_ACCESSOR],
                 inputs: [
                     'getHalfStarVisible',
@@ -700,10 +816,13 @@ StarRatingComponent.decorators = [
                 template: "<div id=\"{{id}}\"\n  class=\"rating {{getComponentClassNames()}}\"\n  tabindex=\"0\"\n  (keydown)=\"onKeyDown($event)\"\n  (blur)=\"onBlur($event)\"\n  (focus)=\"onFocus($event)\"\n  (mouseleave)=\"onStarHover(0)\">\n    <div *ngIf=\"labelText\" class=\"label-value\">{{labelText}}</div>\n    <div class=\"star-container\">\n        <div class=\"star\"\n          (mouseenter)=\"onStarHover(star)\"\n          *ngFor=\"let star of stars\"\n          (click)=\"onStarClicked(star)\">\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classEmpty}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-half {{classHalf}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-filled {{classFilled}}\"></i>\n            <svg *ngIf=\"svgVisible()\" class=\"star-empty\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathEmpty\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-half\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathHalf\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-filled\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathFilled\"></use>\n            </svg>\n        </div>\n    </div>\n</div>\n"
             },] },
 ];
-StarRatingComponent.ctorParameters = function () { return [
+StarRatingControlComponent.ctorParameters = function () { return [
     { type: StarRatingConfigService, },
 ]; };
-var DECLARATIONS = [StarRatingComponent];
+var DECLARATIONS = [
+    StarRatingComponent,
+    StarRatingControlComponent
+];
 var EXPORTS = [DECLARATIONS];
 var StarRatingModule = /** @class */ (function () {
     function StarRatingModule() {
@@ -733,5 +852,5 @@ StarRatingModule.decorators = [
 ];
 StarRatingModule.ctorParameters = function () { return []; };
 
-export { StarRatingConfig, StarRatingUtils, StarRating, StarRatingConfigService, StarRatingComponent, StarRatingModule };
+export { StarRatingConfig, StarRatingUtils, StarRating, StarRatingConfigService, StarRatingComponent, StarRatingControlComponent, StarRatingModule };
 //# sourceMappingURL=angular-star-rating.js.map

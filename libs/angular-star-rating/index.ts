@@ -16,6 +16,7 @@ export {
   StarRatingConfigService
 } from './src/services/star-rating-config.service';
 // components
-export { StarRatingComponent } from './src/components/star-rating.component';
+export { StarRatingComponent } from './src/components/star-rating/star-rating.component';
+export { StarRatingControlComponent } from './src/components/star-rating-control/star-rating-control.component';
 // module
 export { StarRatingModule } from './src/angular-star-rating.module';

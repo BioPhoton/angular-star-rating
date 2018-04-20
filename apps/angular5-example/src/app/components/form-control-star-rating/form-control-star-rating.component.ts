@@ -9,10 +9,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
         <div class="col">
           <h1>Form Control</h1>
           <form [formGroup]="form" (submit)="onSubmit()">
-            <star-rating-comp
+            <star-rating-control
               [labelText]="'Rating as form control'"
               [rating]="rating"
-              formControlName="ratingInput"></star-rating-comp>
+              formControlName="ratingInput"></star-rating-control>
 
             <div class="stock-inventory__buttons">
               <button

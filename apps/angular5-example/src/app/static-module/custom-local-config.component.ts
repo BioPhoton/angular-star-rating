@@ -6,7 +6,7 @@ import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-r
   selector: 'custom-local-config',
   template: `
   <h2>Custom local config in static module</h2>
-  <star-rating-comp></star-rating-comp>
+  <star-rating></star-rating>
   Change config over service method <br/>
   <button class="btn btn-sm btn-outline-info" (click)="changeSize()">changeSize</button>
   `,

@@ -1,11 +1,11 @@
 import { EventEmitter } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { ClickEvent } from '../interfaces/click-event.interface';
-import { HoverRatingChangeEvent } from '../interfaces/hover-rating-change-event.interface';
-import { RatingChangeEvent } from '../interfaces/rating-change-event.interface';
-import { StarRating } from '../services/star-rating';
-import { StarRatingConfigService } from '../services/star-rating-config.service';
-export declare class StarRatingComponent extends StarRating implements ControlValueAccessor {
+import { ClickEvent } from '../../interfaces/click-event.interface';
+import { HoverRatingChangeEvent } from '../../interfaces/hover-rating-change-event.interface';
+import { RatingChangeEvent } from '../../interfaces/rating-change-event.interface';
+import { StarRating } from '../../services/star-rating';
+import { StarRatingConfigService } from '../../services/star-rating-config.service';
+export declare class StarRatingControlComponent extends StarRating implements ControlValueAccessor {
     starClickChange: EventEmitter<ClickEvent>;
     ratingChange: EventEmitter<RatingChangeEvent>;
     hoverRatingChange: EventEmitter<HoverRatingChangeEvent>;

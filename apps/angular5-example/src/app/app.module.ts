@@ -26,6 +26,7 @@ const DECLARATIONS = [
     NxModule.forRoot(),
     ReactiveFormsModule,
     StarRatingModule.forRoot(),
+    StaticModuleModule,
     RouterModule.forRoot(
       [
         {
@@ -67,11 +68,9 @@ const DECLARATIONS = [
       {
         useHash: true
       }
-    ),
-    StaticModuleModule
+    )
   ],
   declarations: [DECLARATIONS],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
