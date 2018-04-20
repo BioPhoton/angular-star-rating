@@ -29,10 +29,10 @@ function changelog () {
       return (detectedPreset === config.validPreset) ? Promise.resolve(detectedPreset) : Promise.reject(detectedPreset)
     })
     // ensures that a bump type was detected
-    .then(() => utils.getBump())
+    .then(utils.getBump)
     .then(
       (bump) => {
-      detectedBump = bump
+       detectedBump = bump
       console.info('detectedBump'.gray, detectedBump)
       return (detectedBump) ? Promise.resolve(detectedBump) : Promise.reject(detectedBump)
     })
