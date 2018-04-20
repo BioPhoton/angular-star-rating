@@ -7,7 +7,7 @@
 5. git tag [VERSION_NUMBER]
 6. git push --follow-tags
 7. npm run github-release
-8. npm run publish
+8. npm run release:lib
 
 # Preconditions
 
