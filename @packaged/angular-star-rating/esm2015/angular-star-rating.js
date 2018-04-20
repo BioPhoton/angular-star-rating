@@ -755,12 +755,202 @@ class StarRatingConfigService {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+class StarRatingComponent extends StarRating {
+    /**
+     * @param {?} config
+     */
+    constructor(config) {
+        super(config);
+        //Outputs
+        this.starClickChange = new EventEmitter();
+        this.ratingChange = new EventEmitter();
+        this.hoverRatingChange = new EventEmitter();
+    }
+    /**
+     * @param {?} $event
+     * @return {?}
+     */
+    saveOnClick($event) {
+        if (this.starClickChange) {
+            this.starClickChange.emit($event);
+        }
+    }
+    /**
+     * @param {?} $event
+     * @return {?}
+     */
+    saveOnRatingChange($event) {
+        if (this.ratingChange) {
+            this.ratingChange.emit($event);
+        }
+    }
+    /**
+     * @param {?} $event
+     * @return {?}
+     */
+    saveOnHover($event) {
+        if (this.hoverRatingChange) {
+            this.hoverRatingChange.emit($event);
+        }
+    }
+    /**
+     * ACCESSIBILITY *
+     * @param {?} event
+     * @return {?}
+     */
+    onKeyDown(event) {
+        if (!this.interactionPossible()) {
+            return;
+        }
+        const /** @type {?} */ handlers = {
+            //Decrement
+            Minus: () => this.decrement(),
+            ArrowDown: () => this.decrement(),
+            ArrowLeft: () => this.decrement(),
+            //Increment
+            Plus: () => this.increment(),
+            ArrowRight: () => this.increment(),
+            ArrowUp: () => this.increment(),
+            //Reset
+            Backspace: () => this.reset(),
+            Delete: () => this.reset(),
+            Digit0: () => this.reset()
+        };
+        const /** @type {?} */ handleDigits = (eventCode) => {
+            const /** @type {?} */ dStr = 'Digit';
+            const /** @type {?} */ digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1), 10);
+            this.rating = digit;
+        };
+        if (handlers[event['code']] ||
+            StarRatingUtils.isDigitKeyEventCode(event['code'])) {
+            if (StarRatingUtils.isDigitKeyEventCode(event['code'])) {
+                handleDigits(event['code']);
+            }
+            else {
+                handlers[event['code']]();
+            }
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }
+    /**
+     * @param {?=} rating
+     * @return {?}
+     */
+    onStarHover(rating) {
+        if (!this.interactionPossible() || !this.hoverEnabled) {
+            return;
+        }
+        this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
+        //fire onHoverRatingChange event
+        const /** @type {?} */ $event = { hoverRating: this.hoverRating };
+        this.saveOnHover($event);
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    setRating(value) {
+        const /** @type {?} */ initValue = this.rating;
+        super.setRating(value);
+        //if value changed trigger valueAccessor events and outputs
+        if (initValue !== this.rating) {
+            const /** @type {?} */ $event = { rating: this.rating };
+            this.saveOnRatingChange($event);
+        }
+    }
+    /**
+     * onStarClicked
+     *
+     * Is fired when a star is clicked. And updated the rating value.
+     * This function returns if the disabled or readOnly
+     * property is set. If provided it emits the onClick event
+     * handler with the actual rating value.
+     *
+     * @param {?} rating
+     * @return {?}
+     */
+    onStarClicked(rating) {
+        //fire onClick event
+        if (!this.interactionPossible()) {
+            return;
+        }
+        this.rating = rating;
+        const /** @type {?} */ onClickEventObject = {
+            rating: this.rating
+        };
+        this.saveOnClick(onClickEventObject);
+    }
+}
+StarRatingComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'star-rating',
+                inputs: [
+                    'getHalfStarVisible',
+                    'getColor',
+                    'showHalfStars',
+                    'hoverEnabled',
+                    'rating',
+                    'step',
+                    'disabled',
+                    'readOnly',
+                    'space',
+                    'starType',
+                    'size',
+                    'speed',
+                    'numOfStars',
+                    'direction',
+                    'staticColor',
+                    'labelPosition',
+                    'labelText',
+                    'id'
+                ],
+                outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
+                styles: [],
+                template: `<div id="{{id}}"
+  class="rating {{getComponentClassNames()}}"
+  tabindex="0"
+  (keydown)="onKeyDown($event)"
+  (mouseleave)="onStarHover(0)">
+    <div *ngIf="labelText" class="label-value">{{labelText}}</div>
+    <div class="star-container">
+        <div class="star"
+          (mouseenter)="onStarHover(star)"
+          *ngFor="let star of stars"
+          (click)="onStarClicked(star)">
+            <i *ngIf="!svgVisible()" class="star-empty {{classEmpty}}"></i>
+            <i *ngIf="!svgVisible()" class="star-half {{classHalf}}"></i>
+            <i *ngIf="!svgVisible()" class="star-filled {{classFilled}}"></i>
+            <svg *ngIf="svgVisible()" class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathEmpty"></use>
+            </svg>
+            <svg *ngIf="svgVisible()" class="star-half">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathHalf"></use>
+            </svg>
+            <svg *ngIf="svgVisible()" class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathFilled"></use>
+            </svg>
+        </div>
+    </div>
+</div>
+`
+            },] },
+];
+/** @nocollapse */
+StarRatingComponent.ctorParameters = () => [
+    { type: StarRatingConfigService, },
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 const STAR_RATING_CONTROL_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => StarRatingComponent),
+    useExisting: forwardRef(() => StarRatingControlComponent),
     multi: true
 };
-class StarRatingComponent extends StarRating {
+class StarRatingControlComponent extends StarRating {
     /**
      * @param {?} config
      */
@@ -841,8 +1031,8 @@ class StarRatingComponent extends StarRating {
             Digit0: () => this.reset()
         };
         const /** @type {?} */ handleDigits = (eventCode) => {
-            let /** @type {?} */ dStr = 'Digit';
-            let /** @type {?} */ digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1));
+            const /** @type {?} */ dStr = 'Digit';
+            const /** @type {?} */ digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1), 10);
             this.rating = digit;
         };
         if (handlers[event['code']] ||
@@ -886,9 +1076,9 @@ class StarRatingComponent extends StarRating {
         if (!this.interactionPossible() || !this.hoverEnabled) {
             return;
         }
-        this.hoverRating = rating ? parseInt(rating.toString()) : 0;
+        this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
         //fire onHoverRatingChange event
-        let /** @type {?} */ $event = { hoverRating: this.hoverRating };
+        const /** @type {?} */ $event = { hoverRating: this.hoverRating };
         this.saveOnHover($event);
     }
     /**
@@ -920,11 +1110,11 @@ class StarRatingComponent extends StarRating {
      * @return {?}
      */
     setRating(value) {
-        let /** @type {?} */ initValue = this.rating;
+        const /** @type {?} */ initValue = this.rating;
         super.setRating(value);
         //if value changed trigger valueAccessor events and outputs
         if (initValue !== this.rating) {
-            let /** @type {?} */ $event = { rating: this.rating };
+            const /** @type {?} */ $event = { rating: this.rating };
             this.saveOnRatingChange($event);
             this.saveOnModelChange(this.rating);
         }
@@ -946,15 +1136,15 @@ class StarRatingComponent extends StarRating {
             return;
         }
         this.rating = rating;
-        let /** @type {?} */ onClickEventObject = {
+        const /** @type {?} */ onClickEventObject = {
             rating: this.rating
         };
         this.saveOnClick(onClickEventObject);
     }
 }
-StarRatingComponent.decorators = [
+StarRatingControlComponent.decorators = [
     { type: Component, args: [{
-                selector: 'star-rating-comp',
+                selector: 'star-rating-control',
                 providers: [STAR_RATING_CONTROL_ACCESSOR],
                 inputs: [
                     'getHalfStarVisible',
@@ -1010,7 +1200,7 @@ StarRatingComponent.decorators = [
             },] },
 ];
 /** @nocollapse */
-StarRatingComponent.ctorParameters = () => [
+StarRatingControlComponent.ctorParameters = () => [
     { type: StarRatingConfigService, },
 ];
 
@@ -1018,7 +1208,10 @@ StarRatingComponent.ctorParameters = () => [
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-const DECLARATIONS = [StarRatingComponent];
+const DECLARATIONS = [
+    StarRatingComponent,
+    StarRatingControlComponent
+];
 const EXPORTS = [DECLARATIONS];
 class StarRatingModule {
     /**
@@ -1065,5 +1258,5 @@ StarRatingModule.ctorParameters = () => [];
  * Generated bundle index. Do not edit.
  */
 
-export { StarRatingConfig, StarRatingUtils, StarRating, StarRatingConfigService, StarRatingComponent, StarRatingModule };
+export { StarRatingConfig, StarRatingUtils, StarRating, StarRatingConfigService, StarRatingComponent, StarRatingControlComponent, StarRatingModule };
 //# sourceMappingURL=angular-star-rating.js.map

@@ -1,21 +1,13 @@
-import { Component, EventEmitter, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ClickEvent } from '../interfaces/click-event.interface';
-import { HoverRatingChangeEvent } from '../interfaces/hover-rating-change-event.interface';
-import { RatingChangeEvent } from '../interfaces/rating-change-event.interface';
-import { StarRating } from '../services/star-rating';
-import { StarRatingConfigService } from '../services/star-rating-config.service';
-import { StarRatingUtils } from '../services/star-rating.utils';
-
-const STAR_RATING_CONTROL_ACCESSOR = {
-  provide: NG_VALUE_ACCESSOR,
-  useExisting: forwardRef(() => StarRatingComponent),
-  multi: true
-};
+import {Component, EventEmitter} from '@angular/core';
+import {ClickEvent} from '../../interfaces/click-event.interface';
+import {HoverRatingChangeEvent} from '../../interfaces/hover-rating-change-event.interface';
+import {RatingChangeEvent} from '../../interfaces/rating-change-event.interface';
+import {StarRating} from '../../services/star-rating';
+import {StarRatingConfigService} from '../../services/star-rating-config.service';
+import {StarRatingUtils} from '../../services/star-rating.utils';
 
 @Component({
-  selector: 'star-rating-comp',
-  providers: [STAR_RATING_CONTROL_ACCESSOR],
+  selector: 'star-rating',
   inputs: [
     'getHalfStarVisible',
     'getColor',
@@ -41,8 +33,7 @@ const STAR_RATING_CONTROL_ACCESSOR = {
   styleUrls: [],
   templateUrl: 'star-rating.component.html'
 })
-export class StarRatingComponent extends StarRating
-  implements ControlValueAccessor {
+export class StarRatingComponent extends StarRating {
   //Outputs
   ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -55,11 +46,6 @@ export class StarRatingComponent extends StarRating
   hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<
     HoverRatingChangeEvent
   >();
-
-  onTouch: Function;
-  onModelChange: Function;
-  private onModelChangeRegistered = false;
-  private onTouchRegistered = false;
 
   saveOnClick($event: ClickEvent) {
     if (this.starClickChange) {
@@ -76,18 +62,6 @@ export class StarRatingComponent extends StarRating
   saveOnHover($event: HoverRatingChangeEvent) {
     if (this.hoverRatingChange) {
       this.hoverRatingChange.emit($event);
-    }
-  }
-
-  saveOnTouch() {
-    if (this.onTouchRegistered) {
-      this.onTouch();
-    }
-  }
-
-  saveOnModelChange(value: number) {
-    if (this.onModelChangeRegistered) {
-      this.onModelChange(value);
     }
   }
 
@@ -117,9 +91,9 @@ export class StarRatingComponent extends StarRating
     };
 
     const handleDigits = (eventCode: string): void => {
-      let dStr = 'Digit';
-      let digit: number = parseInt(
-        eventCode.substr(dStr.length, eventCode.length - 1)
+      const dStr = 'Digit';
+      const digit: number = parseInt(
+        eventCode.substr(dStr.length, eventCode.length - 1), 10
       );
       this.rating = digit;
     };
@@ -137,22 +111,6 @@ export class StarRatingComponent extends StarRating
       event.stopPropagation();
     }
 
-    this.saveOnTouch();
-  }
-
-  //Focus events
-  onBlur(event: FocusEvent) {
-    this.focus = false;
-    event.preventDefault();
-    event.stopPropagation();
-    this.saveOnTouch();
-  }
-
-  onFocus(event: FocusEvent) {
-    this.focus = true;
-    event.preventDefault();
-    event.stopPropagation();
-    this.saveOnTouch();
   }
 
   //Hover events
@@ -161,27 +119,11 @@ export class StarRatingComponent extends StarRating
       return;
     }
 
-    this.hoverRating = rating ? parseInt(rating.toString()) : 0;
+    this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
 
     //fire onHoverRatingChange event
-    let $event: HoverRatingChangeEvent = { hoverRating: this.hoverRating };
+    const $event: HoverRatingChangeEvent = { hoverRating: this.hoverRating };
     this.saveOnHover($event);
-  }
-
-  /**Form Control - ControlValueAccessor implementation**/
-
-  writeValue(obj: any): void {
-    this.rating = obj;
-  }
-
-  registerOnChange(fn: any): void {
-    this.onModelChange = fn;
-    this.onModelChangeRegistered = true;
-  }
-
-  registerOnTouched(fn: any): void {
-    this.onTouch = fn;
-    this.onTouchRegistered = true;
   }
 
   constructor(config: StarRatingConfigService) {
@@ -190,15 +132,13 @@ export class StarRatingComponent extends StarRating
 
   //Overrides
   setRating(value: number): void {
-    let initValue = this.rating;
+    const initValue = this.rating;
     super.setRating(value);
 
     //if value changed trigger valueAccessor events and outputs
     if (initValue !== this.rating) {
-      let $event: RatingChangeEvent = { rating: this.rating };
+      const $event: RatingChangeEvent = { rating: this.rating };
       this.saveOnRatingChange($event);
-
-      this.saveOnModelChange(this.rating);
     }
   }
 
@@ -220,7 +160,7 @@ export class StarRatingComponent extends StarRating
 
     this.rating = rating;
 
-    let onClickEventObject: ClickEvent = {
+    const onClickEventObject: ClickEvent = {
       rating: this.rating
     };
     this.saveOnClick(onClickEventObject);

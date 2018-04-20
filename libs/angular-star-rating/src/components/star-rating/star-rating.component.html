@@ -1,0 +1,26 @@
+<div id="{{id}}"
+  class="rating {{getComponentClassNames()}}"
+  tabindex="0"
+  (keydown)="onKeyDown($event)"
+  (mouseleave)="onStarHover(0)">
+    <div *ngIf="labelText" class="label-value">{{labelText}}</div>
+    <div class="star-container">
+        <div class="star"
+          (mouseenter)="onStarHover(star)"
+          *ngFor="let star of stars"
+          (click)="onStarClicked(star)">
+            <i *ngIf="!svgVisible()" class="star-empty {{classEmpty}}"></i>
+            <i *ngIf="!svgVisible()" class="star-half {{classHalf}}"></i>
+            <i *ngIf="!svgVisible()" class="star-filled {{classFilled}}"></i>
+            <svg *ngIf="svgVisible()" class="star-empty">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathEmpty"></use>
+            </svg>
+            <svg *ngIf="svgVisible()" class="star-half">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathHalf"></use>
+            </svg>
+            <svg *ngIf="svgVisible()" class="star-filled">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathFilled"></use>
+            </svg>
+        </div>
+    </div>
+</div>

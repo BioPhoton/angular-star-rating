@@ -12,12 +12,12 @@ import {Component} from '@angular/core';
       <div class="row">
         <div class="col">
           <h1>Event Bindings</h1>
-          <star-rating-comp
+          <star-rating
             [hoverEnabled]="true"
             (starClickChange)="onClick($event)"
             (ratingChange)="onRatingChange($event)"
             (hoverRatingChange)="onHoverRatingChange($event)">
-          </star-rating-comp>
+          </star-rating>
          
           <hr>
           

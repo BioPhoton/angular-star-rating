@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <h1>Property Bindings</h1>
-      <star-rating-comp
+      <star-rating
         [id]="bindingsForm.get('id').value"
         [rating]="bindingsForm.get('rating').value"
         [step]="bindingsForm.get('step').value"
@@ -24,7 +24,7 @@
         (onHoverRatingChange)="onHoverRatingChange($event)"
         (onClick)="onClick($event)"
         (onRatingChange)="onRatingChange($event)"
-      ></star-rating-comp>
+      ></star-rating>
     </div>
   </div>
 
@@ -48,10 +48,10 @@
             </div>
           </div>
           <div class="col">
-            <star-rating-comp
+            <star-rating
               labelText="Label Position"
               [labelPosition]="bindingsForm.get('labelPosition').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -69,10 +69,10 @@
             </div>
           </div>
           <div class="col">
-            <star-rating-comp
+            <star-rating
               labelText="Rating: "
               [direction]="bindingsForm.get('direction').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -94,9 +94,9 @@
 
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [starType]="bindingsForm.get('starType').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -116,9 +116,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [space]="bindingsForm.get('space').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -137,9 +137,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [numOfStars]="bindingsForm.get('numOfStars').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -157,9 +157,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [size]="bindingsForm.get('size').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -183,9 +183,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [staticColor]="bindingsForm.get('staticColor').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -204,9 +204,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [getColor]="bindingsForm.get('useCustomGetColor').value ? _getColor : false">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -225,9 +225,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [disabled]="bindingsForm.get('disabled').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -246,9 +246,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [speed]="bindingsForm.get('speed').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
       </fieldset>
@@ -265,9 +265,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [id]="bindingsForm.get('id').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -281,10 +281,10 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [showHalfStars]="true"
               [rating]="bindingsForm.get('rating').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -303,10 +303,10 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [rating]="3.5"
               [showHalfStars]="bindingsForm.get('showHalfStars').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -325,9 +325,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [hoverEnabled]="bindingsForm.get('showHoverStars').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -346,11 +346,11 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [rating]="2.2"
               [showHalfStars]="true"
               [getHalfStarVisible]="bindingsForm.get('useCustomGetHalfStarVisible').value ? _getHalfStarVisible : false">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -369,9 +369,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [readOnly]="bindingsForm.get('readOnly').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
 
@@ -386,9 +386,9 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating-comp
+            <star-rating
               [labelText]="bindingsForm.get('labelText').value">
-            </star-rating-comp>
+            </star-rating>
           </div>
         </div>
       </fieldset>
