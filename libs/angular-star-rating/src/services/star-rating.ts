@@ -389,17 +389,18 @@ export class StarRating {
     return !this.readOnly && !this.disabled;
   }
 
-  setColor(): void {
+  setColor(useHoverValue = false): void {
     //check if custom function is given
+    const ratingValue = useHoverValue ? this.hoverRating: this.rating;
     if (typeof this.getColor === 'function') {
       this.color = this.getColor(
-        this.rating,
+        ratingValue,
         this.numOfStars,
         this.staticColor
       );
     } else {
       this.color = StarRatingUtils.getColor(
-        this.rating,
+        ratingValue,
         this.numOfStars,
         this.staticColor
       );

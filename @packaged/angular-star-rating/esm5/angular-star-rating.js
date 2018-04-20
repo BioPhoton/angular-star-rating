@@ -278,12 +278,14 @@ var StarRating = /** @class */ (function () {
     StarRating.prototype.interactionPossible = function () {
         return !this.readOnly && !this.disabled;
     };
-    StarRating.prototype.setColor = function () {
+    StarRating.prototype.setColor = function (useHoverValue) {
+        if (useHoverValue === void 0) { useHoverValue = false; }
+        var ratingValue = useHoverValue ? this.hoverRating : this.rating;
         if (typeof this.getColor === 'function') {
-            this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+            this.color = this.getColor(ratingValue, this.numOfStars, this.staticColor);
         }
         else {
-            this.color = StarRatingUtils.getColor(this.rating, this.numOfStars, this.staticColor);
+            this.color = StarRatingUtils.getColor(ratingValue, this.numOfStars, this.staticColor);
         }
     };
     StarRating.prototype.setHalfStarVisible = function () {
@@ -606,6 +608,7 @@ var StarRatingComponent = /** @class */ (function (_super) {
             return;
         }
         this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
+        this.setColor(true);
         var $event = { hoverRating: this.hoverRating };
         this.saveOnHover($event);
     };

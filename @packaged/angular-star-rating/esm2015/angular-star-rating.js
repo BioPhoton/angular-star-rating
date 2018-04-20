@@ -390,15 +390,17 @@ class StarRating {
         return !this.readOnly && !this.disabled;
     }
     /**
+     * @param {?=} useHoverValue
      * @return {?}
      */
-    setColor() {
+    setColor(useHoverValue = false) {
         //check if custom function is given
+        const /** @type {?} */ ratingValue = useHoverValue ? this.hoverRating : this.rating;
         if (typeof this.getColor === 'function') {
-            this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
+            this.color = this.getColor(ratingValue, this.numOfStars, this.staticColor);
         }
         else {
-            this.color = StarRatingUtils.getColor(this.rating, this.numOfStars, this.staticColor);
+            this.color = StarRatingUtils.getColor(ratingValue, this.numOfStars, this.staticColor);
         }
     }
     /**
@@ -842,6 +844,8 @@ class StarRatingComponent extends StarRating {
             return;
         }
         this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
+        //update calculated Color
+        this.setColor(true);
         //fire onHoverRatingChange event
         const /** @type {?} */ $event = { hoverRating: this.hoverRating };
         this.saveOnHover($event);

@@ -120,6 +120,8 @@ export class StarRatingComponent extends StarRating {
     }
 
     this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
+    //update calculated Color
+    this.setColor(true);
 
     //fire onHoverRatingChange event
     const $event: HoverRatingChangeEvent = { hoverRating: this.hoverRating };
