@@ -6,6 +6,7 @@
 4. commit package.json with msg: chore(release): [VERSION_NUMBER]
 5. git tag [VERSION_NUMBER]
 6. git push --follow-tags
+7. npm run github-release
 
 # Preconditions
 
