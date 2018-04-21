@@ -22,7 +22,7 @@ const DECLARATIONS = [
 ];
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'tour-of-heroes' }),
     NxModule.forRoot(),
     ReactiveFormsModule,
     StarRatingModule.forRoot(),
@@ -71,6 +71,9 @@ const DECLARATIONS = [
     )
   ],
   declarations: [DECLARATIONS],
+  exports: [
+    RouterModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

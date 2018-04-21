@@ -8,6 +8,7 @@
 6. git push --follow-tags
 7. npm run github-release
 8. npm run release:lib
+9. update demos
 
 # Preconditions
 

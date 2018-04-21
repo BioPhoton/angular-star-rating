@@ -83,6 +83,31 @@
       "tags": []
     },
     {
+      "name": "angular5-example-ssr",
+      "platform": "server",
+      "root": "apps/angular5-example/src",
+      "outDir": "dist/apps/angular5-example-ssr",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "polyfills": "polyfills.ts",
+      "index": "index.html",
+      "main": "main.server.ts",
+      "test": "../../../test.js",
+      "tsconfig": "tsconfig.server.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    },
+    {
       "name": "angular-star-rating",
       "root": "libs/angular-star-rating/src",
       "test": "../../../test.js",

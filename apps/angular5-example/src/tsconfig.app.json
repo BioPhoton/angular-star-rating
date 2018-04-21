@@ -7,8 +7,8 @@
   "include": [
     "**/*.ts"
     /* add all lazy-loaded libraries here: "../../../libs/my-lib/index.ts" */
-  
-    , "../../../libs/mymodule/index.ts"
+
+    , "../../../libs/angular-star-rating/index.ts"
 ],
   "exclude": [
     "**/*.spec.ts"
