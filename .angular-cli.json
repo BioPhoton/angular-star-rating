@@ -84,9 +84,8 @@
     },
     {
       "name": "angular5-example-ssr",
-      "platform": "server",
       "root": "apps/angular5-example/src",
-      "outDir": "dist/apps/angular5-example-ssr",
+      "outDir": "dist/server",
       "assets": [
         "assets",
         "favicon.ico"
