@@ -16,7 +16,7 @@ function refresh (hard) {
   }
 
   return Promise.resolve()
-    // pulls the latest version and rebases
+    // pulls the latest version and rebase
     .then(() => {
       console.info('start git pull --rebase'.gray)
       return exec('git pull --rebase', {cwd: __base})
