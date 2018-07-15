@@ -128,6 +128,16 @@ export class StarRatingComponent extends StarRating {
     this.saveOnHover($event);
   }
 
+  onStopHover() {
+    if (!this.interactionPossible() || !this.hoverEnabled) {
+      return;
+    }
+
+    this.hoverRating = 0;
+    //update calculated Color
+    this.setColor();
+  }
+
   constructor(config: StarRatingConfigService) {
     super(config);
   }
