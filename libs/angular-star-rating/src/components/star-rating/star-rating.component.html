@@ -2,7 +2,7 @@
   class="rating {{getComponentClassNames()}}"
   tabindex="0"
   (keydown)="onKeyDown($event)"
-  (mouseleave)="onStarHover(0)">
+  (mouseleave)="onStopHover()">
     <div *ngIf="labelText" class="label-value">{{labelText}}</div>
     <div class="star-container">
         <div class="star"
