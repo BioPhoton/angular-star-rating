@@ -58,7 +58,7 @@ const DECLARATIONS = [
         {
           path: 'lazy-config-override',
           loadChildren:
-            'apps/angular5-example/src/app/lazy-module/lazy-module.module#LazyModuleModule'
+            () => import('apps/angular5-example/src/app/lazy-module/lazy-module.module').then(m => m.LazyModuleModule)
         },
         {
           path: '**',
