@@ -7,7 +7,7 @@ import {
 
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 import {
   starRatingColor,
   starRatingLabelPosition,
@@ -119,8 +119,8 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
   updateGetHalfStarVisibleBinding() {
     this.bindingsForm
       .get('useCustomGetHalfStarVisible')
-      .valueChanges.takeUntil(this.onDestroy$)
-      .subscribe(v => {
+      .valueChanges.pipe(takeUntil(this.onDestroy$))
+      .subscribe((v) => {
         if (v) {
           this.bindingsForm
             .get('getHalfStarVisible')
