@@ -6,7 +6,7 @@ import {
 } from '@angular-star-rating-lib/angular-star-rating';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import 'rxjs/add/operator/takeUntil';
 import {
   starRatingColor,
