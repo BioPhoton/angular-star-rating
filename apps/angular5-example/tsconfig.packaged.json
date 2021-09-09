@@ -1,7 +1,7 @@
 {
-  "extends": "../../../tsconfig.packaged.json",
+  "extends": "../../tsconfig.packaged.json",
   "compilerOptions": {
-    "outDir": "../../../dist/apps/angular5-example-packaged",
+    "outDir": "../../dist/apps/angular5-example-packaged",
     "module": "es2015"
   },
   "include": ["**/*.ts"],

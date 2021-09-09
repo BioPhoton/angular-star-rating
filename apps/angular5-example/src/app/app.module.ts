@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { NxModule } from '@nrwl/nx';
+// import { NxModule } from '@nrwl/nx';
 import { AppComponent } from './app.component';
 import { EventBindingsComponent } from './components/event-bindings/event-bindings.component';
 import { FormControlStarRatingComponent } from './components/form-control-star-rating/form-control-star-rating.component';
@@ -23,7 +23,7 @@ const DECLARATIONS = [
 @NgModule({
   imports: [
     BrowserModule,
-    NxModule.forRoot(),
+    // NxModule.forRoot(),
     ReactiveFormsModule,
     StarRatingModule.forRoot(),
     StaticModuleModule,
