@@ -20,7 +20,6 @@ import {
 @Component({
   selector: 'property-bindings',
   templateUrl: './property-bindings.component.html',
-  styles: [``]
 })
 export class PropertyBindingsComponent implements OnInit, OnDestroy {
   private onDestroy$: Subject<boolean> = new Subject<boolean>();

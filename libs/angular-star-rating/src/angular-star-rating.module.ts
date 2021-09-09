@@ -16,7 +16,7 @@ const EXPORTS = [DECLARATIONS];
   exports: [EXPORTS]
 })
 export class StarRatingModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<StarRatingModule> {
     return {
       ngModule: StarRatingModule,
       providers: [
@@ -25,7 +25,7 @@ export class StarRatingModule {
     };
   }
 
-  static forChild(): ModuleWithProviders {
+  static forChild(): ModuleWithProviders<StarRatingModule> {
     return {
       ngModule: StarRatingModule,
       providers: []
