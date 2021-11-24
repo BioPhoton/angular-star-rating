@@ -3,6 +3,30 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
+    "angular-star-rating": {
+      "projectType": "library",
+      "root": "libs/angular-star-rating",
+      "sourceRoot": "libs/angular-star-rating/src",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/angular-star-rating/**/*.ts",
+              "libs/angular-star-rating/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular-star-rating/jest.config.js",
+            "passWithNoTests": true,
+            "codeCoverage": true
+          }
+        }
+      }
+    },
     "angular5-example": {
       "root": "apps/angular5-example",
       "sourceRoot": "apps/angular5-example/src",
@@ -22,9 +46,7 @@
               "apps/angular5-example/src/assets/images",
               "apps/angular5-example/src/assets/fontawesome"
             ],
-            "styles": [
-              "apps/angular5-example/src/styles.scss"
-            ],
+            "styles": ["apps/angular5-example/src/styles.scss"],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -150,30 +172,6 @@
               "apps/angular5-example/**/*.ts",
               "apps/angular5-example/**/*.html"
             ]
-          }
-        }
-      }
-    },
-    "angular-star-rating": {
-      "projectType": "library",
-      "root": "libs/angular-star-rating",
-      "sourceRoot": "libs/angular-star-rating/src",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/angular-star-rating/**/*.ts",
-              "libs/angular-star-rating/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/angular-star-rating/jest.config.js",
-            "passWithNoTests": true,
-            "codeCoverage": true
           }
         }
       }

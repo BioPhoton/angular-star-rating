@@ -4,14 +4,9 @@
     "outDir": "./dist/out-tsc/spec",
     "module": "commonjs",
     "target": "es5",
-    "types": [
-      "jasmine",
-      "node"
-    ]
+    "types": ["jasmine", "node"]
   },
-  "include": [
-    "**/*.ts"
-  ],
+  "include": ["**/*.ts"],
   "exclude": [
     "**/e2e/*.ts",
     "**/*.e2e-spec.ts",
