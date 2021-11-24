@@ -1,21 +1,10 @@
 {
-  "extends":"../../tsconfig.base.json",
-  "compilerOptions":{
-    "outDir":"../../dist/out-tsc/apps/angular5-example",
-    "types":[
-      "node"
-    ]
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/apps/angular5-example",
+    "types": ["node"]
   },
-  "include":[
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "../../libs/mymodule/index.ts"
-  ],
-  "exclude":[
-    "**/*.spec.ts"
-  ],
-  "files":[
-    "src/main.ts",
-    "src/polyfills.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "../../libs/mymodule/index.ts"],
+  "exclude": ["**/*.spec.ts"],
+  "files": ["src/main.ts", "src/polyfills.ts"]
 }

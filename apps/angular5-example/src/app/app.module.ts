@@ -18,7 +18,7 @@ const DECLARATIONS = [
   EventBindingsComponent,
   FormControlStarRatingComponent,
   CustomStyleComponent,
-  CustomStarsComponent
+  CustomStarsComponent,
 ];
 @NgModule({
   imports: [
@@ -32,45 +32,47 @@ const DECLARATIONS = [
         {
           path: '',
           redirectTo: 'form',
-          pathMatch: 'full'
+          pathMatch: 'full',
         },
         {
           path: 'property-bindings',
-          component: PropertyBindingsComponent
+          component: PropertyBindingsComponent,
         },
         {
           path: 'event-bindings',
-          component: EventBindingsComponent
+          component: EventBindingsComponent,
         },
         {
           path: 'form-control',
-          component: FormControlStarRatingComponent
+          component: FormControlStarRatingComponent,
         },
         {
           path: 'custom-style',
-          component: CustomStyleComponent
+          component: CustomStyleComponent,
         },
         {
           path: 'custom-stars',
-          component: CustomStarsComponent
+          component: CustomStarsComponent,
         },
         // static-config-override routes in its module
         {
           path: 'lazy-config-override',
-          loadChildren:
-            () => import('apps/angular5-example/src/app/lazy-module/lazy-module.module').then(m => m.LazyModuleModule)
+          loadChildren: () =>
+            import(
+              'apps/angular5-example/src/app/lazy-module/lazy-module.module'
+            ).then((m) => m.LazyModuleModule),
         },
         {
           path: '**',
-          redirectTo: 'property-bindings'
-        }
+          redirectTo: 'property-bindings',
+        },
       ],
       {
-        useHash: true
+        useHash: true,
       }
-    )
+    ),
   ],
   declarations: [DECLARATIONS],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

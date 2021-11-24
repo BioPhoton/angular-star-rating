@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 // TODO after merge of css-star-rating.
 // @import "~css-star-rating/scss/star-rating";
-@import "~css-star-rating/css/star-rating.min.css";
-@import "~bootstrap/scss/bootstrap";
+@import '~css-star-rating/css/star-rating.min.css';
+@import '~bootstrap/scss/bootstrap';
 
-$fa-font-path: "assets/fontawesome/webfonts";
-@import "assets/fontawesome/css/fontawesome-all.min.css";
+$fa-font-path: 'assets/fontawesome/webfonts';
+@import 'assets/fontawesome/css/fontawesome-all.min.css';
 // @import "assets/fontawesome/scss/fontawesome";
 // @import "assets/fontawesome/scss/fa-brands";
 // @import "assets/fontawesome/scss/fa-regular";
