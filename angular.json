@@ -174,12 +174,8 @@
             ]
           }
         }
-      }
+      },
+      "tags": []
     }
-  },
-  "defaultProject": "angular5-example",
-  "schematics": {},
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
   }
 }

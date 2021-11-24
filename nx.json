@@ -10,9 +10,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {
-    "angular5-example": {
-      "tags": []
-    }
-  }
+  "tasksRunnerOptions": {
+    "default": {}
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "generators": {},
+  "defaultProject": "angular5-example"
 }
