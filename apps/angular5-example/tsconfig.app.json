@@ -4,7 +4,7 @@
     "outDir": "../../dist/out-tsc/apps/angular5-example",
     "types": ["node"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "../../libs/mymodule/index.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
   "exclude": ["**/*.spec.ts"],
   "files": ["src/main.ts", "src/polyfills.ts"]
 }

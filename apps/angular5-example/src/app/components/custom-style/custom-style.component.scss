@@ -2,6 +2,7 @@ $color-negative-rating: #ffff00;
 $color-ok-rating: #00ff00;
 $color-positive-rating: #ff00ff;
 $color-default-rating: #00f;
+// TODO: fix after css-star-rating refactoring.
 // @import "~css-star-rating/scss/star-rating";
 
 .rating.color-ok .star-container .star svg {
