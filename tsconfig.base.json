@@ -20,5 +20,6 @@
       "@angular-star-rating-lib/*": ["libs/*"]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
+  "rootDir": "."
 }
