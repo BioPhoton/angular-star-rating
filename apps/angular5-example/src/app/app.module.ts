@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { NxModule } from '@nrwl/nx';
+
 import { AppComponent } from './app.component';
 import { EventBindingsComponent } from './components/event-bindings/event-bindings.component';
 import { FormControlStarRatingComponent } from './components/form-control-star-rating/form-control-star-rating.component';
@@ -18,12 +18,11 @@ const DECLARATIONS = [
   EventBindingsComponent,
   FormControlStarRatingComponent,
   CustomStyleComponent,
-  CustomStarsComponent
+  CustomStarsComponent,
 ];
 @NgModule({
   imports: [
     BrowserModule,
-    NxModule.forRoot(),
     ReactiveFormsModule,
     StarRatingModule.forRoot(),
     StaticModuleModule,
@@ -32,45 +31,47 @@ const DECLARATIONS = [
         {
           path: '',
           redirectTo: 'form',
-          pathMatch: 'full'
+          pathMatch: 'full',
         },
         {
           path: 'property-bindings',
-          component: PropertyBindingsComponent
+          component: PropertyBindingsComponent,
         },
         {
           path: 'event-bindings',
-          component: EventBindingsComponent
+          component: EventBindingsComponent,
         },
         {
           path: 'form-control',
-          component: FormControlStarRatingComponent
+          component: FormControlStarRatingComponent,
         },
         {
           path: 'custom-style',
-          component: CustomStyleComponent
+          component: CustomStyleComponent,
         },
         {
           path: 'custom-stars',
-          component: CustomStarsComponent
+          component: CustomStarsComponent,
         },
         // static-config-override routes in its module
         {
           path: 'lazy-config-override',
-          loadChildren:
-            'apps/angular5-example/src/app/lazy-module/lazy-module.module#LazyModuleModule'
+          loadChildren: () =>
+            import(
+              'apps/angular5-example/src/app/lazy-module/lazy-module.module'
+            ).then((m) => m.LazyModuleModule),
         },
         {
           path: '**',
-          redirectTo: 'property-bindings'
-        }
+          redirectTo: 'property-bindings',
+        },
       ],
       {
-        useHash: true
+        useHash: true,
       }
-    )
+    ),
   ],
   declarations: [DECLARATIONS],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,20 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~css-star-rating/scss/star-rating";
-@import "~bootstrap/scss/bootstrap";
+// TODO after merge of css-star-rating.
+// @import "~css-star-rating/scss/star-rating";
+@import '~css-star-rating/css/star-rating.min.css';
+@import '~bootstrap/scss/bootstrap';
 
-$fa-font-path:  "assets/fontawesome/webfonts";
-@import "assets/fontawesome/scss/fontawesome";
-@import "assets/fontawesome/scss/fa-brands";
-@import "assets/fontawesome/scss/fa-regular";
-@import "assets/fontawesome/scss/fa-solid";
+$fa-font-path: 'assets/fontawesome/webfonts';
+@import 'assets/fontawesome/css/fontawesome-all.min.css';
+// TODO: fix after css-star-rating refactoring.
+// @import "assets/fontawesome/scss/fontawesome";
+// @import "assets/fontawesome/scss/fa-brands";
+// @import "assets/fontawesome/scss/fa-regular";
+// @import "assets/fontawesome/scss/fa-solid";
 
-#main-container, html, body {
-  height:100%;
-  margin:0;
+#main-container,
+html,
+body {
+  height: 100%;
+  margin: 0;
 }
+
 body {
   padding-top: 3.5rem;
 }
+
 #main-container {
   display: flex;
   flex-direction: column;

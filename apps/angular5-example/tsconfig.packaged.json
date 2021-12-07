@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.packaged.json",
+  "compilerOptions": {
+    "outDir": "../../dist/apps/angular5-example-packaged",
+    "module": "esnext"
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["**/*.spec.ts"]
+}

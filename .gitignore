@@ -25,6 +25,7 @@
 !.vscode/extensions.json
 
 # misc
+/.angular/
 /.sass-cache
 /connect.lock
 /coverage
@@ -40,3 +41,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# angular-star-rating
+@packaged/angular-star-rating
