@@ -12,25 +12,22 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
             <star-rating-control
               [labelText]="'Rating as form control'"
               [rating]="rating"
-              formControlName="ratingInput"></star-rating-control>
+              formControlName="ratingInput"
+            ></star-rating-control>
 
             <div class="stock-inventory__buttons">
-              <button
-                type="submit"
-                [disabled]="form.invalid">
-                Submit
-              </button>
+              <button type="submit" [disabled]="form.invalid">Submit</button>
             </div>
             <pre>{{ form.value | json }}</pre>
           </form>
         </div>
       </div>
     </div>
-  `
+  `,
 })
 export class FormControlStarRatingComponent {
   form = new FormGroup({
-    ratingInput: new FormControl('')
+    ratingInput: new FormControl(''),
   });
 
   rating = 0;

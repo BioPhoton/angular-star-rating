@@ -1,6 +1,6 @@
 import {
   StarRatingModule,
-  StarRatingConfigService
+  StarRatingConfigService,
 } from '@angular-star-rating-lib/angular-star-rating';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -16,16 +16,16 @@ import { CustomConfigService } from './custom-config.service';
     RouterModule.forChild([
       {
         path: '',
-        component: CustomConfigComponent
-      }
-    ])
+        component: CustomConfigComponent,
+      },
+    ]),
   ],
   declarations: [CustomConfigComponent, CustomLocalConfigComponent],
   providers: [
     {
       provide: StarRatingConfigService,
-      useClass: CustomConfigService
-    }
-  ]
+      useClass: CustomConfigService,
+    },
+  ],
 })
 export class LazyModuleModule {}

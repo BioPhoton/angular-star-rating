@@ -1,10 +1,10 @@
-import {Component, EventEmitter} from '@angular/core';
-import {ClickEvent} from '../../interfaces/click-event.interface';
-import {HoverRatingChangeEvent} from '../../interfaces/hover-rating-change-event.interface';
-import {RatingChangeEvent} from '../../interfaces/rating-change-event.interface';
-import {StarRating} from '../../services/star-rating';
-import {StarRatingConfigService} from '../../services/star-rating-config.service';
-import {StarRatingUtils} from '../../services/star-rating.utils';
+import { Component, EventEmitter } from '@angular/core';
+import { ClickEvent } from '../../interfaces/click-event.interface';
+import { HoverRatingChangeEvent } from '../../interfaces/hover-rating-change-event.interface';
+import { RatingChangeEvent } from '../../interfaces/rating-change-event.interface';
+import { StarRating } from '../../services/star-rating';
+import { StarRatingConfigService } from '../../services/star-rating-config.service';
+import { StarRatingUtils } from '../../services/star-rating.utils';
 
 @Component({
   selector: 'star-rating',
@@ -27,11 +27,11 @@ import {StarRatingUtils} from '../../services/star-rating.utils';
     //, 'labelVisible'
     'labelPosition',
     'labelText',
-    'id'
+    'id',
   ],
   outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
   styleUrls: [],
-  templateUrl: 'star-rating.component.html'
+  templateUrl: 'star-rating.component.html',
 })
 export class StarRatingComponent extends StarRating {
   //Outputs
@@ -39,13 +39,9 @@ export class StarRatingComponent extends StarRating {
 
   starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
 
-  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<
-    RatingChangeEvent
-  >();
+  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
 
-  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<
-    HoverRatingChangeEvent
-  >();
+  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
 
   saveOnClick($event: ClickEvent) {
     if (this.starClickChange) {
@@ -87,13 +83,14 @@ export class StarRatingComponent extends StarRating {
       //Reset
       Backspace: () => this.reset(),
       Delete: () => this.reset(),
-      Digit0: () => this.reset()
+      Digit0: () => this.reset(),
     };
 
     const handleDigits = (eventCode: string): void => {
       const dStr = 'Digit';
       const digit: number = parseInt(
-        eventCode.substr(dStr.length, eventCode.length - 1), 10
+        eventCode.substr(dStr.length, eventCode.length - 1),
+        10
       );
       this.rating = digit;
     };
@@ -110,7 +107,6 @@ export class StarRatingComponent extends StarRating {
       event.preventDefault();
       event.stopPropagation();
     }
-
   }
 
   //Hover events
@@ -173,7 +169,7 @@ export class StarRatingComponent extends StarRating {
     this.rating = rating;
 
     const onClickEventObject: ClickEvent = {
-      rating: this.rating
+      rating: this.rating,
     };
     this.saveOnClick(onClickEventObject);
   }

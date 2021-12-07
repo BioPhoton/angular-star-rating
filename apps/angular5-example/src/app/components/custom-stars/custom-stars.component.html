@@ -1,10 +1,10 @@
-<br/>
+<br />
 <div class="row">
   <div class="col" [formGroup]="form">
     <div class="form-group">
       <label>Rating Value:</label>
-      <input type="number" class="form-control" placeholder="rating"
-        step="0.5" formControlName="rating">
+      <input type="number" class="form-control" placeholder="rating" step="0.5"
+        formControlName="rating">
     </div>
     <!--
     <div class="form-group">
@@ -35,16 +35,13 @@
       </select>
     </div>
   </div> -->
-  <div class="col">
-    <div class="form-group">
-      <label>&nbsp;</label>
-      <star-rating
-        [hoverEnabled]="true"
-        [showHalfStars]="true"
-        [rating]="form.get('rating').value">
-      </star-rating>
+    <div class="col">
+      <div class="form-group">
+        <label>&nbsp;</label>
+        <star-rating [hoverEnabled]="true" [showHalfStars]="true"
+          [rating]="form.get('rating').value">
+        </star-rating>
+      </div>
+
     </div>
-
   </div>
-</div>
-

@@ -5,17 +5,19 @@ import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-r
 @Component({
   selector: 'custom-local-config',
   template: `
-  <h2>Custom local config in lazy module</h2>
-  <star-rating></star-rating>
-  Change config over service method <br/>
-  <button class="btn btn-sm btn-outline-info" (click)="changeSize()">changeSize</button>
+    <h2>Custom local config in lazy module</h2>
+    <star-rating></star-rating>
+    Change config over service method <br />
+    <button class="btn btn-sm btn-outline-info" (click)="changeSize()">
+      changeSize
+    </button>
   `,
   providers: [
     {
       provide: StarRatingConfigService,
-      useClass: CustomLocalConfigService
-    }
-  ]
+      useClass: CustomLocalConfigService,
+    },
+  ],
 })
 export class CustomLocalConfigComponent {
   constructor(private sRCS: StarRatingConfigService) {}

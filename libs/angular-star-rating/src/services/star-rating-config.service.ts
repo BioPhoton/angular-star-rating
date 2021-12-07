@@ -4,7 +4,7 @@ import {
   starRatingSizes,
   starRatingSpeed,
   starRatingStarTypes,
-  starRatingLabelPosition
+  starRatingLabelPosition,
 } from '../interfaces/star-rating-config.interface';
 
 /**

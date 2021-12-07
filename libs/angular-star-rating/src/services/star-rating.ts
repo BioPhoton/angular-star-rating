@@ -6,7 +6,7 @@ import {
   starRatingSizes,
   starRatingSpeed,
   starRatingStarSpace,
-  starRatingStarTypes
+  starRatingStarTypes,
 } from '../interfaces/star-rating-config.interface';
 import { StarRatingConfigService } from './star-rating-config.service';
 import { StarRatingUtils } from './star-rating.utils';
@@ -30,7 +30,6 @@ export class StarRating {
   halfStarVisible: boolean;
 
   /////////////////////////////////////////////
-
 
   set rating(value: number) {
     this.setRating(value);
@@ -392,7 +391,7 @@ export class StarRating {
   setColor(useHoverValue = false): void {
     console.log('useHoverValue: ', useHoverValue);
     //check if custom function is given
-    const ratingValue = useHoverValue ? this.hoverRating: this.rating;
+    const ratingValue = useHoverValue ? this.hoverRating : this.rating;
     if (typeof this.getColor === 'function') {
       this.color = this.getColor(
         ratingValue,
