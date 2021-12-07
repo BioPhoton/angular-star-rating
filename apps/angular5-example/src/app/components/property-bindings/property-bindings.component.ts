@@ -2,25 +2,24 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   ClickEvent,
   HoverRatingChangeEvent,
-  RatingChangeEvent
+  RatingChangeEvent,
 } from '@angular-star-rating-lib/angular-star-rating';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/takeUntil';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import {
   starRatingColor,
   starRatingLabelPosition,
   starRatingSizes,
   starRatingSpeed,
   starRatingStarSpace,
-  starRatingStarTypes
+  starRatingStarTypes,
 } from '@angular-star-rating-lib/angular-star-rating/src/interfaces/star-rating-config.interface';
 
 @Component({
   selector: 'property-bindings',
   templateUrl: './property-bindings.component.html',
-  styles: [``]
 })
 export class PropertyBindingsComponent implements OnInit, OnDestroy {
   private onDestroy$: Subject<boolean> = new Subject<boolean>();
@@ -30,13 +29,13 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
     'default',
     'negative',
     'ok',
-    'positive'
+    'positive',
   ];
   labelPositionOptions: Array<starRatingLabelPosition | string> = [
     'top',
     'right',
     'left',
-    'bottom'
+    'bottom',
   ];
   starOptions: Array<starRatingStarTypes> = ['svg', 'icon', 'custom-icon'];
   speedOptions: Array<starRatingSpeed> = ['immediately', 'noticeable', 'slow'];
@@ -44,7 +43,7 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
   spaceOptions: Array<starRatingStarSpace | string> = [
     'around',
     'between',
-    'no'
+    'no',
   ];
 
   bindingsForm: FormGroup;
@@ -86,7 +85,7 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
       getColor: [],
       useCustomGetColor: [false],
       getHalfStarVisible: [],
-      useCustomGetHalfStarVisible: [false]
+      useCustomGetHalfStarVisible: [false],
     });
   }
 
@@ -120,8 +119,8 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
   updateGetHalfStarVisibleBinding() {
     this.bindingsForm
       .get('useCustomGetHalfStarVisible')
-      .valueChanges.takeUntil(this.onDestroy$)
-      .subscribe(v => {
+      .valueChanges.pipe(takeUntil(this.onDestroy$))
+      .subscribe((v) => {
         if (v) {
           this.bindingsForm
             .get('getHalfStarVisible')
