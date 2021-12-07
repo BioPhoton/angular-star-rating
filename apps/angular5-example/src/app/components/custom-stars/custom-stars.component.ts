@@ -1,26 +1,27 @@
-import {StarRatingConfigService} from '@angular-star-rating-lib/angular-star-rating';
-import {Component, ViewEncapsulation} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {CustomIconsConfigService} from './custom-star-config.service';
+import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-rating';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { CustomIconsConfigService } from './custom-star-config.service';
 
 @Component({
   selector: 'app-custom-stars',
   templateUrl: './custom-stars.component.html',
-  styles: [`
-    .star .fas {
-      font-size: 17px !important;
-    }
-  `],
+  styles: [
+    `
+      .star .fas {
+        font-size: 17px !important;
+      }
+    `,
+  ],
   providers: [
     {
       provide: StarRatingConfigService,
-      useClass: CustomIconsConfigService
-    }
+      useClass: CustomIconsConfigService,
+    },
   ],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class CustomStarsComponent {
-
   defaultEmpty = 'fa-align-center';
   defaultHalf = 'fa-align-justify';
   defaultFilled = 'fa-align-left';
@@ -55,26 +56,21 @@ export class CustomStarsComponent {
     'fa-angle-double-left',
     'fa-angle-double-right',
     'fa-angle-double-up',
-    'fa-angle-down'
+    'fa-angle-down',
   ];
 
-  constructor(fb: FormBuilder, sRCS:  StarRatingConfigService) {
+  constructor(fb: FormBuilder, sRCS: StarRatingConfigService) {
     this.form = fb.group({
       rating: [3.5],
-      empty:[],
-      half:[],
-      filled:[]
+      empty: [],
+      half: [],
+      filled: [],
     });
 
-    this.form.valueChanges
-      .subscribe(
-        (formValue) => {
-          sRCS.classEmpty = formValue.half || this.defaultEmpty;
-          sRCS.classHalf = formValue.half || this.defaultHalf;
-          sRCS.classFilled = formValue.half || this.defaultFilled;
-        }
-      )
+    this.form.valueChanges.subscribe((formValue) => {
+      sRCS.classEmpty = formValue.half || this.defaultEmpty;
+      sRCS.classHalf = formValue.half || this.defaultHalf;
+      sRCS.classFilled = formValue.half || this.defaultFilled;
+    });
   }
-
-
 }
