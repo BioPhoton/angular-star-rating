@@ -1,21 +1,19 @@
 <div id="main-container" class="container-fluid">
-  <nav id="main-menu" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="https://github.com/BioPhoton/angular-star-rating">
-      Angular Star Rating<!--<i class="fas fa-github"></i>-->
+  <nav id="main-menu"
+    class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand"
+      href="https://github.com/BioPhoton/angular-star-rating">
+      Angular Star Rating
     </a>
-    <button class="navbar-toggler d-lg-none"
-            type="button"
-      data-toggle="collapse"
-      data-target="#mainNavbar"
-      aria-controls="mainNavbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      (click)="toggleNav()">
+    <button class="navbar-toggler d-lg-none" type="button"
+      data-toggle="collapse" data-target="#mainNavbar"
+      aria-controls="mainNavbar" aria-expanded="false"
+      aria-label="Toggle navigation" (click)="toggleNav()">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class=" navbar-collapse" id="mainNavbar"
-          [ngClass]="{collapse:navBarCollapsed}">
+      [ngClass]="{collapse:navBarCollapsed}">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['property-bindings']"

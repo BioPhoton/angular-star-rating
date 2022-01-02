@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/apps/angular5-example",
+    "outDir": "../../dist/out-tsc/apps/demos",
     "types": ["node"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"],

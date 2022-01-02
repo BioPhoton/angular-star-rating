@@ -27,26 +27,26 @@
         }
       }
     },
-    "angular5-example": {
-      "root": "apps/angular5-example",
-      "sourceRoot": "apps/angular5-example/src",
+    "demos": {
+      "root": "apps/demos",
+      "sourceRoot": "apps/demos/src",
       "projectType": "application",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/angular5-example",
-            "index": "apps/angular5-example/src/index.html",
-            "main": "apps/angular5-example/src/main.ts",
-            "polyfills": "apps/angular5-example/src/polyfills.ts",
-            "tsConfig": "apps/angular5-example/tsconfig.app.json",
+            "outputPath": "dist/apps/demos",
+            "index": "apps/demos/src/index.html",
+            "main": "apps/demos/src/main.ts",
+            "polyfills": "apps/demos/src/polyfills.ts",
+            "tsConfig": "apps/demos/tsconfig.app.json",
             "assets": [
-              "apps/angular5-example/src/favicon.ico",
-              "apps/angular5-example/src/assets",
-              "apps/angular5-example/src/assets/images",
-              "apps/angular5-example/src/assets/fontawesome"
+              "apps/demos/src/favicon.ico",
+              "apps/demos/src/assets",
+              "apps/demos/src/assets/images",
+              "apps/demos/src/assets/fontawesome"
             ],
-            "styles": ["apps/angular5-example/src/styles.scss"],
+            "styles": ["apps/demos/src/styles.scss"],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -66,8 +66,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/angular5-example/src/environments/environment.ts",
-                  "with": "apps/angular5-example/src/environments/environment.prod.ts"
+                  "replace": "apps/demos/src/environments/environment.ts",
+                  "with": "apps/demos/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -88,8 +88,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "apps/angular5-example/src/environments/environment.ts",
-                  "with": "apps/angular5-example/src/environments/environment.prod.ts"
+                  "replace": "apps/demos/src/environments/environment.ts",
+                  "with": "apps/demos/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -128,40 +128,40 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular5-example:build"
+            "browserTarget": "demos:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular5-example:build:production"
+              "browserTarget": "demos:build:production"
             },
             "test": {
-              "browserTarget": "angular5-example:build:test"
+              "browserTarget": "demos:build:test"
             },
             "development": {
-              "browserTarget": "angular5-example:build:development"
+              "browserTarget": "demos:build:development"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular5-example:build"
+            "browserTarget": "demos:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "apps/angular5-example/src/test.ts",
-            "polyfills": "apps/angular5-example/src/polyfills.ts",
-            "tsConfig": "apps/angular5-example/tsconfig.spec.json",
-            "karmaConfig": "apps/angular5-example/karma.conf.js",
+            "main": "apps/demos/src/test.ts",
+            "polyfills": "apps/demos/src/polyfills.ts",
+            "tsConfig": "apps/demos/tsconfig.spec.json",
+            "karmaConfig": "apps/demos/karma.conf.js",
             "codeCoverage": true,
             "browsers": "ChromeHeadlessNoSandbox",
-            "styles": ["apps/angular5-example/src/styles.scss"],
+            "styles": ["apps/demos/src/styles.scss"],
             "scripts": [],
             "assets": [
-              "apps/angular5-example/src/favicon.ico",
-              "apps/angular5-example/src/assets"
+              "apps/demos/src/favicon.ico",
+              "apps/demos/src/assets"
             ]
           }
         },
@@ -169,8 +169,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/angular5-example/**/*.ts",
-              "apps/angular5-example/**/*.html"
+              "apps/demos/**/*.ts",
+              "apps/demos/**/*.html"
             ]
           }
         }

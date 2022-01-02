@@ -1,16 +1,16 @@
-import {Component, EventEmitter, forwardRef} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {ClickEvent} from '../../interfaces/click-event.interface';
-import {HoverRatingChangeEvent} from '../../interfaces/hover-rating-change-event.interface';
-import {RatingChangeEvent} from '../../interfaces/rating-change-event.interface';
-import {StarRating} from '../../services/star-rating';
-import {StarRatingConfigService} from '../../services/star-rating-config.service';
-import {StarRatingUtils} from '../../services/star-rating.utils';
+import { Component, EventEmitter, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ClickEvent } from '../../interfaces/click-event.interface';
+import { HoverRatingChangeEvent } from '../../interfaces/hover-rating-change-event.interface';
+import { RatingChangeEvent } from '../../interfaces/rating-change-event.interface';
+import { StarRating } from '../../services/star-rating';
+import { StarRatingConfigService } from '../../services/star-rating-config.service';
+import { StarRatingUtils } from '../../services/star-rating.utils';
 
 const STAR_RATING_CONTROL_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => StarRatingControlComponent),
-  multi: true
+  multi: true,
 };
 
 @Component({
@@ -35,26 +35,23 @@ const STAR_RATING_CONTROL_ACCESSOR = {
     //, 'labelVisible'
     'labelPosition',
     'labelText',
-    'id'
+    'id',
   ],
   outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
   styleUrls: [],
-  templateUrl: 'star-rating-control.component.html'
+  templateUrl: 'star-rating-control.component.html',
 })
-export class StarRatingControlComponent extends StarRating
+export class StarRatingControlComponent
+  extends StarRating
   implements ControlValueAccessor {
   //Outputs
   ///////////////////////////////////////////////////////////////////////////////////////////
 
   starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
 
-  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<
-    RatingChangeEvent
-  >();
+  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
 
-  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<
-    HoverRatingChangeEvent
-  >();
+  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
 
   onTouch: Function;
   onModelChange: Function;
@@ -113,13 +110,14 @@ export class StarRatingControlComponent extends StarRating
       //Reset
       Backspace: () => this.reset(),
       Delete: () => this.reset(),
-      Digit0: () => this.reset()
+      Digit0: () => this.reset(),
     };
 
     const handleDigits = (eventCode: string): void => {
       const dStr = 'Digit';
       const digit: number = parseInt(
-        eventCode.substr(dStr.length, eventCode.length - 1), 10
+        eventCode.substr(dStr.length, eventCode.length - 1),
+        10
       );
       this.rating = digit;
     };
@@ -221,7 +219,7 @@ export class StarRatingControlComponent extends StarRating
     this.rating = rating;
 
     const onClickEventObject: ClickEvent = {
-      rating: this.rating
+      rating: this.rating,
     };
     this.saveOnClick(onClickEventObject);
   }

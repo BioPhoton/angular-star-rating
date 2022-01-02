@@ -4,13 +4,13 @@ export class StarRatingUtils {
   ///////////////////////////////////////////////////////////////////////////////////////////
 
   /*
-     * getStarsArray
-     *
-     * returns an array of increasing numbers starting at 1
-     *
-     * @param numOfStars
-     * @returns {Array}
-     */
+   * getStarsArray
+   *
+   * returns an array of increasing numbers starting at 1
+   *
+   * @param numOfStars
+   * @returns {Array}
+   */
   static getStarsArray(numOfStars: number): Array<number> {
     let stars: Array<number> = [];
     for (let i = 0; i < numOfStars; i++) {
@@ -20,29 +20,29 @@ export class StarRatingUtils {
   }
 
   /*
-     * getHalfStarVisible
-     *
-     * Returns true if there should be a half star visible, and false if not.
-     *
-     * @param rating
-     * @returns {boolean}
-     */
+   * getHalfStarVisible
+   *
+   * Returns true if there should be a half star visible, and false if not.
+   *
+   * @param rating
+   * @returns {boolean}
+   */
   static getHalfStarVisible(rating: number): boolean {
     return Math.abs(rating % 1) > 0;
   }
 
   /*
-     * getColor
-     *
-     * The default function for color calculation
-     * based on the current rating and the the number of stars possible.
-     * If a staticColor is set the function will use it as return value.
-     *
-     * @param rating
-     * @param numOfStars
-     * @param staticColor
-     * @returns {starRatingColor}
-     */
+   * getColor
+   *
+   * The default function for color calculation
+   * based on the current rating and the the number of stars possible.
+   * If a staticColor is set the function will use it as return value.
+   *
+   * @param rating
+   * @param numOfStars
+   * @param staticColor
+   * @returns {starRatingColor}
+   */
   static getColor(
     rating: number,
     numOfStars: number,
@@ -74,11 +74,11 @@ export class StarRatingUtils {
   }
 
   /*
-     * isDigitKeyEventCode
-     * detects digit key event sodes
-     * @param eventCode
-     * @returns {boolean}
-     */
+   * isDigitKeyEventCode
+   * detects digit key event sodes
+   * @param eventCode
+   * @returns {boolean}
+   */
   static isDigitKeyEventCode(eventCode: string): boolean {
     return eventCode.indexOf('Digit') === 0;
   }
