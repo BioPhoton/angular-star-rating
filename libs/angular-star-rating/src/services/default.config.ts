@@ -1,5 +1,5 @@
 import { starRatingColor } from '../interfaces/star-rating-config.interface';
-export const getColor = function(
+export const getColor = function (
   rating: number,
   numOfStars: number,
   staticColor?: starRatingColor
@@ -28,7 +28,7 @@ export const getColor = function(
 
   return color;
 };
-export const getHalfStarVisible = function(rating: number): boolean {
+export const getHalfStarVisible = function (rating: number): boolean {
   return Math.abs(rating % 1) > 0;
 };
 
@@ -50,5 +50,5 @@ export const defaultConfig = {
   svgPathHalf: this.svgPath + '#' + this.svgHalfSymbolId,
   svgPathFilled: this.svgPath + '#' + this.svgFilledSymbolId,
   getColor: getColor,
-  getHalfStarVisible: getHalfStarVisible
+  getHalfStarVisible: getHalfStarVisible,
 };

@@ -1,7 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StarRatingComponent } from './star-rating.component';
 
@@ -10,9 +8,9 @@ describe('StarRatingComponent', () => {
   let fixture: ComponentFixture<StarRatingComponent>;
 
   beforeEach(
-    async(() => {
+    waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [StarRatingComponent]
+        declarations: [StarRatingComponent],
       }).compileComponents();
     })
   );

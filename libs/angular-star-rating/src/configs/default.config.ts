@@ -1,4 +1,4 @@
-import {starRatingColor} from '../interfaces/star-rating-config.interface';
+import { starRatingColor } from '../interfaces/star-rating-config.interface';
 
 export class DefaultConfig {
   classEmpty = 'default-star-empty-icon';
@@ -46,9 +46,9 @@ export class DefaultConfig {
     }
 
     return color;
-  };
+  }
 
   getHalfStarVisible(rating: number): boolean {
     return Math.abs(rating % 1) > 0;
-  };
+  }
 }

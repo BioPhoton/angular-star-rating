@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col">
       <h1>Property Bindings</h1>
-      <star-rating
-        [id]="bindingsForm.get('id').value"
+      <star-rating [id]="bindingsForm.get('id').value"
         [rating]="bindingsForm.get('rating').value"
         [step]="bindingsForm.get('step').value"
         [showHalfStars]="bindingsForm.get('showHalfStars').value"
@@ -22,9 +21,8 @@
         [getColor]="bindingsForm.get('getColor').value"
         [getHalfStarVisible]="bindingsForm.get('getHalfStarVisible').value"
         (onHoverRatingChange)="onHoverRatingChange($event)"
-        (onClick)="onClick($event)"
-        (onRatingChange)="onRatingChange($event)"
-      ></star-rating>
+        (onClick)="onClick($event)" (onRatingChange)="onRatingChange($event)">
+      </star-rating>
     </div>
   </div>
 
@@ -48,8 +46,7 @@
             </div>
           </div>
           <div class="col">
-            <star-rating
-              labelText="Label Position"
+            <star-rating labelText="Label Position"
               [labelPosition]="bindingsForm.get('labelPosition').value">
             </star-rating>
           </div>
@@ -69,8 +66,7 @@
             </div>
           </div>
           <div class="col">
-            <star-rating
-              labelText="Rating: "
+            <star-rating labelText="Rating: "
               [direction]="bindingsForm.get('direction').value">
             </star-rating>
           </div>
@@ -82,8 +78,7 @@
               <label>
                 starType: {{bindingsForm.get('starType').value}}
               </label>
-              <select class="form-control"
-                formControlName="starType">
+              <select class="form-control" formControlName="starType">
                 <option [ngValue]="">none</option>
                 <ng-template ngFor let-opt [ngForOf]="starOptions">
                   <option [value]="opt">{{opt}}</option>
@@ -94,8 +89,7 @@
 
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [starType]="bindingsForm.get('starType').value">
+            <star-rating [starType]="bindingsForm.get('starType').value">
             </star-rating>
           </div>
         </div>
@@ -105,8 +99,7 @@
           <div class="col">
             <div class="form-group">
               <label class="form-label">Space</label>
-              <select class="form-control"
-                formControlName="space">
+              <select class="form-control" formControlName="space">
                 <option [ngValue]="">none</option>
                 <ng-template ngFor let-opt [ngForOf]="spaceOptions">
                   <option [value]="opt">{{opt}}</option>
@@ -116,8 +109,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [space]="bindingsForm.get('space').value">
+            <star-rating [space]="bindingsForm.get('space').value">
             </star-rating>
           </div>
         </div>
@@ -137,8 +129,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [numOfStars]="bindingsForm.get('numOfStars').value">
+            <star-rating [numOfStars]="bindingsForm.get('numOfStars').value">
             </star-rating>
           </div>
         </div>
@@ -157,8 +148,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [size]="bindingsForm.get('size').value">
+            <star-rating [size]="bindingsForm.get('size').value">
             </star-rating>
           </div>
         </div>
@@ -183,8 +173,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [staticColor]="bindingsForm.get('staticColor').value">
+            <star-rating [staticColor]="bindingsForm.get('staticColor').value">
             </star-rating>
           </div>
         </div>
@@ -204,8 +193,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [hoverEnabled]="true"
+            <star-rating [hoverEnabled]="true"
               [getColor]="bindingsForm.get('useCustomGetColor').value ? _getColor : false">
             </star-rating>
           </div>
@@ -226,8 +214,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [disabled]="bindingsForm.get('disabled').value">
+            <star-rating [disabled]="bindingsForm.get('disabled').value">
             </star-rating>
           </div>
         </div>
@@ -247,8 +234,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [speed]="bindingsForm.get('speed').value">
+            <star-rating [speed]="bindingsForm.get('speed').value">
             </star-rating>
           </div>
         </div>
@@ -266,8 +252,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [id]="bindingsForm.get('id').value">
+            <star-rating [id]="bindingsForm.get('id').value">
             </star-rating>
           </div>
         </div>
@@ -282,8 +267,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [showHalfStars]="true"
+            <star-rating [showHalfStars]="true"
               [rating]="bindingsForm.get('rating').value">
             </star-rating>
           </div>
@@ -304,8 +288,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [rating]="3.5"
+            <star-rating [rating]="3.5"
               [showHalfStars]="bindingsForm.get('showHalfStars').value">
             </star-rating>
           </div>
@@ -347,9 +330,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [rating]="2.2"
-              [showHalfStars]="true"
+            <star-rating [rating]="2.2" [showHalfStars]="true"
               [getHalfStarVisible]="bindingsForm.get('useCustomGetHalfStarVisible').value ? _getHalfStarVisible : false">
             </star-rating>
           </div>
@@ -370,8 +351,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [readOnly]="bindingsForm.get('readOnly').value">
+            <star-rating [readOnly]="bindingsForm.get('readOnly').value">
             </star-rating>
           </div>
         </div>
@@ -387,8 +367,7 @@
           </div>
           <div class="col">
             <label>&nbsp;</label>
-            <star-rating
-              [labelText]="bindingsForm.get('labelText').value">
+            <star-rating [labelText]="bindingsForm.get('labelText').value">
             </star-rating>
           </div>
         </div>
