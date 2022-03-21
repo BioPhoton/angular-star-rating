@@ -45,11 +45,10 @@
   "module": "angular-star-rating.js",
   "typings": "angular-star-rating.d.ts",
   "peerDependencies": {
-    "@angular/core": "^10.0.0 || ^12.0.0",
-    "@angular/forms": "^10.0.0 || ^12.0.0",
-    "rxjs": "^6.6.0",
-    "zone.js": "^0.11.4",
-    "css-star-rating": "^1.2.4"
+    "@angular/core": ">=10.0.0",
+    "@angular/forms": ">=10.0.0",
+    "rxjs": ">=6.5.5",
+    "css-star-rating": ">=1.3.0"
   },
   "ngPackage": {
     "lib": {
