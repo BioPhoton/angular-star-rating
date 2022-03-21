@@ -38,7 +38,7 @@
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "changelog": "node ./chore/scripts/tasks/changelog",
-    "recommended-bump": "conventional-recommended-bump -p angular",
+    "recommended-bump": "npx conventional-recommended-bump -p angular",
     "release": "node ./chore/scripts/release",
     "github-release": "node ./chore/scripts/tasks/release-github",
     "release:lib": "npm publish ./@packaged/angular-star-rating"
