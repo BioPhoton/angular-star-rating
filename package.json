@@ -37,7 +37,8 @@
     "docs:build": "compodoc -p ./src/tsconfig.api-doc.json -n angular-star-rating -d docs/api-doc/ --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
-    "changelog": "node ./chore/scripts/tasks/changelog",
+    "changelog": "conventional-changelog -i CHANGELOG.md -s",
+    "release:git-changelog": "standard-version --first-release",
     "recommended-bump": "npx conventional-recommended-bump -p angular",
     "release": "node ./chore/scripts/release",
     "github-release": "node ./chore/scripts/tasks/release-github",
@@ -103,6 +104,7 @@
     "ng-packagr": "13.0.7",
     "postcss": "^8.3.6",
     "prettier": "2.2.1",
+    "standard-version": "^9.3.2",
     "ts-node": "9.1.1",
     "tslint": "~6.1.0",
     "typescript": "4.4.4"

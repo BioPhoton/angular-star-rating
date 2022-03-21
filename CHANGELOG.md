@@ -1,3 +1,50 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## 5.0.0 (2022-03-21)
+
+
+### ⚠️ BREAKING CHANGES
+
+* Angular 13 or higher is now required to use this package
+
+### Features
+
+* add missing migrations ([532b6dc](https://github.com/BioPhoton/angular-star-rating/commit/532b6dc9402962e669fe4fba4318b4c776674959))
+* **automated release chain:** fixed paths and versions ([bcc3057](https://github.com/BioPhoton/angular-star-rating/commit/bcc3057f9cf20cd7dda363305d4162f5b8e59f11)), closes [#78](https://github.com/BioPhoton/angular-star-rating/issues/78)
+* **automated release chain:** wip ([b03857b](https://github.com/BioPhoton/angular-star-rating/commit/b03857b4e4ba37dc90d4733212a85746a81cb331))
+* **automated release chain:** wip ([b5ccb11](https://github.com/BioPhoton/angular-star-rating/commit/b5ccb11911b343c8ddc0aef04a0bfab8016f30d6))
+* **automated release chain:** wip ([2ed9b61](https://github.com/BioPhoton/angular-star-rating/commit/2ed9b61211aef101105ee83735fecb24e962666a))
+* **control component:** implement separate component for reactive form control ([4df3b9f](https://github.com/BioPhoton/angular-star-rating/commit/4df3b9ffbae9f6646063f89bf2090964c3e7981e)), closes [#87](https://github.com/BioPhoton/angular-star-rating/issues/87)
+* move to latest nx monorepo ([f028b2d](https://github.com/BioPhoton/angular-star-rating/commit/f028b2dad67cd2994ffc3db7bf1b9b4c265cf84b))
+* upgrade to latest angular version ([3147365](https://github.com/BioPhoton/angular-star-rating/commit/3147365320f31a26682ee934c9743da099b31833))
+
+
+### Bug Fixes
+
+* add formatted files ([f47a1f1](https://github.com/BioPhoton/angular-star-rating/commit/f47a1f166e0c218744aed0bb5c9fdf16acdb0409))
+* add missing assets to config ([e59e142](https://github.com/BioPhoton/angular-star-rating/commit/e59e142974f38cdebd3db235ae7bef4fdb02cbfd))
+* add missing tsconfig props and mark some todos ([0579b92](https://github.com/BioPhoton/angular-star-rating/commit/0579b925bf6d5e1c8f27de0e0015f77906f0d146))
+* add new generated lock ([7c423bc](https://github.com/BioPhoton/angular-star-rating/commit/7c423bc1a3505cc9011981780a9c2db0690b4b93))
+* adjust script and regenerate lock ([41d684c](https://github.com/BioPhoton/angular-star-rating/commit/41d684c4a7a301240647db7f8529dd089ef5c634))
+* **component interaction:** fiy wrong color after hover end ([3150e69](https://github.com/BioPhoton/angular-star-rating/commit/3150e694dceaca2603112244e5a8fc54e581afe9)), closes [#91](https://github.com/BioPhoton/angular-star-rating/issues/91)
+* **dependencies:** fixed deerDependencies for css-star-rating ([695cfce](https://github.com/BioPhoton/angular-star-rating/commit/695cfce3d75dd9f0b0f85e51b3ca012ee69566a6))
+* **dependencies:** updated dependencies ([5d93197](https://github.com/BioPhoton/angular-star-rating/commit/5d93197cfd1efa424609580763b4e75dd644921d))
+* **examples:** setup editable demo on stackbliz.com closes [#42](https://github.com/BioPhoton/angular-star-rating/issues/42) ([4701f57](https://github.com/BioPhoton/angular-star-rating/commit/4701f57c7bf11894b5f795538cab2330f1d4945f))
+* **hover color with custom getColor:** display color of custom getColor function when hovering ([1bc63e5](https://github.com/BioPhoton/angular-star-rating/commit/1bc63e582dfd48de1ab25429c58d4f8e766dbb9e)), closes [#77](https://github.com/BioPhoton/angular-star-rating/issues/77)
+* **hover color with custom getColor:** display color of custom getColor function when hovering ([f00737e](https://github.com/BioPhoton/angular-star-rating/commit/f00737ecc1e9af68219f413afa53c9e5b5697ecf)), closes [#77](https://github.com/BioPhoton/angular-star-rating/issues/77)
+* migrate rxjs syntax ([9804c0d](https://github.com/BioPhoton/angular-star-rating/commit/9804c0d515ce42bd89d6cd1a6231b6fca432e215))
+* **release script:** auto copy assets into packaged version. ([e7b7edf](https://github.com/BioPhoton/angular-star-rating/commit/e7b7edf584e65170c9486a2e9e78aa5d804b9449)), closes [#81](https://github.com/BioPhoton/angular-star-rating/issues/81)
+* remove old lock files to avoid missmatch on install ([6bd6cae](https://github.com/BioPhoton/angular-star-rating/commit/6bd6cae606e9a4b7ebce78f938c3527aa9243622))
+* rename angular5-example to demos project ([c4e1445](https://github.com/BioPhoton/angular-star-rating/commit/c4e14452711386e468cae4f8ee9774a30bf7691a))
+* **renamed event bindings:** renamed event bindings ([445f9cd](https://github.com/BioPhoton/angular-star-rating/commit/445f9cdb49dd0c82473e11bc7613d68ad3b6c3ab))
+
+### Build
+
+* upgrade to angular 13
+
+
 <a name="4.0.0-beta.3"></a>
 # [4.0.0-beta.3](https://github.com/BioPhoton/angular-star-rating/compare/4.0.0-beta.2...4.0.0-beta.3) (2018-04-20)
 
