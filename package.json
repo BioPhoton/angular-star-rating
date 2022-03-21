@@ -11,7 +11,7 @@
     "build:packaged": "ng build --app=angular5-example-packaged",
     "build:github-page": "ng build --prod --output-path docs --base-href /angular-star-rating/",
     "copy:lib-assets": "copyfiles -u 3 ./libs/angular-star-rating/src/assets/**/* ./@packaged/angular-star-rating",
-    "copy:assets": "copyfiles -u 0 README.md ./@packaged/angular-star-rating && copyfiles -u 0 ./LICENSE.txt ./@packaged/angular-star-rating",
+    "copy:assets": "copyfiles -u 0 README.md ./@packaged/angular-star-rating && copyfiles -u 0 ./LICENSE.txt ./@packaged/angular-star-rating && copyfiles -u 0 ./CHANGELOG.md ./@packaged/angular-star-rating",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
