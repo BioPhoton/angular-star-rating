@@ -1,5 +1,5 @@
 # Angular Star Rating ⭐⭐⭐⭐⭐
-#### ⭐ Angular Star Rating is a Angular 2+ component made with ❤, based on css only techniques. ⭐
+#### ⭐ Angular Star Rating is a Angular 10+ component made with ❤, based on css only techniques. ⭐
 
 ![License](https://img.shields.io/npm/l/angular-star-rating.svg)
 [![NPM Version](https://img.shields.io/npm/v/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)
@@ -9,7 +9,7 @@
 
 [![NPM](https://img.shields.io/npm/dt/angular-star-rating.svg)](https://www.npmjs.com/package/angular-star-rating)
 
-Angular Star Rating is a Angular 2+ component made with ❤.
+Angular Star Rating is a Angular 10+ component made with ❤.
 
 It is based on best practice UX/UI methods, accessibility in mind and an eye for details.
 In love with reactive forms, the component is easy to control over the keyboard.
