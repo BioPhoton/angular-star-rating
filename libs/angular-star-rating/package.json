@@ -1,8 +1,8 @@
 {
   "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "angular-star-rating",
-  "description": "Angular Star Rating is a fully featured and configurabel Angular UI component.",
-  "version": "4.0.0-beta.3",
+  "description": "Angular Star Rating is a fully featured and configurable Angular UI component.",
+  "version": "5.0.0",
   "homepage": "https://github.com/BioPhoton/angular-star-rating#readme",
   "repository": {
     "type": "git",
@@ -35,7 +35,8 @@
     "Angular Component",
     "Angular2",
     "Angular2 Component",
-    "Typescript"
+    "Typescript",
+    "Angular rating"
   ],
   "license": "MIT",
   "bugs": {
