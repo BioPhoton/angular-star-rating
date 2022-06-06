@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/BioPhoton/angular-star-rating/compare/v5.0.1...v5.1.0) (2022-06-06)
+
+### Features
+
+* add support for newer version of dart-sass ([0166054](https://github.com/BioPhoton/angular-star-rating/commit/0166054))
+
+
+### Bug Fixes
+
+* Fix [#109](https://github.com/BioPhoton/angular-star-rating/issues/109), [#121](https://github.com/BioPhoton/angular-star-rating/issues/121)
+
 ## [5.0.1](https://github.com/BioPhoton/angular-star-rating/compare/v5.0.0...v5.0.1) (2022-03-21)
 
 
