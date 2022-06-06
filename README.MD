@@ -46,7 +46,7 @@ Fully featured this component is provided with:
 | [Css Star Rating](https://github.com/BioPhoton/css-star-rating) | [Angular1 Star Rating](https://github.com/BioPhoton/angular1-star-rating) | [Angular Star Rating](https://github.com/BioPhoton/angular-star-rating) |[Ionic1 Star Rating](https://github.com/BioPhoton/ionic1-star-rating) |
 
 ## DEMO
-- [x] [Stackblitz Demo](https://stackblitz.com/edit/angular-star-rating-demo?file=app%2Fapp.component.html)
+- [x] [Stackblitz Demo](https://stackblitz.com/edit/angular-ivy-8gkvhh)
 - [x] [Live Demo](https://biophoton.github.io/angular-star-rating)
 - [x] [Example-App Sources](https://github.com/BioPhoton/angular-star-rating/tree/master/examples/angular4)
 
