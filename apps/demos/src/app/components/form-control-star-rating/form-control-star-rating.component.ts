@@ -39,6 +39,6 @@ export class FormControlStarRatingComponent {
   }
 
   onSubmit() {
-    console.log('Submitted value:', this.form.value);
+    // TODO.
   }
 }

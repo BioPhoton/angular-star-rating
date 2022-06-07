@@ -16,7 +16,6 @@ export class CustomConfigComponent {
   constructor(private sRCS: StarRatingConfigService) {}
 
   changeSize() {
-    console.log('changeSize');
     if (this.sRCS.size === 'large') {
       this.sRCS.size = 'small';
     } else {

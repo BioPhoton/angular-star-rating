@@ -91,20 +91,18 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
 
   //component output (& bindings)
   onHover($event: HoverRatingChangeEvent): void {
-    console.log('single onHover rating: ', $event.hoverRating);
+    // TODO
   }
 
   onClick($event: ClickEvent): void {
-    console.log('single onClick rating: ', $event.rating);
+    // TODO
   }
 
   onHoverRatingChange($event: HoverRatingChangeEvent): void {
-    console.log('single OnHoverRatingChangeEvent rating: ', $event.hoverRating);
-    // this.bindingsForm.get('hoverRating').setValue($event.hoverRating);
+    // TODO.
   }
 
   onRatingChange($event: RatingChangeEvent): void {
-    console.log('single onRatingChange rating: ', $event.rating);
     this.bindingsForm.get('rating').setValue($event.rating);
   }
 
@@ -136,20 +134,11 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
     numOfStars: number,
     staticColor: string
   ): string {
-    console.log(
-      'getColor rating: ',
-      rating,
-      'numOfStars: ',
-      numOfStars,
-      'fixColor: ',
-      staticColor
-    );
     let colors = ['default', 'negative', 'ok', 'positive'];
     return colors[Math.floor(Math.random() * colors.length)];
   }
 
   _getHalfStarVisible(rating: number): boolean {
-    console.log('getHalfStarVisible rating: ', rating, rating % 1);
     return rating > 2;
   }
 }

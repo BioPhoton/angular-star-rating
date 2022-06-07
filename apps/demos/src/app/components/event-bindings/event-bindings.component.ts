@@ -49,17 +49,14 @@ export class EventBindingsComponent {
   onRatingChangeResult: RatingChangeEvent;
 
   onClick = ($event: ClickEvent) => {
-    console.log('onClick $event: ', $event);
     this.onClickResult = $event;
   };
 
   onRatingChange = ($event: RatingChangeEvent) => {
-    console.log('onRatingUpdated $event: ', $event);
     this.onRatingChangeResult = $event;
   };
 
   onHoverRatingChange = ($event: HoverRatingChangeEvent) => {
-    console.log('onHoverRatingChange $event: ', $event);
     this.onHoverRatingChangeResult = $event;
   };
 }

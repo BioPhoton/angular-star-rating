@@ -389,7 +389,6 @@ export class StarRating {
   }
 
   setColor(useHoverValue = false): void {
-    console.log('useHoverValue: ', useHoverValue);
     //check if custom function is given
     const ratingValue = useHoverValue ? this.hoverRating : this.rating;
     if (typeof this.getColor === 'function') {
