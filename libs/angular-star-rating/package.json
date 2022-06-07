@@ -1,5 +1,4 @@
 {
-  "$schema": "../../node_modules/ng-packagr/package.schema.json",
   "name": "angular-star-rating",
   "description": "Angular Star Rating is a fully featured and configurable Angular UI component.",
   "version": "5.1.0",
@@ -49,11 +48,5 @@
     "@angular/forms": ">=10.0.0",
     "rxjs": ">=6.5.5",
     "css-star-rating": ">=1.3.1"
-  },
-  "ngPackage": {
-    "lib": {
-      "entryFile": "index.ts"
-    },
-    "dest": "../../@packaged/angular-star-rating"
   }
 }
