@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "",
   "projects": {
     "angular-star-rating": {
       "projectType": "library",
@@ -46,7 +45,9 @@
               "apps/demos/src/assets/images",
               "apps/demos/src/assets/fontawesome"
             ],
-            "styles": ["apps/demos/src/styles.scss"],
+            "styles": [
+              "apps/demos/src/styles.scss"
+            ],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -157,7 +158,9 @@
             "karmaConfig": "apps/demos/karma.conf.js",
             "codeCoverage": true,
             "browsers": "ChromeHeadlessNoSandbox",
-            "styles": ["apps/demos/src/styles.scss"],
+            "styles": [
+              "apps/demos/src/styles.scss"
+            ],
             "scripts": [],
             "assets": [
               "apps/demos/src/favicon.ico",
