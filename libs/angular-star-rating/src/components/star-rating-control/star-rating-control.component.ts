@@ -1,4 +1,5 @@
-import { Component, EventEmitter, forwardRef } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component, EventEmitter, forwardRef, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { ClickEvent } from '../../interfaces/click-event.interface';
@@ -17,43 +18,24 @@ const STAR_RATING_CONTROL_ACCESSOR = {
 @Component({
   selector: 'star-rating-control',
   providers: [STAR_RATING_CONTROL_ACCESSOR],
-  inputs: [
-    'getHalfStarVisible',
-    'getColor',
-    'showHalfStars',
-    'hoverEnabled',
-    'rating',
-    'step',
-    'disabled',
-    'readOnly',
-    'space',
-    'starType',
-    'size',
-    'speed',
-    'numOfStars',
-    'direction',
-    'staticColor',
-    //, 'labelVisible'
-    'labelPosition',
-    'labelText',
-    'id',
-  ],
-  outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
   templateUrl: 'star-rating-control.component.html',
 })
 export class StarRatingControlComponent
   extends StarRating
   implements ControlValueAccessor
 {
+  @Output()
   starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
 
-  ratingChange: EventEmitter<RatingChangeEvent> =
-    new EventEmitter<RatingChangeEvent>();
+  @Output()
+  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
 
-  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> =
-    new EventEmitter<HoverRatingChangeEvent>();
+  @Output()
+  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onTouch: Function;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onModelChange: Function;
   private onModelChangeRegistered = false;
   private onTouchRegistered = false;

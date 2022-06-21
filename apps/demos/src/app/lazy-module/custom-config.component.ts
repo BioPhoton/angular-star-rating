@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-rating';
 @Component({
   selector: 'custom-config',

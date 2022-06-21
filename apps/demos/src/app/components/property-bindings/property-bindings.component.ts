@@ -90,7 +90,7 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
   }
 
   //component output (& bindings)
-  onHover($event: HoverRatingChangeEvent): void {
+  onHover(_$event: HoverRatingChangeEvent): void {
     // TODO
   }
 
@@ -124,7 +124,7 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
             .get('getHalfStarVisible')
             .setValue(this._getHalfStarVisible);
         } else {
-          this.bindingsForm.get('getHalfStarVisible').setValue(() => {});
+          this.bindingsForm.get('getHalfStarVisible').setValue({});
         }
       });
   }
@@ -134,7 +134,7 @@ export class PropertyBindingsComponent implements OnInit, OnDestroy {
     numOfStars: number,
     staticColor: string
   ): string {
-    let colors = ['default', 'negative', 'ok', 'positive'];
+    const colors = ['default', 'negative', 'ok', 'positive'];
     return colors[Math.floor(Math.random() * colors.length)];
   }
 

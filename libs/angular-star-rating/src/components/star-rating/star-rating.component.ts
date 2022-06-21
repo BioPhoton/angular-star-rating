@@ -1,47 +1,32 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ClickEvent } from '../../interfaces/click-event.interface';
 import { HoverRatingChangeEvent } from '../../interfaces/hover-rating-change-event.interface';
 import { RatingChangeEvent } from '../../interfaces/rating-change-event.interface';
+import { starRatingColor } from '../../interfaces/star-rating-config.interface';
 import { StarRating } from '../../services/star-rating';
 import { StarRatingConfigService } from '../../services/star-rating-config.service';
 import { StarRatingUtils } from '../../services/star-rating.utils';
 
 @Component({
   selector: 'star-rating',
-  inputs: [
-    'getHalfStarVisible',
-    'getColor',
-    'showHalfStars',
-    'hoverEnabled',
-    'rating',
-    'step',
-    'disabled',
-    'readOnly',
-    'space',
-    'starType',
-    'size',
-    'speed',
-    'numOfStars',
-    'direction',
-    'staticColor',
-    //, 'labelVisible'
-    'labelPosition',
-    'labelText',
-    'id',
-  ],
-  outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
-  styleUrls: [],
   templateUrl: 'star-rating.component.html',
 })
 export class StarRatingComponent extends StarRating {
-  //Outputs
-  ///////////////////////////////////////////////////////////////////////////////////////////
+  @Input() getHalfStarVisible: (rating: number) => boolean;
+  @Input() getColor: (
+    rating: number,
+    numOfStars: number,
+    staticColor?: starRatingColor | undefined
+  ) => starRatingColor;
 
+  @Output()
   starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
 
+  @Output()
   ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
 
+  @Output()
   hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
 
   saveOnClick($event: ClickEvent) {
@@ -70,7 +55,7 @@ export class StarRatingComponent extends StarRating {
       return;
     }
 
-    const handlers: any = {
+    const handlers: Record<string, () => void> = {
       //Decrement
       Minus: () => this.decrement(),
       ArrowDown: () => this.decrement(),

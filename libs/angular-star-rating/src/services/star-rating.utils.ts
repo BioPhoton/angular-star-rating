@@ -12,7 +12,7 @@ export class StarRatingUtils {
    * @returns {Array}
    */
   static getStarsArray(numOfStars: number): Array<number> {
-    let stars: Array<number> = [];
+    const stars: Array<number> = [];
     for (let i = 0; i < numOfStars; i++) {
       stars.push(i + 1);
     }
@@ -56,7 +56,7 @@ export class StarRatingUtils {
     }
 
     //calculate size of smallest fraction
-    let fractionSize = numOfStars / 3;
+    const fractionSize = numOfStars / 3;
 
     //apply color by fraction
     let color: starRatingColor = 'default';

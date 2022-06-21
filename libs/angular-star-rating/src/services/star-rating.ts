@@ -1,3 +1,6 @@
+/* eslint-disable @angular-eslint/component-class-suffix */
+import { Component, Input } from '@angular/core';
+
 import {
   StarRatingConfig,
   starRatingColor,
@@ -11,6 +14,11 @@ import {
 import { StarRatingConfigService } from './star-rating-config.service';
 import { StarRatingUtils } from './star-rating.utils';
 
+@Component({
+  // Metadata needed for Angular.
+  template: ``,
+  selector: 'placeholder-star-rating'
+})
 export class StarRating {
   protected config: StarRatingConfig;
 
@@ -29,12 +37,6 @@ export class StarRating {
   ratingAsInteger: number;
   halfStarVisible: boolean;
 
-  /////////////////////////////////////////////
-
-  set rating(value: number) {
-    this.setRating(value);
-  }
-
   /**
    * showHalfStars
    */
@@ -43,7 +45,7 @@ export class StarRating {
     return this._showHalfStars;
   }
 
-  set showHalfStars(value: boolean) {
+  @Input() set showHalfStars(value: boolean) {
     this._showHalfStars = !!value;
 
     //update halfStarVisible
@@ -58,6 +60,7 @@ export class StarRating {
     numOfStars: number,
     staticColor?: starRatingColor
   ) => starRatingColor;
+
   /////////////////////////////////////////////
 
   /**
@@ -77,7 +80,7 @@ export class StarRating {
     return this._id;
   }
 
-  set id(value: string) {
+  @Input() set id(value: string) {
     this._id = value || '';
   }
 
@@ -91,7 +94,7 @@ export class StarRating {
     return this._focus;
   }
 
-  set focus(value: boolean) {
+  @Input() set focus(value: boolean) {
     this._focus = !!value;
   }
 
@@ -105,7 +108,7 @@ export class StarRating {
     return this._labelText;
   }
 
-  set labelText(value: string) {
+  @Input() set labelText(value: string) {
     this._labelText = value;
   }
 
@@ -119,7 +122,7 @@ export class StarRating {
     return this._labelPosition;
   }
 
-  set labelPosition(value: starRatingLabelPosition) {
+  @Input() set labelPosition(value: starRatingLabelPosition) {
     this._labelPosition = value || this.config.labelPosition;
   }
 
@@ -133,7 +136,7 @@ export class StarRating {
     return this._labelVisible;
   }
 
-  set labelVisible(value: boolean) {
+  @Input() set labelVisible(value: boolean) {
     this._labelVisible = !!value;
   }
 
@@ -147,7 +150,7 @@ export class StarRating {
     return this._hoverEnabled;
   }
 
-  set hoverEnabled(value: boolean) {
+  @Input() set hoverEnabled(value: boolean) {
     this._hoverEnabled = value !== undefined ? !!value : false;
   }
 
@@ -161,7 +164,7 @@ export class StarRating {
     return this._staticColor || this.config.staticColor || undefined;
   }
 
-  set staticColor(value: starRatingColor) {
+  @Input() set staticColor(value: starRatingColor) {
     this._staticColor = value;
 
     //update color.
@@ -178,7 +181,7 @@ export class StarRating {
     return this._direction;
   }
 
-  set direction(value: starRatingDirection) {
+  @Input() set direction(value: starRatingDirection) {
     this._direction = value || undefined;
   }
 
@@ -192,7 +195,7 @@ export class StarRating {
     return this._numOfStars;
   }
 
-  set numOfStars(value: number) {
+  @Input() set numOfStars(value: number) {
     this._numOfStars = value > 0 ? value : this.config.numOfStars!;
 
     //update stars array
@@ -212,7 +215,7 @@ export class StarRating {
     return this._hoverRating;
   }
 
-  set hoverRating(value: number) {
+  @Input() set hoverRating(value: number) {
     this._hoverRating = value > 0 ? value : 0;
   }
 
@@ -226,7 +229,7 @@ export class StarRating {
     return this._speed;
   }
 
-  set speed(value: starRatingSpeed) {
+  @Input() set speed(value: starRatingSpeed) {
     this._speed = value || this.config.speed;
   }
 
@@ -240,7 +243,7 @@ export class StarRating {
     return this._size || this.config.size;
   }
 
-  set size(value: starRatingSizes) {
+  @Input() set size(value: starRatingSizes) {
     this._size = value;
   }
 
@@ -254,7 +257,7 @@ export class StarRating {
     return this._starType || this.config.starType;
   }
 
-  set starType(value: starRatingStarTypes) {
+  @Input() set starType(value: starRatingStarTypes) {
     this._starType = value;
   }
 
@@ -268,7 +271,7 @@ export class StarRating {
     return this._space;
   }
 
-  set space(value: starRatingStarSpace) {
+  @Input() set space(value: starRatingStarSpace) {
     this._space = value;
   }
 
@@ -282,7 +285,7 @@ export class StarRating {
     return this._readOnly;
   }
 
-  set readOnly(value: boolean) {
+  @Input() set readOnly(value: boolean) {
     this._readOnly = !!value;
   }
 
@@ -296,7 +299,7 @@ export class StarRating {
     return this._disabled;
   }
 
-  set disabled(value: boolean) {
+  @Input() set disabled(value: boolean) {
     this._disabled = !!value;
   }
 
@@ -307,7 +310,7 @@ export class StarRating {
     return this._step;
   }
 
-  set step(value: number) {
+  @Input() set step(value: number) {
     this._step = value > 0 ? value : 1;
   }
 
@@ -319,6 +322,10 @@ export class StarRating {
   protected _rating: number;
   get rating(): number {
     return this._rating;
+  }
+
+  @Input() set rating(value: number) {
+    this.setRating(value);
   }
 
   /**
