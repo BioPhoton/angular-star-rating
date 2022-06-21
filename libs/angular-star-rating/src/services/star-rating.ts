@@ -193,7 +193,7 @@ export class StarRating {
   }
 
   set numOfStars(value: number) {
-    this._numOfStars = value > 0 ? value : this.config.numOfStars;
+    this._numOfStars = value > 0 ? value : this.config.numOfStars!;
 
     //update stars array
     this.stars = StarRatingUtils.getStarsArray(this.numOfStars);
@@ -340,7 +340,7 @@ export class StarRating {
     this._rating = newRating;
 
     //update ratingAsInteger. rating parsed to int for the value-[n] modifier
-    this.ratingAsInteger = parseInt(this._rating.toString(), 10);
+    this.ratingAsInteger = parseInt(this._rating?.toString(), 10);
 
     //update halfStarsVisible
     this.setHalfStarVisible();
@@ -353,12 +353,12 @@ export class StarRating {
     this.config = config;
 
     //set default ctrl props
-    this.classEmpty = this.config.classEmpty;
-    this.classHalf = this.config.classHalf;
-    this.classFilled = this.config.classFilled;
-    this.pathEmpty = this.config.svgPathEmpty;
-    this.pathHalf = this.config.svgPathHalf;
-    this.pathFilled = this.config.svgPathFilled;
+    this.classEmpty = this.config.classEmpty!;
+    this.classHalf = this.config.classHalf!;
+    this.classFilled = this.config.classFilled!;
+    this.pathEmpty = this.config.svgPathEmpty!;
+    this.pathHalf = this.config.svgPathHalf!;
+    this.pathFilled = this.config.svgPathFilled!;
 
     //set default Component Inputs
     if (
@@ -375,7 +375,7 @@ export class StarRating {
       this.getHalfStarVisible = this.config.getHalfStarVisible;
     }
 
-    this.numOfStars = this.config.numOfStars;
+    this.numOfStars = this.config.numOfStars!;
     this.rating = 0;
     this.step = 1;
   }

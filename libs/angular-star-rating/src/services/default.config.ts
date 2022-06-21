@@ -42,13 +42,26 @@ export const defaultConfig = {
   labelPosition: 'left',
   starType: 'svg',
   assetsPath: 'assets/images/',
-  svgPath: this.assetsPath + 'star-rating.icons.svg',
+
+  get svgPath() {
+    return this.assetsPath + 'star-rating.icons.svg';
+  },
+
   svgEmptySymbolId: 'star-empty',
   svgHalfSymbolId: 'star-half',
   svgFilledSymbolId: 'star-filled',
-  svgPathEmpty: this.svgPath + '#' + this.svgEmptySymbolId,
-  svgPathHalf: this.svgPath + '#' + this.svgHalfSymbolId,
-  svgPathFilled: this.svgPath + '#' + this.svgFilledSymbolId,
+
+  get svgPathEmpty() {
+    return this.svgPath + '#' + this.svgEmptySymbolId;
+  },
+
+  get svgPathHalf() {
+    return this.svgPath + '#' + this.svgHalfSymbolId;
+  },
+
+  get svgPathFilled() {
+    return this.svgPath + '#' + this.svgFilledSymbolId;
+  },
   getColor: getColor,
   getHalfStarVisible: getHalfStarVisible,
 };

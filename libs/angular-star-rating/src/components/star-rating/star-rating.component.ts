@@ -1,4 +1,5 @@
 import { Component, EventEmitter } from '@angular/core';
+
 import { ClickEvent } from '../../interfaces/click-event.interface';
 import { HoverRatingChangeEvent } from '../../interfaces/hover-rating-change-event.interface';
 import { RatingChangeEvent } from '../../interfaces/rating-change-event.interface';

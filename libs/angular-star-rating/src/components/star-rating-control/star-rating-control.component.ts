@@ -1,5 +1,6 @@
 import { Component, EventEmitter, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
 import { ClickEvent } from '../../interfaces/click-event.interface';
 import { HoverRatingChangeEvent } from '../../interfaces/hover-rating-change-event.interface';
 import { RatingChangeEvent } from '../../interfaces/rating-change-event.interface';
@@ -38,20 +39,19 @@ const STAR_RATING_CONTROL_ACCESSOR = {
     'id',
   ],
   outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
-  styleUrls: [],
   templateUrl: 'star-rating-control.component.html',
 })
 export class StarRatingControlComponent
   extends StarRating
-  implements ControlValueAccessor {
-  //Outputs
-  ///////////////////////////////////////////////////////////////////////////////////////////
-
+  implements ControlValueAccessor
+{
   starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
 
-  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
+  ratingChange: EventEmitter<RatingChangeEvent> =
+    new EventEmitter<RatingChangeEvent>();
 
-  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
+  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> =
+    new EventEmitter<HoverRatingChangeEvent>();
 
   onTouch: Function;
   onModelChange: Function;

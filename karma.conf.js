@@ -24,7 +24,7 @@ module.exports = () => {
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/apps/npp'),
+      dir: require('path').join(__dirname, '../../coverage/apps/demos'),
       subdir: '.',
       reporters: [
         {
