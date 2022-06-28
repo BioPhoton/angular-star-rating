@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [6.0.0](https://github.com/BioPhoton/angular-star-rating/compare/4.0.0-beta.2...6.0.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* remove logs from prod build ([3428421](https://github.com/BioPhoton/angular-star-rating/commit/3428421602d1b8089e114504709dd215c3c2fbab))
+
+### Features
+
+
+* add support for ng-packagr 14 ([aefe5d3](https://github.com/BioPhoton/angular-star-rating/commit/aefe5d3e5da5372d746a06404f261f7038a3fef9))
+
+* upgrade to angular14 and remove unuse deps ([ed04083](https://github.com/BioPhoton/angular-star-rating/commit/ed040830a8d54a8c21e012b25870f0243dc8f56e))
+
+
 ## [5.1.0](https://github.com/BioPhoton/angular-star-rating/compare/v5.0.1...v5.1.0) (2022-06-06)
 
 ### Features
