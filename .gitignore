@@ -43,4 +43,4 @@ testem.log
 Thumbs.db
 
 # angular-star-rating
-@packaged/angular-star-rating
+@packaged/*

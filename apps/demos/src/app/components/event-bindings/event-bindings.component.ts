@@ -2,7 +2,7 @@ import {
   ClickEvent,
   HoverRatingChangeEvent,
   RatingChangeEvent,
-} from '@angular-star-rating-lib/angular-star-rating';
+} from '@angular-star-rating-lib/index';
 import { Component } from '@angular/core';
 
 @Component({

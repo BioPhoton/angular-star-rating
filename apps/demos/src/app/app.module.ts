@@ -1,4 +1,4 @@
-import { StarRatingModule } from '@angular-star-rating-lib/angular-star-rating';
+import { StarRatingModule } from '@angular-star-rating-lib/index';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';

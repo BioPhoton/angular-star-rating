@@ -1,10 +1,10 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "types": ["jasmine", "node"],
-    "esModuleInterop": true
+    "module": "commonjs",
+    "types": ["jest", "node"]
   },
-  "files": ["src/test.ts", "src/polyfills.ts"],
-  "include": ["**/*.spec.ts", "**/*.d.ts"]
+  "files": ["src/test-setup.ts"],
+  "include": ["**/*.test.ts", "**/*.spec.ts", "**/*.d.ts"]
 }

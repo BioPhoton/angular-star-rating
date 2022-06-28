@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-rating';
+import { StarRatingConfigService } from '@angular-star-rating-lib/index';
 
 @Component({
   selector: 'custom-config',

@@ -1,7 +1,7 @@
 import {
   StarRatingModule,
   StarRatingConfigService,
-} from '@angular-star-rating-lib/angular-star-rating';
+} from '@angular-star-rating-lib/index';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';

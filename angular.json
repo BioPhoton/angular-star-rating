@@ -45,9 +45,7 @@
               "apps/demos/src/assets/images",
               "apps/demos/src/assets/fontawesome"
             ],
-            "styles": [
-              "apps/demos/src/styles.scss"
-            ],
+            "styles": ["apps/demos/src/styles.scss"],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -150,31 +148,17 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@nrwl/jest:jest",
           "options": {
-            "main": "apps/demos/src/test.ts",
-            "polyfills": "apps/demos/src/polyfills.ts",
-            "tsConfig": "apps/demos/tsconfig.spec.json",
-            "karmaConfig": "apps/demos/karma.conf.js",
-            "codeCoverage": true,
-            "browsers": "ChromeHeadlessNoSandbox",
-            "styles": [
-              "apps/demos/src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "apps/demos/src/favicon.ico",
-              "apps/demos/src/assets"
-            ]
+            "jestConfig": "apps/demos/jest.config.js",
+            "passWithNoTests": true,
+            "codeCoverage": true
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/demos/**/*.ts",
-              "apps/demos/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/demos/**/*.ts", "apps/demos/**/*.html"]
           }
         }
       },

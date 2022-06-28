@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-rating';
+import { StarRatingConfigService } from '@angular-star-rating-lib/index';
 
 @Injectable()
 export class CustomIconsConfigService extends StarRatingConfigService {

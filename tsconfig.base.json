@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "rootDir": ".",
     "downlevelIteration": true,
     "importHelpers": true,
     "module": "esnext",
@@ -17,9 +18,8 @@
     "lib": ["es2017", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@angular-star-rating-lib/*": ["libs/*"]
+      "@angular-star-rating-lib/*": ["libs/angular-star-rating/src/*"]
     }
   },
-  "exclude": ["node_modules", "tmp"],
-  "rootDir": "."
+  "exclude": ["node_modules", "tmp"]
 }

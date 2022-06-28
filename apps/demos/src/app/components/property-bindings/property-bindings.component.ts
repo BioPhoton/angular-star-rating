@@ -3,7 +3,7 @@ import {
   ClickEvent,
   HoverRatingChangeEvent,
   RatingChangeEvent,
-} from '@angular-star-rating-lib/angular-star-rating';
+} from '@angular-star-rating-lib/index';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -15,7 +15,7 @@ import {
   starRatingSpeed,
   starRatingStarSpace,
   starRatingStarTypes,
-} from '@angular-star-rating-lib/angular-star-rating/src/interfaces/star-rating-config.interface';
+} from '@angular-star-rating-lib/lib/interfaces/star-rating-config.interface';
 
 @Component({
   selector: 'property-bindings',

@@ -1,4 +1,4 @@
-import { StarRatingConfigService } from '@angular-star-rating-lib/angular-star-rating';
+import { StarRatingConfigService } from '@angular-star-rating-lib/index';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CustomIconsConfigService } from './custom-star-config.service';
