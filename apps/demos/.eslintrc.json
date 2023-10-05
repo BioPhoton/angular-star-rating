@@ -17,7 +17,7 @@
         "no-underscore-dangle": "off"
       },
       "extends": [
-        "plugin:@nrwl/nx/angular",
+        "plugin:@nx/angular",
         "plugin:@angular-eslint/template/process-inline-templates"
       ]
     },
@@ -25,7 +25,7 @@
       "files": ["*.html"],
       "rules": {},
       "extends": [
-        "plugin:@nrwl/nx/angular-template",
+        "plugin:@nx/angular-template",
         "plugin:@angular-eslint/template/recommended"
       ]
     }

@@ -1,0 +1,25 @@
+{
+  "name": "angular-star-rating",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/angular-star-rating/src",
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/angular-star-rating/**/*.ts",
+          "libs/angular-star-rating/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "options": {
+        "jestConfig": "libs/angular-star-rating/jest.config.ts",
+        "passWithNoTests": true,
+        "codeCoverage": true
+      }
+    }
+  }
+}

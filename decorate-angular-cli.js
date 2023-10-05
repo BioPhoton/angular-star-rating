@@ -25,7 +25,7 @@ const fs = require('fs');
 const os = require('os');
 const cp = require('child_process');
 const isWindows = os.platform() === 'win32';
-const { output } = require('@nrwl/workspace');
+const { output } = require('@nx/workspace');
 
 /**
  * Paths to files being patched
@@ -43,7 +43,7 @@ function patchAngularCLI(initPath) {
       initPath,
       `
 if (!process.env['NX_CLI_SET']) {
-  const { output } = require('@nrwl/workspace');
+  const { output } = require('@nx/workspace');
   output.warn({ title: 'The Angular CLI was invoked instead of the Nx CLI. Use "npx ng [command]" or "nx [command]" instead.' });
 }
 ${angularCLIInit}

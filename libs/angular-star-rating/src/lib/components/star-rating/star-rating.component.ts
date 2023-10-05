@@ -13,7 +13,10 @@ import { StarRatingUtils } from '../../services/star-rating.utils';
   templateUrl: 'star-rating.component.html',
 })
 export class StarRatingComponent extends StarRating {
-  @Input() getHalfStarVisible: (rating: number) => boolean;
+  @Input()
+  getHalfStarVisible: (rating: number) => boolean = (rating: number) => false;
+
+  // @ts-ignore
   @Input() getColor: (
     rating: number,
     numOfStars: number,
