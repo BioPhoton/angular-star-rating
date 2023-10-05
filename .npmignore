@@ -32,3 +32,6 @@ Desktop.ini
 # Library files
 src/*
 build/*
+
+# cache
+.angular/
