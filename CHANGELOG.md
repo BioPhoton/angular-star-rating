@@ -1,3 +1,13 @@
+## 7.0.0 (2023-10-06)
+
+* chore: fix conflicting dev deps ([739cc18](https://github.com/BioPhoton/angular-star-rating/commit/739cc18))
+* chore: replace build status badge ([e09f543](https://github.com/BioPhoton/angular-star-rating/commit/e09f543))
+* docs: change link to demos ([29aa89a](https://github.com/BioPhoton/angular-star-rating/commit/29aa89a))
+* docs: ignore cache folder from npm ([276eb94](https://github.com/BioPhoton/angular-star-rating/commit/276eb94))
+* feat: update to angular 16 ([7870caa](https://github.com/BioPhoton/angular-star-rating/commit/7870caa))
+
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
