@@ -12,59 +12,59 @@ import { StarRatingUtils } from '../../services/star-rating.utils';
 const STAR_RATING_CONTROL_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => StarRatingControlComponent),
-  multi: true,
+  multi: true
 };
 
 @Component({
   selector: 'star-rating-control',
+  standalone: true,
   providers: [STAR_RATING_CONTROL_ACCESSOR],
-  templateUrl: 'star-rating-control.component.html',
+  templateUrl: 'star-rating-control.component.html'
 })
 export class StarRatingControlComponent
   extends StarRating
-  implements ControlValueAccessor
-{
+  implements ControlValueAccessor {
   @Output()
-  starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
+  public starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
 
   @Output()
-  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
+  public ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
 
   @Output()
-  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
+  public hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  onTouch: Function;
+  private onTouch: Function;
   // eslint-disable-next-line @typescript-eslint/ban-types
-  onModelChange: Function;
+  private onModelChange: Function;
   private onModelChangeRegistered = false;
   private onTouchRegistered = false;
 
-  saveOnClick($event: ClickEvent) {
+  protected saveOnClick($event: ClickEvent) {
     if (this.starClickChange) {
       this.starClickChange.emit($event);
     }
   }
 
-  saveOnRatingChange($event: RatingChangeEvent) {
+  protected saveOnRatingChange($event: RatingChangeEvent) {
     if (this.ratingChange) {
       this.ratingChange.emit($event);
     }
   }
 
-  saveOnHover($event: HoverRatingChangeEvent) {
+  protected saveOnHover($event: HoverRatingChangeEvent) {
     if (this.hoverRatingChange) {
       this.hoverRatingChange.emit($event);
     }
   }
 
-  saveOnTouch() {
+  protected saveOnTouch() {
     if (this.onTouchRegistered) {
       this.onTouch();
     }
   }
 
-  saveOnModelChange(value: number) {
+  protected saveOnModelChange(value: number) {
     if (this.onModelChangeRegistered) {
       this.onModelChange(value);
     }
@@ -73,7 +73,7 @@ export class StarRatingControlComponent
   /**ACCESSIBILITY **/
 
   //Keyboard events
-  onKeyDown(event: KeyboardEvent) {
+  protected onKeyDown(event: KeyboardEvent) {
     if (!this.interactionPossible()) {
       return;
     }
@@ -92,7 +92,7 @@ export class StarRatingControlComponent
       //Reset
       Backspace: () => this.reset(),
       Delete: () => this.reset(),
-      Digit0: () => this.reset(),
+      Digit0: () => this.reset()
     };
 
     const handleDigits = (eventCode: string): void => {
@@ -121,14 +121,14 @@ export class StarRatingControlComponent
   }
 
   //Focus events
-  onBlur(event: FocusEvent) {
+  protected onBlur(event: FocusEvent) {
     this.focus = false;
     event.preventDefault();
     event.stopPropagation();
     this.saveOnTouch();
   }
 
-  onFocus(event: FocusEvent) {
+  protected onFocus(event: FocusEvent) {
     this.focus = true;
     event.preventDefault();
     event.stopPropagation();
@@ -136,7 +136,7 @@ export class StarRatingControlComponent
   }
 
   //Hover events
-  onStarHover(rating?: number): void {
+  protected onStarHover(rating?: number): void {
     if (!this.interactionPossible() || !this.hoverEnabled) {
       return;
     }
@@ -150,16 +150,16 @@ export class StarRatingControlComponent
 
   /**Form Control - ControlValueAccessor implementation**/
 
-  writeValue(obj: any): void {
+  public writeValue(obj: any): void {
     this.rating = obj;
   }
 
-  registerOnChange(fn: any): void {
+  public registerOnChange(fn: any): void {
     this.onModelChange = fn;
     this.onModelChangeRegistered = true;
   }
 
-  registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: any): void {
     this.onTouch = fn;
     this.onTouchRegistered = true;
   }
@@ -169,7 +169,7 @@ export class StarRatingControlComponent
   }
 
   //Overrides
-  setRating(value: number): void {
+  public setRating(value: number): void {
     const initValue = this.rating;
     super.setRating(value);
 
@@ -192,7 +192,7 @@ export class StarRatingControlComponent
    *
    * @param rating
    */
-  onStarClicked(rating: number): void {
+  protected onStarClicked(rating: number): void {
     //fire onClick event
     if (!this.interactionPossible()) {
       return;
@@ -201,7 +201,7 @@ export class StarRatingControlComponent
     this.rating = rating;
 
     const onClickEventObject: ClickEvent = {
-      rating: this.rating,
+      rating: this.rating
     };
     this.saveOnClick(onClickEventObject);
   }

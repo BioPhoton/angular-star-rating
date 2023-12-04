@@ -8,28 +8,28 @@ export type starRatingDirection = 'rtl' | 'ltr';
 
 export class StarRatingConfig {
   // binding defaults
-  numOfStars?: number;
-  size?: starRatingSizes;
-  speed?: starRatingSpeed;
-  labelPosition?: starRatingLabelPosition;
-  starType?: starRatingStarTypes;
-  staticColor: starRatingColor;
-  getColor?: (
+  public numOfStars?: number;
+  public size?: starRatingSizes;
+  public speed?: starRatingSpeed;
+  public labelPosition?: starRatingLabelPosition;
+  public starType?: starRatingStarTypes;
+  public staticColor: starRatingColor;
+  public getColor?: (
     rating: number,
     numOfStars: number,
     staticColor?: starRatingColor
   ) => starRatingColor;
-  getHalfStarVisible?: (rating: number) => boolean;
+  public getHalfStarVisible?: (rating: number) => boolean;
   // statics
-  classEmpty?: string;
-  classHalf?: string;
-  classFilled?: string;
-  assetsPath?: string;
-  svgPath?: string;
-  svgEmptySymbolId?: string;
-  svgHalfSymbolId?: string;
-  svgFilledSymbolId?: string;
-  svgPathEmpty?: string;
-  svgPathHalf?: string;
-  svgPathFilled?: string;
+  public classEmpty?: string;
+  public classHalf?: string;
+  public classFilled?: string;
+  public assetsPath?: string;
+  public svgPath?: string;
+  public svgEmptySymbolId?: string;
+  public svgHalfSymbolId?: string;
+  public svgFilledSymbolId?: string;
+  public svgPathEmpty?: string;
+  public svgPathHalf?: string;
+  public svgPathFilled?: string;
 }

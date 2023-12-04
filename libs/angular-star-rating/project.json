@@ -5,7 +5,7 @@
   "sourceRoot": "libs/angular-star-rating/src",
   "targets": {
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "libs/angular-star-rating/**/*.ts",
@@ -17,7 +17,6 @@
       "executor": "@nx/jest:jest",
       "options": {
         "jestConfig": "libs/angular-star-rating/jest.config.ts",
-        "passWithNoTests": true,
         "codeCoverage": true
       }
     }

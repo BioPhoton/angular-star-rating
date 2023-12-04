@@ -103,36 +103,35 @@
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "options": {
-        "browserTarget": "demos:build"
+        "buildTarget": "demos:build"
       },
       "configurations": {
         "production": {
-          "browserTarget": "demos:build:production"
+          "buildTarget": "demos:build:production"
         },
         "test": {
-          "browserTarget": "demos:build:test"
+          "buildTarget": "demos:build:test"
         },
         "development": {
-          "browserTarget": "demos:build:development"
+          "buildTarget": "demos:build:development"
         }
       }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "demos:build"
+        "buildTarget": "demos:build"
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "options": {
         "jestConfig": "apps/demos/jest.config.ts",
-        "passWithNoTests": true,
         "codeCoverage": true
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": ["apps/demos/**/*.ts", "apps/demos/**/*.html"]
       }

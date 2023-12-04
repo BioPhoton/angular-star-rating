@@ -1,24 +1,24 @@
 import { starRatingColor } from '../interfaces/star-rating-config.interface';
 
 export class DefaultConfig {
-  classEmpty = 'default-star-empty-icon';
-  classHalf = 'default-star-half-icon';
-  classFilled = 'default-star-filled-icon';
-  numOfStars = 5;
-  size = 'medium';
-  speed = 'noticeable';
-  labelPosition = 'left';
-  starType = 'svg';
-  assetsPath = 'assets/images/';
-  svgPath = this.assetsPath + 'star-rating.icons.svg';
-  svgEmptySymbolId = 'star-empty';
-  svgHalfSymbolId = 'star-half';
-  svgFilledSymbolId = 'star-filled';
-  svgPathEmpty = this.svgPath + '#' + this.svgEmptySymbolId;
-  svgPathHalf = this.svgPath + '#' + this.svgHalfSymbolId;
-  svgPathFilled = this.svgPath + '#' + this.svgFilledSymbolId;
+  public classEmpty = 'default-star-empty-icon';
+  public classHalf = 'default-star-half-icon';
+  public classFilled = 'default-star-filled-icon';
+  public numOfStars = 5;
+  public size = 'medium';
+  public speed = 'noticeable';
+  public labelPosition = 'left';
+  public starType = 'svg';
+  public assetsPath = 'assets/images/';
+  public svgPath = this.assetsPath + 'star-rating.icons.svg';
+  public svgEmptySymbolId = 'star-empty';
+  public svgHalfSymbolId = 'star-half';
+  public svgFilledSymbolId = 'star-filled';
+  public svgPathEmpty = this.svgPath + '#' + this.svgEmptySymbolId;
+  public svgPathHalf = this.svgPath + '#' + this.svgHalfSymbolId;
+  public svgPathFilled = this.svgPath + '#' + this.svgFilledSymbolId;
 
-  getColor(
+  public getColor(
     rating: number,
     numOfStars: number,
     staticColor?: starRatingColor
@@ -48,7 +48,7 @@ export class DefaultConfig {
     return color;
   }
 
-  getHalfStarVisible(rating: number): boolean {
+  public getHalfStarVisible(rating: number): boolean {
     return Math.abs(rating % 1) > 0;
   }
 }

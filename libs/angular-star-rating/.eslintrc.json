@@ -16,7 +16,21 @@
           {
             "allow": []
           }
-        ]
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "explicit",
+            "overrides": {
+              "accessors": "explicit",
+              "constructors": "off",
+              "methods": "explicit",
+              "properties": "explicit",
+              "parameterProperties": "explicit"
+            }
+          }
+        ],
+        "@angular-eslint/prefer-standalone-component": "error"
       }
     },
     {

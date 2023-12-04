@@ -2,14 +2,14 @@
 import { Component, Input } from '@angular/core';
 
 import {
-  StarRatingConfig,
   starRatingColor,
+  StarRatingConfig,
   starRatingDirection,
   starRatingLabelPosition,
   starRatingSizes,
   starRatingSpeed,
   starRatingStarSpace,
-  starRatingStarTypes,
+  starRatingStarTypes
 } from '../interfaces/star-rating-config.interface';
 import { StarRatingConfigService } from './star-rating-config.service';
 import { StarRatingUtils } from './star-rating.utils';
@@ -17,6 +17,7 @@ import { StarRatingUtils } from './star-rating.utils';
 @Component({
   // Metadata needed for Angular.
   template: ``,
+  standalone: true,
   selector: 'placeholder-star-rating'
 })
 export class StarRating {
@@ -24,28 +25,29 @@ export class StarRating {
 
   //CTRL ONLY
   ///////////////////////////////////////////////////////////////////////////////////////////
-  classEmpty: string;
-  classHalf: string;
-  classFilled: string;
+  public classEmpty: string;
+  public classHalf: string;
+  public classFilled: string;
 
-  pathEmpty: string;
-  pathHalf: string;
-  pathFilled: string;
+  public pathEmpty: string;
+  public pathHalf: string;
+  public pathFilled: string;
 
-  color: starRatingColor;
-  stars: Array<number>;
-  ratingAsInteger: number;
-  halfStarVisible: boolean;
+  public color: starRatingColor;
+  public stars: Array<number>;
+  public ratingAsInteger: number;
+  public halfStarVisible: boolean;
 
   /**
    * showHalfStars
    */
   protected _showHalfStars: boolean;
-  get showHalfStars(): boolean {
+  public get showHalfStars(): boolean {
     return this._showHalfStars;
   }
 
-  @Input() set showHalfStars(value: boolean) {
+  @Input()
+  public set showHalfStars(value: boolean) {
     this._showHalfStars = !!value;
 
     //update halfStarVisible
@@ -55,7 +57,7 @@ export class StarRating {
   /**
    * getColor
    */
-  getColor: (
+  public getColor: (
     rating: number,
     numOfStars: number,
     staticColor?: starRatingColor
@@ -66,7 +68,7 @@ export class StarRating {
   /**
    * getHalfStarVisible
    */
-  getHalfStarVisible: (rating: number) => boolean;
+  public getHalfStarVisible: (rating: number) => boolean;
   /////////////////////////////////////////////
 
   //Inputs
@@ -76,11 +78,12 @@ export class StarRating {
    * id property to identify the DOM element
    */
   protected _id: string;
-  get id(): string {
+  public get id(): string {
     return this._id;
   }
 
-  @Input() set id(value: string) {
+  @Input()
+  public set id(value: string) {
     this._id = value || '';
   }
 
@@ -90,11 +93,12 @@ export class StarRating {
    * focus
    */
   protected _focus: boolean;
-  get focus(): boolean {
+  public get focus(): boolean {
     return this._focus;
   }
 
-  @Input() set focus(value: boolean) {
+  @Input()
+  public set focus(value: boolean) {
     this._focus = !!value;
   }
 
@@ -104,11 +108,12 @@ export class StarRating {
    * labelText
    */
   protected _labelText: string;
-  get labelText(): string {
+  public get labelText(): string {
     return this._labelText;
   }
 
-  @Input() set labelText(value: string) {
+  @Input()
+  public set labelText(value: string) {
     this._labelText = value;
   }
 
@@ -118,11 +123,12 @@ export class StarRating {
    * labelPosition
    */
   protected _labelPosition: starRatingLabelPosition;
-  get labelPosition(): starRatingLabelPosition {
+  public get labelPosition(): starRatingLabelPosition {
     return this._labelPosition;
   }
 
-  @Input() set labelPosition(value: starRatingLabelPosition) {
+  @Input()
+  public set labelPosition(value: starRatingLabelPosition) {
     this._labelPosition = value || this.config.labelPosition;
   }
 
@@ -132,11 +138,12 @@ export class StarRating {
    * labelVisible
    */
   protected _labelVisible: boolean;
-  get labelVisible(): boolean {
+  public get labelVisible(): boolean {
     return this._labelVisible;
   }
 
-  @Input() set labelVisible(value: boolean) {
+  @Input()
+  public set labelVisible(value: boolean) {
     this._labelVisible = !!value;
   }
 
@@ -146,11 +153,12 @@ export class StarRating {
    * hoverEnabled
    */
   protected _hoverEnabled: boolean;
-  get hoverEnabled(): boolean {
+  public get hoverEnabled(): boolean {
     return this._hoverEnabled;
   }
 
-  @Input() set hoverEnabled(value: boolean) {
+  @Input()
+  public set hoverEnabled(value: boolean) {
     this._hoverEnabled = value !== undefined ? !!value : false;
   }
 
@@ -160,11 +168,12 @@ export class StarRating {
    * staticColor
    */
   protected _staticColor: starRatingColor;
-  get staticColor(): starRatingColor {
+  public get staticColor(): starRatingColor {
     return this._staticColor || this.config.staticColor || undefined;
   }
 
-  @Input() set staticColor(value: starRatingColor) {
+  @Input()
+  public set staticColor(value: starRatingColor) {
     this._staticColor = value;
 
     //update color.
@@ -177,11 +186,12 @@ export class StarRating {
    * direction
    */
   protected _direction: starRatingDirection;
-  get direction(): starRatingDirection {
+  public get direction(): starRatingDirection {
     return this._direction;
   }
 
-  @Input() set direction(value: starRatingDirection) {
+  @Input()
+  public set direction(value: starRatingDirection) {
     this._direction = value || undefined;
   }
 
@@ -191,11 +201,12 @@ export class StarRating {
    * numOfStars
    */
   protected _numOfStars: number;
-  get numOfStars(): number {
+  public get numOfStars(): number {
     return this._numOfStars;
   }
 
-  @Input() set numOfStars(value: number) {
+  @Input()
+  public set numOfStars(value: number) {
     this._numOfStars = value > 0 ? value : this.config.numOfStars!;
 
     //update stars array
@@ -211,11 +222,12 @@ export class StarRating {
    * hoverRating
    */
   protected _hoverRating: number;
-  get hoverRating(): number {
+  public get hoverRating(): number {
     return this._hoverRating;
   }
 
-  @Input() set hoverRating(value: number) {
+  @Input()
+  public set hoverRating(value: number) {
     this._hoverRating = value > 0 ? value : 0;
   }
 
@@ -225,11 +237,12 @@ export class StarRating {
    * speed
    */
   protected _speed: starRatingSpeed;
-  get speed(): starRatingSpeed {
+  public get speed(): starRatingSpeed {
     return this._speed;
   }
 
-  @Input() set speed(value: starRatingSpeed) {
+  @Input()
+  public set speed(value: starRatingSpeed) {
     this._speed = value || this.config.speed;
   }
 
@@ -239,11 +252,12 @@ export class StarRating {
    * size
    */
   protected _size: starRatingSizes;
-  get size(): starRatingSizes {
+  public get size(): starRatingSizes {
     return this._size || this.config.size;
   }
 
-  @Input() set size(value: starRatingSizes) {
+  @Input()
+  public set size(value: starRatingSizes) {
     this._size = value;
   }
 
@@ -253,11 +267,12 @@ export class StarRating {
    * starType
    */
   protected _starType: starRatingStarTypes;
-  get starType(): starRatingStarTypes {
+  public get starType(): starRatingStarTypes {
     return this._starType || this.config.starType;
   }
 
-  @Input() set starType(value: starRatingStarTypes) {
+  @Input()
+  public set starType(value: starRatingStarTypes) {
     this._starType = value;
   }
 
@@ -267,11 +282,12 @@ export class StarRating {
    * space
    */
   protected _space: starRatingStarSpace;
-  get space(): starRatingStarSpace {
+  public get space(): starRatingStarSpace {
     return this._space;
   }
 
-  @Input() set space(value: starRatingStarSpace) {
+  @Input()
+  public set space(value: starRatingStarSpace) {
     this._space = value;
   }
 
@@ -281,11 +297,12 @@ export class StarRating {
    * readOnly
    */
   protected _readOnly: boolean;
-  get readOnly(): boolean {
+  public get readOnly(): boolean {
     return this._readOnly;
   }
 
-  @Input() set readOnly(value: boolean) {
+  @Input()
+  public set readOnly(value: boolean) {
     this._readOnly = !!value;
   }
 
@@ -295,22 +312,24 @@ export class StarRating {
    * disabled
    */
   protected _disabled: boolean;
-  get disabled(): boolean {
+  public get disabled(): boolean {
     return this._disabled;
   }
 
-  @Input() set disabled(value: boolean) {
+  @Input()
+  public set disabled(value: boolean) {
     this._disabled = !!value;
   }
 
   /////////////////////////////////////////////
 
   private _step: number;
-  get step(): number {
+  public get step(): number {
     return this._step;
   }
 
-  @Input() set step(value: number) {
+  @Input()
+  public set step(value: number) {
     this._step = value > 0 ? value : 1;
   }
 
@@ -320,11 +339,12 @@ export class StarRating {
    * rating
    */
   protected _rating: number;
-  get rating(): number {
+  public get rating(): number {
     return this._rating;
   }
 
-  @Input() set rating(value: number) {
+  @Input()
+  public set rating(value: number) {
     this.setRating(value);
   }
 
@@ -333,7 +353,7 @@ export class StarRating {
    * I use a setter function instead of a set method to enable overrides for this function.
    * @param value
    */
-  setRating(value: number) {
+  public setRating(value: number) {
     //validate and apply newRating
     let newRating = 0;
     if (value >= 0 && value <= this.numOfStars) {
@@ -387,15 +407,15 @@ export class StarRating {
     this.step = 1;
   }
 
-  svgVisible(): boolean {
+  public svgVisible(): boolean {
     return this.starType === 'svg';
   }
 
-  interactionPossible(): boolean {
+  public interactionPossible(): boolean {
     return !this.readOnly && !this.disabled;
   }
 
-  setColor(useHoverValue = false): void {
+  public setColor(useHoverValue = false): void {
     //check if custom function is given
     const ratingValue = useHoverValue ? this.hoverRating : this.rating;
     if (typeof this.getColor === 'function') {
@@ -413,7 +433,7 @@ export class StarRating {
     }
   }
 
-  setHalfStarVisible(): void {
+  public setHalfStarVisible(): void {
     //update halfStarVisible
     if (this.showHalfStars) {
       //check if custom function is given
@@ -427,7 +447,7 @@ export class StarRating {
     }
   }
 
-  getComponentClassNames(): string {
+  public getComponentClassNames(): string {
     const classNames: string[] = [];
 
     classNames.push(this.rating ? 'value-' + this.ratingAsInteger : 'value-0');
@@ -452,19 +472,19 @@ export class StarRating {
     return classNames.join(' ');
   }
 
-  increment() {
+  public increment() {
     //increment to next higher step
     const absDiff = Math.abs(this.rating % this.step);
     this.rating = this.rating + (absDiff > 0 ? this.step - absDiff : this.step);
   }
 
-  decrement() {
+  public decrement() {
     //decrement to next lower step
     const absDiff = Math.abs(this.rating % this.step);
     this.rating = this.rating - (absDiff > 0 ? absDiff : this.step);
   }
 
-  reset() {
+  public reset() {
     this.rating = 0;
   }
 }

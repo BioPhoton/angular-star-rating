@@ -1,3 +1,4 @@
 .cache
 dist
 CHANGELOG.md
+/.nx/cache

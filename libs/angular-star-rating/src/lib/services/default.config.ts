@@ -1,4 +1,5 @@
 import { starRatingColor } from '../interfaces/star-rating-config.interface';
+
 export const getColor = function (
   rating: number,
   numOfStars: number,

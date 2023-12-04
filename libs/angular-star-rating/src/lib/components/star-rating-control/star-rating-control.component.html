@@ -1,25 +1,27 @@
-<div id="{{id}}" class="rating {{getComponentClassNames()}}" tabindex="0"
-  (keydown)="onKeyDown($event)" (blur)="onBlur($event)"
-  (focus)="onFocus($event)" (mouseleave)="onStarHover(0)">
-  <div *ngIf="labelText" class="label-value">{{labelText}}</div>
+<div [id]="id" class="rating {{ getComponentClassNames() }}" tabindex="0"
+     (keydown)="onKeyDown($event)" (blur)="onBlur($event)" (focus)="onFocus($event)" (mouseleave)="onStarHover(0)">
+  @if (labelText) {
+    <div class="label-value">{{ labelText }}</div>
+  }
   <div class="star-container">
-    <div class="star" (mouseenter)="onStarHover(star)"
-      *ngFor="let star of stars" (click)="onStarClicked(star)">
-      <i *ngIf="!svgVisible()" class="star-empty {{classEmpty}}"></i>
-      <i *ngIf="!svgVisible()" class="star-half {{classHalf}}"></i>
-      <i *ngIf="!svgVisible()" class="star-filled {{classFilled}}"></i>
-      <svg *ngIf="svgVisible()" class="star-empty">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink"
-          [attr.xlink:href]="pathEmpty"></use>
-      </svg>
-      <svg *ngIf="svgVisible()" class="star-half">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink"
-          [attr.xlink:href]="pathHalf"></use>
-      </svg>
-      <svg *ngIf="svgVisible()" class="star-filled">
-        <use xmlns:xlink="http://www.w3.org/1999/xlink"
-          [attr.xlink:href]="pathFilled"></use>
-      </svg>
-    </div>
+    @for (star of stars;track star) {
+      <div class="star" (mouseenter)="onStarHover(star)" (click)="onStarClicked(star)">
+        @if (!svgVisible()) {
+          <i class="star-empty {{ classEmpty }}"></i>
+          <i class="star-half {{ classHalf }}"></i>
+          <i class="star-filled {{ classFilled }}"></i>
+        } @else {
+          <svg class="star-empty">
+            <use [attr.xlink:href]="pathEmpty"></use>
+          </svg>
+          <svg class="star-half">
+            <use [attr.xlink:href]="pathHalf"></use>
+          </svg>
+          <svg class="star-filled">
+            <use [attr.xlink:href]="pathFilled"></use>
+          </svg>
+        }
+      </div>
+    }
   </div>
 </div>

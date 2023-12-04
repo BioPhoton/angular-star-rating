@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { StarRatingConfigService } from '../../services/star-rating-config.service';
 import { StarRatingComponent } from './star-rating.component';

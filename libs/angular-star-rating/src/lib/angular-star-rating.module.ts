@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
@@ -9,19 +8,18 @@ const DECLARATIONS = [StarRatingComponent, StarRatingControlComponent];
 const EXPORTS = [DECLARATIONS];
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [DECLARATIONS],
+  imports: DECLARATIONS,
   exports: [EXPORTS],
 })
 export class StarRatingModule {
-  static forRoot(): ModuleWithProviders<StarRatingModule> {
+  public static forRoot(): ModuleWithProviders<StarRatingModule> {
     return {
       ngModule: StarRatingModule,
       providers: [StarRatingConfigService],
     };
   }
 
-  static forChild(): ModuleWithProviders<StarRatingModule> {
+  public static forChild(): ModuleWithProviders<StarRatingModule> {
     return {
       ngModule: StarRatingModule,
       providers: [],
