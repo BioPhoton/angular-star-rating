@@ -44,3 +44,5 @@ Thumbs.db
 
 # angular-star-rating
 @packaged/*
+
+.nx/cache

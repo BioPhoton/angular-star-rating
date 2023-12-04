@@ -10,41 +10,41 @@ import { StarRatingUtils } from '../../services/star-rating.utils';
 
 @Component({
   selector: 'star-rating',
-  templateUrl: 'star-rating.component.html',
+  standalone: true,
+  templateUrl: 'star-rating.component.html'
 })
 export class StarRatingComponent extends StarRating {
-  @Input()
-  getHalfStarVisible: (rating: number) => boolean = (rating: number) => false;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  @Input() public getHalfStarVisible: (rating: number) => boolean = (rating: number) => false;
 
-  // @ts-ignore
-  @Input() getColor: (
+  @Input() public getColor: (
     rating: number,
     numOfStars: number,
     staticColor?: starRatingColor | undefined
   ) => starRatingColor;
 
   @Output()
-  starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
+  public starClickChange: EventEmitter<ClickEvent> = new EventEmitter<ClickEvent>();
 
   @Output()
-  ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
+  public ratingChange: EventEmitter<RatingChangeEvent> = new EventEmitter<RatingChangeEvent>();
 
   @Output()
-  hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
+  public hoverRatingChange: EventEmitter<HoverRatingChangeEvent> = new EventEmitter<HoverRatingChangeEvent>();
 
-  saveOnClick($event: ClickEvent) {
+  protected saveOnClick($event: ClickEvent) {
     if (this.starClickChange) {
       this.starClickChange.emit($event);
     }
   }
 
-  saveOnRatingChange($event: RatingChangeEvent) {
+  protected saveOnRatingChange($event: RatingChangeEvent) {
     if (this.ratingChange) {
       this.ratingChange.emit($event);
     }
   }
 
-  saveOnHover($event: HoverRatingChangeEvent) {
+  protected saveOnHover($event: HoverRatingChangeEvent) {
     if (this.hoverRatingChange) {
       this.hoverRatingChange.emit($event);
     }
@@ -53,7 +53,7 @@ export class StarRatingComponent extends StarRating {
   /**ACCESSIBILITY **/
 
   //Keyboard events
-  onKeyDown(event: KeyboardEvent) {
+  protected onKeyDown(event: KeyboardEvent) {
     if (!this.interactionPossible()) {
       return;
     }
@@ -72,7 +72,7 @@ export class StarRatingComponent extends StarRating {
       //Reset
       Backspace: () => this.reset(),
       Delete: () => this.reset(),
-      Digit0: () => this.reset(),
+      Digit0: () => this.reset()
     };
 
     const handleDigits = (eventCode: string): void => {
@@ -99,7 +99,7 @@ export class StarRatingComponent extends StarRating {
   }
 
   //Hover events
-  onStarHover(rating?: number): void {
+  protected onStarHover(rating?: number): void {
     if (!this.interactionPossible() || !this.hoverEnabled) {
       return;
     }
@@ -113,7 +113,7 @@ export class StarRatingComponent extends StarRating {
     this.saveOnHover($event);
   }
 
-  onStopHover() {
+  protected onStopHover() {
     if (!this.interactionPossible() || !this.hoverEnabled) {
       return;
     }
@@ -128,7 +128,7 @@ export class StarRatingComponent extends StarRating {
   }
 
   //Overrides
-  setRating(value: number): void {
+  public setRating(value: number): void {
     const initValue = this.rating;
     super.setRating(value);
 
@@ -149,7 +149,7 @@ export class StarRatingComponent extends StarRating {
    *
    * @param rating
    */
-  onStarClicked(rating: number): void {
+  protected onStarClicked(rating: number): void {
     //fire onClick event
     if (!this.interactionPossible()) {
       return;
@@ -158,7 +158,7 @@ export class StarRatingComponent extends StarRating {
     this.rating = rating;
 
     const onClickEventObject: ClickEvent = {
-      rating: this.rating,
+      rating: this.rating
     };
     this.saveOnClick(onClickEventObject);
   }

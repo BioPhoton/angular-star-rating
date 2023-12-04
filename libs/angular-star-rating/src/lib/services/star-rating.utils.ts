@@ -1,4 +1,5 @@
 import { starRatingColor } from '../interfaces/star-rating-config.interface';
+
 export class StarRatingUtils {
   //Static methods
   ///////////////////////////////////////////////////////////////////////////////////////////
@@ -11,7 +12,7 @@ export class StarRatingUtils {
    * @param numOfStars
    * @returns {Array}
    */
-  static getStarsArray(numOfStars: number): Array<number> {
+  public static getStarsArray(numOfStars: number): Array<number> {
     const stars: Array<number> = [];
     for (let i = 0; i < numOfStars; i++) {
       stars.push(i + 1);
@@ -27,7 +28,7 @@ export class StarRatingUtils {
    * @param rating
    * @returns {boolean}
    */
-  static getHalfStarVisible(rating: number): boolean {
+  public static getHalfStarVisible(rating: number): boolean {
     return Math.abs(rating % 1) > 0;
   }
 
@@ -43,7 +44,7 @@ export class StarRatingUtils {
    * @param staticColor
    * @returns {starRatingColor}
    */
-  static getColor(
+  public static getColor(
     rating: number,
     numOfStars: number,
     staticColor?: starRatingColor
@@ -79,7 +80,7 @@ export class StarRatingUtils {
    * @param eventCode
    * @returns {boolean}
    */
-  static isDigitKeyEventCode(eventCode: string): boolean {
+  public static isDigitKeyEventCode(eventCode: string): boolean {
     return eventCode.indexOf('Digit') === 0;
   }
 }

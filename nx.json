@@ -1,13 +1,9 @@
 {
-  "npmScope": "angular-star-rating",
   "affected": {
     "defaultBase": "master"
   },
   "tasksRunnerOptions": {
     "default": {}
-  },
-  "cli": {
-    "defaultCollection": "@nx/angular"
   },
   "generators": {},
   "defaultProject": "demos",
@@ -35,8 +31,18 @@
     "lint": {
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
     },
-    "test": {
-      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"]
+    "@nx/jest:jest": {
+      "inputs": ["default", "^production", "{workspaceRoot}/jest.preset.js"],
+      "cache": true,
+      "options": {
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
     }
   }
 }
