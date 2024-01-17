@@ -1,3 +1,13 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## <small>7.0.1 (2024-01-17)</small>
+
+* fix: remove default value of getHalfStarVisible to avoid bugs related to half star logic (#129) ([d4d39f3](https://github.com/BioPhoton/angular-star-rating/commit/d4d39f3)), closes [#129](https://github.com/BioPhoton/angular-star-rating/issues/129)
+
+
+
 ## 7.0.0 (2023-10-06)
 
 * chore: fix conflicting dev deps ([739cc18](https://github.com/BioPhoton/angular-star-rating/commit/739cc18))
@@ -6,11 +16,6 @@
 * docs: ignore cache folder from npm ([276eb94](https://github.com/BioPhoton/angular-star-rating/commit/276eb94))
 * feat: update to angular 16 ([7870caa](https://github.com/BioPhoton/angular-star-rating/commit/7870caa))
 
-
-
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 # [6.0.0](https://github.com/BioPhoton/angular-star-rating/compare/4.0.0-beta.2...6.0.0) (2022-06-28)
 
