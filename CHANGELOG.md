@@ -2,11 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## <small>7.0.1 (2024-01-17)</small>
+## 8.0.0 (2024-01-17)
 
+* chore: replace deprecated angular api and update to angular 17 ([ff65e9c](https://github.com/BioPhoton/angular-star-rating/commit/ff65e9c))
 * fix: remove default value of getHalfStarVisible to avoid bugs related to half star logic (#129) ([d4d39f3](https://github.com/BioPhoton/angular-star-rating/commit/d4d39f3)), closes [#129](https://github.com/BioPhoton/angular-star-rating/issues/129)
-
-
 
 ## 7.0.0 (2023-10-06)
 
