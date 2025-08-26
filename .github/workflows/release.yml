@@ -27,13 +27,6 @@ jobs:
       - name: Build package
         run: npm run build:lib
 
-      - name: Authenticate with npm
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          npm whoami
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Publish to npm
         # if: startsWith(github.event.head_commit.message, 'chore(release):')
         working-directory: ./@packaged/angular-star-rating
@@ -41,10 +34,19 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           echo "Publishing version $VERSION"
 
-          npm publish --access public
+          # configure npm auth (use NPM_TOKEN)
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          touch .npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
 
+          # publish to npm
+          npm publish
+
+          # configure git
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+          # create + push tag
           git tag "v$VERSION"
           git push origin "v$VERSION"
         env:
