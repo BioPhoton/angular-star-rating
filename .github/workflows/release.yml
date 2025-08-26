@@ -39,6 +39,8 @@ jobs:
           touch .npmrc
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
 
+          npm set //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+
           # publish to npm
           npm publish
 
