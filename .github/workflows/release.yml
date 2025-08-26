@@ -27,7 +27,7 @@ jobs:
       - name: Build package
         run: npm run build:lib
 
-      - name: Publish to npm (only on chore(release): x.x.x commits)
+      - name: Publish to npm
         if: startsWith(github.event.head_commit.message, 'chore(release):')
         working-directory: ./@packaged/angular-star-rating
         run: |
