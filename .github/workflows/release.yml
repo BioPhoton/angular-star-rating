@@ -3,36 +3,46 @@ on:
   push:
     branches:
       - master
-jobs:
 
+jobs:
   build:
-      name: build-package
-      runs-on: ubuntu-latest
-      steps:
+    name: build-and-publish
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-            node-version: '18.13.0'
-      - name: Restore npm packages
+          node-version: 18
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
         run: npm ci
-      - name: Install Angular
+
+      - name: Install Angular CLI
         run: npm install -g @angular/cli
+
       - name: Build package
         run: npm run build:lib
-      - name: Publish if version has been updated
-        if: github.ref == 'refs/heads/master'
-        uses: pascalgn/npm-publish-action@1.3.9
-        with:
-          tag_name: "v%s"
-          tag_message: "v%s"
-          create_tag: "true"
-          commit_pattern: "^chore\\(release\\): (\\S+)"
-          workspace: "./@packaged/angular-star-rating"
-          publish_command: "yarn"
-          publish_args: "--non-interactive"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Publish to npm (only on chore(release): x.x.x commits)
+        if: startsWith(github.event.head_commit.message, 'chore(release):')
+        working-directory: ./@packaged/angular-star-rating
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "Publishing version $VERSION"
+
+          # publish to npm
+          npm publish --access public
+
+          # configure git
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+          # create + push tag
+          git tag "v$VERSION"
+          git push origin "v$VERSION"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
