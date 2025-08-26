@@ -34,6 +34,9 @@ jobs:
           VERSION=$(node -p "require('./package.json').version")
           echo "Publishing version $VERSION"
 
+          # configure npm auth (use NPM_TOKEN)
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+
           # publish to npm
           npm publish --access public
 
@@ -45,4 +48,4 @@ jobs:
           git tag "v$VERSION"
           git push origin "v$VERSION"
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
